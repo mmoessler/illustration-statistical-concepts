@@ -7,8 +7,6 @@
 
 rm(list=ls())
 
-setwd("C:/Users/Markus/uni-hohenheim.de/Robert Jung - 520KOneDrive/ILIAS_Software_Resources/ILIAS_Software_Resources_HTML_XX")
-
 
 
 #..................................................
@@ -19,24 +17,17 @@ Y_bar_ber_sim_fun <- function(RR, NN, p){
   # theoretical moments
   mu <- p      # mean
   s2 <- p*(1-p) # variance
-  # initialize vectors for simulation results
+  
   Y.bar   <- numeric(RR)
   Y.bar.z <- numeric(RR)
-  # # print parameters and start progress bar
-  # print(NN)
-  # print(p)
-  # pb <- txtProgressBar(min = 0, max = RR, style = 3)
+
   for (ii in 1:RR) {
     Y.sim <- rbinom(n=NN, size=1, prob=p)
     Y.bar[ii]   <- mean(Y.sim)
     Y.bar.z[ii] <- (mean(Y.sim)-mu)/sqrt(s2/NN)
     # see, S&W, 2020, p.89
-    # # update progress bar
-    # setTxtProgressBar(pb, ii)
   }
-  # # close progress bar
-  # close(pb)
-  
+
   return(list(Y.bar = Y.bar, Y.bar.z = Y.bar.z))
   
 }
@@ -54,8 +45,8 @@ N.seq <- as.integer(seq(1, 100, 1))
 # p.seq <- as.double(seq(0, 1, 0.1))
 p <- 0.4
 
+# initialize list to collect histogram results
 his.res <- list()
-kk <- 1
 
 # loop over different sample sizes N
 for (ii in 1:length(N.seq)) {
@@ -74,7 +65,8 @@ for (ii in 1:length(N.seq)) {
     
 }
 
-save(his.res, file="./Simulation_Results/ber_lln_sim_res_01.RData")
+# save histogram results 
+save(his.res, file="./simulation-results/ber_lln_sim_res_01.RData")
 
 
 
@@ -85,12 +77,11 @@ save(his.res, file="./Simulation_Results/ber_lln_sim_res_01.RData")
 seed <- 12345
 set.seed(seed)
 RR <- 1000
-N.seq <- as.integer(seq(1, 100, 1))
-# p.seq <- as.double(seq(0, 1, 0.1))
+N.seq <- seq(1, 100, 1)
 p <- 0.4
 
+# initialize list to collect histogram results
 his.res <- list()
-kk <- 1
 
 for (ii in 1:length(N.seq)) {
   
@@ -110,4 +101,5 @@ for (ii in 1:length(N.seq)) {
     
 }
 
-save(his.res, file="./Simulation_Results/ber_clt_sim_res_01.RData")
+# save histogram results 
+save(his.res, file="./simulation-results/ber_clt_sim_res_01.RData")
