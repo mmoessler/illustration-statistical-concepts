@@ -58,15 +58,18 @@ if (is.null(x$breaks[1])) {
 }
 
 # plot illustration function
-his_ill_fun <- function(x, ii, nam.01, nam.02) {
+his_ill_fun <- function(x, ii, nam.01) {
   
-  ii <- 10
-  x <- his.res[[ii]]
-  nam.01 <- "./illustration-results/ber_clt_ill_res_01_N"
+  # ii <- 10
+  # x <- his.res[[ii]]
+  # nam.01 <- "./illustration-results/ber_clt_ill_res_01_N"
+  
+  
+  
+  
+  
+  # construct plot name
   nam.02 <- ii
-  
-  
-  
   plt.nam <- paste(nam.01, nam.02, ".svg", sep = "")
   
   # open svg device
@@ -122,13 +125,17 @@ his_ill_fun <- function(x, ii, nam.01, nam.02) {
 }
 
 
+# save one illustration
+his_ill_fun(x = his.res[[100]], ii = 100,
+            nam.01 = "./illustration-results/ber_clt_ill_res_01_N")
 
 # save all illustration
 N.seq <- seq(1, 100, 1)
 
 for (ii in 1:length(N.seq)) {
   
-  
+  his_ill_fun(x = his.res[[ii]], ii = ii,
+              nam.01 = "./illustration-results/ber_clt_ill_res_01_N")
   
 }
 
