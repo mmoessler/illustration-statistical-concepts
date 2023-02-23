@@ -1,0 +1,59 @@
+
+# clear workspace
+rm(list = ls(all = TRUE))
+
+# load some simulation
+load(url("https://github.com/mmoessler/illustration-statistical-concepts/raw/main/simulation-results/ber_clt_sim_res_01.RData"))
+
+# define inputs (for shiny)
+input <- list()
+input$NM <- 100
+
+# assign illustration
+x <- his.res[[input$NM]]
+
+# plot illustration
+if (is.null(x$breaks[1])) {
+  
+  plot(x = 0:1, # Create empty plot
+       y = 0:1,
+       ann = F,
+       bty = "n",
+       type = "n",
+       xaxt = "n",
+       yaxt = "n")
+  text(x = 0.5, # Add text to empty plot
+       y = 0.5,
+       "Choose reasonable parameters!", 
+       cex = 2)
+  
+} else {
+  
+  main <- c("")
+  sub <- c("")
+  xlab <- c("")
+  ylab <- c("Relative Frequency")
+  
+  xlim <- c(x$breaks[1], x$breaks[length(x$breaks)])
+  ylim <- c(0, max(c(x$density, 0.40)))
+  
+  plot.new()
+  plot.window(xlim, ylim, "")
+  title(main = main, sub = sub, xlab = xlab, ylab = ylab)
+  axis(1)
+  axis(2)
+  
+  nB <- length(x$breaks)
+  rect(x$breaks[-nB], 0, x$breaks[-1L], x$density)
+  curve(dnorm(x, mean = 0, sd = 1), -3, 3,
+        xlim = c(-3,3), 
+        ylim=c(0,0.6),
+        lty = 2,
+        lwd = 2, 
+        xlab = "", 
+        ylab = "",
+        add = TRUE,
+        col = "red")
+  
+}
+
