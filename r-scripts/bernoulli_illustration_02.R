@@ -3,11 +3,11 @@
 rm(list = ls(all = TRUE))
 
 # load some simulation
-load(url("https://github.com/mmoessler/illustration-statistical-concepts/raw/main/simulation-results/ber_clt_sim_res_01.RData"))
+load(url("https://github.com/mmoessler/illustration-statistical-concepts/raw/main/simulation-results/ber_lln_sim_res_01.RData"))
 
 # define inputs (for shiny)
 input <- list()
-input$NM <- 100
+input$NM <- 50
 
 # assign illustration
 x <- his.res[[input$NM]]
@@ -34,11 +34,11 @@ if (is.null(x$breaks[1])) {
   xlab <- c("")
   ylab <- c("Relative Frequency")
   
-  xlim <- c(x$breaks[1], x$breaks[length(x$breaks)])
-  ylim <- c(0, max(c(x$density, 0.40)))
-  
-  xlim <- c(-10, 10)
-  ylim <- c(0, 0.425)
+  # xlim <- c(x$breaks[1], x$breaks[length(x$breaks)])
+  # ylim <- c(0, max(c(x$density, 0.40)))
+
+  xlim <- c(0, 1)
+  ylim <- c(0, 10)
   
   plot.new()
   plot.window(xlim, ylim, "")
@@ -48,20 +48,23 @@ if (is.null(x$breaks[1])) {
   
   nB <- length(x$breaks)
   rect(x$breaks[-nB], 0, x$breaks[-1L], x$density)
-  curve(dnorm(x, mean = 0, sd = 1), -3, 3,
-        xlim = c(-3,3), 
-        ylim=c(0,0.6),
-        lty = 2,
-        lwd = 2, 
-        xlab = "", 
-        ylab = "",
-        add = TRUE,
-        col = "red")
+  
+  abline(v = x$par[2], lty = 2, col = "red", lwd = 2)
+  
+  # curve(dnorm(x, mean = 0, sd = 1), -3, 3,
+  #       xlim = c(-3,3), 
+  #       ylim=c(0,0.6),
+  #       lty = 2,
+  #       lwd = 2, 
+  #       xlab = "", 
+  #       ylab = "",
+  #       add = TRUE,
+  #       col = "red")
   
 }
 
 # plot illustration function for clt
-his_ill_fun_01 <- function(x, ii, nam.01) {
+his_ill_fun <- function(x, ii, nam.01) {
   
   # ii <- 10
   # x <- his.res[[ii]]
@@ -99,30 +102,32 @@ his_ill_fun_01 <- function(x, ii, nam.01) {
     xlab <- c("")
     ylab <- c("Relative Frequency")
     
-    xlim <- c(x$breaks[1], x$breaks[length(x$breaks)])
-    ylim <- c(0, max(c(x$density, 0.40)))
+    # xlim <- c(x$breaks[1], x$breaks[length(x$breaks)])
+    # ylim <- c(0, max(c(x$density, 0.40)))
     
-    xlim <- c(-10, 10)
-    ylim <- c(0, 0.5)
+    xlim <- c(0, 1)
+    ylim <- c(0, 10)
     
     plot.new()
     plot.window(xlim, ylim, "")
     title(main = main, sub = sub, xlab = xlab, ylab = ylab)
-    
     axis(1)
     axis(2)
     
     nB <- length(x$breaks)
     rect(x$breaks[-nB], 0, x$breaks[-1L], x$density)
-    curve(dnorm(x, mean = 0, sd = 1), -3, 3,
-          xlim = c(-3,3), 
-          ylim=c(0,0.6),
-          lty = 2,
-          lwd = 2, 
-          xlab = "", 
-          ylab = "",
-          add = TRUE,
-          col = "red")
+    
+    abline(v = x$par[2], lty = 2, col = "red", lwd = 2)
+    
+    # curve(dnorm(x, mean = 0, sd = 1), -3, 3,
+    #       xlim = c(-3,3), 
+    #       ylim=c(0,0.6),
+    #       lty = 2,
+    #       lwd = 2, 
+    #       xlab = "", 
+    #       ylab = "",
+    #       add = TRUE,
+    #       col = "red")
     
   }
   
@@ -133,15 +138,15 @@ his_ill_fun_01 <- function(x, ii, nam.01) {
 
 
 # save one illustration
-his_ill_fun_01(x = his.res[[100]], ii = 100,
-               nam.01 = "./illustration-results/ber_clt_ill_res_01_N")
+his_ill_fun(x = his.res[[100]], ii = 100,
+            nam.01 = "./illustration-results/ber_lln_ill_res_01_N")
 
 # save all illustration
 N.seq <- seq(1, 100, 1)
 
 for (ii in 1:length(N.seq)) {
   
-  his_ill_fun_01(x = his.res[[ii]], ii = ii,
-                 nam.01 = "./illustration-results/ber_clt_ill_res_01_N")
+  his_ill_fun(x = his.res[[ii]], ii = ii,
+              nam.01 = "./illustration-results/ber_lln_ill_res_01_N")
   
 }
