@@ -80,7 +80,7 @@ options(scipen=1)
 <hr />
 
 <span style="text-decoration:underline; font-size:18pt;">
-Central Limit Theorem</span><span style="text-decoration:none; font-size:18pt;">: Bernoulli Experiment
+Law of Large Numbers</span><span style="text-decoration:none; font-size:18pt;">: Bernoulli Experiment
 </span>
 
 Vary the number of observations:
@@ -101,7 +101,7 @@ Vary the number of observations:
   <!-- <p>Number of observations $N$: <span id="value"></span></p> -->
   <p style="visibility: hidden;">$N$ = <span id="value"></span></p>
   
-  <img src="https://github.com/mmoessler/illustration-statistical-concepts/raw/main/illustration-results/ber_clt_ill_res_01_N1.svg" alt="" id="img" style="display:block; margin-left: auto; margin-right: auto;">
+  <img src="https://github.com/mmoessler/illustration-statistical-concepts/raw/main/illustration-results/ber_lln_ill_res_01_N1.svg" alt="" id="img" style="display:block; margin-left: auto; margin-right: auto;">
   
 </div>
 
@@ -158,7 +158,7 @@ slider.oninput = function() {
   output.innerHTML = this.value;
 
   var img = document.getElementById("img");
-  img.setAttribute("src", "https://github.com/mmoessler/illustration-statistical-concepts/raw/main/illustration-results/ber_clt_ill_res_01_N" + this.value + ".svg");
+  img.setAttribute("src", "https://github.com/mmoessler/illustration-statistical-concepts/raw/main/illustration-results/ber_lln_ill_res_01_N" + this.value + ".svg");
   
 }
 
