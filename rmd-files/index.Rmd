@@ -1,0 +1,181 @@
+---
+output:
+  html_document:
+    highlight: tango
+    includes:
+      in_header: header.html
+---
+
+<!--..........................................................................-->
+<!--..........................................................................-->
+
+<style>
+
+body{
+  font-family: Helvetica;
+  font-size: 16pt;
+}
+
+/* UoH logo */
+.logos {
+ background-color: #003f75;
+ color: white;
+ font-family: Arial Nova Cond Light;
+ font-size: 24pt;
+}
+
+
+
+/* Slider input */
+/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range */
+datalist {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  writing-mode: vertical-lr;
+  width: 1000px;
+}
+
+input[type="range"] {
+  width: 1000px;
+}
+
+</style>
+
+<!--..........................................................................-->
+<!--..........................................................................-->
+
+<hr />
+
+<span style="font-size:24pt;">
+Illustration of Statistical Concepts
+</span>
+
+<span style="font-style:italic; font-size:16pt;">
+by Markus Mößler
+</span>
+
+<!--..........................................................................-->
+<!--..........................................................................-->
+
+<!-- Set knitr options -->
+
+```{r,include=FALSE}
+# Set knitr code chunks if necessary
+library(knitr)
+knitr::opts_chunk$set(
+  include = FALSE,
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  fig.height = 8,
+  fig.width = 10,
+  fig.align = 'center')
+options(scipen=1)
+```
+
+<!--..........................................................................-->
+<!--..........................................................................-->
+
+<hr />
+
+<span style="text-decoration:underline; font-size:18pt;">
+Central Limit Theorem</span><span style="text-decoration:none; font-size:18pt;">: Bernoulli Experiment
+</span>
+
+Vary the number of observations:
+
+<div class="slidecontainer">
+
+  <input type="range" min="1" max="100" value="1" class="slider" id="myRange" list="values">
+  
+  <datalist id="values">
+  <option value="1" label="1"></option>
+  <option value="25" label="25"></option>
+  <option value="50" label="50"></option>
+  <option value="75" label="75"></option>
+  <option value="100" label="100"></option>
+  </datalist>
+  
+  <!-- <p>Value: <span id="value"></span></p> -->
+  <!-- <p>Number of observations $N$: <span id="value"></span></p> -->
+  <p style="visibility: hidden;">$N$ = <span id="value"></span></p>
+  
+  <img src="https://github.com/mmoessler/illustration-statistical-concepts/raw/main/illustration-results/ber_clt_ill_res_01_N1.svg" alt="" id="img" style="display:block; margin-left: auto; margin-right: auto;">
+  
+</div>
+
+<!--..........................................................................-->
+<hr />
+
+<span style="text-decoration:underline; font-size:18pt;">
+Central Limit Theorem</span><span style="text-decoration:none; font-size:18pt;">: Bernoulli Experiment
+</span>
+
+Vary the number of observations:
+
+<div class="slidecontainer">
+
+  <input type="range" min="1" max="100" value="1" class="slider" id="range02" list="values02">
+  
+  <datalist id="values02">
+  <option value="1" label="1"></option>
+  <option value="25" label="25"></option>
+  <option value="50" label="50"></option>
+  <option value="75" label="75"></option>
+  <option value="100" label="100"></option>
+  </datalist>
+  
+  <!-- <p>Value: <span id="value"></span></p> -->
+  <!-- <p>Number of observations $N$: <span id="value"></span></p> -->
+  <p style="visibility: hidden;">$N$ = <span id="value02"></span></p>
+  
+  <img src="https://github.com/mmoessler/illustration-statistical-concepts/raw/main/illustration-results/ber_clt_ill_res_01_N1.svg" alt="" id="ill02" style="display:block; margin-left: auto; margin-right: auto;">
+  
+</div>
+
+<!-- See also: https://stackoverflow.com/questions/26612700/ticks-for-type-range-html-input -->
+
+
+
+
+
+<!--..........................................................................-->
+<!--..........................................................................--> 
+<!-- THIS IS THE END --> 
+
+<!-- Include script -->
+<script>
+
+// one slider/illustration
+var slider = document.getElementById("myRange");
+var output = document.getElementById("value");
+
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+
+  output.innerHTML = this.value;
+
+  var img = document.getElementById("img");
+  img.setAttribute("src", "https://github.com/mmoessler/illustration-statistical-concepts/raw/main/illustration-results/ber_clt_ill_res_01_N" + this.value + ".svg");
+  
+}
+
+// two slider/illustrations (second one)
+var slider02 = document.getElementById("range02");
+var output02 = document.getElementById("value02");
+
+output02.innerHTML = slider02.value;
+
+slider02.oninput = function() {
+
+  output02.innerHTML = this.value;
+
+  var ill02 = document.getElementById("ill02");
+  ill02.setAttribute("src", "https://github.com/mmoessler/illustration-statistical-concepts/raw/main/illustration-results/ber_clt_ill_res_01_N" + this.value + ".svg");
+  
+}
+
+</script>
+
