@@ -60,8 +60,8 @@ if (is.null(x$breaks[1])) {
   
 }
 
-# plot illustration function
-his_ill_fun <- function(x, ii, nam.01) {
+# plot illustration function for clt
+his_ill_fun_01 <- function(x, ii, nam.01) {
   
   # ii <- 10
   # x <- his.res[[ii]]
