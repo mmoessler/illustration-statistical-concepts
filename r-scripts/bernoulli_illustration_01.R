@@ -103,7 +103,7 @@ his_ill_fun <- function(x, ii, nam.01) {
     ylim <- c(0, max(c(x$density, 0.40)))
     
     xlim <- c(-10, 10)
-    ylim <- c(0, 0.425)
+    ylim <- c(0, 0.5)
     
     plot.new()
     plot.window(xlim, ylim, "")
