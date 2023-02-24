@@ -37,6 +37,9 @@ if (is.null(x$breaks[1])) {
   xlim <- c(x$breaks[1], x$breaks[length(x$breaks)])
   ylim <- c(0, max(c(x$density, 0.40)))
   
+  xlim <- c(-10, 10)
+  ylim <- c(0, 0.425)
+  
   plot.new()
   plot.window(xlim, ylim, "")
   title(main = main, sub = sub, xlab = xlab, ylab = ylab)
@@ -99,9 +102,13 @@ his_ill_fun <- function(x, ii, nam.01) {
     xlim <- c(x$breaks[1], x$breaks[length(x$breaks)])
     ylim <- c(0, max(c(x$density, 0.40)))
     
+    xlim <- c(-10, 10)
+    ylim <- c(0, 0.425)
+    
     plot.new()
     plot.window(xlim, ylim, "")
     title(main = main, sub = sub, xlab = xlab, ylab = ylab)
+    
     axis(1)
     axis(2)
     
@@ -138,4 +145,3 @@ for (ii in 1:length(N.seq)) {
               nam.01 = "./illustration-results/ber_clt_ill_res_01_N")
   
 }
-
