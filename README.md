@@ -2,11 +2,15 @@
 
 Illustration of statistical concepts using statistic software
 
-## Central Limit Theorem
 
-### Bernoulli Experiment
 
-Open the following link
+
+
+# Deployment
+
+## Stand-alone
+
+Check the deployment of the illustration in a "stand-alone" html file by calling the following url in your browser,
 
 ```
 
@@ -14,7 +18,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/html-fi
 
 ```
 
-Open the following link
+or,
 
 ```
 
@@ -22,8 +26,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/rmd-fil
 
 ```
 
-
-# Some Notes
+## Using R
 
 Check the deployment of the dummy shiny application by running the following code chunk in R.
 
