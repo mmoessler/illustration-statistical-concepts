@@ -10,9 +10,9 @@ Illustration of statistical concepts using statistic software
 
 ## Stand-alone
 
-Check the deployment of the illustration in a "stand-alone" html file by calling the url in your browser,
+Check the deployment of the illustration in a "stand-alone" html file by calling the url in your browser.
 
-based on a raw html file,
+Based on a "raw" html file,
 
 ```
 
@@ -20,7 +20,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/html-fi
 
 ```
 
-or based on a rmd file,
+or, based on a rmd file,
 
 ```
 
