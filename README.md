@@ -10,7 +10,9 @@ Illustration of statistical concepts using statistic software
 
 ## Stand-alone
 
-Check the deployment of the illustration in a "stand-alone" html file by calling the following url in your browser,
+Check the deployment of the illustration in a "stand-alone" html file by calling the url in your browser,
+
+based on a raw html file,
 
 ```
 
@@ -18,7 +20,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/html-fi
 
 ```
 
-or,
+or based on a rmd file,
 
 ```
 
@@ -28,7 +30,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/rmd-fil
 
 ## Using R
 
-Check the deployment of the dummy shiny application by running the following code chunk in R.
+Check the deployment of a dummy shiny application by running the following chunk in R.
 
 ```
 
