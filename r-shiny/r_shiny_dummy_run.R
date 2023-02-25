@@ -13,10 +13,11 @@ checkpac <- function(x) {
 # check if packages are install yet
 suppressWarnings(sapply(pac, checkpac))
 
-run_app <- function (url = "https://github.com/mmoessler/illustration-statistical-concepts/archive/refs/heads/main.zip") {
+run_app <- function (url = "https://github.com/mmoessler/illustration-statistical-concepts/raw/main/r-shiny/r-shiny-dummy.zip") {
   
   # inputs
   # url <- "https://github.com/mmoessler/illustration-statistical-concepts/archive/refs/heads/main.zip"
+  # url <- "https://github.com/mmoessler/illustration-statistical-concepts/raw/main/r-shiny/r-shiny-dummy.zip"
   
   filetype <- NULL
   subdir <- NULL
@@ -80,7 +81,7 @@ run_app <- function (url = "https://github.com/mmoessler/illustration-statistica
   # runApp(appdir)
   
   # file.path <- file.path(appdir, "ShinyDocument.rmd")
-  file.path <- file.path(appdir, "r-shiny-dummy/r_shiny_dummy_document.rmd")
+  file.path <- file.path(appdir, "r_shiny_dummy_document.rmd")
   file.path
   
   rmarkdown::run(file = file.path,
@@ -90,4 +91,4 @@ run_app <- function (url = "https://github.com/mmoessler/illustration-statistica
   
 }
 
-run_app(url = "https://github.com/mmoessler/illustration-statistical-concepts/archive/refs/heads/main.zip")
+run_app(url = "https://github.com/mmoessler/illustration-statistical-concepts/raw/main/r-shiny/r-shiny-dummy.zip")
