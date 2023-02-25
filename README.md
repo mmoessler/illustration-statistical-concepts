@@ -13,3 +13,11 @@ Open the following link
 https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/html-files/bernoulli_illustration_xx.html
 
 ```
+
+Open the following link
+
+```
+
+https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/rmd-files/index.html
+
+```
