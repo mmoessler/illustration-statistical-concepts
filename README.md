@@ -30,10 +30,14 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/rmd-fil
 
 ## Using R
 
-Check the deployment of a dummy shiny application by running the following chunk in R.
+Check the deployment of a dummy shiny application by running the following chunk in R Studio.
 
 ```
 
 source("https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/r-shiny/r_shiny_dummy_run.R")
 
 ```
+
+Note, the code generates problems when executed in R (only).
+
+Called in R (only) generates problems with pandoc or pandoc version!
