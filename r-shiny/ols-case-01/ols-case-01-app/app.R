@@ -53,17 +53,21 @@ ui <- fluidPage(
                tabsetPanel(type = "tabs",
                            tabPanel("Sample Draw",
                                     tags$br(),
-                                    tags$div(HTML("<span style='font-size: 14pt;'>Scatterplot of one realization from the DGP</span>")),
-                                    plotOutput("Plot01")
+                                    tags$div(HTML("<span style='font-size: 14pt;'>Scatterplot Sample Draw</span>")),
+                                    tags$div(HTML("<span style='font-size: 12pt;'>(Based on one sample draw of size \\(N\\)) on the DGP</span>")),
+                                    plotOutput("Plot01"),
+                                    withMathJax()
                                     ),
                            tabPanel("Consistency",
                                     tags$br(),
-                                    tags$div(HTML("<span style='font-size: 14pt;'>Histogram of the slope coefficient based on 1000 realizations from the DGP</span>")),
+                                    tags$div(HTML("<span style='font-size: 14pt;'>Histogram of the OLS estimator for the slope coefficient \\(\\beta_1\\)</span>")),
+                                    tags$div(HTML("<span style='font-size: 12pt;'>(Based on 1000 sample draw of size \\(N\\) on the DGP)</span>")),
                                     plotOutput("Plot02")
                                     ),
                            tabPanel("Asymptotic Normality",
                                     tags$br(),
-                                    tags$div(HTML("<span style='font-size: 14pt;'>Histogram of the standardized slope coefficient based on 1000 realizations from the DGP</span>")),
+                                    tags$div(HTML("<span style='font-size: 14pt;'>Histogram of the standardized OLS estimator for the slope coefficient \\(\\beta_1\\)</span>")),
+                                    tags$div(HTML("<span style='font-size: 12pt;'>(Based on 1000 sample draw of size \\(N\\) on the DGP)</span>")),
                                     plotOutput("Plot03")
                                     )
                )
