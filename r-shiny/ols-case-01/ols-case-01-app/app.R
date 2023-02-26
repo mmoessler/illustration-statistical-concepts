@@ -51,8 +51,21 @@ ui <- fluidPage(
                
                # Output: Tabset
                tabsetPanel(type = "tabs",
-                           tabPanel("Consistency", plotOutput("Plot01")),
-                           tabPanel("Asymptotic Normality", plotOutput("Plot02"))
+                           tabPanel("Sample Draw",
+                                    tags$br(),
+                                    tags$div(HTML("<span style='font-size: 14pt;'>Scatterplot of one realization from the DGP</span>")),
+                                    plotOutput("Plot01")
+                                    ),
+                           tabPanel("Consistency",
+                                    tags$br(),
+                                    tags$div(HTML("<span style='font-size: 14pt;'>Histogram of the slope coefficient based on 1000 realizations from the DGP</span>")),
+                                    plotOutput("Plot02")
+                                    ),
+                           tabPanel("Asymptotic Normality",
+                                    tags$br(),
+                                    tags$div(HTML("<span style='font-size: 14pt;'>Histogram of the standardized slope coefficient based on 1000 realizations from the DGP</span>")),
+                                    plotOutput("Plot03")
+                                    )
                )
 
         )#,
@@ -173,6 +186,27 @@ server <- function(input, output) {
     tmp.sim <- Sim()
     
     # illustration
+    plot(x = tmp.sim$X, y = tmp.sim$Y,
+         xlab = "X", ylab = "Y",
+         xlim = c(-50, 50), ylim = c(-150, 150))
+    abline(a = b0, b = b1, lty = 2, col = "red", lwd = 2)
+    
+  })
+  
+  output$Plot02 <- renderPlot({
+    
+    # inputs
+    RR <- 1000
+    NN <- input$NN
+    b0 <- -2
+    b1 <- 3.5
+    X.sd <- 10
+    u.sd <- 10
+    
+    # reactive
+    tmp.sim <- Sim()
+    
+    # illustration
     if (NN <= 2) {
      
       # see: https://statisticsglobe.com/plot-only-text-in-r
@@ -214,7 +248,7 @@ server <- function(input, output) {
     
   })
   
-  output$Plot02 <- renderPlot({
+  output$Plot03 <- renderPlot({
     
     # inputs
     RR <- 1000
