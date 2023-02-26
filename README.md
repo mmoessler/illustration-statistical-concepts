@@ -2,9 +2,17 @@
 
 Illustration of statistical concepts using statistic software
 
-# OLS estimator
+## OLS estimator sampling properties
 
-## Case 1
+### Case 1
+
+This illustrations shows the sampling properties of the OLS estimator for the slope coefficient $\beta_1$ based on the following DGP,
+
+$$
+Y_i &= -2 + 3.5 X_i + u_i, \\
+X_i &\sim N\left(0,10\right), \\
+u_i &\sim N\left(0,10\right).
+$$
 
 Run the following code in R
 
