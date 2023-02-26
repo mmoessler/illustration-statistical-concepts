@@ -13,8 +13,10 @@ ui <- fluidPage(
     sidebarPanel(
 
       # tags$hr(),
+      
       # tags$h3("Change the inputs"),
-      tags$div(HTML("<span style='margin-top: 25pt; font-size: 18pt'>Change Inputs</span>")),
+      # tags$div(HTML("<span style='margin-top: 25pt; font-size: 18pt'>Change Inputs</span>")),
+      tags$div(HTML("<span style='font-size: 18pt'>Change Inputs</span>")),
       
       tags$hr(),
       
@@ -36,22 +38,41 @@ ui <- fluidPage(
 
       fluidRow(
         
-        # Output 1: non standardized ----
         column(12,
-               # HTML("<hr>"),
-               h3("Law of Large Number (LLN): Consistency"),
-               h4("Sampling distribution of estimator"),
-               h5("Slope coefficient"),
-               plotOutput("Plot01", height = 350)),
+               
+               # tags$hr(),
+
+               # Blank line for vertical alignment
+               tags$div(HTML("<span style='line-height: 5pt'>&nbsp;</span>")),
+               
+               tags$div(HTML("<span style='font-size: 18pt;'>Properties</span>")),
+               
+               tags$hr(),
+               
+               # Output: Tabset
+               tabsetPanel(type = "tabs",
+                           tabPanel("Consistency", plotOutput("Plot01")),
+                           tabPanel("Asymptotic Normality", plotOutput("Plot02"))
+               )
+
+        )#,
         
-        # Output 2: standardized ----
-        column(12,
-               HTML("<hr>"),
-               h3("Central Limit Theorem (CLT): Asymptotic Normality"),
-               h4("Sampling Distribution of Standardized Sample Average"),
-               h5("Slope Coefficient"),
-               plotOutput("Plot02", height = 350)),
-        
+      #   # Output 1: non standardized ----
+      #   column(12,
+      #          # HTML("<hr>"),
+      #          h3("Law of Large Number (LLN): Consistency"),
+      #          h4("Sampling distribution of estimator"),
+      #          h5("Slope coefficient"),
+      #          plotOutput("Plot01", height = 350)),
+      #   
+      #   # Output 2: standardized ----
+      #   column(12,
+      #          HTML("<hr>"),
+      #          h3("Central Limit Theorem (CLT): Asymptotic Normality"),
+      #          h4("Sampling Distribution of Standardized Sample Average"),
+      #          h5("Slope Coefficient"),
+      #          plotOutput("Plot02", height = 350)),
+
       )
 
     )
