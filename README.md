@@ -2,7 +2,17 @@
 
 Illustration of statistical concepts using statistic software
 
+# OLS estimator
 
+## Case 1
+
+Run the following code in R
+
+```
+
+source("https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/r-shiny/ols_case_01_run.R")
+
+```
 
 
 
