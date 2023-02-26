@@ -66,7 +66,7 @@ ui <- fluidPage(
                                     ),
                            tabPanel("Asymptotic Normality",
                                     tags$br(),
-                                    tags$div(HTML("<span style='font-size: 14pt;'>Histogram of the standardized OLS estimator for the slope coefficient \\(\\beta_1\\)</span>")),
+                                    tags$div(HTML("<span style='font-size: 14pt;'>Histogram of the standardized OLS estimator for \\(\\beta_1\\)</span>")),
                                     tags$div(HTML("<span style='font-size: 12pt;'>(Based on 1000 sample draw of size \\(N\\) on the DGP)</span>")),
                                     plotOutput("Plot03")
                                     )
