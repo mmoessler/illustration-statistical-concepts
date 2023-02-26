@@ -1,0 +1,30 @@
+---
+title: "Illustration of Statistical Concepts"
+output: html_document
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# OLS: Case 1
+
+This illustrations shows the sampling properties of the OLS estimator for the slope coefficient $\beta_1$ based on the following DGP,
+
+\begin{align}
+Y_i &= -2 + 3.5 X_i + u_i, \\
+X_i &\sim N\left(0,10\right), \\
+u_i &\sim N\left(0,10\right).
+\end{align}
+
+Change the number of observations $N$ to see the effect of the sample size on the properties of the OLS estimator for the slope coefficient $\beta_1$.
+
+```{r tabsets, echo=FALSE}
+shinyAppDir(
+  "ols-case-01-app",
+  options = list(
+    width = "100%", height = 550
+  )
+)
+```
