@@ -1,72 +1,183 @@
 <!-- See: https://www.w3schools.com/howto/howto_js_rangeslider.asp -->
 <!-- See: https://stackoverflow.com/questions/50211487/javascript-slider-showing-different-images-to-each-value -->
+
+<!-- See: Google: html input range tick label -->
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-.slidecontainer {
-  width: 100%;
-}
 
-.slider {
+/* See: https://codeconvey.com/html-range-slider-with-ticks-and-values/ */
+
+input.range {
   -webkit-appearance: none;
+  bottom: -10px;
+  position: relative;
   width: 100%;
-  height: 15px;
-  border-radius: 5px;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
 }
 
-.slider:hover {
-  opacity: 1;
+input.range:focus {
+  outline: 0;
+}
+input.range::-moz-focus-outer {
+  border: 0;
 }
 
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
+input.range::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+  border: 0;
+  /* height: 20px; */
+  height: 10px;
+  /* width: 20px; */
+  width: 10px;
   border-radius: 50%;
-  background: #04AA6D;
+  background: white;
+  cursor: pointer;
+  -webkit-appearance: none;
+  /* margin-top: -7.5px; */
+  margin-top: -3.5px;
+}
+ 
+input.range::-moz-range-thumb {
+  box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+  border: 0;
+  /* height: 20px; */
+  height: 10px;
+  /* width: 20px; */
+  width: 10px;
+  border-radius: 50%;
+  background: white;
   cursor: pointer;
 }
-
-.slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
+input.range::-ms-thumb {
+  box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+  border: 0;
+  /* height: 20px; */
+  height: 10px;
+  /* width: 20px; */
+  width: 10px;
   border-radius: 50%;
-  background: #04AA6D;
+  background: white;
   cursor: pointer;
+  height: 5px;
 }
+
+input.range::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+  /* background: indigo; */
+  background: grey;
+  border-radius: 20px;
+  border: 0;
+}
+ 
+input.range::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+  /* background: indigo; */
+  background: grey;
+  border-radius: 20px;
+  border: 0;
+}
+ 
+input.range::-ms-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input.range::-ms-fill-lower,
+input.range::-ms-fill-upper {
+  /* background: indigo; */
+  background: grey;
+  border: 0;
+  border-radius: 40px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+}
+
+.range__tick {
+  fill: #a0a0a0;
+}
+
+.range__tick:first-child {
+  -webkit-transform: translateX(2px);
+  -moz-transform: translateX(2px);
+  -ms-transform: translateX(2px);
+  -o-transform: translateX(2px);
+  transform: translateX(2px);
+}
+.range__tick:last-child {
+  -webkit-transform: translateX(-3px);
+  -moz-transform: translateX(-3px);
+  -ms-transform: translateX(-3px);
+  -o-transform: translateX(-3px);
+  transform: translateX(-3px);
+}
+
+.range__field {
+  border: 0;
+}
+
 </style>
 </head>
 <body>
 
 <h1>Central Limit Theorem (Bernoulli Experiment)</h1>
 
-<div class="slidecontainer">
-  <input type="range" min="1" max="100" value="1" class="slider" id="myRange">
-  <p>Value: <span id="value"></span></p>
-  <img src="https://github.com/mmoessler/illustration-statistical-concepts/raw/main/illustration-results/ber_clt_ill_res_01_N1.svg" alt="" id="img">
-</div>
+<fieldset class="range__field">
+   <!-- <input class="range" type="range" min="0" max="10"> -->
+   <input type="range" min="1" max="100" value="1" class="range" id="myRange">
+   <svg role="presentation" width="100%" height="10" xmlns="http://www.w3.org/2000/svg">
+      <rect class="range__tick" x="0.25%" y="3" width="1" height="10"></rect>
+      <rect class="range__tick" x="10%" y="3" width="1" height="10"></rect>
+      <rect class="range__tick" x="20%" y="3" width="1" height="10"></rect>
+      <rect class="range__tick" x="30%" y="3" width="1" height="10"></rect>
+      <rect class="range__tick" x="40%" y="3" width="1" height="10"></rect>
+      <rect class="range__tick" x="50%" y="3" width="1" height="10"></rect>
+      <rect class="range__tick" x="60%" y="3" width="1" height="10"></rect>
+      <rect class="range__tick" x="70%" y="3" width="1" height="10"></rect>
+      <rect class="range__tick" x="80%" y="3" width="1" height="10"></rect>
+      <rect class="range__tick" x="90%" y="3" width="1" height="10"></rect>
+      <rect class="range__tick" x="99.75%" y="3" width="1" height="10"></rect>
+   </svg>
+   <svg role="presentation" width="100%" height="14" xmlns="http://www.w3.org/2000/svg">
+      <text class="range__point" x="0.25%" y="14" text-anchor="start">0</text>
+      <text class="range__point" x="10%" y="14" text-anchor="middle">10</text>
+      <text class="range__point" x="20%" y="14" text-anchor="middle">20</text>
+      <text class="range__point" x="30%" y="14" text-anchor="middle">30</text>
+      <text class="range__point" x="40%" y="14" text-anchor="middle">40</text>
+      <text class="range__point" x="50%" y="14" text-anchor="middle">50</text>
+      <text class="range__point" x="60%" y="14" text-anchor="middle">60</text>
+      <text class="range__point" x="70%" y="14" text-anchor="middle">70</text>
+      <text class="range__point" x="80%" y="14" text-anchor="middle">80</text>
+      <text class="range__point" x="90%" y="14" text-anchor="middle">90</text>
+      <text class="range__point" x="99.75%" y="14" text-anchor="end">100</text>
+   </svg>
+   <p>Sample size: <span id="value"></span></p>
+   <img src="https://github.com/mmoessler/illustration-statistical-concepts/raw/main/illustration-results/ber_clt_ill_res_01_N1.svg" alt="" id="img">
+</fieldset>
 
-<div>
-  <img id="resImg">
-</div>
+
 
 <script>
 var slider = document.getElementById("myRange");
 var output = document.getElementById("value");
-
 output.innerHTML = slider.value;
-
 slider.oninput = function() {
   output.innerHTML = this.value;
-
   var img = document.getElementById("img");
   img.setAttribute("src", "https://github.com/mmoessler/illustration-statistical-concepts/raw/main/illustration-results/ber_clt_ill_res_01_N" + this.value + ".svg");
 }
