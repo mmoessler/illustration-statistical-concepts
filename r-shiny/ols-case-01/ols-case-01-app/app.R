@@ -16,7 +16,7 @@ ui <- fluidPage(
       
       # tags$h3("Change the inputs"),
       # tags$div(HTML("<span style='margin-top: 25pt; font-size: 18pt'>Change Inputs</span>")),
-      tags$div(HTML("<span style='font-size: 18pt'>Change Inputs</span>")),
+      tags$div(HTML("<span style='font-size: 18pt'>Change the Inputs</span>")),
       
       tags$hr(),
       
@@ -45,7 +45,7 @@ ui <- fluidPage(
                # Blank line for vertical alignment
                tags$div(HTML("<span style='line-height: 5pt'>&nbsp;</span>")),
                
-               tags$div(HTML("<span style='font-size: 18pt;'>Properties</span>")),
+               tags$div(HTML("<span style='font-size: 18pt;'>Check the Effects</span>")),
                
                tags$hr(),
                
@@ -56,6 +56,7 @@ ui <- fluidPage(
                                     tags$div(HTML("<span style='font-size: 14pt;'>Scatterplot Sample Draw</span>")),
                                     tags$div(HTML("<span style='font-size: 12pt;'>(Based on one sample draw of size \\(N\\)) on the DGP</span>")),
                                     plotOutput("Plot01"),
+                                    htmlOutput("Text01"),
                                     withMathJax()
                                     ),
                            tabPanel("Consistency",
@@ -330,6 +331,27 @@ server <- function(input, output) {
     
   })
 
+  output$Text01 <- renderText({
+    
+    # note.01 <- paste0("<div style='text-decoration: none; font-size: 16pt'>",
+    #                   "<ul>",
+    #                   "<li> Increasing the sample size \\(N\\). </li>",
+    #                   "<li> ... </li>",
+    #                   "</ul>",
+    #                   "</div>")
+    
+    note.01 <- paste0("<div style='text-decoration: none; font-size: 14pt'>",  
+                      "<p>",
+                      "This is a sctterplot of \\(N\\) realizations of \\(Y\\) and \\(X\\) from the linear regression model above with the corresponding fitted regression line.",
+                      "</p>",
+                      "</div>")
+    
+    # note.01
+    
+    paste0(note.01, "<script>if (window.MathJax) MathJax.Hub.Queue(['Typeset', MathJax.Hub]);</script>")
+    
+  })
+  
 }
 
 # Create Shiny app ----
