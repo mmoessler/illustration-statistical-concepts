@@ -9,9 +9,11 @@ Illustration of statistical concepts using statistic software
 This illustrations shows the sampling properties of the OLS estimator for the slope coefficient $\beta_1$ based on the following DGP,
 
 $$
+\begin{align*}
 Y_i &= -2 + 3.5 X_i + u_i, \\
 X_i &\sim N\left(0,10\right), \\
 u_i &\sim N\left(0,10\right).
+\end{align*}
 $$
 
 Run the following code in R
