@@ -16,7 +16,9 @@ u_i &\sim N\left(0,10\right).
 \end{align*}
 $$
 
-Run the following code in R
+Run the following codes in R
+
+1) Effect of the sample size $N$ on the sampling distribution of $\beta_1$.
 
 ```
 
@@ -24,7 +26,13 @@ source("https://raw.githubusercontent.com/mmoessler/illustration-statistical-con
 
 ```
 
+2) Effect of the variance of $X$ on the sampling distribution of $\beta_1$.
 
+```
+
+source("https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/r-shiny/ols_case_01_run.R")
+
+```
 
 # Deployment
 
