@@ -30,7 +30,7 @@ source("https://raw.githubusercontent.com/mmoessler/illustration-statistical-con
 
 ```
 
-source("https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/r-shiny/ols_case_01_run.R")
+source("https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/r-shiny/ols_case_02_run.R")
 
 ```
 
