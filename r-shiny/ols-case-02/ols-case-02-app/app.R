@@ -21,14 +21,14 @@ ui <- fluidPage(
       tags$hr(),
       
       # Input 1: Sample size ----
-      sliderInput(inputId = "NN",
-                  # label = withMathJax(
-                  #   'Sample Size \\(N\\)'
-                  # ),
-                  label = "Sample Size",
+      sliderInput(inputId = "X.sd",
+                  label = withMathJax(
+                    'Variance of \\(X\\)'
+                  ),
+                  # label = "Variance of $X$",
                   min = as.numeric(1),
-                  max = as.numeric(100),
-                  value = as.numeric(11),
+                  max = as.numeric(10),
+                  value = as.numeric(1),
                   step = 1),
       
     ),
@@ -161,10 +161,10 @@ server <- function(input, output) {
     
     # inputs
     RR <- 1000
-    NN <- input$NN
+    NN <- 100
     b0 <- -2
     b1 <- 3.5
-    X.sd <- 10
+    X.sd <- input$X.sd
     u.sd <- 10
     
     # simulation
@@ -181,11 +181,11 @@ server <- function(input, output) {
     
     # inputs
     RR <- 1000
-    NN <- input$NN
+    NN <- 100
     b0 <- -2
     b1 <- 3.5
     X.sd <- 10
-    u.sd <- 10
+    u.sd <- input$X.sd
     
     # reactive
     tmp.sim <- Sim()
@@ -202,10 +202,10 @@ server <- function(input, output) {
     
     # inputs
     RR <- 1000
-    NN <- input$NN
+    NN <- 100
     b0 <- -2
     b1 <- 3.5
-    X.sd <- 10
+    X.sd <- input$X.sd
     u.sd <- 10
     
     # reactive
@@ -257,10 +257,10 @@ server <- function(input, output) {
     
     # inputs
     RR <- 1000
-    NN <- input$NN
+    NN <- 100
     b0 <- -2
     b1 <- 3.5
-    X.sd <- 10
+    X.sd <- input$X.sd
     u.sd <- 10
     
     # reactive
