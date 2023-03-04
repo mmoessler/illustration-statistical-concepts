@@ -81,7 +81,7 @@ run_app <- function (url = "https://github.com/mmoessler/illustration-statistica
   # runApp(appdir)
   
   # file.path <- file.path(appdir, "ShinyDocument.rmd")
-  file.path <- file.path(appdir, "ols_case_01_document.rmd")
+  file.path <- file.path(appdir, "ols_case_02_document.rmd")
   file.path
   
   rmarkdown::run(file = file.path,
