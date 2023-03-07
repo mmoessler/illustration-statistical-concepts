@@ -21,15 +21,15 @@ ui <- fluidPage(
       tags$hr(),
       
       # Input 1: Sample size ----
-      sliderInput(inputId = "X.sd",
+      sliderInput(inputId = "a1",
                   label = withMathJax(
-                    'Variance of \\(X\\)'
+                    ' \\(\\alpha_1\\)'
                   ),
                   # label = "Variance of $X$",
-                  min = as.numeric(1),
-                  max = as.numeric(10),
-                  value = as.numeric(1),
-                  step = 1),
+                  min = as.numeric(-1),
+                  max = as.numeric(1),
+                  value = as.numeric(0.25),
+                  step = 0.05),
       
     ),
 
@@ -104,9 +104,13 @@ server <- function(input, output) {
     
     # Function to simulate b0_hat and b1_hat
     bet_hat_sim_fun <- function(RR, NN,
-                                b0, b1,
+                                b0, b1, b2,
                                 X.sd,
-                                u.sd){
+                                u.sd,
+                                a1,
+                                uX2.sd){
+      
+      # see: https://www.google.com/search?q=r+software+omitted+variable+bias+simulation&sxsrf=AJOqlzWrbiaPlr5TvV2vu6EBO-qGzM65QQ%3A1678217183774&source=hp&ei=348HZJmMLdnBxc8PkKmYmAc&iflsig=AK50M_UAAAAAZAed74jAt5BuT9RVufTb0SfMrTaimDHN&oq=r+software+omitted+variable+bias+si&gs_lcp=Cgdnd3Mtd2l6EAMYADIFCCEQoAEyBQghEKABMgUIIRCgATIECCEQFToHCCMQ6gIQJzoHCC4Q6gIQJzoLCAAQgAQQsQMQgwE6DgguEIAEELEDEMcBENEDOggIABCxAxCDAToFCC4QgAQ6DgguEIAEELEDEIMBENQCOhEILhCABBCxAxCDARDHARDRAzoICC4QgAQQ1AI6CAgAEIAEELEDOgQIIxAnOg4ILhDHARCxAxDRAxCABDoICC4QgAQQsQM6BQgAEIAEOg0IABCABBCxAxCDARAKOhQILhCABBCxAxCDARDHARDRAxDUAjoICAAQgAQQywE6CAghEBYQHhAdUPIFWNwgYPAqaAFwAHgBgAHSAYgB-Q6SAQYzLjEwLjGYAQCgAQGwAQo&sclient=gws-wiz#fpstate=ive&vld=cid:a582aae0,vid:BmQvpLiM1ks
       
       # # inputs
       # RR <- 10000
@@ -130,21 +134,25 @@ server <- function(input, output) {
       
       for (ii in 1:RR) {
         
-        X <- rnorm(NN, mean = 0, sd = X.sd)
-        u <- rnorm(NN, mean = 0, sd = u.sd)
-        Y <- b0 + b1 * X + u
+        X1 <- rnorm(NN, mean = 0, sd = X.sd)
         
-        tmp <- lm(Y ~ X + 1)
+        uX2 <- rnorm(NN, mean = 0, sd = uX2.sd)
+        X2 <- a1 * X1 + uX2
+        
+        u <- rnorm(NN, mean = 0, sd = u.sd)
+        Y <- b0 + b1 * X1 + b2 * X2 + u
+        
+        tmp <- lm(Y ~ X1 + 1)
         
         # get estimates
         b0h[ii] <- tmp$coefficients[1]
         b1h[ii] <- tmp$coefficients[2]
         
         # compute the variance of beta_hat_0
-        Hi <- 1 - mean(X) / mean(X^2) * X
+        Hi <- 1 - mean(X1) / mean(X1^2) * X1
         var.b0[ii] <- var(Hi * u) / (NN * mean(Hi^2)^2)
         # compute the variance of hat_beta_1
-        var.b1[ii] <- var( ( X - mean(X) ) * u ) / ( NN * var(X)^2 )
+        var.b1[ii] <- var( ( X1 - mean(X1) ) * u ) / ( NN * var(X1)^2 )
         
         # compute t-statistics
         b1h.z[ii] <- (b1h[ii] - b1) / sqrt(var.b1[ii])
@@ -153,7 +161,7 @@ server <- function(input, output) {
       }
       
       return(list(b0h = b0h, b1h = b1h,
-                  Y = Y, X = X, u = u,
+                  Y = Y, X1 = X1, X2 = X2, u = u, uX2 = uX2,
                   var.b0 = var.b0, var.b1 = var.b1,
                   b0h.z = b0h.z, b1h.z = b1h.z))
       
@@ -164,14 +172,19 @@ server <- function(input, output) {
     NN <- 100
     b0 <- -2
     b1 <- 3.5
-    X.sd <- input$X.sd
+    X.sd <- 10
     u.sd <- 10
+    b2 <- 1
+    a1 <- input$a1
+    uX2.sd <- 10
     
     # simulation
     tmp.sim <- bet_hat_sim_fun(RR = RR, NN = NN,
-                               b0 = b0, b1 = b1,
+                               b0 = b0, b1 = b1, b2 = b2,
                                X.sd = X.sd,
-                               u.sd = u.sd)
+                               u.sd = u.sd,
+                               a1 = a1,
+                               uX2.sd = uX2.sd)
     
     tmp.sim
     
@@ -185,13 +198,16 @@ server <- function(input, output) {
     b0 <- -2
     b1 <- 3.5
     X.sd <- 10
-    u.sd <- input$X.sd
+    u.sd <- 10
+    b2 <- 1
+    a1 <- input$a1
+    uX2.sd <- 10
     
     # reactive
     tmp.sim <- Sim()
     
     # illustration
-    plot(x = tmp.sim$X, y = tmp.sim$Y,
+    plot(x = tmp.sim$X1, y = tmp.sim$Y,
          xlab = "X", ylab = "Y",
          xlim = c(-50, 50), ylim = c(-150, 150))
     abline(a = b0, b = b1, lty = 2, col = "red", lwd = 2)
@@ -205,8 +221,10 @@ server <- function(input, output) {
     NN <- 100
     b0 <- -2
     b1 <- 3.5
-    X.sd <- input$X.sd
+    b2 <- 1
     u.sd <- 10
+    a1 <- input$a1
+    uX2.sd <- 10
     
     # reactive
     tmp.sim <- Sim()
@@ -260,8 +278,10 @@ server <- function(input, output) {
     NN <- 100
     b0 <- -2
     b1 <- 3.5
-    X.sd <- input$X.sd
+    b2 <- 1
     u.sd <- 10
+    a1 <- input$a1
+    uX2.sd <- 10
     
     # reactive
     tmp.sim <- Sim()
