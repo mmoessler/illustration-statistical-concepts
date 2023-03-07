@@ -34,6 +34,14 @@ source("https://raw.githubusercontent.com/mmoessler/illustration-statistical-con
 
 ```
 
+3) Effect of omitted variable bias (OVB)
+
+```
+
+source("https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/r-shiny/ols_case_03_run.R")
+
+```
+
 # Deployment
 
 ## Stand-alone
