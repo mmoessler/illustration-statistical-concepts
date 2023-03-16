@@ -1,0 +1,191 @@
+
+# remove all objects
+rm(list=ls())
+
+# set working directory
+setwd("C:/Users/Markus/Dropbox/Teaching/SoSe2023/illustration-statistical-concepts/lln-clt-case-01")
+
+# set seed 
+set.seed(12345)
+
+# function to simulate sample average for bernoulli experiment ----
+Y_bar_ber_sim_fun <- function(RR, NN, p){
+  
+  # theoretical moments
+  mu <- p      # mean
+  s2 <- p*(1-p) # variance
+  
+  Y.bar   <- numeric(RR)
+  Y.bar.z <- numeric(RR)
+  
+  for (ii in 1:RR) {
+    Y.sim <- rbinom(n=NN, size=1, prob=p)
+    Y.bar[ii]   <- mean(Y.sim)
+    Y.bar.z[ii] <- (mean(Y.sim)-mu)/sqrt(s2/NN)
+    # see, S&W, 2020, p.89
+  }
+  
+  return(list(Y.bar = Y.bar, Y.bar.z = Y.bar.z))
+  
+}
+
+# inputs (variable)
+NN.vec <- seq(1,100,1)
+
+# inputs (fixed)
+RR <- 1000
+p <- 0.4
+
+# simulation
+
+pb = txtProgressBar(min = 0, max = length(NN.vec), initial = 0) 
+
+for (ii in 1:length(NN.vec)) {
+  
+  setTxtProgressBar(pb, ii)
+  
+  NN <- NN.vec[ii]
+  
+  # 1) call simulation function ----
+  tmp.sim <- Y_bar_ber_sim_fun(RR = RR, NN = NN, p = p)
+  
+  # # 2) scatterplot ----
+  # 
+  # plt.nam <- paste("plot_01_N", NN, ".svg", sep = "")
+  # svg(plt.nam) 
+  # 
+  # plot(x = tmp.sim$X, y = tmp.sim$Y,
+  #      xlab = "X", ylab = "Y",
+  #      xlim = c(-50, 50), ylim = c(-150, 150))
+  # abline(a = b0, b = b1, lty = 2, col = "red", lwd = 2)
+  # 
+  # dev.off()
+  
+  # 3) histogram (non-standardized) ----
+
+  plt.nam <- paste("plot_01_N", NN, ".svg", sep = "")
+  svg(plt.nam) 
+  
+  if (NN <= 2) {
+    
+    # see: https://statisticsglobe.com/plot-only-text-in-r
+    plot(x = 0:1, # Create empty plot
+         y = 0:1,
+         ann = F,
+         bty = "n",
+         type = "n",
+         xaxt = "n",
+         yaxt = "n")
+    text(x = 0.5, # Add text to empty plot
+         y = 0.5,
+         # "This is my first line of text!\nAnother line of text.\n(Created by Base R)", 
+         "Choose a sample size greater than two!", 
+         cex = 1)
+    
+  } else {
+    
+    # plot histogram of estimator
+    
+    # select reasonable bin width
+    brk.int <- 1/NN.vec[ii] 
+    
+    hist(x = tmp.sim$Y.bar,
+         breaks = seq(0, 1, brk.int),
+         freq = FALSE,
+         main = "",
+         xlab = "", 
+         ylab = "Absolute Frequency")
+    
+    # line for mean population parameter
+    abline(v = p, lty = 2, col = "red", lwd = 2)
+    
+    # legend
+    legend("topright",
+           legend = "Probability of Success",
+           lty = 2,
+           lwd = 1,
+           col = "red",
+           inset = 0.05)
+  }
+  
+  dev.off()
+  
+  # 4) histogram (standardized) ----
+  
+  plt.nam <- paste("plot_02_N", NN, ".svg", sep = "")
+  svg(plt.nam) 
+  
+  if (NN <= 2) {
+    
+    # see: https://statisticsglobe.com/plot-only-text-in-r
+    plot(x = 0:1, # Create empty plot
+         y = 0:1,
+         ann = F,
+         bty = "n",
+         type = "n",
+         xaxt = "n",
+         yaxt = "n")
+    text(x = 0.5, # Add text to empty plot
+         y = 0.5,
+         # "This is my first line of text!\nAnother line of text.\n(Created by Base R)", 
+         "Choose a sample size greater than two!", 
+         cex = 1)
+    
+  } else {
+    
+    # select reasonable bin width
+    kk <- unique(tmp.sim$Y.bar.z)
+    ll <- order(kk)
+    brk.int <- diff(kk[ll])[2]
+    
+    # generate histogram of estimator
+    x <- hist(x = tmp.sim$Y.bar.z,
+              breaks = c(rev(seq(0, -10, -brk.int)), seq(brk.int, 10, brk.int)),
+              freq = FALSE,
+              plot = FALSE)
+    
+    
+    # plot histogram of estimator
+    main <- c("")
+    sub <- c("")
+    xlab <- c("")
+    ylab <- c("Relative Frequency")
+    
+    xlim <- c(-6, 6)
+    ylim <- c(0, max(c(x$density, 0.40)))
+    
+    plot.new()
+    plot.window(xlim, ylim, "")
+    title(main = main, sub = sub, xlab = xlab, ylab = ylab)
+    axis(1)
+    axis(2)
+    
+    nB <- length(x$breaks)
+    rect(x$breaks[-nB], 0, x$breaks[-1L], x$density)
+    
+    # pdf for normal distribution
+    curve(dnorm(x, mean = 0, sd = 1), -3, 3,
+          xlim = c(-3,3), 
+          ylim=c(0,0.6),
+          lty = 2,
+          lwd = 2, 
+          xlab = "", 
+          ylab = "",
+          add = TRUE,
+          col = "red")
+    
+    # legend
+    legend("topright",
+           legend = "Standard Normal PDF",
+           lty = 2,
+           lwd = 1,
+           col = "red",
+           inset = 0.05)
+    
+  }
+  
+  dev.off()
+  
+}
+
+close(pb)

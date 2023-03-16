@@ -1,17 +1,16 @@
 
-#..................................................
-# simulation and illustration
-# of LLN and CLT for
-# sample average for Bernoulli distribution
-#..................................................
+# set working directory
+# setwd("./ols-case-01")
+setwd("C:/Users/Markus/Dropbox/Teaching/SoSe2023/illustration-statistical-concepts/lln-clt-case-01")
 
 rm(list=ls())
 
+# set seed 
+set.seed(12345)
 
 
 #..................................................
-# Function ----
-# Function to simulate sample average for bernoulli experiment
+# function to simulate sample average for bernoulli experiment ----
 Y_bar_ber_sim_fun <- function(RR, NN, p){
   
   # theoretical moments
@@ -32,23 +31,17 @@ Y_bar_ber_sim_fun <- function(RR, NN, p){
   
 }
 
-
-
-#..................................................
-# Simulation No 01 ----
-# Simulation and illustration of for LLN for Bernoulli distribution
-
-seed <- 12345
-set.seed(seed)
-RR <- 1000
+# inputs (variable)
 N.seq <- as.integer(seq(1, 100, 1))
-# p.seq <- as.double(seq(0, 1, 0.1))
+
+# inputs (fixed)
+RR <- 1000
 p <- 0.4
 
-# initialize list to collect histogram results
-his.res <- list()
+# simulation
 
-# loop over different sample sizes N
+pb = txtProgressBar(min = 0, max = length(NN.vec), initial = 0) 
+
 for (ii in 1:length(N.seq)) {
   
   tmp.sim <- Y_bar_ber_sim_fun(RR = RR, NN = N.seq[ii], p = p)

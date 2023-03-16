@@ -29,7 +29,7 @@
         font-size: 24pt;
       }
 
-      /* Style the buttons that are used to open the tab content */
+      /* style the buttons that are used to open the tab content */
       .tabLinkL1Cl {
         display: inline-table;
         max-height: 500px;
@@ -41,12 +41,12 @@
         background-color: #f1f1f1;
       }
 
-      /* Change background color of buttons on hover */
+      /* change background color of buttons on hover */
       .tabLinkL1Cl:hover {
         background-color: #ddd;
       }
 
-      /* Create an active/current tablink class */
+      /* create an active/current tablink class */
       .tabLinkL1Cl.active {
         background-color: #ccc;
       }
@@ -128,10 +128,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js"></script>
     <script>
 
+      //..............................
+      // handling of tabs      
+      // see: https://www.w3schools.com/howto/howto_js_tabs.asp
+
       // open specific tab
       function openSpecificTab(tabContentId, tabLinkId, color) {
 
-        // Hide all elements with class="tabcontent_l1" by default */
+        // hide all elements with class="tabcontent_l1" by default */
         var i, tabcontent, tablinks;
 
         tabcontent = document.getElementsByClassName("tabContentL1Cl");
@@ -139,28 +143,27 @@
           tabcontent[i].style.display = "none";
         }
 
-        // Remove the background color of all tablinks/buttons
+        // remove the background color of all tablinks/buttons
         tablinks = document.getElementsByClassName("tabLinkL1Cl");
         for (i = 0; i < tablinks.length; i++) {
           tablinks[i].style.backgroundColor = "";
         }
 
-        // Show the specific tab content
+        // show the specific tab content
         document.getElementById(tabContentId).style.display = "block";
 
-        // Add the specific color to the button used to open the tab content
+        // add the specific color to the button used to open the tab content
         document.getElementById(tabLinkId).style.backgroundColor = color;
 
       }
 
-      // Set start page
+      // set start page
       document.getElementById("tabLinkL1N1Id").click();
 
 
-
-      //var slider = new Slider("#ex6", {
-      //  tooltip: 'always'
-      //});
+      //..............................
+      // handling of slider                
+      // see: https://seiyria.com/bootstrap-slider/
 
       var slider = new Slider("#ex6", { tooltip: 'always' });
       slider.on("slide", function(sliderValue) {
