@@ -1,0 +1,175 @@
+<html>
+  <head>
+
+    <title>Bootstrap Slider</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
+
+    <!-- hohenheim logo and chair -->
+    <div class="logos" style="text-align:center;" background-color="#eeeeee;">
+      <br />
+      <img src="Uni-Hohenheim-Logo-Weiss-EN.png" width="727" height="188" />
+      <br />
+        <p> Econometrics and Statistics (520K) </p>
+    </div>
+
+    <style>
+
+      body{
+        font-family: Helvetica;
+        font-size: 16pt;
+      }
+
+      /* hohenheim logo and chair */
+      .logos {
+        background-color: #003f75;
+        color: white;
+        font-family: Arial Nova Cond Light;
+        font-size: 24pt;
+      }
+
+      /* Style the buttons that are used to open the tab content */
+      .tabLinkL1Cl {
+        display: inline-table;
+        max-height: 500px;
+        min-height: 44px;
+        overflow-y: auto;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 14px 16px;
+        background-color: #f1f1f1;
+      }
+
+      /* Change background color of buttons on hover */
+      .tabLinkL1Cl:hover {
+        background-color: #ddd;
+      }
+
+      /* Create an active/current tablink class */
+      .tabLinkL1Cl.active {
+        background-color: #ccc;
+      }
+
+
+
+      /* sample value - set it as you like*/
+      .slider.slider-horizontal{
+        width:100%; 
+      }
+
+      /* margin of jumbotron id top */
+      div#top.jumbotron{
+        margin-top:100px; 
+      }
+
+    </style>
+
+  </head>
+  <body>
+
+    <div class="container mt-5">
+      <div class="row">
+
+        <div class="jumbotron" id="top">
+          <h1>Interactive Illustration of <br> Statistical Concepts and Methods</h1>
+          <p>Interactive illustration of statistical concepts and methods based on simulation studies.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- mt-5: margin top -->
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="jumbotron text-center">
+            <h3>Change Parameters</h3>
+            <br>
+            <input id="ex6" type="text" data-slider-min="1" data-slider-max="100" data-slider-step="1" data-slider-value="10"/>
+          </div>
+        </div>
+        <div class="col-sm-8">
+
+          <div class="jumbotron text-center">
+
+            <!-- <h3>Check the Effects</h3> -->
+
+            <div class="tab">
+              <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N1Id', 'tabLinkL1N1Id', 'white')" id="tabLinkL1N1Id">Plot No 1</button>
+              <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N2Id', 'tabLinkL1N2Id', 'white')" id="tabLinkL1N2Id">Plot No 2</button>
+              <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N3Id', 'tabLinkL1N3Id', 'white')" id="tabLinkL1N3Id">Plot No 3</button>
+            </div>
+
+            <br>
+
+            <!-- <img src="https://github.com/mmoessler/illustration-statistical-concepts/raw/main/illustration-results/ber_clt_ill_res_01_N1.svg" alt="" id="img"> -->
+
+            <div id="tabContentL1N1Id" class="tabContentL1Cl">
+              <img src="https://github.com/mmoessler/illustration-statistical-concepts/raw/main/illustration-results/ber_lln_ill_res_01_N10.svg" alt="" id="imageL1N1Id">
+            </div>
+
+            <div id="tabContentL1N2Id" class="tabContentL1Cl">
+              <img src="https://github.com/mmoessler/illustration-statistical-concepts/raw/main/illustration-results/ber_clt_ill_res_01_N10.svg" alt="" id="imageL1N2Id">
+            </div>
+
+            <div id="tabContentL1N3Id" class="tabContentL1Cl">
+              <img src="https://github.com/mmoessler/illustration-statistical-concepts/raw/main/illustration-results/ber_lln_ill_res_01_N10.svg" alt="" id="imageL1N3Id">
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js"></script>
+    <script>
+
+      // open specific tab
+      function openSpecificTab(tabContentId, tabLinkId, color) {
+
+        // Hide all elements with class="tabcontent_l1" by default */
+        var i, tabcontent, tablinks;
+
+        tabcontent = document.getElementsByClassName("tabContentL1Cl");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+
+        // Remove the background color of all tablinks/buttons
+        tablinks = document.getElementsByClassName("tabLinkL1Cl");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].style.backgroundColor = "";
+        }
+
+        // Show the specific tab content
+        document.getElementById(tabContentId).style.display = "block";
+
+        // Add the specific color to the button used to open the tab content
+        document.getElementById(tabLinkId).style.backgroundColor = color;
+
+      }
+
+      // Set start page
+      document.getElementById("tabLinkL1N1Id").click();
+
+
+
+      //var slider = new Slider("#ex6", {
+      //  tooltip: 'always'
+      //});
+
+      var slider = new Slider("#ex6", { tooltip: 'always' });
+      slider.on("slide", function(sliderValue) {
+      //document.getElementById("ex6SliderVal").textContent = sliderValue;
+        document.getElementById("imageL1N1Id").setAttribute("src", "https://github.com/mmoessler/illustration-statistical-concepts/raw/main/illustration-results/ber_lln_ill_res_01_N" + sliderValue + ".svg");
+        document.getElementById("imageL1N2Id").setAttribute("src", "https://github.com/mmoessler/illustration-statistical-concepts/raw/main/illustration-results/ber_clt_ill_res_01_N" + sliderValue + ".svg");
+        document.getElementById("imageL1N3Id").setAttribute("src", "https://github.com/mmoessler/illustration-statistical-concepts/raw/main/illustration-results/ber_lln_ill_res_01_N" + sliderValue + ".svg");
+      });
+
+    </script>
+  </body>
+</html>
