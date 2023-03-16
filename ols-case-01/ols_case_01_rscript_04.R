@@ -1,0 +1,224 @@
+
+# set working directory
+# setwd("./ols-case-01")
+
+# set seed 
+set.seed(12345)
+
+# function to simulate b0_hat and b1_hat ----
+bet_hat_sim_fun <- function(RR, NN,
+                            b0, b1,
+                            X.sd,
+                            u.sd){
+  
+  # # inputs
+  # RR <- 10000
+  # NN <- 2
+  # b0 <- -2
+  # b1 <- 3.5
+  # X.sd <- 1
+  # u.sd <- 100
+  
+  
+  
+  # initialize vectors for simulation results
+  b0h <- numeric(RR)
+  b1h <- numeric(RR)
+  
+  var.b0 <- numeric(RR)
+  var.b1 <- numeric(RR)
+  
+  b0h.z <- numeric(RR)
+  b1h.z <- numeric(RR)
+  
+  for (ii in 1:RR) {
+    
+    X <- rnorm(NN, mean = 0, sd = X.sd)
+    u <- rnorm(NN, mean = 0, sd = u.sd)
+    Y <- b0 + b1 * X + u
+    
+    tmp <- lm(Y ~ X + 1)
+    
+    # get estimates
+    b0h[ii] <- tmp$coefficients[1]
+    b1h[ii] <- tmp$coefficients[2]
+    
+    # compute the variance of beta_hat_0
+    Hi <- 1 - mean(X) / mean(X^2) * X
+    var.b0[ii] <- var(Hi * u) / (NN * mean(Hi^2)^2)
+    # compute the variance of hat_beta_1
+    var.b1[ii] <- var( ( X - mean(X) ) * u ) / ( NN * var(X)^2 )
+    
+    # compute t-statistics
+    b1h.z[ii] <- (b1h[ii] - b1) / sqrt(var.b1[ii])
+    b0h.z[ii] <- (b0h[ii] - b0) / sqrt(var.b0[ii])
+    
+  }
+  
+  return(list(b0h = b0h, b1h = b1h,
+              Y = Y, X = X, u = u,
+              var.b0 = var.b0, var.b1 = var.b1,
+              b0h.z = b0h.z, b1h.z = b1h.z))
+  
+}
+
+# inputs (variable)
+NN.vec <- seq(1,100,10)
+
+# inputs (fixed)
+RR <- 1000
+b0 <- -2
+b1 <- 3.5
+X.sd <- 10
+u.sd <- 10
+
+# simulation
+
+pb = txtProgressBar(min = 0, max = length(NN.vec), initial = 0) 
+
+for (ii in 1:length(NN.vec)) {
+  
+  setTxtProgressBar(pb, ii)
+  
+  NN <- NN.vec[ii]
+  
+  #..................................................
+  # 1) call sim function ----
+  tmp.sim <- bet_hat_sim_fun(RR = RR, NN = NN,
+                             b0 = b0, b1 = b1,
+                             X.sd = X.sd,
+                             u.sd = u.sd)
+  
+  #..................................................
+  # 2) scatterplot ----
+  
+  plt.nam <- paste("plot_01_", ii, ".svg", sep = "")
+  svg(plt.nam) 
+  
+  plot(x = tmp.sim$X, y = tmp.sim$Y,
+       xlab = "X", ylab = "Y",
+       xlim = c(-50, 50), ylim = c(-150, 150))
+  abline(a = b0, b = b1, lty = 2, col = "red", lwd = 2)
+  
+  dev.off()
+  
+  #..................................................
+  # 3) histogram (non-standardized) ----
+
+  plt.nam <- paste("plot_02_", ii, ".svg", sep = "")
+  svg(plt.nam) 
+  
+  if (NN <= 2) {
+    
+    # see: https://statisticsglobe.com/plot-only-text-in-r
+    plot(x = 0:1, # Create empty plot
+         y = 0:1,
+         ann = F,
+         bty = "n",
+         type = "n",
+         xaxt = "n",
+         yaxt = "n")
+    text(x = 0.5, # Add text to empty plot
+         y = 0.5,
+         # "This is my first line of text!\nAnother line of text.\n(Created by Base R)", 
+         "Choose a sample size greater than two!", 
+         cex = 2)
+    
+  } else {
+    
+    # plot histogram of estimator
+    hist(x = tmp.sim$b1h, freq = FALSE,
+         xlim = c(-6, 6),
+         ylim = c(0, 5),
+         # main=paste("n=",N),
+         main = "",
+         xlab = "", 
+         ylab = "Absolute Frequency")
+    
+    # line for mean population parameter
+    abline(v = b1, lty = 2, col = "red", lwd = 2)
+    
+    # legend
+    legend("topleft",
+           legend = "Population coefficient",
+           lty = 2,
+           lwd = 1,
+           col = "red",
+           inset = 0.05)
+  }
+  
+  dev.off()
+  
+  #..................................................
+  # 4) histogram (standardized) ----
+  
+  plt.nam <- paste("plot_03_", ii, ".svg", sep = "")
+  svg(plt.nam) 
+  
+  if (NN <= 2) {
+    
+    # see: https://statisticsglobe.com/plot-only-text-in-r
+    plot(x = 0:1, # Create empty plot
+         y = 0:1,
+         ann = F,
+         bty = "n",
+         type = "n",
+         xaxt = "n",
+         yaxt = "n")
+    text(x = 0.5, # Add text to empty plot
+         y = 0.5,
+         # "This is my first line of text!\nAnother line of text.\n(Created by Base R)", 
+         "Choose a sample size greater than two!", 
+         cex = 2)
+    
+  } else {
+    
+    # generate histogram of estimator
+    x <- hist(x = tmp.sim$b1h.z, freq = FALSE)
+    
+    # plot histogram of estimator
+    main <- c("")
+    sub <- c("")
+    xlab <- c("")
+    ylab <- c("Relative Frequency")
+    
+    xlim <- c(-6, 6)
+    ylim <- c(0, max(c(x$density, 0.40)))
+    
+    plot.new()
+    plot.window(xlim, ylim, "")
+    title(main = main, sub = sub, xlab = xlab, ylab = ylab)
+    axis(1)
+    axis(2)
+    
+    nB <- length(x$breaks)
+    rect(x$breaks[-nB], 0, x$breaks[-1L], x$density)
+    
+    # pdf for normal distribution
+    curve(dnorm(x, mean = 0, sd = 1), -3, 3,
+          xlim = c(-3,3), 
+          ylim=c(0,0.6),
+          lty = 2,
+          lwd = 2, 
+          xlab = "", 
+          ylab = "",
+          add = TRUE,
+          col = "red")
+    
+    # legend
+    legend("topright",
+           legend = "Standard Normal PDF",
+           lty = 2,
+           lwd = 1,
+           col = "red",
+           inset = 0.05)
+    
+  }
+  
+  dev.off()
+  
+}
+
+close(pb)
+
+

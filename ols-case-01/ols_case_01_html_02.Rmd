@@ -1,0 +1,169 @@
+---
+output:
+  html_document:
+    highlight: tango
+    includes:
+      in_header: header.html
+---
+
+<!--..........................................................................-->
+<!--..........................................................................-->
+
+<style>
+
+body{
+  font-family: Helvetica;
+  font-size: 16pt;
+}
+
+/* UoH logo */
+.logos {
+ background-color: #003f75;
+ color: white;
+ font-family: Arial Nova Cond Light;
+ font-size: 24pt;
+}
+
+
+
+/* Slider input */
+/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range */
+datalist {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  writing-mode: vertical-lr;
+  width: 1000px;
+}
+
+input[type="range"] {
+  width: 1000px;
+}
+
+
+
+
+
+.slider.slider-horizontal{
+  width:400px; /* sample value - set it as you like*/
+}
+
+</style>
+
+<!--..........................................................................-->
+<!--..........................................................................-->
+
+<!-- # OLS Case 1: ... {.tabset .tabset-pills} -->
+
+<!-- # Linear Regression Model: Illustration No 01 {.tabset .tabset-pills} -->
+
+# {.tabset .tabset-pills}
+
+<div class="jumbotron">
+
+  <!-- # Linear Regression Model: Illustration No 01 {.tabset .tabset-pills} -->
+
+  <span style="font-size: 28pt">Linear Regression Model: Illustration No 01</span>
+
+  <hr>
+
+  <span style="font-size: 20pt">Motivation</span>
+
+  Understand the effect of increasing the sample size $N$ on the sampling distribution of the slope coefficient of a linear regression model.
+
+  <hr>
+  
+  <span style="font-size: 20pt">Regression Model</span>
+
+  <!-- This illustrations shows the sampling properties of the OLS estimator for the slope coefficient $\beta_1$ of the following linear regression model -->
+
+  We are interested in the sampling properties of the OLS estimator for the slope coefficient $\beta_1$ of the following linear regression model
+
+  \begin{align}
+  Y_i &= -2 + 3.5 X_i + u_i, \\
+  X_i &\sim N\left(0,10\right), \\
+  u_i &\sim N\left(0,10\right).
+  \end{align}
+
+  Change the number of observations $N$ to see the effect of the sample size $N$ on the properties of the OLS estimator for the slope coefficient $\beta_1$ of the linear regression model above.
+
+  <hr>
+
+  <span style="font-size: 20pt">Sample Size</span>
+
+  &nbsp;
+
+  <center>
+
+  <input id="ex6" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="10"/>
+
+  </center>
+
+</div>
+
+<!-- <div class="jumbotron text-center"> -->
+
+<!--   <h3>Change Sample Size</h3> -->
+
+<!--   <input id="ex6" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="10"/> -->
+
+<!-- </div> -->
+
+<!--
+<div class="jumbotron text-center">
+<span id="ex6CurrentSliderValLabel">Current Slider Value: <span id="ex6SliderVal">3</span></span>
+</div>
+-->
+
+## Plot No 01
+
+<div class="jumbotron text-center">
+<h3>Check the Effects</h3>
+<img src="plot_01_N1.svg" alt="" id="img01">
+</div>
+
+## Plot No 02
+
+<div class="jumbotron text-center">
+<h3>Check the Effects</h3>
+<img src="plot_02_N1.svg" alt="" id="img02">
+</div>
+
+## Plot No 03
+
+<div class="jumbotron text-center">
+<h3>Check the Effects</h3>
+<img src="plot_03_N1.svg" alt="" id="img03">
+</div>
+
+
+
+
+
+
+
+
+
+
+<!--..........................................................................-->
+<!--..........................................................................--> 
+<!-- THIS IS THE END --> 
+
+<!-- Include script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js"></script>
+<script>
+
+//var slider = new Slider("#ex6", {
+//  tooltip: 'always'
+//});
+
+var slider = new Slider("#ex6", { tooltip: 'always' });
+slider.on("slide", function(sliderValue) {
+//document.getElementById("ex6SliderVal").textContent = sliderValue;
+document.getElementById("img01").setAttribute("src", "plot_01_N" + sliderValue + ".svg");
+document.getElementById("img02").setAttribute("src", "plot_02_N" + sliderValue + ".svg");
+document.getElementById("img03").setAttribute("src", "plot_03_N" + sliderValue + ".svg");
+});
+
+</script>
+
