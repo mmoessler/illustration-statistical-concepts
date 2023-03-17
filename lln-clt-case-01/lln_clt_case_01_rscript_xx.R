@@ -132,11 +132,12 @@ for (ii in 1:length(NN.vec)) {
     # legend
     legend("topright",
            # legend = "Probability of Success",
-           legend = c(expression("Value "*italic("p"))),
+           legend = c(expression("Value of "*italic("p"))),
            lty = 2,
            lwd = 1,
            col = "red",
            inset = 0.05)
+    
   }
   
   dev.off()
@@ -212,7 +213,8 @@ for (ii in 1:length(NN.vec)) {
     
     # legend
     legend("topright",
-           legend = "Standard Normal PDF",
+           # legend = "Standard Normal PDF",
+           legend = c(expression("pdf of "*italic("N")*"(0,1)")),
            lty = 2,
            lwd = 1,
            col = "red",
