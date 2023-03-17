@@ -136,12 +136,14 @@
           <div class="jumbotron">
             <p style='font-size: 16pt;'>Probability of success \(p\)</p>        
             <br>        
-            <input id="ex602" type="text" data-slider-min="0.2" data-slider-max="0.8" data-slider-step="0.2" data-slider-value="0.4"/>
+            <input id="ex602" type="text" data-slider-min="0" data-slider-max="1" data-slider-step="0.2" data-slider-value="0.4"/>
           </div>
+          <!--
           <div class="jumbotron">
-            <p style='font-size: 16pt;'>Probability of success \(p\)</p>
+            <p style='font-size: 16pt;'>Current figure</p>
             <p id="shoProId"></p>
           </div>
+          -->
         </div>
         <div class="col-sm-8">
 
@@ -171,7 +173,7 @@
               <p style='font-size: 16pt;'>Histogram of the sample average \(\overline{Y}\)</p>
               <p style='font-size: 14pt;'>(Based on \(1000\) sample draw of size \(N\) on the DGP)</p>              
               <p style='font-size: 12pt;'>The plot below illustrates the Law of Large Numbers (LLN)</p>
-              <img src="plot_01_N10.svg" alt="" id="imageL1N2Id" style="text-align: center;">
+              <img src="plot_01_N10_p4.svg" alt="" id="imageL1N2Id" style="text-align: center;">
               <br><br>
               <p>As the sample size \(N\) grows the sample average \(\overline{Y}\) gets closer to \(\mu\), i.e.,</p>
               $$
@@ -187,7 +189,7 @@
               <p style='font-size: 16pt;'>Histogram of the standardized sample average \(z_{\overline{Y}}\)</p>
               <p style='font-size: 14pt;'>(Based on \(1000\) sample draw of size \(N\) on the DGP)</p>              
               <p style='font-size: 12pt;'>The plot below illustrates the Central Limit Theorem (CLT)</p>
-              <img src="plot_02_N10.svg" alt="" id="imageL1N3Id">
+              <img src="plot_02_N10_p4.svg" alt="" id="imageL1N3Id">
               <br><br>
               <p>As the sample size \(N\) grows the distribution of the standardized sample average,</p>
               $$
@@ -258,35 +260,54 @@
       //..............................
       // handling of slider                
       // see: https://seiyria.com/bootstrap-slider/
+           
+      var slider01 = new Slider("#ex601", { tooltip: 'always' });
+      var slider02 = new Slider("#ex602", { tooltip: 'always' });
 
-      var slider = new Slider("#ex601", { tooltip: 'always' });
-      slider.on("slide", function(sliderValue) {
-        //document.getElementById("ex6SliderVal").textContent = sliderValue;
-        //document.getElementById("imageL1N1Id").setAttribute("src", "plot_01_N" + sliderValue + ".svg");
-        document.getElementById("imageL1N2Id").setAttribute("src", "plot_01_N" + sliderValue + ".svg");
-        document.getElementById("imageL1N3Id").setAttribute("src", "plot_02_N" + sliderValue + ".svg");
-      });
+      var sliderValue01 = slider01.getValue()*10;
+      var sliderValue02 = slider02.getValue()*10;
 
-      var slider = new Slider("#ex602", { tooltip: 'always' });
-      slider.on("slide", function(sliderValue) {
-        //document.getElementById("ex6SliderVal").textContent = sliderValue;
-        //document.getElementById("imageL1N1Id").setAttribute("src", "plot_01_N" + sliderValue + ".svg");
+      //document.getElementById("shoProId").innerText = "No 1: " + SliderValue01 + " No 2: " + SliderValue02;
+      document.getElementById("shoProId").innerText = "plot_01_N" + sliderValue01 + "_p" + sliderValue02 + ".svg";
 
-        //document.getElementById("imageL1N2Id").setAttribute("src", "plot_01_N" + sliderValue + ".svg");
-        //document.getElementById("imageL1N3Id").setAttribute("src", "plot_02_N" + sliderValue + ".svg");
+      slider01.on("slide", function() {
 
-        //document.getElementById("shoProId").innerText = "Probability of suceess: " + sliderValue;
-
-        let orgStr = sliderValue;
-
-        //document.getElementById("shoProId").innerText = "Probability of suceess: " + orgStr;
+        var sliderValue01 = slider01.getValue();
+        var sliderValue02 = slider02.getValue()*10;
         
-        //let traStr = orgStr.replace('.','');
-        let traStr = orgStr * 10;
+        //document.getElementById("shoProId").innerText = "plot_01_N" + sliderValue01 + "_p" + sliderValue02 + ".svg";
 
-        document.getElementById("shoProId").innerText = "Probability of suceess: " + traStr;
+        document.getElementById("imageL1N2Id").setAttribute("src", "plot_01_N" + sliderValue01 + "_p" + sliderValue02 + ".svg");
+        document.getElementById("imageL1N3Id").setAttribute("src", "plot_02_N" + sliderValue01 + "_p" + sliderValue02 + ".svg");
 
-      });
+      })
+
+      slider02.on("slide", function() {
+
+        var sliderValue01 = slider01.getValue();
+        var sliderValue02 = slider02.getValue()*10;
+
+        //document.getElementById("shoProId").innerText = "plot_01_N" + sliderValue01 + "_p" + sliderValue02 + ".svg";
+
+        document.getElementById("imageL1N2Id").setAttribute("src", "plot_01_N" + sliderValue01 + "_p" + sliderValue02 + ".svg");
+        document.getElementById("imageL1N3Id").setAttribute("src", "plot_02_N" + sliderValue01 + "_p" + sliderValue02 + ".svg");
+
+      })
+
+
+
+
+
+      //slider01.on("slide", function(sliderValue) {
+        //document.getElementById("imageL1N2Id").setAttribute("src", "plot_01_N" + sliderValue + "_p" + sliderValue02 + ".svg");
+
+      //  document.getElementById("shoProId").innerText = "No 1: " + SliderValue + " No 2: " + SliderValue02;
+      //})
+      //slider02.on("slide", function(sliderValue) {
+        //document.getElementById("imageL1N2Id").setAttribute("src", "plot_01_N" + sliderValue02 + "_p" + sliderValue + ".svg");
+
+      //  document.getElementById("shoProId").innerText = "No 1: " + SliderValue01 + " No 2: " + SliderValue;
+      //})
 
     </script>
   </body>
