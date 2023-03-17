@@ -1,6 +1,6 @@
 # illustration-statistical-concepts
 
-Illustration of statistical concepts using statistic software
+Illustration of statistical concepts and methods using simulation studies.
 
 ## Sampling properties of sample average
 
@@ -24,9 +24,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/lln-clt
 
 ## Sampling properties of OLS estimator
 
-### DGP
-
-The illustrations below shows the sampling properties of the OLS estimator as estimator for the slope coefficient $\beta_1$ in a simple linear regression model, i.e., based on a sample of size $N$ of the following model,
+The illustrations below shows the sampling properties of the OLS estimator as estimator for the slope coefficient $\beta_1$ in a simple linear regression model, i.e., based on a sample of size $N$ of the following statistical model,
 
 $$
 \begin{align*}
@@ -47,7 +45,7 @@ $$
 
 with ...
 
-Each case below focus on the effect of changing a parameter of the DGP above.
+Each case below focus on the effect of changing a parameter of the statistical model above.
 
 ### Case 1
 
@@ -57,7 +55,7 @@ Open the following link in your browser:
 
 ```
 
-https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/lln-clt-case-01/lln_clt_case_01_html_xx.html
+https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/ols-case-01/ols_case_01_html_xx.html
 
 ```
 
