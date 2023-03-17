@@ -2,23 +2,66 @@
 
 Illustration of statistical concepts using statistic software
 
-## OLS estimator sampling properties
+## Sampling properties of sample average
 
-### Case 1
+This illustration shows the sampling properties of the sample average as estimator for the probability of success $p$ in a Bernoulli experiment, i.e., based on the following DGP,
 
-This illustrations shows the sampling properties of the OLS estimator for the slope coefficient $\beta_1$ based on the following DGP,
+$$
+\begin{align*}
+Y_i &\sim B\left(p\right), \\
+\end{align*}
+$$
+
+with $p=0.4$.
+
+Open the following link in your browser.
+
+```
+
+https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/lln-clt-case-01/lln_clt_case_01_html_xx.html
+
+```
+
+## Sampling properties of OLS estimator
+
+### DGP
+
+The illustrations below shows the sampling properties of the OLS estimator as estimator for the slope coefficient $\beta_1$ in a simple linear regression model, i.e., based on a sample of size $N$ of the following model,
 
 $$
 \begin{align*}
 Y_i &= -2 + 3.5 X_i + u_i, \\
 X_i &\sim N\left(0,10\right), \\
-u_i &\sim N\left(0,10\right).
+u_i &\sim N\left(0,10\right),
 \end{align*}
 $$
 
-Run the following codes in R
+with $\beta_0 = -2$, $\beta_1 = 3.5$, $\sigma_X^2 = 10$ and $\sigma_u^2 = 10$ and with,
 
-1) Effect of the sample size $N$ on the sampling distribution of $\beta_1$.
+$$
+\begin{align*}
+\text{E}\left[u|X\right] = 0, \\
+\text{Var}\left[u|X\right] = 0,
+\end{align*}
+$$
+
+with ...
+
+Each case below focus on the effect of changing a parameter of the DGP above.
+
+### Case 1
+
+This illustration shows the effect of changing the sample size $N$.
+
+Open the following link in your browser:
+
+```
+
+https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/lln-clt-case-01/lln_clt_case_01_html_xx.html
+
+```
+
+Run the following codes in R  (old approach):
 
 ```
 
@@ -26,7 +69,15 @@ source("https://raw.githubusercontent.com/mmoessler/illustration-statistical-con
 
 ```
 
-2) Effect of the variance of $X$ on the sampling distribution of $\beta_1$.
+### Case 2
+
+This illustration shows the effect of changing the variance of $u$, i.e., $\sigma_u^2$.
+
+### Case 3
+
+This illustration shows the effect of changing the variance of $X$, i.e., $\sigma_X^2$.
+
+Run the following codes in R (old approach):
 
 ```
 
@@ -34,46 +85,14 @@ source("https://raw.githubusercontent.com/mmoessler/illustration-statistical-con
 
 ```
 
-3) Effect of omitted variable bias (OVB)
+### Case 4
+
+This illustration shows the effect of ..., i.e., of omitted variable bias (OVB).
+
+Run the following codes in R (old approach):
 
 ```
 
 source("https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/r-shiny/ols_case_03_run.R")
 
 ```
-
-# Deployment
-
-## Stand-alone
-
-Check the deployment of the illustration in a "stand-alone" html file by calling the url in your browser.
-
-Based on a "raw" html file,
-
-```
-
-https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/html-files/bernoulli_illustration_xx.html
-
-```
-
-or, based on a rmd file,
-
-```
-
-https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/rmd-files/index.html
-
-```
-
-## Using R
-
-Check the deployment of a dummy shiny application by running the following chunk in R Studio.
-
-```
-
-source("https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/r-shiny/r_shiny_dummy_run.R")
-
-```
-
-Note, the code generates problems when executed in R (only).
-
-Called in R (only) generates problems with pandoc or pandoc version!
