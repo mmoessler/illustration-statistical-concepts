@@ -3,7 +3,7 @@
 rm(list=ls())
 
 # set working directory
-setwd("C:/Users/Markus/Dropbox/Teaching/SoSe2023/illustration-statistical-concepts/lln-clt-case-01")
+setwd("C:/Users/Markus/Dropbox/Teaching/SoSe2023/illustration-statistical-concepts/lln-clt-case-02")
 
 # set seed 
 set.seed(12345)
@@ -31,10 +31,10 @@ Y_bar_ber_sim_fun <- function(RR, NN, p){
 
 # inputs (variable)
 NN.vec <- seq(1,100,1)
+p.vec <- seq(0,1,0.1)
 
 # inputs (fixed)
 RR <- 1000
-p <- 0.4
 
 # simulation
 
@@ -44,185 +44,208 @@ for (ii in 1:length(NN.vec)) {
   
   setTxtProgressBar(pb, ii)
   
-  NN <- NN.vec[ii]
-  
-  # 1) call simulation function ----
-  tmp.sim <- Y_bar_ber_sim_fun(RR = RR, NN = NN, p = p)
-  
-  # # 2) scatterplot ----
-  # 
-  # plt.nam <- paste("plot_01_N", NN, ".svg", sep = "")
-  # svg(plt.nam) 
-  # 
-  # plot(x = tmp.sim$X, y = tmp.sim$Y,
-  #      xlab = "X", ylab = "Y",
-  #      xlim = c(-50, 50), ylim = c(-150, 150))
-  # abline(a = b0, b = b1, lty = 2, col = "red", lwd = 2)
-  # 
-  # dev.off()
-  
-  # 3) histogram (non-standardized) ----
-
-  plt.nam <- paste("plot_01_N", NN, ".svg", sep = "")
-  svg(plt.nam) 
-  
-  if (NN <= 2) {
+  for (jj in 1:length(p.vec)) {
     
-    # see: https://statisticsglobe.com/plot-only-text-in-r
-    plot(x = 0:1, # Create empty plot
-         y = 0:1,
-         ann = F,
-         bty = "n",
-         type = "n",
-         xaxt = "n",
-         yaxt = "n")
-    text(x = 0.5, # Add text to empty plot
-         y = 0.5,
-         # "This is my first line of text!\nAnother line of text.\n(Created by Base R)", 
-         "Choose a sample size greater than two!", 
-         cex = 1)
+    NN <- NN.vec[ii]
+    p <- p.vec[jj]
     
-  } else {
+    # 1) call simulation function ----
+    tmp.sim <- Y_bar_ber_sim_fun(RR = RR, NN = NN, p = p)
     
-    # plot histogram of estimator
+    # # 2) scatterplot ----
+    # 
+    # plt.nam <- paste("plot_01_N", NN, ".svg", sep = "")
+    # svg(plt.nam) 
+    # 
+    # plot(x = tmp.sim$X, y = tmp.sim$Y,
+    #      xlab = "X", ylab = "Y",
+    #      xlim = c(-50, 50), ylim = c(-150, 150))
+    # abline(a = b0, b = b1, lty = 2, col = "red", lwd = 2)
+    # 
+    # dev.off()
     
-    # select reasonable bin width
-    brk.int <- 1/NN.vec[ii] 
+    # 3) histogram (non-standardized) ----
     
-    # hist(x = tmp.sim$Y.bar,
-    #      breaks = seq(0, 1, brk.int),
-    #      freq = FALSE,
-    #      main = "",
-    #      xlab = "", 
-    #      ylab = "Absolute Frequency")
+    plt.nam <- paste("plot_01_N", NN, "_p", p*10, ".svg", sep = "")
+    svg(plt.nam) 
     
-    # generate histogram of estimator
-    x <- hist(x = tmp.sim$Y.bar,
-              breaks = seq(0, 1, brk.int),
-              freq = FALSE,
-              plot = FALSE)
+    if (NN <= 2) {
+      
+      # see: https://statisticsglobe.com/plot-only-text-in-r
+      plot(x = 0:1, # Create empty plot
+           y = 0:1,
+           ann = F,
+           bty = "n",
+           type = "n",
+           xaxt = "n",
+           yaxt = "n")
+      text(x = 0.5, # Add text to empty plot
+           y = 0.5,
+           # "This is my first line of text!\nAnother line of text.\n(Created by Base R)", 
+           "Choose a sample size greater than two!", 
+           cex = 1)
+      
+    } else {
+      
+      # plot histogram of estimator
+      
+      # select reasonable bin width
+      brk.int <- 1/NN.vec[ii] 
+      
+      # hist(x = tmp.sim$Y.bar,
+      #      breaks = seq(0, 1, brk.int),
+      #      freq = FALSE,
+      #      main = "",
+      #      xlab = "", 
+      #      ylab = "Absolute Frequency")
+      
+      # generate histogram of estimator
+      x <- hist(x = tmp.sim$Y.bar,
+                breaks = seq(0, 1, brk.int),
+                freq = FALSE,
+                plot = FALSE)
+      
+      # plot histogram of estimator
+      main <- c("")
+      sub <- c("")
+      xlab <- c("")
+      ylab <- c("Relative Frequency")
+      
+      xlim <- c(0, 1)
+      ylim <- c(0, max(c(x$density, 10)))
+      
+      plot.new()
+      plot.window(xlim, ylim, "")
+      title(main = main, sub = sub, xlab = xlab, ylab = ylab)
+      axis(1)
+      axis(2)
+      
+      grid()
+      
+      # nB <- length(x$breaks)
+      # rect(x$breaks[-nB], 0, x$breaks[-1L], x$density)
+      
+      nbx <- length(x$breaks[which(x$counts > 0)])
+      rect(x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-(nbx+1)], 0, x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-1L], x$density[which(x$counts > 0)],
+           col = "grey")
+      
+      # line for mean population parameter
+      abline(v = p, lty = 2, col = "red", lwd = 2)
+      
+      # legend
+      legend("topright",
+             # legend = "Probability of Success",
+             legend = c(expression("Value of "*italic("p"))),
+             lty = 2,
+             lwd = 1,
+             col = "red",
+             inset = 0.05)
+      
+    }
     
-    # plot histogram of estimator
-    main <- c("")
-    sub <- c("")
-    xlab <- c("")
-    ylab <- c("Relative Frequency")
+    dev.off()
     
-    xlim <- c(0, 1)
-    ylim <- c(0, max(c(x$density, 10)))
+    # 4) histogram (standardized) ----
     
-    plot.new()
-    plot.window(xlim, ylim, "")
-    title(main = main, sub = sub, xlab = xlab, ylab = ylab)
-    axis(1)
-    axis(2)
+    plt.nam <- paste("plot_02_N", NN, "_p", p*10, ".svg", sep = "")
+    svg(plt.nam) 
     
-    grid()
+    if (NN <= 2) {
+      
+      # see: https://statisticsglobe.com/plot-only-text-in-r
+      plot(x = 0:1, # Create empty plot
+           y = 0:1,
+           ann = F,
+           bty = "n",
+           type = "n",
+           xaxt = "n",
+           yaxt = "n")
+      text(x = 0.5, # Add text to empty plot
+           y = 0.5,
+           # "This is my first line of text!\nAnother line of text.\n(Created by Base R)", 
+           "Choose a sample size greater than two!", 
+           cex = 1)
+      
+    } else if (p==0 | p==1) {
+      
+      # see: https://statisticsglobe.com/plot-only-text-in-r
+      plot(x = 0:1, # Create empty plot
+           y = 0:1,
+           ann = F,
+           bty = "n",
+           type = "n",
+           xaxt = "n",
+           yaxt = "n")
+      text(x = 0.5, # Add text to empty plot
+           y = 0.5,
+           # "This is my first line of text!\nAnother line of text.\n(Created by Base R)", 
+           "Choose a probability of success \n
+           higher than 0 or \n
+           lower than 1!", 
+           cex = 1)
+      
+    } else {
+      
+      # select reasonable bin width
+      kk <- unique(tmp.sim$Y.bar.z)
+      ll <- order(kk)
+      brk.int <- diff(kk[ll])[2]
+      
+      # generate histogram of estimator
+      x <- hist(x = tmp.sim$Y.bar.z,
+                breaks = c(rev(seq(0, -10, -brk.int)), seq(brk.int, 10, brk.int)),
+                freq = FALSE,
+                plot = FALSE)
+      
+      # plot histogram of estimator
+      main <- c("")
+      sub <- c("")
+      xlab <- c("")
+      ylab <- c("Relative Frequency")
+      
+      xlim <- c(-6, 6)
+      ylim <- c(0, max(c(x$density, 0.5)))
+      
+      plot.new()
+      plot.window(xlim, ylim, "")
+      title(main = main, sub = sub, xlab = xlab, ylab = ylab)
+      axis(1)
+      axis(2)
+      
+      grid()
+      
+      # nB <- length(x$breaks)
+      # rect(x$breaks[-nB], 0, x$breaks[-1L], x$density)
+      
+      nbx <- length(x$breaks[which(x$counts > 0)])
+      rect(x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-(nbx+1)], 0, x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-1L], x$density[which(x$counts > 0)],
+           col = "grey")
+      
+      # pdf for normal distribution
+      curve(dnorm(x, mean = 0, sd = 1), -3, 3,
+            xlim = c(-3,3), 
+            ylim=c(0,0.6),
+            lty = 2,
+            lwd = 2, 
+            xlab = "", 
+            ylab = "",
+            add = TRUE,
+            col = "red")
+      
+      # legend
+      legend("topright",
+             # legend = "Standard Normal PDF",
+             legend = c(expression("pdf of "*italic("N")*"(0,1)")),
+             lty = 2,
+             lwd = 1,
+             col = "red",
+             inset = 0.05)
+      
+    }
     
-    # nB <- length(x$breaks)
-    # rect(x$breaks[-nB], 0, x$breaks[-1L], x$density)
-    
-    nbx <- length(x$breaks[which(x$counts > 0)])
-    rect(x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-(nbx+1)], 0, x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-1L], x$density[which(x$counts > 0)],
-         col = "grey")
-    
-    # line for mean population parameter
-    abline(v = p, lty = 2, col = "red", lwd = 2)
-    
-    # legend
-    legend("topright",
-           # legend = "Probability of Success",
-           legend = c(expression("Value of "*italic("p"))),
-           lty = 2,
-           lwd = 1,
-           col = "red",
-           inset = 0.05)
+    dev.off()
     
   }
-  
-  dev.off()
-  
-  # 4) histogram (standardized) ----
-  
-  plt.nam <- paste("plot_02_N", NN, ".svg", sep = "")
-  svg(plt.nam) 
-  
-  if (NN <= 2) {
-    
-    # see: https://statisticsglobe.com/plot-only-text-in-r
-    plot(x = 0:1, # Create empty plot
-         y = 0:1,
-         ann = F,
-         bty = "n",
-         type = "n",
-         xaxt = "n",
-         yaxt = "n")
-    text(x = 0.5, # Add text to empty plot
-         y = 0.5,
-         # "This is my first line of text!\nAnother line of text.\n(Created by Base R)", 
-         "Choose a sample size greater than two!", 
-         cex = 1)
-    
-  } else {
-    
-    # select reasonable bin width
-    kk <- unique(tmp.sim$Y.bar.z)
-    ll <- order(kk)
-    brk.int <- diff(kk[ll])[2]
-    
-    # generate histogram of estimator
-    x <- hist(x = tmp.sim$Y.bar.z,
-              breaks = c(rev(seq(0, -10, -brk.int)), seq(brk.int, 10, brk.int)),
-              freq = FALSE,
-              plot = FALSE)
-    
-    # plot histogram of estimator
-    main <- c("")
-    sub <- c("")
-    xlab <- c("")
-    ylab <- c("Relative Frequency")
-    
-    xlim <- c(-6, 6)
-    ylim <- c(0, max(c(x$density, 0.5)))
-    
-    plot.new()
-    plot.window(xlim, ylim, "")
-    title(main = main, sub = sub, xlab = xlab, ylab = ylab)
-    axis(1)
-    axis(2)
-    
-    grid()
-    
-    # nB <- length(x$breaks)
-    # rect(x$breaks[-nB], 0, x$breaks[-1L], x$density)
-    
-    nbx <- length(x$breaks[which(x$counts > 0)])
-    rect(x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-(nbx+1)], 0, x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-1L], x$density[which(x$counts > 0)],
-         col = "grey")
-    
-    # pdf for normal distribution
-    curve(dnorm(x, mean = 0, sd = 1), -3, 3,
-          xlim = c(-3,3), 
-          ylim=c(0,0.6),
-          lty = 2,
-          lwd = 2, 
-          xlab = "", 
-          ylab = "",
-          add = TRUE,
-          col = "red")
-    
-    # legend
-    legend("topright",
-           # legend = "Standard Normal PDF",
-           legend = c(expression("pdf of "*italic("N")*"(0,1)")),
-           lty = 2,
-           lwd = 1,
-           col = "red",
-           inset = 0.05)
-    
-  }
-  
-  dev.off()
   
 }
 
