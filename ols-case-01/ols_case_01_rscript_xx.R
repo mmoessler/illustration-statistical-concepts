@@ -96,10 +96,47 @@ for (ii in 1:length(NN.vec)) {
   plt.nam <- paste("plot_01_N", NN, ".svg", sep = "")
   svg(plt.nam) 
   
-  plot(x = tmp.sim$X, y = tmp.sim$Y,
-       xlab = "X", ylab = "Y",
-       xlim = c(-50, 50), ylim = c(-150, 150))
-  abline(a = b0, b = b1, lty = 2, col = "red", lwd = 2)
+  if (NN <= 2) {
+    
+    # see: https://statisticsglobe.com/plot-only-text-in-r
+    plot(x = 0:1, # Create empty plot
+         y = 0:1,
+         ann = F,
+         bty = "n",
+         type = "n",
+         xaxt = "n",
+         yaxt = "n")
+    text(x = 0.5, # Add text to empty plot
+         y = 0.5,
+         # "This is my first line of text!\nAnother line of text.\n(Created by Base R)", 
+         "Choose a sample size greater than two!", 
+         cex = 2)
+    
+  } else {
+  
+    # plot(x = tmp.sim$X, y = tmp.sim$Y,
+    #      xlab = "X", ylab = "Y",
+    #      xlim = c(-50, 50), ylim = c(-150, 150))
+    # abline(a = b0, b = b1, lty = 2, col = "red", lwd = 2)
+    
+    main <- c("")
+    sub <- c("")
+    xlab <- c("X")
+    ylab <- c("Y")
+    
+    xlim <- c(-60, 60)
+    ylim <- c(-150, 150)
+    
+    plot.new()
+    plot.window(xlim, ylim, "")
+    title(main = main, sub = sub, xlab = xlab, ylab = ylab)
+    axis(1)
+    axis(2)
+    
+    lines(x = tmp.sim$X, y = tmp.sim$Y, type = "p")
+    abline(a = tmp.sim$b0h, b = tmp.sim$b1h, lty = 2, col = "red", lwd = 2)
+    
+  }
   
   dev.off()
   
@@ -127,25 +164,67 @@ for (ii in 1:length(NN.vec)) {
     
   } else {
     
+    # # plot histogram of estimator
+    # hist(x = tmp.sim$b1h, freq = FALSE,
+    #      xlim = c(-6, 6),
+    #      ylim = c(0, 5),
+    #      # main=paste("n=",N),
+    #      main = "",
+    #      xlab = "", 
+    #      ylab = "Absolute Frequency")
+    # 
+    # # line for mean population parameter
+    # abline(v = b1, lty = 2, col = "red", lwd = 2)
+    # 
+    # # legend
+    # legend("topleft",
+    #        legend = "Population coefficient",
+    #        lty = 2,
+    #        lwd = 1,
+    #        col = "red",
+    #        inset = 0.05)
+    
+    # generate histogram of estimator
+    x <- hist(x = tmp.sim$b1h,
+              freq = FALSE,
+              plot = FALSE)
+    
     # plot histogram of estimator
-    hist(x = tmp.sim$b1h, freq = FALSE,
-         xlim = c(-6, 6),
-         ylim = c(0, 5),
-         # main=paste("n=",N),
-         main = "",
-         xlab = "", 
-         ylab = "Absolute Frequency")
+    main <- c("")
+    sub <- c("")
+    xlab <- c("")
+    ylab <- c("Relative Frequency")
+    
+    xlim <- c(-6, 6)
+    ylim <- c(0, max(c(x$density, 10)))
+    
+    plot.new()
+    plot.window(xlim, ylim, "")
+    title(main = main, sub = sub, xlab = xlab, ylab = ylab)
+    axis(1)
+    axis(2)
+    
+    grid()
+    
+    # nB <- length(x$breaks)
+    # rect(x$breaks[-nB], 0, x$breaks[-1L], x$density)
+    
+    nbx <- length(x$breaks[which(x$counts > 0)])
+    rect(x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-(nbx+1)], 0, x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-1L], x$density[which(x$counts > 0)],
+         col = "grey")
     
     # line for mean population parameter
     abline(v = b1, lty = 2, col = "red", lwd = 2)
     
     # legend
     legend("topleft",
-           legend = "Population coefficient",
+           # legend = "Probability of Success",
+           legend = c(expression("Value of "*beta[1]*" ")),
            lty = 2,
            lwd = 1,
            col = "red",
            inset = 0.05)
+    
   }
   
   dev.off()
@@ -175,7 +254,9 @@ for (ii in 1:length(NN.vec)) {
   } else {
     
     # generate histogram of estimator
-    x <- hist(x = tmp.sim$b1h.z, freq = FALSE)
+    x <- hist(x = tmp.sim$b1h.z,
+              freq = FALSE,
+              plot = FALSE)
     
     # plot histogram of estimator
     main <- c("")
@@ -184,7 +265,7 @@ for (ii in 1:length(NN.vec)) {
     ylab <- c("Relative Frequency")
     
     xlim <- c(-6, 6)
-    ylim <- c(0, max(c(x$density, 0.40)))
+    ylim <- c(0, max(c(x$density, 0.50)))
     
     plot.new()
     plot.window(xlim, ylim, "")
@@ -192,8 +273,14 @@ for (ii in 1:length(NN.vec)) {
     axis(1)
     axis(2)
     
-    nB <- length(x$breaks)
-    rect(x$breaks[-nB], 0, x$breaks[-1L], x$density)
+    grid()
+    
+    # nB <- length(x$breaks)
+    # rect(x$breaks[-nB], 0, x$breaks[-1L], x$density)
+    
+    nbx <- length(x$breaks[which(x$counts > 0)])
+    rect(x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-(nbx+1)], 0, x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-1L], x$density[which(x$counts > 0)],
+         col = "grey")
     
     # pdf for normal distribution
     curve(dnorm(x, mean = 0, sd = 1), -3, 3,
@@ -208,7 +295,8 @@ for (ii in 1:length(NN.vec)) {
     
     # legend
     legend("topright",
-           legend = "Standard Normal PDF",
+           # legend = "Standard Normal PDF",
+           legend = c(expression("pdf of "*italic("N")*"(0,1)")),
            lty = 2,
            lwd = 1,
            col = "red",
