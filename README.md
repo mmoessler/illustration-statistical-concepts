@@ -8,17 +8,31 @@ This illustration shows the sampling properties of the sample average as estimat
 
 $$
 \begin{align*}
-Y_i &\sim B\left(p\right), \\
+Y_i &\sim B\left(p\right). \\
 \end{align*}
 $$
 
-with $p=0.4$.
+### Case 1
+
+This illustration shows the effect of changing the sample size $N$ for fixed $p=0.4$.
 
 Open the following link in your browser.
 
 ```
 
 https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/lln-clt-case-01/lln_clt_case_01_html_xx.html
+
+```
+
+### Case 2
+
+This illustration shows the effect of changing the sample size $N$ and the probability of success $p$.
+
+Open the following link in your browser.
+
+```
+
+https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/lln-clt-case-02/lln_clt_case_02_html_xx.html
 
 ```
 
