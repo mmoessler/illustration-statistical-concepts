@@ -4,7 +4,7 @@ Illustration of statistical concepts and methods using simulation studies.
 
 ## Sampling properties of sample average
 
-This illustration shows the sampling properties of the sample average as estimator for the probability of success $p$ in a Bernoulli experiment, i.e., based on the following DGP,
+The illustrations below show the sampling properties of the sample average as estimator for the probability of success $p$ in a Bernoulli experiment, i.e., based on the following DGP,
 
 $$
 \begin{align*}
