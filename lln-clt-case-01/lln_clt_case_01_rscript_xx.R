@@ -89,19 +89,50 @@ for (ii in 1:length(NN.vec)) {
     # select reasonable bin width
     brk.int <- 1/NN.vec[ii] 
     
-    hist(x = tmp.sim$Y.bar,
-         breaks = seq(0, 1, brk.int),
-         freq = FALSE,
-         main = "",
-         xlab = "", 
-         ylab = "Absolute Frequency")
+    # hist(x = tmp.sim$Y.bar,
+    #      breaks = seq(0, 1, brk.int),
+    #      freq = FALSE,
+    #      main = "",
+    #      xlab = "", 
+    #      ylab = "Absolute Frequency")
+    
+    # generate histogram of estimator
+    x <- hist(x = tmp.sim$Y.bar,
+              breaks = seq(0, 1, brk.int),
+              freq = FALSE,
+              plot = FALSE)
+    
+    # plot histogram of estimator
+    main <- c("")
+    sub <- c("")
+    xlab <- c("")
+    ylab <- c("Relative Frequency")
+    
+    xlim <- c(0, 1)
+    ylim <- c(0, max(c(x$density, 10)))
+    
+    plot.new()
+    plot.window(xlim, ylim, "")
+    title(main = main, sub = sub, xlab = xlab, ylab = ylab)
+    axis(1)
+    axis(2)
+    
+    grid()
+    
+    # nB <- length(x$breaks)
+    # rect(x$breaks[-nB], 0, x$breaks[-1L], x$density)
+    
+    nbx <- length(x$breaks[which(x$counts > 0)])
+    rect(x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-(nbx+1)], 0, x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-1L], x$density[which(x$counts > 0)],
+         col = "grey")
     
     # line for mean population parameter
     abline(v = p, lty = 2, col = "red", lwd = 2)
     
     # legend
     legend("topright",
-           legend = "Probability of Success",
+           # legend = "Probability of Success",
+           legend = c(expression("Value "*italic("p"))),
            lty = 2,
            lwd = 1,
            col = "red",
