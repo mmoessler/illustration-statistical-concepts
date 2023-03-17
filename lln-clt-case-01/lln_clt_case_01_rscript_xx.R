@@ -144,7 +144,6 @@ for (ii in 1:length(NN.vec)) {
               freq = FALSE,
               plot = FALSE)
     
-    
     # plot histogram of estimator
     main <- c("")
     sub <- c("")
@@ -152,7 +151,7 @@ for (ii in 1:length(NN.vec)) {
     ylab <- c("Relative Frequency")
     
     xlim <- c(-6, 6)
-    ylim <- c(0, max(c(x$density, 0.40)))
+    ylim <- c(0, max(c(x$density, 0.5)))
     
     plot.new()
     plot.window(xlim, ylim, "")
@@ -160,8 +159,14 @@ for (ii in 1:length(NN.vec)) {
     axis(1)
     axis(2)
     
-    nB <- length(x$breaks)
-    rect(x$breaks[-nB], 0, x$breaks[-1L], x$density)
+    grid()
+    
+    # nB <- length(x$breaks)
+    # rect(x$breaks[-nB], 0, x$breaks[-1L], x$density)
+    
+    nbx <- length(x$breaks[which(x$counts > 0)])
+    rect(x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-(nbx+1)], 0, x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-1L], x$density[which(x$counts > 0)],
+         col = "grey")
     
     # pdf for normal distribution
     curve(dnorm(x, mean = 0, sd = 1), -3, 3,
