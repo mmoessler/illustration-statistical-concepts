@@ -25,7 +25,7 @@ Y_bar_ber_sim_fun <- function(RR, NN, p){
     # see, S&W, 2020, p.89
   }
   
-  return(list(Y.bar = Y.bar, Y.bar.z = Y.bar.z))
+  return(list(Y.bar = Y.bar, Y.bar.z = Y.bar.z, Y.sim = Y.sim))
   
 }
 
@@ -48,6 +48,10 @@ for (ii in 1:length(NN.vec)) {
   
   # 1) call simulation function ----
   tmp.sim <- Y_bar_ber_sim_fun(RR = RR, NN = NN, p = p)
+  
+  # 2) table of observations ----
+  tab.nam <- paste("table_01_N", NN, ".html", sep = "")
+  print(xtable(data.frame(y = tmp.sim$Y.sim)), type = "html", file = tab.nam)
   
   # # 2) scatterplot ----
   # 
