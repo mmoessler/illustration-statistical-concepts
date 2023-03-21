@@ -30,7 +30,7 @@ Y_bar_ber_sim_fun <- function(RR, NN, p){
 }
 
 # inputs (variable)
-NN.vec <- seq(1,100,1)
+NN.vec <- seq(2,100,1)
 
 # inputs (fixed)
 RR <- 1000
@@ -51,8 +51,14 @@ for (ii in 1:length(NN.vec)) {
   
   # 2) table of observations ----
   tab.nam <- paste("table_01_N", NN, ".html", sep = "")
-  print(xtable(data.frame(y = tmp.sim$Y.sim)), type = "html", file = tab.nam)
+  print(xtable::xtable(data.frame(y = tmp.sim$Y.sim)), type = "html", file = tab.nam)
+
+  tab.nam <- paste("table_xx_N", NN, ".html", sep = "")
+  lm.tmp <- lm(tmp.sim$Y.sim ~ 1)
+  texreg::htmlreg(lm.tmp, file = tab.nam)
+
   
+    
   # # 2) scatterplot ----
   # 
   # plt.nam <- paste("plot_01_N", NN, ".svg", sep = "")
