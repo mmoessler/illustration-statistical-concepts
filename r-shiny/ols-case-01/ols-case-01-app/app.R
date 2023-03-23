@@ -19,8 +19,19 @@ ui <- fluidPage(
       tags$div(HTML("<span style='font-size: 18pt'>Change the Inputs</span>")),
       
       tags$hr(),
-      
-      # Input 1: Sample size ----
+
+      # Input 1: Slope coefficient ----
+      sliderInput(inputId = "b1",
+                  # label = withMathJax(
+                  #   'Sample Size \\(N\\)'
+                  # ),
+                  label = "Slope Coefficient",
+                  min = as.numeric(-3),
+                  max = as.numeric(3),
+                  value = as.numeric(3),
+                  step = 1),
+            
+      # Input 2: Sample size ----
       sliderInput(inputId = "NN",
                   # label = withMathJax(
                   #   'Sample Size \\(N\\)'
@@ -29,6 +40,28 @@ ui <- fluidPage(
                   min = as.numeric(1),
                   max = as.numeric(100),
                   value = as.numeric(11),
+                  step = 1),
+      
+      # Input 3: variance X ----
+      sliderInput(inputId = "X.sd",
+                  # label = withMathJax(
+                  #   'Sample Size \\(N\\)'
+                  # ),
+                  label = "Standard deviation X",
+                  min = as.numeric(1),
+                  max = as.numeric(20),
+                  value = as.numeric(10),
+                  step = 1),
+      
+      # Input 4: variance u ----
+      sliderInput(inputId = "u.sd",
+                  # label = withMathJax(
+                  #   'Sample Size \\(N\\)'
+                  # ),
+                  label = "Standard deviation u",
+                  min = as.numeric(1),
+                  max = as.numeric(20),
+                  value = as.numeric(10),
                   step = 1),
       
     ),
@@ -162,10 +195,10 @@ server <- function(input, output) {
     # inputs
     RR <- 1000
     NN <- input$NN
-    b0 <- -2
-    b1 <- 3.5
-    X.sd <- 10
-    u.sd <- 10
+    b0 <- -1
+    b1 <- input$b1
+    X.sd <- input$X.sd
+    u.sd <- input$u.sd
     
     # simulation
     tmp.sim <- bet_hat_sim_fun(RR = RR, NN = NN,
@@ -182,19 +215,22 @@ server <- function(input, output) {
     # inputs
     RR <- 1000
     NN <- input$NN
-    b0 <- -2
-    b1 <- 3.5
-    X.sd <- 10
-    u.sd <- 10
+    b0 <- -1
+    b1 <- input$b1
+    X.sd <- input$X.sd
+    u.sd <- input$u.sd
     
     # reactive
     tmp.sim <- Sim()
     
     # illustration
+    # plot(x = tmp.sim$X, y = tmp.sim$Y,
+    #      xlab = "X", ylab = "Y",
+    #      xlim = c(-50, 50), ylim = c(-150, 150))
     plot(x = tmp.sim$X, y = tmp.sim$Y,
-         xlab = "X", ylab = "Y",
-         xlim = c(-50, 50), ylim = c(-150, 150))
-    abline(a = b0, b = b1, lty = 2, col = "red", lwd = 2)
+         xlab = "X", ylab = "Y")
+    
+    abline(a = b0, b = input$b1, lty = 2, col = "red", lwd = 2)
     
   })
   
@@ -205,8 +241,8 @@ server <- function(input, output) {
     NN <- input$NN
     b0 <- -2
     b1 <- 3.5
-    X.sd <- 10
-    u.sd <- 10
+    X.sd <- input$X.sd
+    u.sd <- input$u.sd
     
     # reactive
     tmp.sim <- Sim()
@@ -240,7 +276,7 @@ server <- function(input, output) {
            ylab = "Absolute Frequency")
       
       # line for mean population parameter
-      abline(v = b1, lty = 2, col = "red", lwd = 2)
+      abline(v = input$b1, lty = 2, col = "red", lwd = 2)
       
       # legend
       legend("topleft",
@@ -258,10 +294,10 @@ server <- function(input, output) {
     # inputs
     RR <- 1000
     NN <- input$NN
-    b0 <- -2
-    b1 <- 3.5
-    X.sd <- 10
-    u.sd <- 10
+    b0 <- -1
+    b1 <- input$b1
+    X.sd <- input$X.sd
+    u.sd <- input$u.sd
     
     # reactive
     tmp.sim <- Sim()
