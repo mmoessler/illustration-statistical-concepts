@@ -96,8 +96,13 @@ for (ii in 1:length(NN.vec)) {
                              X.sd = X.sd,
                              u.sd = u.sd)
   
+  
   #..................................................
-  # 2) scatterplot ----
+  # 2) fit linear model
+  lm.tmp <- lm(tmp.sim$Y ~ tmp.sim$X + 1)
+  
+  #..................................................
+  # 3) scatterplot ----
   
   plt.nam <- paste("plot_01_N", NN, ".svg", sep = "")
   svg(plt.nam) 
@@ -118,20 +123,31 @@ for (ii in 1:length(NN.vec)) {
   plot.new()
   plot.window(xlim, ylim, "")
   title(main = main, sub = sub, xlab = xlab, ylab = ylab)
+  
   axis(1)
   axis(2)
   
+  grid()
+  
   lines(x = tmp.sim$X, y = tmp.sim$Y, type = "p")
   abline(a = tmp.sim$b0h, b = tmp.sim$b1h, lty = 2, col = "red", lwd = 2)
-    
+  
+  rect(xleft = -60, ybottom = 80, xright = -20, ytop = 145, col = "white")
+  
+  text(x = -40, y = 130,
+       bquote(widehat(beta)[1] == .(round(summary(lm.tmp)$coefficients[2,1], 3))),
+       cex = 1.25)
+  text(x = -40, y = 100,
+       bquote(widehat(sigma)[widehat(beta)[1]] == .(round(summary(lm.tmp)$coefficients[2,2], 3))),
+       cex = 1.25)
+  
   dev.off()
   
   #..................................................
-  # 3) linear model fit ----
+  # 4) linear model fit ----
   
   tab.nam <- paste("table_01_N", NN, ".html", sep = "")
   
-  lm.tmp <- lm(tmp.sim$Y ~ tmp.sim$X + 1)
   htmlreg(lm.tmp, file = tab.nam,
           single.row = TRUE,
           custom.model.names = "Y",
@@ -141,7 +157,7 @@ for (ii in 1:length(NN.vec)) {
           include.adjrs = FALSE)
     
   #..................................................
-  # 4) histogram (non-standardized) ----
+  # 5) histogram (non-standardized) ----
 
   plt.nam <- paste("plot_02_N", NN, ".svg", sep = "")
   svg(plt.nam) 
@@ -210,7 +226,7 @@ for (ii in 1:length(NN.vec)) {
   dev.off()
   
   #..................................................
-  # 5) histogram (standardized) ----
+  # 6) histogram (standardized) ----
   
   plt.nam <- paste("plot_03_N", NN, ".svg", sep = "")
   svg(plt.nam) 
