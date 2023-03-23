@@ -135,10 +135,12 @@ for (ii in 1:length(NN.vec)) {
   rect(xleft = -60, ybottom = 80, xright = -20, ytop = 145, col = "white")
   
   text(x = -40, y = 130,
-       bquote(widehat(beta)[1] == .(round(summary(lm.tmp)$coefficients[2,1], 3))),
+       # bquote(widehat(beta)[1] == .(round(summary(lm.tmp)$coefficients[2,1], 3))),
+       bquote(widehat(beta)[1] == .(format(round(summary(lm.tmp)$coefficients[2,1], 3), 3))),
        cex = 1.25)
   text(x = -40, y = 100,
-       bquote(widehat(sigma)[widehat(beta)[1]] == .(round(summary(lm.tmp)$coefficients[2,2], 3))),
+       # bquote(widehat(sigma)[widehat(beta)[1]] == .(round(summary(lm.tmp)$coefficients[2,2], 3))),
+       bquote(widehat(sigma)[widehat(beta)[1]] == .(format(round(summary(lm.tmp)$coefficients[2,2], 3), 3))),
        cex = 1.25)
   
   dev.off()
@@ -151,7 +153,7 @@ for (ii in 1:length(NN.vec)) {
   htmlreg(lm.tmp, file = tab.nam,
           single.row = TRUE,
           custom.model.names = "Y",
-          custom.coef.names = c("X","const"),
+          custom.coef.names = c("const","X"),
           caption = "",
           digits = 3,
           include.adjrs = FALSE)

@@ -128,7 +128,7 @@
 
           <p style="font-size: 18pt">Statistical Model</p>
 
-          <p>We are interested in the sampling properties of the OLS estimator for the slope coefficient $\beta_1$ of the following simple linear regression model,</p>
+          <p>We are interested in the sampling properties of the OLS estimator \(\widehat\beta_1\) for the slope coefficient \(\beta_1\) of the following simple linear regression model,</p>
 
           $$
           \begin{align}
@@ -150,8 +150,9 @@
           <p style="font-size: 18pt">Simulation</p>
 
           <ol>
-            <li>A sample of size $N$ is drawn from the regression model above.</li>
-            <li>A regression line, i.e., \(\beta_0\) and \(\beta_1\), are fitted based on the sample drawn.</li>
+            <li>A sample of size \(N\) is drawn from the statistical model above.</li>
+            <!-- <li>A regression line, i.e., \(\beta_0\) and \(\beta_1\), are fitted based on the sample drawn.</li> -->
+            <li>A regression line, i.e., \(\widehat{\beta}_0\) and \(\widehat{\beta}_1\), are estimated based on the sample drawn.</li>
             <li>The value of the estimate of interest, i.e., \(\widehat{\beta}_1\), is stored.</li>
             <li>Step 1) to 3) is repeated \(1000\) times resulting in \(1000\) estimates \(\widehat{\beta}_1\).</li>
             <p style="margin-left: 3px; font-size: 14pt;">Remember, even if the observations are simulated using the same statistical model, they will not be exactly the same.</p>
@@ -203,8 +204,10 @@
               <p style="font-size: 16pt">Estimation Result Sample Draw</p>              
               <p style='font-size: 14pt;'>(Based on one sample draw of size \(N\) on the DGP)</p> 
               -->
+              <!--
               <hr>
               <div w3-include-html="https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/ols-case-01/table_01_N10.html" id="tableL1N1Id"></div> 
+              -->
             </div>
 
             <!-- .................................................. -->
