@@ -98,7 +98,7 @@ for (ii in 1:length(NN.vec)) {
   
   
   #..................................................
-  # 2) fit linear model
+  # 2) fit linear model ----
   lm.tmp <- lm(tmp.sim$Y ~ tmp.sim$X + 1)
   
   #..................................................
@@ -130,7 +130,8 @@ for (ii in 1:length(NN.vec)) {
   grid()
   
   lines(x = tmp.sim$X, y = tmp.sim$Y, type = "p")
-  abline(a = tmp.sim$b0h, b = tmp.sim$b1h, lty = 2, col = "red", lwd = 2)
+  # abline(a = tmp.sim$b0h, b = tmp.sim$b1h, lty = 2, col = "red", lwd = 2)
+  abline(a = summary(lm.tmp)$coefficients[1,1], b = summary(lm.tmp)$coefficients[2,1], lty = 2, col = "red", lwd = 2)
   
   rect(xleft = -60, ybottom = 80, xright = -20, ytop = 145, col = "white")
   
