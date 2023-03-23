@@ -57,8 +57,6 @@ $$
 \end{align*}
 $$
 
-with ...
-
 Each case below focus on the effect of changing a parameter of the statistical model above.
 
 ### Case 1
@@ -73,7 +71,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/ols-cas
 
 ```
 
-Run the following codes in R  (old approach):
+Run the following codes in R (old approach):
 
 ```
 
@@ -83,11 +81,11 @@ source("https://raw.githubusercontent.com/mmoessler/illustration-statistical-con
 
 ### Case 2
 
-This illustration shows the effect of changing the variance of $u$, i.e., $\sigma_u^2$.
+This illustration shows the effect of changing the sample size $N$ and changing the variance of $u$, i.e., $\sigma_u^2$.
 
 ### Case 3
 
-This illustration shows the effect of changing the variance of $X$, i.e., $\sigma_X^2$.
+This illustration shows the effect of changing the sample size $N$ and changing the variance of $X$, i.e., $\sigma_X^2$.
 
 Run the following codes in R (old approach):
 
