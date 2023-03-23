@@ -2,3 +2,6 @@
 -> https://stackoverflow.com/questions/6551446/can-i-run-html-files-directly-from-github-instead-of-just-viewing-their-source
 
 -> https://unleash-shiny.rinterface.com/htmltools-overview.html
+
+R-Software
+-> https://stat.ethz.ch/R-manual/R-devel/library/grDevices/html/plotmath.html
