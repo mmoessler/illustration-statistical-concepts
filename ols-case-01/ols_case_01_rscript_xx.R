@@ -136,11 +136,11 @@ for (ii in 1:length(NN.vec)) {
   
   text(x = -40, y = 130,
        # bquote(widehat(beta)[1] == .(round(summary(lm.tmp)$coefficients[2,1], 3))),
-       bquote(widehat(beta)[1] == .(format(round(summary(lm.tmp)$coefficients[2,1], 3), 3))),
+       bquote(widehat(beta)[1] == .(format(round(summary(lm.tmp)$coefficients[2,1], 3), nsmall = 3))),
        cex = 1.25)
   text(x = -40, y = 100,
        # bquote(widehat(sigma)[widehat(beta)[1]] == .(round(summary(lm.tmp)$coefficients[2,2], 3))),
-       bquote(widehat(sigma)[widehat(beta)[1]] == .(format(round(summary(lm.tmp)$coefficients[2,2], 3), 3))),
+       bquote(widehat(sigma)[widehat(beta)[1]] == .(format(round(summary(lm.tmp)$coefficients[2,2], 3), nsmall = 3))),
        cex = 1.25)
   
   dev.off()
