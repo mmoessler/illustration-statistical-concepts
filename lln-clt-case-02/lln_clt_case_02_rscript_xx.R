@@ -52,6 +52,14 @@ for (ii in 1:length(NN.vec)) {
     # 1) call simulation function ----
     tmp.sim <- Y_bar_ber_sim_fun(RR = RR, NN = NN, p = p)
     
+    # 2) table of observations ----
+    tab.nam <- paste("table_01_N", NN, "_p", p*10, ".svg", sep = "")
+    print(xtable::xtable(data.frame(y = tmp.sim$Y.sim)), type = "html", file = tab.nam)
+    
+    tab.nam <- paste("table_xx_N", NN, ".html", sep = "")
+    lm.tmp <- lm(tmp.sim$Y.sim ~ 1)
+    texreg::htmlreg(lm.tmp, file = tab.nam)
+    
     # # 2) scatterplot ----
     # 
     # plt.nam <- paste("plot_01_N", NN, ".svg", sep = "")
