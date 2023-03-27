@@ -5,6 +5,11 @@ rm(list=ls())
 # set working directory
 setwd("C:/Users/Markus/Dropbox/Teaching/SoSe2023/illustration-statistical-concepts/lln-clt-case-01")
 
+# load texreg extract functions
+library(xtable)
+library(texreg)
+source("../r-scripts/texreg_extract_fun_xx.R")
+
 # set seed 
 set.seed(12345)
 
@@ -36,6 +41,27 @@ NN.vec <- seq(5, 95, 10)
 RR <- 1000
 p <- 0.4
 
+# plot inputs
+# xlim.01 <- c(-60, 60) # scatterplot
+# ylim.01 <- c(-150, 150)
+# 
+# xlim.02 <- c(-6, 6) # histogram (lln)
+# ylim.02.max <- 10
+# 
+# xlim.03 <- c(-60, 60) # histogram (clt)
+# ylim.03.max <- 0.5
+
+rect.xleft.01 <- 0.25 # position rectangle in scatterplot
+rect.ybottom.01 <- 82.5
+rect.xright.01 <- 0.75
+rect.ytop.01 <- 97.5
+
+text.x.01 <- 0.5 # position text line 01
+text.y.01 <- 93
+
+text.x.02 <- 0.5 # position text line 02
+text.y.02 <- 87
+
 # simulation
 
 pb = txtProgressBar(min = 0, max = length(NN.vec), initial = 0) 
@@ -49,14 +75,53 @@ for (ii in 1:length(NN.vec)) {
   # 1) call simulation function ----
   tmp.sim <- Y_bar_ber_sim_fun(RR = RR, NN = NN, p = p)
   
-  # 2) table of observations ----
-  tab.nam <- paste("table_01_N", NN, ".html", sep = "")
-  print(xtable::xtable(data.frame(y = tmp.sim$Y.sim)), type = "html", file = tab.nam)
-
-  tab.nam <- paste("table_xx_N", NN, ".html", sep = "")
+  # # 2) table of observations/estimation results ----
+  # tab.nam <- paste("table_01_N", NN, ".html", sep = "")
+  # print(xtable::xtable(data.frame(N = seq(1, NN), y = tmp.sim$Y.sim),
+  #                      align = c("p", "p", "r")),
+  #       include.rownames = FALSE, type = "html", file = tab.nam)
+  # 
+  # tab.nam <- paste("table_02_N", NN, ".html", sep = "")
+  # lm.tmp <- lm(tmp.sim$Y.sim ~ 1)
+  # texreg::htmlreg(lm.tmp,
+  #                 single.row = TRUE,
+  #                 include.rsquared = FALSE,
+  #                 include.adjrs = FALSE,
+  #                 include.rmse = FALSE,
+  #                 custom.model.names = "Y",
+  #                 custom.coef.names = "sample average",
+  #                 caption = "",
+  #                 stars = NULL,
+  #                 file = tab.nam)
+  
+  # # 2) barplot ----
   lm.tmp <- lm(tmp.sim$Y.sim ~ 1)
-  texreg::htmlreg(lm.tmp, file = tab.nam)
-
+  
+  plt.nam <- paste("plot_01_N", NN, ".svg", sep = "")
+  svg(plt.nam) 
+  
+  tmp <- c(sum(tmp.sim$Y.sim)-1, sum(tmp.sim$Y.sim))
+  tmp.bp <- barplot(tmp,
+                    ylim = c(0, 100),
+                    names.arg = c("0","1"))
+  grid()
+  barplot(tmp,
+          ylim = c(0, 100),
+          names.arg = c("0","1"), add = TRUE)
+  
+  rect(xleft = rect.xleft.01, ybottom = rect.ybottom.01, xright = rect.xright.01, ytop = rect.ytop.01, col = "white")
+  
+  text(x = text.x.01, y = text.y.01,
+       # bquote(widehat(beta)[1] == .(round(summary(lm.tmp)$coefficients[2,1], 3))),
+       bquote(bar(Y) ~" " == .(format(round(summary(lm.tmp)$coefficients[1,1], 3), nsmall = 3))),
+       cex = 1.25)
+  text(x = text.x.02, y = text.y.02,
+       # bquote(widehat(sigma)[widehat(beta)[1]] == .(round(summary(lm.tmp)$coefficients[2,2], 3))),
+       bquote(widehat(sigma)[~bar(Y)] == .(format(round(summary(lm.tmp)$coefficients[1,2], 3), nsmall = 3))),
+       cex = 1.25)
+  
+  dev.off()
+  
   # # 2) scatterplot ----
   # 
   # plt.nam <- paste("plot_01_N", NN, ".svg", sep = "")
@@ -71,7 +136,7 @@ for (ii in 1:length(NN.vec)) {
   
   # 3) histogram (non-standardized) ----
 
-  plt.nam <- paste("plot_01_N", NN, ".svg", sep = "")
+  plt.nam <- paste("plot_02_N", NN, ".svg", sep = "")
   svg(plt.nam) 
   
   if (NN <= 2) {
@@ -152,7 +217,7 @@ for (ii in 1:length(NN.vec)) {
   
   # 4) histogram (standardized) ----
   
-  plt.nam <- paste("plot_02_N", NN, ".svg", sep = "")
+  plt.nam <- paste("plot_03_N", NN, ".svg", sep = "")
   svg(plt.nam) 
   
   if (NN <= 2) {
