@@ -319,6 +319,10 @@
         document.getElementById("imageL1N2Id").setAttribute("src", "plot_01_N" + sliderValue01 + "_b" + sliderValue02 + ".svg");
         document.getElementById("imageL1N3Id").setAttribute("src", "plot_02_N" + sliderValue01 + "_b" + sliderValue02 + ".svg");
 
+        // for checks
+        var str01 = "plot_01_N";
+        console.log(str01.concat(sliderValue01, "_b", sliderValue02, ".svg"))
+
       })
 
       slider02.on("slide", function() {
@@ -328,6 +332,10 @@
 
         document.getElementById("imageL1N2Id").setAttribute("src", "plot_01_N" + sliderValue01 + "_b" + sliderValue02 + ".svg");
         document.getElementById("imageL1N3Id").setAttribute("src", "plot_02_N" + sliderValue01 + "_b" + sliderValue02 + ".svg");
+
+        // for checks
+        var str01 = "plot_01_N";
+        console.log(str01.concat(sliderValue01, "_b", sliderValue02, ".svg"))
 
       })
 
