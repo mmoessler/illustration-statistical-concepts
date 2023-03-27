@@ -57,8 +57,6 @@ for (ii in 1:length(NN.vec)) {
   lm.tmp <- lm(tmp.sim$Y.sim ~ 1)
   texreg::htmlreg(lm.tmp, file = tab.nam)
 
-  
-    
   # # 2) scatterplot ----
   # 
   # plt.nam <- paste("plot_01_N", NN, ".svg", sep = "")
