@@ -30,8 +30,8 @@ Y_bar_ber_sim_fun <- function(RR, NN, p){
 }
 
 # inputs (variable)
-NN.vec <- seq(1,100,1)
-p.vec <- seq(0,1,0.1)
+NN.vec <- seq(5, 95, 10)
+p.vec <- seq(0,1,0.2)
 
 # inputs (fixed)
 RR <- 1000
