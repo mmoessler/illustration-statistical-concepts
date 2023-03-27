@@ -83,6 +83,14 @@ source("https://raw.githubusercontent.com/mmoessler/illustration-statistical-con
 
 This illustration shows the effect of changing the sample size $N$ and changing the value of the slope parameter, i.e., $\beat_1$.
 
+Open the following link in your browser:
+
+```
+
+https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/ols-case-02/ols_case_02_html_xx.html
+
+```
+
 ### Case 3
 
 This illustration shows the effect of changing the sample size $N$ and changing the variance of $u$, i.e., $\sigma_u^2$.
