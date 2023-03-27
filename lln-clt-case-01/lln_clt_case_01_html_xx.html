@@ -72,12 +72,16 @@
       }
 
       /* increase row heigt of tables */
+      /*
       tr {
         height:40px
       }
+      */
 
       /* increase font size of tables */
-      .table01{
+      /* see: https://stackoverflow.com/questions/15901522/applying-css-styles-to-all-elements-inside-a-div*/
+      .table01 > * {
+        height: 40px;
         font-size: 20pt;
       }
 
@@ -305,7 +309,7 @@
 
       var slider = new Slider("#ex6", { tooltip: 'always' });
       slider.on("slide", function(sliderValue) {
-        document.getElementById("tableL1N2Id").setAttribute("w3-include-html", "table_01_N" + sliderValue + ".html");
+        document.getElementById("tableL1N2Id").setAttribute("w3-include-html", "table_02_N" + sliderValue + ".html");
         includeHTML();
         document.getElementById("tableL1N1Id").setAttribute("w3-include-html", "table_01_N" + sliderValue + ".html");
         includeHTML();
