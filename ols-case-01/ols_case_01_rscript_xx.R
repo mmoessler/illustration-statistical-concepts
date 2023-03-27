@@ -6,6 +6,7 @@ rm(list=ls())
 setwd("C:/Users/Markus/Dropbox/Teaching/SoSe2023/illustration-statistical-concepts/ols-case-01")
 
 # load texreg extract functions
+library(xtable)
 library(texreg)
 source("../r-scripts/texreg_extract_fun_xx.R")
 
