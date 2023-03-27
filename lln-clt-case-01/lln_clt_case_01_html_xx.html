@@ -194,7 +194,7 @@
           <div class="jumbotron">
 
             <div class="tab" style="text-align: center;">
-              <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N1Id', 'tabLinkL1N1Id', 'white')" id="tabLinkL1N1Id">Tables</button>
+              <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N1Id', 'tabLinkL1N1Id', 'white')" id="tabLinkL1N1Id">Table</button>
               <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N2Id', 'tabLinkL1N2Id', 'white')" id="tabLinkL1N2Id">Plot No 1</button>
               <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N3Id', 'tabLinkL1N3Id', 'white')" id="tabLinkL1N3Id">Plot No 2</button>
             </div>
@@ -204,16 +204,10 @@
 
             <!-- .................................................. -->
             <div id="tabContentL1N1Id" class="tabContentL1Cl">
-              <p style="font-size: 16pt">Sample Draw</p>              
-              <p style='font-size: 14pt;'>(Based on one sample draw of size \(N\) of the DGP)</p>
-              <div class="table01">
-                <div w3-include-html="https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/lln-clt-case-01/table_02_N5.html" id="tableL1N1Id"></div> 
-              </div> 
-              <hr>
-              <div class="table02">
-                <div w3-include-html="https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/lln-clt-case-01/table_01_N5.html" id="tableL1N2Id"></div> 
-              </div>
-              <hr>                       
+              <p style="font-size: 16pt">Barplot Sample Draw</p>              
+              <p style='font-size: 14pt;'>(Based on one sample draw of size \(N\) on the DGP)</p>              
+              <p style='font-size: 14pt;'>The plot below illustrates the simulation exercise</p>                          
+              <img src="plot_01_N5.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
             </div>
 
             <!-- .................................................. -->
@@ -221,7 +215,7 @@
               <p style='font-size: 16pt;'>Histogram of the sample average \(\overline{Y}\)</p>
               <p style='font-size: 14pt;'>(Based on \(1000\) sample draw of size \(N\) on the DGP)</p>              
               <p style='font-size: 12pt;'>The plot below illustrates the Law of Large Numbers (LLN)</p>
-              <img src="plot_01_N5.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
+              <img src="plot_02_N5.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
               <br><br>
               <p>As the sample size \(N\) grows the sample average \(\overline{Y}\) gets closer to \(\mu\), i.e.,</p>
               $$
@@ -237,7 +231,7 @@
               <p style='font-size: 16pt;'>Histogram of the standardized sample average \(z_{\overline{Y}}\)</p>
               <p style='font-size: 14pt;'>(Based on \(1000\) sample draw of size \(N\) on the DGP)</p>              
               <p style='font-size: 12pt;'>The plot below illustrates the Central Limit Theorem (CLT)</p>
-              <img src="plot_02_N5.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
+              <img src="plot_03_N5.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
               <br><br>
               <p>As the sample size \(N\) grows the distribution of the standardized sample average,</p>
               $$
@@ -310,11 +304,8 @@
 
       var slider = new Slider("#ex6", { tooltip: 'always' });
       slider.on("slide", function(sliderValue) {
-        document.getElementById("tableL1N1Id").setAttribute("w3-include-html", "table_02_N" + sliderValue + ".html");
-        includeHTML();
-        document.getElementById("tableL1N2Id").setAttribute("w3-include-html", "table_01_N" + sliderValue + ".html");
-        includeHTML();
-        document.getElementById("imageL1N2Id").setAttribute("src", "plot_01_N" + sliderValue + ".svg");
+        document.getElementById("imageL1N1Id").setAttribute("src", "plot_01_N" + sliderValue + ".svg");
+        document.getElementById("imageL1N2Id").setAttribute("src", "plot_02_N" + sliderValue + ".svg");
         document.getElementById("imageL1N3Id").setAttribute("src", "plot_02_N" + sliderValue + ".svg");
       });
 
