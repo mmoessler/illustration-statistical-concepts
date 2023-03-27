@@ -25,13 +25,13 @@ Y_bar_ber_sim_fun <- function(RR, NN, p){
     # see, S&W, 2020, p.89
   }
   
-  return(list(Y.bar = Y.bar, Y.bar.z = Y.bar.z))
+  return(list(Y.bar = Y.bar, Y.bar.z = Y.bar.z, Y.sim = Y.sim))
   
 }
 
 # inputs (variable)
 NN.vec <- seq(5, 95, 10)
-p.vec <- seq(0,1,0.2)
+p.vec <- seq(0.2, 0.8, 0.2)
 
 # inputs (fixed)
 RR <- 1000
@@ -53,10 +53,10 @@ for (ii in 1:length(NN.vec)) {
     tmp.sim <- Y_bar_ber_sim_fun(RR = RR, NN = NN, p = p)
     
     # 2) table of observations ----
-    tab.nam <- paste("table_01_N", NN, "_p", p*10, ".svg", sep = "")
+    tab.nam <- paste("table_01_N", NN, "_p", p*10, ".html", sep = "")
     print(xtable::xtable(data.frame(y = tmp.sim$Y.sim)), type = "html", file = tab.nam)
     
-    tab.nam <- paste("table_xx_N", NN, ".html", sep = "")
+    tab.nam <- paste("table_02_N", NN, "_p", p*10, ".html", sep = "")
     lm.tmp <- lm(tmp.sim$Y.sim ~ 1)
     texreg::htmlreg(lm.tmp, file = tab.nam)
     
