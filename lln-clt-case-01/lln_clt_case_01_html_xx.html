@@ -64,25 +64,17 @@
         margin-top:50px; 
       }
 
-      /* remove vertical border of tables */
-      table, th, td {
+      /* style table 02 */
+      .table02 {
+        font-size: 20pt;
+      }
+      .table02, tr {
+        height: 40px;
+      }
+      .table02, th, td {
         border-left: none;
         border-right: none;
         width: 80px;
-      }
-
-      /* increase row heigt of tables */
-      /*
-      tr {
-        height:40px
-      }
-      */
-
-      /* increase font size of tables */
-      /* see: https://stackoverflow.com/questions/15901522/applying-css-styles-to-all-elements-inside-a-div*/
-      .table01 > * {
-        height: 40px;
-        font-size: 20pt;
       }
 
     </style>
@@ -206,11 +198,11 @@
             <div id="tabContentL1N1Id" class="tabContentL1Cl">
               <p style="font-size: 16pt">Sample Draw</p>              
               <p style='font-size: 14pt;'>(Based on one sample draw of size \(N\) of the DGP)</p>
-              <div class="table02">
+              <div class="table01">
                 <div w3-include-html="https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/lln-clt-case-01/table_02_N5.html" id="tableL1N1Id"></div> 
               </div> 
               <hr>
-              <div class="table01">
+              <div class="table02">
                 <div w3-include-html="https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/lln-clt-case-01/table_01_N5.html" id="tableL1N2Id"></div> 
               </div>                                  
             </div>
