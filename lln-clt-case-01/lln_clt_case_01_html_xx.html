@@ -64,6 +64,22 @@
         margin-top:50px; 
       }
 
+      /* remove vertical border of tables */
+      table, th, td {
+        border-left: none;
+        border-right: none;
+      }
+
+      /* increase row heigt of tables */
+      tr {
+        height:40px
+      }
+
+      /* increase font size of tables */
+      .table01{
+        font-size: 20pt;
+      }
+
     </style>
 
     <script>
@@ -184,8 +200,10 @@
             <!-- .................................................. -->
             <div id="tabContentL1N1Id" class="tabContentL1Cl">
               <p style="font-size: 16pt">Sample Draw</p>              
-              <p style='font-size: 14pt;'>(Based on one sample draw of size \(N\) of the DGP)</p>                            
-              <div w3-include-html="https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/lln-clt-case-01/table_01_N5.html" id="tableL1N1Id"></div> 
+              <p style='font-size: 14pt;'>(Based on one sample draw of size \(N\) of the DGP)</p>
+              <div class="table01">
+                <div w3-include-html="https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/lln-clt-case-01/table_01_N5.html" id="tableL1N1Id"></div> 
+              </div>                                  
             </div>
 
             <!-- .................................................. -->
