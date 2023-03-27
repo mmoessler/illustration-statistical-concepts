@@ -70,7 +70,7 @@ bet_hat_sim_fun <- function(RR, NN,
 }
 
 # inputs (variable)
-NN.vec <- seq(3,100,1)
+NN.vec <- seq(3, 100, 1)
 
 # inputs (fixed)
 RR <- 1000
@@ -78,6 +78,27 @@ b0 <- -2
 b1 <- 3.5
 X.sd <- 10
 u.sd <- 10
+
+# plot inputs
+xlim.01 <- c(-60, 60) # scatterplot
+ylim.01 <- c(-150, 150)
+
+xlim.02 <- c(-6, 6) # histogram (lln)
+ylim.02.max <- 10
+
+xlim.03 <- c(-60, 60) # histogram (clt)
+ylim.03.max <- 0.5
+
+rect.xleft.01 <- -60 # potion rectangle in scatterplot
+rect.ybottom.01 <- 80
+rect.xright.01 <- -20
+rect.ytop.01 <- 145
+
+text.x.01 <- -40 # position text line 01
+text.y.01 <- 130
+     
+text.x.02 <- -40 # position text line 02
+text.y.02 <- 100
 
 # simulation
 
@@ -117,8 +138,8 @@ for (ii in 1:length(NN.vec)) {
   xlab <- c("X")
   ylab <- c("Y")
   
-  xlim <- c(-60, 60)
-  ylim <- c(-150, 150)
+  xlim <- xlim.01
+  ylim <- ylim.01
   
   plot.new()
   plot.window(xlim, ylim, "")
@@ -133,13 +154,13 @@ for (ii in 1:length(NN.vec)) {
   # abline(a = tmp.sim$b0h, b = tmp.sim$b1h, lty = 2, col = "red", lwd = 2)
   abline(a = summary(lm.tmp)$coefficients[1,1], b = summary(lm.tmp)$coefficients[2,1], lty = 2, col = "red", lwd = 2)
   
-  rect(xleft = -60, ybottom = 80, xright = -20, ytop = 145, col = "white")
+  rect(xleft = rect.xleft.01, ybottom = rect.ybottom.01, xright = rect.xright.01, ytop = rect.ytop.01, col = "white")
   
-  text(x = -40, y = 130,
+  text(x = text.x.01, y = text.y.01,
        # bquote(widehat(beta)[1] == .(round(summary(lm.tmp)$coefficients[2,1], 3))),
        bquote(widehat(beta)[1] == .(format(round(summary(lm.tmp)$coefficients[2,1], 3), nsmall = 3))),
        cex = 1.25)
-  text(x = -40, y = 100,
+  text(x = text.x.02, y = text.y.02,
        # bquote(widehat(sigma)[widehat(beta)[1]] == .(round(summary(lm.tmp)$coefficients[2,2], 3))),
        bquote(widehat(sigma)[widehat(beta)[1]] == .(format(round(summary(lm.tmp)$coefficients[2,2], 3), nsmall = 3))),
        cex = 1.25)
@@ -149,15 +170,15 @@ for (ii in 1:length(NN.vec)) {
   #..................................................
   # 4) linear model fit ----
   
-  tab.nam <- paste("table_01_N", NN, ".html", sep = "")
-  
-  htmlreg(lm.tmp, file = tab.nam,
-          single.row = TRUE,
-          custom.model.names = "Y",
-          custom.coef.names = c("const","X"),
-          caption = "",
-          digits = 3,
-          include.adjrs = FALSE)
+  # tab.nam <- paste("table_01_N", NN, ".html", sep = "")
+  # 
+  # htmlreg(lm.tmp, file = tab.nam,
+  #         single.row = TRUE,
+  #         custom.model.names = "Y",
+  #         custom.coef.names = c("const","X"),
+  #         caption = "",
+  #         digits = 3,
+  #         include.adjrs = FALSE)
     
   #..................................................
   # 5) histogram (non-standardized) ----
@@ -196,8 +217,8 @@ for (ii in 1:length(NN.vec)) {
   xlab <- c("")
   ylab <- c("Relative Frequency")
   
-  xlim <- c(-6, 6)
-  ylim <- c(0, max(c(x$density, 10)))
+  xlim <- xlim.02
+  ylim <- c(0, max(c(x$density, ylim.02.max)))
   
   plot.new()
   plot.window(xlim, ylim, "")
@@ -245,8 +266,8 @@ for (ii in 1:length(NN.vec)) {
   xlab <- c("")
   ylab <- c("Relative Frequency")
   
-  xlim <- c(-6, 6)
-  ylim <- c(0, max(c(x$density, 0.50)))
+  xlim <- xlim.03
+  ylim <- c(0, max(c(x$density, ylim.03.max)))
   
   plot.new()
   plot.window(xlim, ylim, "")
