@@ -184,17 +184,10 @@
 
             <!-- .................................................. -->
             <div id="tabContentL1N1Id" class="tabContentL1Cl">
-              <!--
-              <p style="font-size: 16pt">Scatterplot Sample Draw</p>              
-              <p style='font-size: 14pt;'>(Based on one sample draw of size \(N\) on the DGP)</p>              
-              <p style='font-size: 14pt;'>The plot below illustrates the simulation exercise</p>                          
-              <img src="plot_01_N10.svg" alt="" id="imageL1N1Id" style="text-align: center;">
-              -->
               <p style="font-size: 16pt">Sample Draw</p>              
-              <p style='font-size: 14pt;'>(Based on one sample draw of size \(N\) on the DGP)</p>                            
+              <p style='font-size: 14pt;'>(Based on one sample draw of size \(N\) of the DGP)</p>                            
               <div w3-include-html="https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/lln-clt-case-01/table_01_N10.html" id="tableL1N1Id"></div> 
             </div>
-
 
             <!-- .................................................. -->
             <div id="tabContentL1N2Id" class="tabContentL1Cl">
@@ -284,26 +277,18 @@
       // set start page
       document.getElementById("tabLinkL1N2Id").click();
 
-
       //..............................
       // handling of slider                
       // see: https://seiyria.com/bootstrap-slider/
 
       var slider = new Slider("#ex6", { tooltip: 'always' });
       slider.on("slide", function(sliderValue) {
-        //document.getElementById("ex6SliderVal").textContent = sliderValue;
-
         document.getElementById("tableL1N1Id").setAttribute("w3-include-html", "table_01_N" + sliderValue + ".html");
         includeHTML();
-
         document.getElementById("imageL1N2Id").setAttribute("src", "plot_01_N" + sliderValue + ".svg");
         document.getElementById("imageL1N3Id").setAttribute("src", "plot_02_N" + sliderValue + ".svg");
       });
 
-
-
-
-      
     </script>
 
     <script>
