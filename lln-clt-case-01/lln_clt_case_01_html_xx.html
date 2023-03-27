@@ -133,7 +133,6 @@
           <!-- <div w3-include-html="table_01_N10.html"></div> -->
           <!-- <div w3-include-html="https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/lln-clt-case-01/table_01_N10.html"></div> -->
 
-
           <!--..........................................................................-->
           <hr>
           <p style="font-size: 18pt">Simulation</p>
@@ -166,7 +165,7 @@
           <div class="jumbotron">
             <p style='font-size: 16pt;'>Change sample size \(N\)</p>        
             <br>        
-            <input id="ex6" type="text" data-slider-min="1" data-slider-max="100" data-slider-step="1" data-slider-value="10"/>
+            <input id="ex6" type="text" data-slider-min="5" data-slider-max="95" data-slider-step="10" data-slider-value="5"/>
           </div>
         </div>
         <div class="col-sm-8">
@@ -186,7 +185,7 @@
             <div id="tabContentL1N1Id" class="tabContentL1Cl">
               <p style="font-size: 16pt">Sample Draw</p>              
               <p style='font-size: 14pt;'>(Based on one sample draw of size \(N\) of the DGP)</p>                            
-              <div w3-include-html="https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/lln-clt-case-01/table_01_N10.html" id="tableL1N1Id"></div> 
+              <div w3-include-html="https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/lln-clt-case-01/table_01_N5.html" id="tableL1N1Id"></div> 
             </div>
 
             <!-- .................................................. -->
@@ -194,7 +193,7 @@
               <p style='font-size: 16pt;'>Histogram of the sample average \(\overline{Y}\)</p>
               <p style='font-size: 14pt;'>(Based on \(1000\) sample draw of size \(N\) on the DGP)</p>              
               <p style='font-size: 12pt;'>The plot below illustrates the Law of Large Numbers (LLN)</p>
-              <img src="plot_01_N10.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
+              <img src="plot_01_N5.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
               <br><br>
               <p>As the sample size \(N\) grows the sample average \(\overline{Y}\) gets closer to \(\mu\), i.e.,</p>
               $$
@@ -210,7 +209,7 @@
               <p style='font-size: 16pt;'>Histogram of the standardized sample average \(z_{\overline{Y}}\)</p>
               <p style='font-size: 14pt;'>(Based on \(1000\) sample draw of size \(N\) on the DGP)</p>              
               <p style='font-size: 12pt;'>The plot below illustrates the Central Limit Theorem (CLT)</p>
-              <img src="plot_02_N10.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
+              <img src="plot_02_N5.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
               <br><br>
               <p>As the sample size \(N\) grows the distribution of the standardized sample average,</p>
               $$
