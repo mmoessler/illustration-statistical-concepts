@@ -195,7 +195,7 @@ server <- function(input, output) {
     # inputs
     RR <- 1000
     NN <- input$NN
-    b0 <- -1
+    b0 <- 1
     b1 <- input$b1
     X.sd <- input$X.sd
     u.sd <- input$u.sd
@@ -215,7 +215,7 @@ server <- function(input, output) {
     # inputs
     RR <- 1000
     NN <- input$NN
-    b0 <- -1
+    b0 <- 1
     b1 <- input$b1
     X.sd <- input$X.sd
     u.sd <- input$u.sd
@@ -239,8 +239,8 @@ server <- function(input, output) {
     # inputs
     RR <- 1000
     NN <- input$NN
-    b0 <- -2
-    b1 <- 3.5
+    b0 <- 1
+    b1 <- input$b1
     X.sd <- input$X.sd
     u.sd <- input$u.sd
     
@@ -294,7 +294,7 @@ server <- function(input, output) {
     # inputs
     RR <- 1000
     NN <- input$NN
-    b0 <- -1
+    b0 <- 1
     b1 <- input$b1
     X.sd <- input$X.sd
     u.sd <- input$u.sd
