@@ -4,7 +4,7 @@ Illustration of statistical concepts and methods using simulation studies.
 
 ## Sampling properties of sample average
 
-The illustrations below show the sampling properties of the sample average as estimator for the probability of success $p$ in a Bernoulli experiment, i.e., based on the following DGP,
+The illustrations below show the sampling properties of the sample average as estimator for the probability of success $p$ in a Bernoulli experiment, i.e., based on the following statistical model,
 
 $$
 \begin{align*}
@@ -38,7 +38,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/lln-clt
 
 ## Sampling properties of OLS estimator
 
-The illustrations below shows the sampling properties of the OLS estimator as estimator for the slope coefficient $\beta_1$ in a simple linear regression model, i.e., based on a sample of size $N$ of the following statistical model,
+The illustrations below shows the sampling properties of the OLS estimator as estimator for the slope coefficient $\beta_1$ in the following simple linear regerssion model,
 
 $$
 \begin{align*}
@@ -48,7 +48,7 @@ u_i &\sim N\left(0,10\right),
 \end{align*}
 $$
 
-with $\beta_0 = -2$, $\beta_1 = 3.5$, $\sigma_X^2 = 10$ and $\sigma_u^2 = 10$ and with,
+with $\beta_0 = 1$, $\beta_1 = 2$, $\sigma_X^2 = 10$ and $\sigma_u^2 = 10$ and with,
 
 $$
 \begin{align*}
@@ -81,9 +81,13 @@ source("https://raw.githubusercontent.com/mmoessler/illustration-statistical-con
 
 ### Case 2
 
-This illustration shows the effect of changing the sample size $N$ and changing the variance of $u$, i.e., $\sigma_u^2$.
+This illustration shows the effect of changing the sample size $N$ and changing the value of the slope parameter, i.e., $\beat_1$.
 
 ### Case 3
+
+This illustration shows the effect of changing the sample size $N$ and changing the variance of $u$, i.e., $\sigma_u^2$.
+
+### Case 4
 
 This illustration shows the effect of changing the sample size $N$ and changing the variance of $X$, i.e., $\sigma_X^2$.
 
