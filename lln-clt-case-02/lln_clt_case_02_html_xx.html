@@ -63,6 +63,10 @@
         margin-top:50px; 
       }
 
+      .iliasExcCl{
+        display: none;
+      }
+
     </style>
 
   </head>
@@ -135,7 +139,7 @@
           <div class="jumbotron">
             <p style='font-size: 16pt;'>Probability of success \(p\)</p>        
             <br>        
-            <input id="ex602" type="text" data-slider-min="0" data-slider-max="1" data-slider-step="0.2" data-slider-value="0.4"/>
+            <input id="ex602" type="text" data-slider-min="0.2" data-slider-max="0.8" data-slider-step="0.2" data-slider-value="0.4"/>
           </div>
         </div>
         <div class="col-sm-8">
@@ -268,13 +272,6 @@
         document.getElementById("imageL1N2Id").setAttribute("src", "plot_02_N" + sliderValue01 + "_p" + sliderValue02 + ".svg");
         document.getElementById("imageL1N3Id").setAttribute("src", "plot_03_N" + sliderValue01 + "_p" + sliderValue02 + ".svg");
       })
-
-      // set start page
-      document.getElementById("tabLinkL1N1Id").click();
-
-      var exc;
-      exc = document.getElementsByClassName("iliasExcCl");
-      exc.style.display = "none";
 
     </script>
   </body>
