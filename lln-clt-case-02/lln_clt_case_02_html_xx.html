@@ -7,14 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
 
     <!-- hohenheim logo and chair -->
-    <!--
-    <div class="logos" style="text-align:center;" background-color="#eeeeee;">
+    <div class="logoCl" style="text-align:center;" background-color="#eeeeee;">
       <br />
       <img src="Uni-Hohenheim-Logo-Weiss-EN.png" width="727" height="188" />
       <br />
         <p> Econometrics and Statistics (520K) </p>
     </div>
-    -->
+
     <style>
 
       body{
@@ -23,7 +22,7 @@
       }
 
       /* hohenheim logo and chair */
-      .logos {
+      .logoCl {
         background-color: #003f75;
         color: white;
         font-family: Arial Nova Cond Light;
@@ -200,13 +199,14 @@
     </div>
 
     <!--..........................................................................-->
-    <!--
-    <hr />
-    <p style="text-align: center; font-size: 20pt; font-weight: bold;">
-      <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1776644/index_ilias_html_xx.html">Back to <em>Startpage</em></a>
-    </p>
-    <hr />
-    -->
+    <div class="iliasLinkCl">
+      <hr />
+      <p style="text-align: center; font-size: 20pt; font-weight: bold;">
+        <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1776644/index_ilias_html_xx.html">Back to <em>Startpage</em></a>
+      </p>
+      <hr />
+    </div>
+
 
     <script type="text/javascript" id="MathJax-script" async
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
@@ -271,6 +271,9 @@
 
       // set start page
       document.getElementById("tabLinkL1N1Id").click();
+
+      document.getElementsByClassName("iliasLinkCl").style.display = "none";
+      document.getElementsByClassName("logoCl").style.display = "none";
 
     </script>
   </body>
