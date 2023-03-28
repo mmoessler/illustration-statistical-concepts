@@ -202,7 +202,7 @@
     <!--
     <hr />
     <p style="text-align: center; font-size: 20pt; font-weight: bold;">
-      <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1776644/index_ilias_html_xx.html">Back to <em>Start</em></a>
+      <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1776644/index_ilias_html_xx.html">Back to <em>Startpage</em></a>
     </p>
     <hr />
     -->
@@ -252,25 +252,23 @@
       var slider01 = new Slider("#ex601", { tooltip: 'always' });
       var slider02 = new Slider("#ex602", { tooltip: 'always' });
 
-      var sliderValue01 = slider01.getValue()*10;
+      var sliderValue01 = slider01.getValue();
       var sliderValue02 = slider02.getValue()*10;
 
       slider01.on("slide", function() {
         var sliderValue01 = slider01.getValue();
         var sliderValue02 = slider02.getValue()*10;
-        document.getElementById("tableL1N1Id").setAttribute("w3-include-html", "table_01_N" + sliderValue01 + "_p" + sliderValue02 + ".html");
-        includeHTML();
-        document.getElementById("imageL1N2Id").setAttribute("src", "plot_01_N" + sliderValue01 + "_p" + sliderValue02 + ".svg");
-        document.getElementById("imageL1N3Id").setAttribute("src", "plot_02_N" + sliderValue01 + "_p" + sliderValue02 + ".svg");
+        document.getElementById("imageL1N1Id").setAttribute("src", "plot_01_N" + sliderValue01 + "_p" + sliderValue02 + ".svg");
+        document.getElementById("imageL1N2Id").setAttribute("src", "plot_02_N" + sliderValue01 + "_p" + sliderValue02 + ".svg");
+        document.getElementById("imageL1N3Id").setAttribute("src", "plot_03_N" + sliderValue01 + "_p" + sliderValue02 + ".svg");
       })
 
       slider02.on("slide", function() {
         var sliderValue01 = slider01.getValue();
         var sliderValue02 = slider02.getValue()*10;
-        document.getElementById("tableL1N1Id").setAttribute("w3-include-html", "table_01_N" + sliderValue01 + "_p" + sliderValue02 + ".html");
-        includeHTML();
-        document.getElementById("imageL1N2Id").setAttribute("src", "plot_01_N" + sliderValue01 + "_p" + sliderValue02 + ".svg");
-        document.getElementById("imageL1N3Id").setAttribute("src", "plot_02_N" + sliderValue01 + "_p" + sliderValue02 + ".svg");
+        document.getElementById("imageL1N1Id").setAttribute("src", "plot_01_N" + sliderValue01 + "_p" + sliderValue02 + ".svg");
+        document.getElementById("imageL1N2Id").setAttribute("src", "plot_02_N" + sliderValue01 + "_p" + sliderValue02 + ".svg");
+        document.getElementById("imageL1N3Id").setAttribute("src", "plot_03_N" + sliderValue01 + "_p" + sliderValue02 + ".svg");
       })
 
     </script>
