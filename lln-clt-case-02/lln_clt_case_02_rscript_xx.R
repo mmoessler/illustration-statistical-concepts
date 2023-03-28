@@ -36,6 +36,27 @@ p.vec <- seq(0.2, 0.8, 0.2)
 # inputs (fixed)
 RR <- 1000
 
+# plot inputs
+xlim.01 <- c(0, 1) # barplot
+ylim.01 <- c(0, 100)
+
+xlim.02 <- c(0, 1) # histogram (lln)
+ylim.02.max <- 10
+
+xlim.03 <- c(-6, 6) # histogram (clt)
+ylim.03.max <- 0.5
+
+rect.xleft.01 <- 0.25 # position rectangle in scatterplot
+rect.ybottom.01 <- 82.5
+rect.xright.01 <- 0.75
+rect.ytop.01 <- 97.5
+
+text.x.01 <- 0.5 # position text line 01
+text.y.01 <- 93
+
+text.x.02 <- 0.5 # position text line 02
+text.y.02 <- 87
+
 # simulation
 
 pb = txtProgressBar(min = 0, max = length(NN.vec), initial = 0) 
@@ -52,29 +73,47 @@ for (ii in 1:length(NN.vec)) {
     # 1) call simulation function ----
     tmp.sim <- Y_bar_ber_sim_fun(RR = RR, NN = NN, p = p)
     
-    # 2) table of observations ----
-    tab.nam <- paste("table_01_N", NN, "_p", p*10, ".html", sep = "")
-    print(xtable::xtable(data.frame(y = tmp.sim$Y.sim)), type = "html", file = tab.nam)
+    # # 2) table of observations ----
+    # tab.nam <- paste("table_01_N", NN, "_p", p*10, ".html", sep = "")
+    # print(xtable::xtable(data.frame(y = tmp.sim$Y.sim)), type = "html", file = tab.nam)
+    # 
+    # tab.nam <- paste("table_02_N", NN, "_p", p*10, ".html", sep = "")
+    # lm.tmp <- lm(tmp.sim$Y.sim ~ 1)
+    # texreg::htmlreg(lm.tmp, file = tab.nam)
     
-    tab.nam <- paste("table_02_N", NN, "_p", p*10, ".html", sep = "")
+
+    # # 2) barplot ----
     lm.tmp <- lm(tmp.sim$Y.sim ~ 1)
-    texreg::htmlreg(lm.tmp, file = tab.nam)
     
-    # # 2) scatterplot ----
-    # 
-    # plt.nam <- paste("plot_01_N", NN, ".svg", sep = "")
-    # svg(plt.nam) 
-    # 
-    # plot(x = tmp.sim$X, y = tmp.sim$Y,
-    #      xlab = "X", ylab = "Y",
-    #      xlim = c(-50, 50), ylim = c(-150, 150))
-    # abline(a = b0, b = b1, lty = 2, col = "red", lwd = 2)
-    # 
-    # dev.off()
+    plt.nam <- paste("plot_01_N", NN, "_p", p*10, ".svg", sep = "")
+    svg(plt.nam) 
+    
+    tmp <- c(sum(tmp.sim$Y.sim)-1, sum(tmp.sim$Y.sim))
+    tmp.bp <- barplot(tmp,
+                      ylim = ylim.01,
+                      names.arg = c("0","1"))
+    grid()
+    
+    barplot(tmp,
+            ylim = xlim.01,
+            names.arg = c("0","1"), add = TRUE)
+    
+    rect(xleft = rect.xleft.01, ybottom = rect.ybottom.01, xright = rect.xright.01, ytop = rect.ytop.01, col = "white")
+    
+    text(x = text.x.01, y = text.y.01,
+         # bquote(widehat(beta)[1] == .(round(summary(lm.tmp)$coefficients[2,1], 3))),
+         bquote(bar(Y) ~" " == .(format(round(summary(lm.tmp)$coefficients[1,1], 3), nsmall = 3))),
+         cex = 1.25)
+    text(x = text.x.02, y = text.y.02,
+         # bquote(widehat(sigma)[widehat(beta)[1]] == .(round(summary(lm.tmp)$coefficients[2,2], 3))),
+         bquote(widehat(sigma)[~bar(Y)] == .(format(round(summary(lm.tmp)$coefficients[1,2], 3), nsmall = 3))),
+         cex = 1.25)
+    
+    dev.off()
     
     # 3) histogram (non-standardized) ----
     
-    plt.nam <- paste("plot_01_N", NN, "_p", p*10, ".svg", sep = "")
+    plt.nam <- paste("plot_02_N", NN, "_p", p*10, ".svg", sep = "")
     svg(plt.nam) 
     
     if (NN <= 2) {
@@ -119,8 +158,8 @@ for (ii in 1:length(NN.vec)) {
       xlab <- c("")
       ylab <- c("Relative Frequency")
       
-      xlim <- c(0, 1)
-      ylim <- c(0, max(c(x$density, 10)))
+      xlim <- xlim.02
+      ylim <- c(0, max(c(x$density, ylim.02.max)))
       
       plot.new()
       plot.window(xlim, ylim, "")
@@ -155,7 +194,7 @@ for (ii in 1:length(NN.vec)) {
     
     # 4) histogram (standardized) ----
     
-    plt.nam <- paste("plot_02_N", NN, "_p", p*10, ".svg", sep = "")
+    plt.nam <- paste("plot_03_N", NN, "_p", p*10, ".svg", sep = "")
     svg(plt.nam) 
     
     if (NN <= 2) {
@@ -211,8 +250,8 @@ for (ii in 1:length(NN.vec)) {
       xlab <- c("")
       ylab <- c("Relative Frequency")
       
-      xlim <- c(-6, 6)
-      ylim <- c(0, max(c(x$density, 0.5)))
+      xlim <- xlim.03
+      ylim <- c(0, max(c(x$density, ylim.03.max)))
       
       plot.new()
       plot.window(xlim, ylim, "")
