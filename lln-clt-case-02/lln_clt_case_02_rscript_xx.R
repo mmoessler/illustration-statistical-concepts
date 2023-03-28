@@ -81,14 +81,13 @@ for (ii in 1:length(NN.vec)) {
     # lm.tmp <- lm(tmp.sim$Y.sim ~ 1)
     # texreg::htmlreg(lm.tmp, file = tab.nam)
     
-
     # # 2) barplot ----
     lm.tmp <- lm(tmp.sim$Y.sim ~ 1)
     
     plt.nam <- paste("plot_01_N", NN, "_p", p*10, ".svg", sep = "")
     svg(plt.nam) 
     
-    tmp <- c(sum(tmp.sim$Y.sim)-1, sum(tmp.sim$Y.sim))
+    tmp <- c(NN - sum(tmp.sim$Y.sim), sum(tmp.sim$Y.sim))
     tmp.bp <- barplot(tmp,
                       ylim = ylim.01,
                       names.arg = c("0","1"))

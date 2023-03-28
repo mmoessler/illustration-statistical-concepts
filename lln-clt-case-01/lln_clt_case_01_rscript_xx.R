@@ -99,7 +99,7 @@ for (ii in 1:length(NN.vec)) {
   plt.nam <- paste("plot_01_N", NN, ".svg", sep = "")
   svg(plt.nam) 
   
-  tmp <- c(sum(tmp.sim$Y.sim)-1, sum(tmp.sim$Y.sim))
+  tmp <- c(NN - sum(tmp.sim$Y.sim), sum(tmp.sim$Y.sim))
   tmp.bp <- barplot(tmp,
                     ylim = ylim.01,
                     names.arg = c("0","1"))
