@@ -42,15 +42,14 @@ RR <- 1000
 p <- 0.4
 
 # plot inputs
-# xlim.01 <- c(-60, 60) # scatterplot
-# ylim.01 <- c(-150, 150)
-# 
-# xlim.02 <- c(-6, 6) # histogram (lln)
-# ylim.02.max <- 10
-# 
-# xlim.03 <- c(-60, 60) # histogram (clt)
-# ylim.03.max <- 0.5
+xlim.01 <- c(0, 1) # barplot
+ylim.01 <- c(0, 100)
 
+xlim.02 <- c(0, 1) # histogram (lln)
+ylim.02.max <- 10
+
+xlim.03 <- c(-6, 6) # histogram (clt)
+ylim.03.max <- 0.5
 rect.xleft.01 <- 0.25 # position rectangle in scatterplot
 rect.ybottom.01 <- 82.5
 rect.xright.01 <- 0.75
@@ -102,11 +101,12 @@ for (ii in 1:length(NN.vec)) {
   
   tmp <- c(sum(tmp.sim$Y.sim)-1, sum(tmp.sim$Y.sim))
   tmp.bp <- barplot(tmp,
-                    ylim = c(0, 100),
+                    ylim = ylim.01,
                     names.arg = c("0","1"))
   grid()
+  
   barplot(tmp,
-          ylim = c(0, 100),
+          ylim = xlim.01,
           names.arg = c("0","1"), add = TRUE)
   
   rect(xleft = rect.xleft.01, ybottom = rect.ybottom.01, xright = rect.xright.01, ytop = rect.ytop.01, col = "white")
@@ -121,18 +121,6 @@ for (ii in 1:length(NN.vec)) {
        cex = 1.25)
   
   dev.off()
-  
-  # # 2) scatterplot ----
-  # 
-  # plt.nam <- paste("plot_01_N", NN, ".svg", sep = "")
-  # svg(plt.nam) 
-  # 
-  # plot(x = tmp.sim$X, y = tmp.sim$Y,
-  #      xlab = "X", ylab = "Y",
-  #      xlim = c(-50, 50), ylim = c(-150, 150))
-  # abline(a = b0, b = b1, lty = 2, col = "red", lwd = 2)
-  # 
-  # dev.off()
   
   # 3) histogram (non-standardized) ----
 
@@ -181,8 +169,8 @@ for (ii in 1:length(NN.vec)) {
     xlab <- c("")
     ylab <- c("Relative Frequency")
     
-    xlim <- c(0, 1)
-    ylim <- c(0, max(c(x$density, 10)))
+    xlim <- xlim.02
+    ylim <- c(0, max(c(x$density, ylim.02.max)))
     
     plot.new()
     plot.window(xlim, ylim, "")
@@ -255,8 +243,8 @@ for (ii in 1:length(NN.vec)) {
     xlab <- c("")
     ylab <- c("Relative Frequency")
     
-    xlim <- c(-6, 6)
-    ylim <- c(0, max(c(x$density, 0.5)))
+    xlim <- xlim.03
+    ylim <- c(0, max(c(x$density, ylim.03.max)))
     
     plot.new()
     plot.window(xlim, ylim, "")
