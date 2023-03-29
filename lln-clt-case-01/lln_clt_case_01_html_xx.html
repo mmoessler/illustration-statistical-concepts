@@ -7,15 +7,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
 
     <!-- hohenheim logo and chair -->
-    <!--
-    <div class="logos" style="text-align:center;" background-color="#eeeeee;">
+    <div class="logoCl iliasExcCl" style="text-align:center;" background-color="#eeeeee;">
       <br />
       <img src="Uni-Hohenheim-Logo-Weiss-EN.png" width="727" height="188" />
       <br />
         <p> Econometrics and Statistics (520K) </p>
     </div>
-    -->
+
     <style>
+
+      .iliasExcCl{
+        display: none;
+      }
 
       body{
         font-family: Helvetica;
@@ -23,11 +26,39 @@
       }
 
       /* hohenheim logo and chair */
-      .logos {
+      .logoCl {
         background-color: #003f75;
         color: white;
         font-family: Arial Nova Cond Light;
         font-size: 24pt;
+      }
+
+      /* collapsible button */
+      .collButtonCl {
+        margin-top: 5px;
+        margin-bottom: 5px; 
+        background-color: white;
+        color: #333333;
+        font-style: italic;
+        cursor: pointer;
+        width: 100%;
+        padding: 5px;
+        border: 1px solid;
+        border-color: #cccccc;
+        text-align: left;
+        outline: none;
+        font-family: Helvetica;
+        font-size: 16pt;
+      }
+
+      /* collapsible content */
+      .collContentCl {
+        display: none;
+        background-color: #EAECEE;
+        padding-top: 5px;
+        padding-right: 10px;
+        padding-bottom: 5px;
+        padding-left: 10px;
       }
 
       /* style the buttons that are used to open the tab content */
@@ -51,8 +82,6 @@
       .tabLinkL1Cl.active {
         background-color: #ccc;
       }
-
-
 
       /* sample value - set it as you like*/
       .slider.slider-horizontal{
@@ -132,17 +161,22 @@
 
           <!--..........................................................................-->
           <hr>
-          <p style="font-size: 18pt">Simulation</p>
 
-          <ol>
-            <li>A sample of size \(N\) is drawn from the a Bernoulli distribution with probability of success \(p=0.4\).</li>
-            <li>The sample average of the outcomes (success \(Y_i=1\) and no sucess \(Y_i=0\)) are calcuated based on the sample drawn.</li>
-            <li>The value of the sample average, i.e., \(\overline{Y}\), is stored.</li>
-            <li>Step 1) to 3) is repeated \(1000\) times resulting in \(1000\) sample averages.</li>
-            <p style="margin-left: 3px; font-size: 14pt;">Remember, even if the observations are simulated using the same statistical model, they will not be exactly the same.</p>
-            <li>The distribution of \(\overline{Y}\) and the standardized \(\overline{Y}\) are illustrated using histograms.</li>
-            <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the different simulated observations the sample averages will vary across sample draws.</p>
-          </ol>
+          <!--..........................................................................-->
+          <button type="button" class="collButtonCl"> <span style="font-size: 18pt;">Simulation</span> </button>
+          <div class="collContentCl">
+
+            <ol>
+              <li>A sample of size \(N\) is drawn from the a Bernoulli distribution with probability of success \(p=0.4\).</li>
+              <li>The sample average of the outcomes (success \(Y_i=1\) and no success \(Y_i=0\)) are calculated based on the sample drawn.</li>
+              <li>The value of the sample average, i.e., \(\overline{Y}\), is stored.</li>
+              <li>Step 1) to 3) is repeated \(1000\) times resulting in \(1000\) sample averages.</li>
+              <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the randomness of the generated sample the outcomes of the samples will vary across sample draws.</p>
+              <li>The distribution of \(\overline{Y}\) and the standardized \(\overline{Y}\), i.e., \(z_{\overline{Y}}\), are illustrated using histograms.</li>
+              <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the different outcomes of the samples the sample averages will vary across sample draws.</p>
+            </ol>
+            
+          </div>
 
           <!--..........................................................................-->
           <hr>
@@ -243,6 +277,24 @@
     <script>
 
       //..............................
+      // handling of collapsibles
+      // see: https://www.w3schools.com/howto/howto_js_collapsible.asp
+      var coll = document.getElementsByClassName("collButtonCl");
+      var i;
+    
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.display === "block") {
+            content.style.display = "none";
+          } else {
+            content.style.display = "block";
+          }
+        });
+      }
+
+      //..............................
       // handling of tabs      
       // see: https://www.w3schools.com/howto/howto_js_tabs.asp
 
@@ -271,9 +323,6 @@
 
       }
 
-      // set start page
-      document.getElementById("tabLinkL1N1Id").click();
-
       //..............................
       // handling of slider                
       // see: https://seiyria.com/bootstrap-slider/
@@ -284,6 +333,9 @@
         document.getElementById("imageL1N2Id").setAttribute("src", "plot_02_N" + sliderValue + ".svg");
         document.getElementById("imageL1N3Id").setAttribute("src", "plot_03_N" + sliderValue + ".svg");
       });
+
+      // set start page
+      document.getElementById("tabLinkL1N1Id").click();
 
     </script>
 
