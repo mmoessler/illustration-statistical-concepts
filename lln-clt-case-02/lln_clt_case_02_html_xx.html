@@ -130,20 +130,6 @@
           <!--..........................................................................-->          
           <hr>
 
-          <!--
-          <p style="font-size: 18pt">Simulation</p>
-
-          <ol>
-            <li>A sample of size \(N\) is drawn from the a Bernoulli distribution with probability of success \(p=0.4\).</li>
-            <li>The sample average of the outcomes (success \(Y_i=1\) and no success \(Y_i=0\)) are calculated based on the sample drawn.</li>
-            <li>The value of the sample average, i.e., \(\overline{Y}\), is stored.</li>
-            <li>Step 1) to 3) is repeated \(1000\) times resulting in \(1000\) sample averages.</li>
-            <p style="margin-left: 3px; font-size: 14pt;">Remember, even if the observations are simulated using the same statistical model, they will not be exactly the same.</p>
-            <li>The distribution of \(\overline{Y}\) and the standardized \(\overline{Y}\) are illustrated using histograms.</li>
-            <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the different simulated observations the sample averages will vary across sample draws.</p>
-          </ol>
-          -->
-
           <!--..........................................................................-->
           <button type="button" class="collButtonCl"> <span style="font-size: 18pt;">Simulation</span> </button>
           <div class="collContentCl">
@@ -268,15 +254,6 @@
               $$
               <p>gets closer and closer to the standard normal distribution \(N\left(0, 1\right)\).</p>
               <p>Note, in our case \(\mu\) is the probability of success \(p\).</p>
-
-              <!--..........................................................................-->
-              <!-- see: https://www.w3schools.com/html/html5_audio.asp -->
-              <div style="text-align: center;">
-                <audio controls>
-                  <source src="interpretation_audio_03.mp3" type="audio/mpeg">
-                  Your browser does not support the audio element.
-                </audio>
-              </div>
               
             </div>
 
@@ -290,11 +267,10 @@
     <div class="iliasExcCl">
       <hr />
       <p style="text-align: center; font-size: 20pt; font-weight: bold;">
-        <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1776644/index_ilias_html_xx.html">Back to <em>Startpage</em></a>
+        <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1781360/index_ilias_html_xx.html">Back to <em>Startpage</em></a>
       </p>
       <hr />
     </div>
-
 
     <script type="text/javascript" id="MathJax-script" async
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
@@ -355,9 +331,6 @@
            
       var slider01 = new Slider("#ex601", { tooltip: 'always' });
       var slider02 = new Slider("#ex602", { tooltip: 'always' });
-
-      var sliderValue01 = slider01.getValue();
-      var sliderValue02 = slider02.getValue()*10;
 
       slider01.on("slide", function() {
         var sliderValue01 = slider01.getValue();
