@@ -3,7 +3,7 @@
 rm(list=ls())
 
 # set working directory
-setwd("C:/Users/Markus/Dropbox/Teaching/SoSe2023/illustration-statistical-concepts/ols-case-02")
+setwd("C:/Users/Markus/Dropbox/Teaching/SoSe2023/illustration-statistical-concepts/ols-case-03")
 
 # load texreg extract functions
 library(texreg)
@@ -81,7 +81,7 @@ b1 <- 1
 
 # plot inputs
 xlim.01 <- c(-60, 60) # scatterplot
-ylim.01 <- c(-60, 60)
+ylim.01 <- c(-100, 100)
 
 xlim.02 <- c(-6, 6) # histogram (lln)
 ylim.02.max <- 10
@@ -90,25 +90,25 @@ xlim.03 <- c(-6, 6) # histogram (clt)
 ylim.03.max <- 0.5
 
 rect.xleft.01 <- -60 # potion rectangle in scatterplot
-rect.ybottom.01 <- 80
+rect.ybottom.01 <- 30
 rect.xright.01 <- -20
-rect.ytop.01 <- 145
+rect.ytop.01 <- 95
 
 text.x.01 <- -40 # position text line 01
-text.y.01 <- 130
+text.y.01 <- 80
      
 text.x.02 <- -40 # position text line 02
-text.y.02 <- 100
+text.y.02 <- 50
 
 # simulation
 
 pb = txtProgressBar(min = 0, max = length(NN.vec), initial = 0) 
 
-for (ii in 1:length(NN.vec)) {
+for (ii in 1:length(X.sd.vec)) {
   
   setTxtProgressBar(pb, ii)
   
-  for (jj in 1:length(b1.vec)) {
+  for (jj in 1:length(u.sd.vec)) {
   
     X.sd <- X.sd.vec[ii]
     u.sd <- u.sd.vec[jj]
