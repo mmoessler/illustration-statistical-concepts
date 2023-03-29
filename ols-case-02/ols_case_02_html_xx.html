@@ -7,15 +7,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
 
     <!-- hohenheim logo and chair -->
-    <!--
-    <div class="logos" style="text-align:center;" background-color="#eeeeee;">
+    <div class="logoCl iliasExcCl" style="text-align:center;" background-color="#eeeeee;">
       <br />
       <img src="Uni-Hohenheim-Logo-Weiss-EN.png" width="727" height="188" />
       <br />
         <p> Econometrics and Statistics (520K) </p>
     </div>
-    -->
+
     <style>
+
+      .iliasExcCl{
+        display: none;
+      }
 
       body{
         font-family: Helvetica;
@@ -23,11 +26,39 @@
       }
 
       /* hohenheim logo and chair */
-      .logos {
+      .logoCl {
         background-color: #003f75;
         color: white;
         font-family: Arial Nova Cond Light;
         font-size: 24pt;
+      }
+
+      /* collapsible button */
+      .collButtonCl {
+        margin-top: 5px;
+        margin-bottom: 5px; 
+        background-color: white;
+        color: #333333;
+        font-style: italic;
+        cursor: pointer;
+        width: 100%;
+        padding: 5px;
+        border: 1px solid;
+        border-color: #cccccc;
+        text-align: left;
+        outline: none;
+        font-family: Helvetica;
+        font-size: 16pt;
+      }
+
+      /* collapsible content */
+      .collContentCl {
+        display: none;
+        background-color: #EAECEE;
+        padding-top: 5px;
+        padding-right: 10px;
+        padding-bottom: 5px;
+        padding-left: 10px;
       }
 
       /* style the buttons that are used to open the tab content */
@@ -52,8 +83,6 @@
         background-color: #ccc;
       }
 
-
-
       /* sample value - set it as you like*/
       .slider.slider-horizontal{
         width:100%; 
@@ -64,46 +93,7 @@
         margin-top:50px; 
       }
 
-      .texreg{
-        font-size: 20pt;
-      }
-
-      tr {
-        height:40px
-      }
-
     </style>
-
-    <script>
-      // see: https://www.w3schools.com/howto/howto_html_include.asp
-      function includeHTML() {
-        var z, i, elmnt, file, xhttp;
-        /* Loop through a collection of all HTML elements: */
-        z = document.getElementsByTagName("*");
-        for (i = 0; i < z.length; i++) {
-          elmnt = z[i];
-          /*search for elements with a certain atrribute:*/
-          file = elmnt.getAttribute("w3-include-html");
-          if (file) {
-            /* Make an HTTP request using the attribute value as the file name: */
-            xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-              if (this.readyState == 4) {
-                if (this.status == 200) {elmnt.innerHTML = this.responseText;}
-                if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-                /* Remove the attribute, and call this function once more: */
-                elmnt.removeAttribute("w3-include-html");
-                includeHTML();
-              }
-            }
-            xhttp.open("GET", file, true);
-            xhttp.send();
-            /* Exit the function: */
-            return;
-          }
-        }
-      }
-    </script>
 
   </head>
   <body>
@@ -113,8 +103,7 @@
 
         <div class="jumbotron" id="top">
 
-          <!-- <h1>Properties of OLS Estimates for <br> increasing Sample Sizes</h1> -->
-          <p style='font-size: 28pt;'>Properties of OLS Estimates for increasing Sample Sizes</p>        
+          <p style='font-size: 28pt;'>Properties of OLS Estimates</p>        
 
           <!--..........................................................................-->
           <hr>
@@ -132,33 +121,39 @@
 
           $$
           \begin{align}
-          Y_i &= -2 + 3.5 X_i + u_i,
+          Y_i &= \beta_0 + \beta_1 X_i + u_i,
           \end{align}
           $$
 
-          i.e., for \(\beta_1 = 3.5\) and with,
+          for \(\beta_0=1\) and different values \(\beta_1\) and with,
 
           $$
           \begin{align}
-          X_i &\sim N\left(0,10\right), \\
-          u_i &\sim N\left(0,10\right).
+          X_i &\sim N\left(0,\sigma_{X}^{2}\right), \\
+          u_i &\sim N\left(0,\sigma_{u}^{2}\right),
           \end{align}
           $$
 
+          with \(\sigma_{X}^{2}=10\) and \(\sigma_{u}^{2}=10\).
+
           <!--..........................................................................-->
           <hr>
-          <p style="font-size: 18pt">Simulation</p>
+          
+          <!--..........................................................................-->
+          <button type="button" class="collButtonCl"> <span style="font-size: 18pt;">Simulation</span> </button>
+          <div class="collContentCl">
 
-          <ol>
-            <li>A sample of size \(N\) is drawn from the statistical model above.</li>
-            <!-- <li>A regression line, i.e., \(\beta_0\) and \(\beta_1\), are fitted based on the sample drawn.</li> -->
-            <li>A regression line, i.e., \(\widehat{\beta}_0\) and \(\widehat{\beta}_1\), are estimated based on the sample drawn.</li>
-            <li>The value of the estimate of interest, i.e., \(\widehat{\beta}_1\), is stored.</li>
-            <li>Step 1) to 3) is repeated \(1000\) times resulting in \(1000\) estimates \(\widehat{\beta}_1\).</li>
-            <p style="margin-left: 3px; font-size: 14pt;">Remember, even if the observations are simulated using the same statistical model, they will not be exactly the same.</p>
-            <li>The distribution of \(\widehat{\beta}_1\) and the standardized \(\widehat{\beta}_1\) are illustrated using histograms.</li>
-            <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the different simulated observations the OLS estimates will vary across sample draws.</p>
-          </ol>
+            <ol>
+              <li>A sample of size \(N\) is drawn from the regression model above</li>
+              <li>A regression line, i.e., \(\widehat{\beta}_0\) and \(\widehat{\beta}_1\), are estimated based on the sample drawn.</li>
+              <li>The value of the OLS estimate for the parameter of interest, i.e., \(\widehat{\beta}_1\), is stored.</li>
+              <li>Step 1) to 3) is repeated \(1000\) times resulting in \(1000\) estimates \(\widehat{\beta}_1\).</li>
+              <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the randomness of the generated sample the outcomes of the samples will vary across sample draws.</p>
+              <li>The distribution of \(\widehat{\beta}_1\) and the standardized \(\widehat{\beta}_1\), i.e., \(z_{\widehat{\beta}_1}\), are illustrated using histograms.</li>
+              <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the different outcomes of the samples the sample averages will vary across sample draws.</p>
+            </ol>
+
+          </div>
 
           <!--..........................................................................-->
           <hr>
@@ -249,21 +244,37 @@
     </div>
 
     <!--..........................................................................-->
-    <!--
-    <hr />
-    <p style="text-align: center; font-size: 20pt; font-weight: bold;">
-      <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1776644/index_ilias_html_xx.html">Back to <em>Start</em></a>
-    </p>
-    <hr />
-    -->
+    <div class="iliasExcCl">
+      <hr />
+      <p style="text-align: center; font-size: 20pt; font-weight: bold;">
+        <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1781360/index_ilias_html_xx.html">Back to <em>Startpage</em></a>
+      </p>
+      <hr />
+    </div>
     
-
-
     <script type="text/javascript" id="MathJax-script" async
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js"></script>
     <script>
+
+      //..............................
+      // handling of collapsibles
+      // see: https://www.w3schools.com/howto/howto_js_collapsible.asp
+      var coll = document.getElementsByClassName("collButtonCl");
+      var i;
+    
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.display === "block") {
+            content.style.display = "none";
+          } else {
+            content.style.display = "block";
+          }
+        });
+      }
 
       //..............................
       // handling of tabs      
@@ -294,18 +305,12 @@
 
       }
 
-      // set start page
-      document.getElementById("tabLinkL1N1Id").click();
-
       //..............................
       // handling of slider                
       // see: https://seiyria.com/bootstrap-slider/
            
       var slider01 = new Slider("#ex601", { tooltip: 'always' });
       var slider02 = new Slider("#ex602", { tooltip: 'always' });
-
-      var sliderValue01 = slider01.getValue()*10;
-      var sliderValue02 = slider02.getValue()*10;
 
       slider01.on("slide", function() {
 
@@ -337,10 +342,9 @@
 
       })
 
-    </script>
+      // set start page
+      document.getElementById("tabLinkL1N1Id").click();
 
-    <script>
-      includeHTML();
     </script>
 
   </body>
