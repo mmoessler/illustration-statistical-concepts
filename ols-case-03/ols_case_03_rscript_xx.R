@@ -70,18 +70,18 @@ bet_hat_sim_fun <- function(RR, NN,
 }
 
 # inputs (variable)
-NN.vec <- seq(5, 95, 10)
-b1.vec <- seq(-3, 3, 1)
+X.sd.vec <- seq(1, 19, 3)
+u.sd.vec <- seq(1, 19, 3)
 
 # inputs (fixed)
 RR <- 1000
+NN <- 100
 b0 <- 1
-X.sd <- 10
-u.sd <- 10
+b1 <- 1
 
 # plot inputs
 xlim.01 <- c(-60, 60) # scatterplot
-ylim.01 <- c(-150, 150)
+ylim.01 <- c(-60, 60)
 
 xlim.02 <- c(-6, 6) # histogram (lln)
 ylim.02.max <- 10
@@ -110,8 +110,8 @@ for (ii in 1:length(NN.vec)) {
   
   for (jj in 1:length(b1.vec)) {
   
-    NN <- NN.vec[ii]
-    b1 <- b1.vec[jj]
+    X.sd <- X.sd.vec[ii]
+    u.sd <- u.sd.vec[jj]
     
     #..................................................
     # 1) call sim function ----
@@ -120,7 +120,6 @@ for (ii in 1:length(NN.vec)) {
                                X.sd = X.sd,
                                u.sd = u.sd)
     
-    
     #..................................................
     # 2) fit linear model ----
     lm.tmp <- lm(tmp.sim$Y ~ tmp.sim$X + 1)
@@ -128,7 +127,7 @@ for (ii in 1:length(NN.vec)) {
     #..................................................
     # 3) scatterplot ----
     
-    plt.nam <- paste("plot_01_N", NN, "_b", b1, ".svg", sep = "")
+    plt.nam <- paste("plot_01_Xsd", X.sd, "_usd", u.sd, ".svg", sep = "")
     svg(plt.nam) 
     
     # plot(x = tmp.sim$X, y = tmp.sim$Y,
