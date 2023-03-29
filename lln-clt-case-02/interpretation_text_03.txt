@@ -1,0 +1,10 @@
+
+see: https://ttsmp3.com/
+
+As the sample size n grows the distribution of the standardized sample average denoted z subscript overline y gets closer to the standard normal distribution illustrated by the red dashed curve.
+
+Remeber, z subscript overline y is calculated as overline y minus p divided by sigma over square root of n.
+
+This is the result of the central limit theorem.
+
+Based on this result we can now conduct hypothesis tests on the parameter probability of success p.

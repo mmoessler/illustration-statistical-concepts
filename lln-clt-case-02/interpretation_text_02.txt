@@ -1,0 +1,8 @@
+
+see: https://ttsmp3.com/
+
+As the sample size n grows the sample average denoted overline y gets closer to the probability of success of the Bernoulli experiment denoted p illustrated by the vertical red dashed line.
+
+That means, overline y converges in probability to p.
+
+This is the result of the law of large numbers.
