@@ -33,6 +33,34 @@
         font-size: 24pt;
       }
 
+      /* collapsible button */
+      .collButtonCl {
+        margin-top: 5px;
+        margin-bottom: 5px; 
+        background-color: white;
+        color: #333333;
+        font-style: italic;
+        cursor: pointer;
+        width: 100%;
+        padding: 5px;
+        border: 1px solid;
+        border-color: #cccccc;
+        text-align: left;
+        outline: none;
+        font-family: Helvetica;
+        font-size: 16pt;
+      }
+
+      /* collapsible content */
+      .collContentCl {
+        display: none;
+        background-color: #EAECEE;
+        padding-top: 5px;
+        padding-right: 10px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+      }
+
       /* style the buttons that are used to open the tab content */
       .tabLinkL1Cl {
         display: inline-table;
@@ -55,8 +83,6 @@
         background-color: #ccc;
       }
 
-
-
       /* sample value - set it as you like*/
       .slider.slider-horizontal{
         width:100%; 
@@ -77,8 +103,7 @@
 
         <div class="jumbotron" id="top">
 
-          <!-- <h1>Properties of OLS Estimates for <br> increasing Sample Sizes</h1> -->
-          <p style='font-size: 28pt;'>Properties of the Sample Average for increasing Sample Sizes</p>        
+          <p style='font-size: 28pt;'>Properties of the Sample Average</p>        
 
           <!--..........................................................................-->
           <hr>
@@ -92,7 +117,7 @@
 
           <p style="font-size: 18pt">Statistical Model</p>
 
-          <p>We are interested in the sampling properties of the sample average as estimator for the mean probability of success \(p\) of a Bernoulli experiment with the probability of success \(p\), i.e.,</p>
+          <p>We are interested in the sampling properties of the sample average as estimator for the probability of success \(p\) of a Bernoulli experiment with the probability of success \(p\), i.e., the observations \(Y_i\) are drawn from</p>
 
           $$
           \begin{align}
@@ -100,21 +125,48 @@
           \end{align}
           $$
 
-          with \(p = 0.4\).
+          for different values \(p\).
 
-          <!--..........................................................................-->
+          <!--..........................................................................-->          
           <hr>
+
+          <!--
           <p style="font-size: 18pt">Simulation</p>
 
           <ol>
             <li>A sample of size \(N\) is drawn from the a Bernoulli distribution with probability of success \(p=0.4\).</li>
-            <li>The sample average of the outcomes (success \(Y_i=1\) and no sucess \(Y_i=0\)) are calcuated based on the sample drawn.</li>
+            <li>The sample average of the outcomes (success \(Y_i=1\) and no success \(Y_i=0\)) are calculated based on the sample drawn.</li>
             <li>The value of the sample average, i.e., \(\overline{Y}\), is stored.</li>
             <li>Step 1) to 3) is repeated \(1000\) times resulting in \(1000\) sample averages.</li>
             <p style="margin-left: 3px; font-size: 14pt;">Remember, even if the observations are simulated using the same statistical model, they will not be exactly the same.</p>
             <li>The distribution of \(\overline{Y}\) and the standardized \(\overline{Y}\) are illustrated using histograms.</li>
             <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the different simulated observations the sample averages will vary across sample draws.</p>
           </ol>
+          -->
+
+          <!--..........................................................................-->
+          <button type="button" class="collButtonCl"> <span style="font-size: 18pt;">Simulation</span> </button>
+          <div class="collContentCl">
+
+            <ol>
+              <li>A sample of size \(N\) is drawn from the a Bernoulli distribution with probability of success \(p=0.4\).</li>
+              <li>The sample average of the outcomes (success \(Y_i=1\) and no success \(Y_i=0\)) are calculated based on the sample drawn.</li>
+              <li>The value of the sample average, i.e., \(\overline{Y}\), is stored.</li>
+              <li>Step 1) to 3) is repeated \(1000\) times resulting in \(1000\) sample averages.</li>
+              <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the randomness of the generated sample the outcomes of the samples will vary across sample draws.</p>
+              <li>The distribution of \(\overline{Y}\) and the standardized \(\overline{Y}\), i.e., \(z_{\overline{Y}}\), are illustrated using histograms.</li>
+              <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the different outcomes of the samples the sample averages will vary across sample draws.</p>
+            </ol>
+
+            <!--..........................................................................-->
+            <!-- see: https://www.w3schools.com/html/html5_audio.asp -->
+            <div style="text-align: center;">
+              <audio controls>
+                <source src="simulation_audio_01.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+          </div>
 
           <!--..........................................................................-->
           <hr>
@@ -139,7 +191,7 @@
           <div class="jumbotron">
             <p style='font-size: 16pt;'>Probability of success \(p\)</p>        
             <br>        
-            <input id="ex602" type="text" data-slider-min="0" data-slider-max="0.8" data-slider-step="0.2" data-slider-value="0.4"/>
+            <input id="ex602" type="text" data-slider-min="0.2" data-slider-max="0.8" data-slider-step="0.2" data-slider-value="0.4"/>
           </div>
         </div>
         <div class="col-sm-8">
@@ -159,8 +211,18 @@
             <div id="tabContentL1N1Id" class="tabContentL1Cl">
               <p style="font-size: 16pt">Barplot Sample Draw</p>              
               <p style='font-size: 14pt;'>(Based on one sample draw of size \(N\) on the DGP)</p>              
-              <p style='font-size: 14pt;'>The plot below illustrates the simulation exercise</p>                          
+              <p style='font-size: 12pt;'>The plot below illustrates the simulation exercise</p>                          
               <img src="plot_01_N5_p2.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
+
+              <!--..........................................................................-->
+              <!-- see: https://www.w3schools.com/html/html5_audio.asp -->
+              <div style="text-align: center;">
+                <audio controls>
+                  <source src="interpretation_audio_01.mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+
             </div>
 
             <!-- .................................................. -->
@@ -177,6 +239,18 @@
               \end{align}
               $$
               <p>Note, in our case \(\mu\) is the probability of success \(p\).</p>
+
+              <!--..........................................................................-->
+              <!-- see: https://www.w3schools.com/html/html5_audio.asp -->
+              <div style="text-align: center;">
+                <audio controls>
+                  <source src="interpretation_audio_02.mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+
+            </div>
+
             </div>
 
             <!-- .................................................. -->
@@ -189,11 +263,22 @@
               <p>As the sample size \(N\) grows the distribution of the standardized sample average,</p>
               $$
               \begin{align}
-              z_{\overline{Y}} = \frac{\overline{Y} - \mu}{\sigma_{\overline{Y}}},
+              z_{\overline{Y}} &= \frac{\overline{Y} - \mu}{\sigma_{\overline{Y}}}, \\
+              z_{\overline{Y}} &= \frac{\overline{Y} - \mu}{\frac{\sigma}{\sqrt{N}}},
               \end{align}
               $$
               <p>gets closer and closer to the standard normal distribution \(N\left(0, 1\right)\).</p>
               <p>Note, in our case \(\mu\) is the probability of success \(p\).</p>
+
+              <!--..........................................................................-->
+              <!-- see: https://www.w3schools.com/html/html5_audio.asp -->
+              <div style="text-align: center;">
+                <audio controls>
+                  <source src="interpretation_audio_03.mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              
             </div>
 
           </div>
@@ -217,6 +302,24 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js"></script>
     <script>
+
+      //..............................
+      // handling of collapsibles
+      // see: https://www.w3schools.com/howto/howto_js_collapsible.asp
+      var coll = document.getElementsByClassName("collButtonCl");
+      var i;
+    
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.display === "block") {
+            content.style.display = "none";
+          } else {
+            content.style.display = "block";
+          }
+        });
+      }
 
       //..............................
       // handling of tabs      
@@ -272,6 +375,9 @@
         document.getElementById("imageL1N2Id").setAttribute("src", "plot_02_N" + sliderValue01 + "_p" + sliderValue02 + ".svg");
         document.getElementById("imageL1N3Id").setAttribute("src", "plot_03_N" + sliderValue01 + "_p" + sliderValue02 + ".svg");
       })
+
+
+
 
       // set start page
       document.getElementById("tabLinkL1N1Id").click();
