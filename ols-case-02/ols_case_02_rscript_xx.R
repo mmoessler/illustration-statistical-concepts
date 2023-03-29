@@ -86,7 +86,7 @@ ylim.01 <- c(-150, 150)
 xlim.02 <- c(-6, 6) # histogram (lln)
 ylim.02.max <- 10
 
-xlim.03 <- c(-60, 60) # histogram (clt)
+xlim.03 <- c(-6, 6) # histogram (clt)
 ylim.03.max <- 0.5
 
 rect.xleft.01 <- -60 # potion rectangle in scatterplot
