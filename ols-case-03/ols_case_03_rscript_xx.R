@@ -3,7 +3,7 @@
 rm(list=ls())
 
 # set working directory
-setwd("C:/Users/Markus/Dropbox/Teaching/SoSe2023/illustration-statistical-concepts/ols-case-03")
+setwd("./ols-case-03")
 
 # load texreg extract functions
 library(texreg)
@@ -102,7 +102,7 @@ text.y.02 <- 50
 
 # simulation
 
-pb = txtProgressBar(min = 0, max = length(NN.vec), initial = 0) 
+pb = txtProgressBar(min = 0, max = length(X.sd.vec), initial = 0) 
 
 for (ii in 1:length(X.sd.vec)) {
   
@@ -185,7 +185,7 @@ for (ii in 1:length(X.sd.vec)) {
     #..................................................
     # 5) histogram (non-standardized) ----
   
-    plt.nam <- paste("plot_02_N", NN, "_b", b1, ".svg", sep = "")
+    plt.nam <- paste("plot_02_Xsd", X.sd, "_usd", u.sd, ".svg", sep = "")
     svg(plt.nam) 
     
     # # plot histogram of estimator
@@ -254,7 +254,7 @@ for (ii in 1:length(X.sd.vec)) {
     #..................................................
     # 6) histogram (standardized) ----
     
-    plt.nam <- paste("plot_03_N", NN, "_b", b1, ".svg", sep = "")
+    plt.nam <- paste("plot_03_Xsd", X.sd, "_usd", u.sd, ".svg", sep = "")
     svg(plt.nam) 
     
     # generate histogram of estimator

@@ -3,7 +3,7 @@
 rm(list=ls())
 
 # set working directory
-setwd("C:/Users/Markus/Dropbox/Teaching/SoSe2023/illustration-statistical-concepts/ols-case-01")
+setwd("./ols-case-01")
 
 # load texreg extract functions
 library(xtable)

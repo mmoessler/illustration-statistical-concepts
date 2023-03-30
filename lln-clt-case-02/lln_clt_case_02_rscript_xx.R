@@ -3,7 +3,7 @@
 rm(list=ls())
 
 # set working directory
-setwd("C:/Users/Markus/Dropbox/Teaching/SoSe2023/illustration-statistical-concepts/lln-clt-case-02")
+setwd("./lln-clt-case-02")
 
 # set seed 
 set.seed(12345)
