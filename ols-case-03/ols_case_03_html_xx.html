@@ -125,7 +125,7 @@
           \end{align}
           $$
 
-          for \(\beta_0=1\) and different values \(\beta_1\) and with,
+          for \(\beta_0=1\),  \(\beta_1=1\) and with,
 
           $$
           \begin{align}
@@ -134,7 +134,7 @@
           \end{align}
           $$
 
-          with \(\sigma_{X}^{2}=10\) and \(\sigma_{u}^{2}=10\).
+          and with different values \(\sigma_{X}\) and \(\sigma_{u}\).
 
           <!--..........................................................................-->
           <hr>
@@ -171,14 +171,14 @@
       <div class="row">
         <div class="col-sm-4">
           <div class="jumbotron">
-            <p style='font-size: 16pt;'>Sample size \(N\)</p>        
+            <p style='font-size: 16pt;'>Variance of \(X\), i.e., \(\sigma_{X}\)</p>        
             <br>        
-            <input id="ex601" type="text" data-slider-min="5" data-slider-max="95" data-slider-step="10" data-slider-value="15"/>
+            <input id="ex601" type="text" data-slider-min="1" data-slider-max="19" data-slider-step="3" data-slider-value="1"/>
           </div>
           <div class="jumbotron">
-            <p style='font-size: 16pt;'>Slope parameter \(\beta_1\)</p>        
+            <p style='font-size: 16pt;'>Variance of \(u\), i.e., \(\sigma_{u}\)</p>
             <br>        
-            <input id="ex602" type="text" data-slider-min="-3" data-slider-max="3" data-slider-step="1" data-slider-value="1"/>
+            <input id="ex602" type="text" data-slider-min="1" data-slider-max="19" data-slider-step="3" data-slider-value="1"/>
           </div>
         </div>
         <div class="col-sm-8">
@@ -199,7 +199,7 @@
               <p style="font-size: 16pt">Scatterplot with Fitted Regression Line</p>              
               <p style='font-size: 14pt;'>(Based on one sample draw of size \(N\) on the DGP)</p>              
               <!-- <p style='font-size: 14pt;'>The plot below illustrates the simulation exercise</p> -->
-              <img src="plot_01_N15_b1.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
+              <img src="plot_01_Xsd1_usd1.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
               <!--
               <hr>
               <div w3-include-html="https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/ols-case-01/table_01_N10.html" id="tableL1N1Id"></div> 
@@ -211,7 +211,7 @@
               <p style='font-size: 16pt;'>Histogram of the OLS estimator for the slope coefficient \(\beta_1\)</p>
               <p style='font-size: 14pt;'>(Based on \(1000\) sample draw of size \(N\) on the DGP)</p>              
               <p style='font-size: 12pt;'>The plot below illustrates the Law of Large Numbers (LLN)</p>
-              <img src="plot_02_N15_b1.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
+              <img src="plot_02_Xsd1_usd1.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
               <br><br>
               <p>As the sample size \(N\) grows the estimated value \(\widehat{\beta}_1\) gets closer to \(\beta_1\), i.e.,</p>
               $$
@@ -226,7 +226,7 @@
               <p style='font-size: 16pt;'>Histogram of the standardized OLS estimator for the slope coefficient \(\beta_1\)</p>
               <p style='font-size: 14pt;'>(Based on \(1000\) sample draw of size \(N\) on the DGP)</p>              
               <p style='font-size: 12pt;'>The plot below illustrates the Central Limit Theorem (CLT)</p>
-              <img src="plot_03_N15_b1.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
+              <img src="plot_01_Xsd1_usd1.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
               <br><br>
               <p>As the sample size \(N\) grows the distribution of the standardized estimated value,</p>
               $$
@@ -317,13 +317,13 @@
         var sliderValue01 = slider01.getValue();
         var sliderValue02 = slider02.getValue();
         
-        document.getElementById("imageL1N1Id").setAttribute("src", "plot_01_N" + sliderValue01 + "_b" + sliderValue02 + ".svg");
-        document.getElementById("imageL1N2Id").setAttribute("src", "plot_02_N" + sliderValue01 + "_b" + sliderValue02 + ".svg");
-        document.getElementById("imageL1N3Id").setAttribute("src", "plot_03_N" + sliderValue01 + "_b" + sliderValue02 + ".svg");
+        document.getElementById("imageL1N1Id").setAttribute("src", "plot_01_Xsd" + sliderValue01 + "_usd" + sliderValue02 + ".svg");
+        document.getElementById("imageL1N2Id").setAttribute("src", "plot_02_Xsd" + sliderValue01 + "_usd" + sliderValue02 + ".svg");
+        document.getElementById("imageL1N3Id").setAttribute("src", "plot_03_Xsd" + sliderValue01 + "_usd" + sliderValue02 + ".svg");
 
         // for checks
-        var str01 = "plot_01_N";
-        console.log(str01.concat(sliderValue01, "_b", sliderValue02, ".svg"))
+        var str01 = "plot_01_Xsd";
+        console.log(str01.concat(sliderValue01, "_usd", sliderValue02, ".svg"))
 
       })
 
@@ -332,13 +332,13 @@
         var sliderValue01 = slider01.getValue();
         var sliderValue02 = slider02.getValue();
 
-        document.getElementById("imageL1N1Id").setAttribute("src", "plot_01_N" + sliderValue01 + "_b" + sliderValue02 + ".svg");
-        document.getElementById("imageL1N2Id").setAttribute("src", "plot_02_N" + sliderValue01 + "_b" + sliderValue02 + ".svg");
-        document.getElementById("imageL1N3Id").setAttribute("src", "plot_03_N" + sliderValue01 + "_b" + sliderValue02 + ".svg");
+        document.getElementById("imageL1N1Id").setAttribute("src", "plot_01_Xsd" + sliderValue01 + "_usd" + sliderValue02 + ".svg");
+        document.getElementById("imageL1N2Id").setAttribute("src", "plot_02_Xsd" + sliderValue01 + "_usd" + sliderValue02 + ".svg");
+        document.getElementById("imageL1N3Id").setAttribute("src", "plot_03_Xsd" + sliderValue01 + "_usd" + sliderValue02 + ".svg");
 
         // for checks
-        var str01 = "plot_01_N";
-        console.log(str01.concat(sliderValue01, "_b", sliderValue02, ".svg"))
+        var str01 = "plot_01_Xsd";
+        console.log(str01.concat(sliderValue01, "_usd", sliderValue02, ".svg"))
 
       })
 
