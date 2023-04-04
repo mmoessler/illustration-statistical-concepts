@@ -71,7 +71,7 @@ bet_hat_sim_fun <- function(RR, NN,
 }
 
 # inputs (variable)
-X.int.vec <- seq(1, 40, 4)
+X.int.vec <- seq(1, 81, 10)
 u.sd.vec <- seq(1, 19, 3)
 
 # inputs (fixed)
