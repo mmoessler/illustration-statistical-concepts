@@ -1,0 +1,351 @@
+<html>
+  <head>
+
+    <title>OLS: Case No 01</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
+
+    <!-- hohenheim logo and chair -->
+    <div class="logoCl iliasExcCl" style="text-align:center;" background-color="#eeeeee;">
+      <br />
+      <img src="Uni-Hohenheim-Logo-Weiss-EN.png" width="727" height="188" />
+      <br />
+        <p> Econometrics and Statistics (520K) </p>
+    </div>
+
+    <style>
+
+      .iliasExcCl{
+        display: none;
+      }
+
+      body{
+        font-family: Helvetica;
+        font-size: 14pt;
+      }
+
+      /* hohenheim logo and chair */
+      .logoCl {
+        background-color: #003f75;
+        color: white;
+        font-family: Arial Nova Cond Light;
+        font-size: 24pt;
+      }
+
+      /* collapsible button */
+      .collButtonCl {
+        margin-top: 5px;
+        margin-bottom: 5px; 
+        background-color: white;
+        color: #333333;
+        font-style: italic;
+        cursor: pointer;
+        width: 100%;
+        padding: 5px;
+        border: 1px solid;
+        border-color: #cccccc;
+        text-align: left;
+        outline: none;
+        font-family: Helvetica;
+        font-size: 16pt;
+      }
+
+      /* collapsible content */
+      .collContentCl {
+        display: none;
+        background-color: #EAECEE;
+        padding-top: 5px;
+        padding-right: 10px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+      }
+
+      /* style the buttons that are used to open the tab content */
+      .tabLinkL1Cl {
+        display: inline-table;
+        max-height: 500px;
+        min-height: 44px;
+        overflow-y: auto;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 14px 16px;
+        background-color: #f1f1f1;
+      }
+
+      /* change background color of buttons on hover */
+      .tabLinkL1Cl:hover {
+        background-color: #ddd;
+      }
+
+      /* create an active/current tablink class */
+      .tabLinkL1Cl.active {
+        background-color: #ccc;
+      }
+
+      /* sample value - set it as you like*/
+      .slider.slider-horizontal{
+        width:100%; 
+      }
+
+      /* margin of jumbotron id top */
+      div#top.jumbotron{
+        margin-top:50px; 
+      }
+
+    </style>
+
+  </head>
+  <body>
+
+    <div class="container mt-5">
+      <div class="row">
+
+        <div class="jumbotron" id="top">
+
+          <p style='font-size: 28pt;'>Properties of the OLS Estimator</p>        
+
+          <!--..........................................................................-->
+          <hr>
+
+          <p style="font-size: 18pt">Motivation</p>
+
+          <p>Understand the effect of increasing the sample size \(N\) on the sampling distribution of the ordinary least squares (OLS) estimator for the slope coefficient of a simple linear regression model.</p>
+
+          <!--..........................................................................-->
+          <hr>
+
+          <p style="font-size: 18pt">Statistical Model</p>
+
+          <p>We are interested in the sampling properties of the OLS estimator \(\widehat\beta_1\) for the slope coefficient \(\beta_1\) of the following simple linear regression model,</p>
+
+          $$
+          \begin{align}
+          Y_i &= \beta_0 + \beta_1 X_i + u_i,
+          \end{align}
+          $$
+
+          for \(\beta_0=1\),  \(\beta_1=1\) and with,
+
+          $$
+          \begin{align}
+          X_i &\sim U_{\left[a,b\right]}, \\
+          u_i &\sim N\left(0,\sigma_{u}^{2}\right),
+          \end{align}
+          $$
+
+          and with different values \(a\), \(b\) and \(\sigma_{u}\).
+
+          <!--..........................................................................-->
+          <hr>
+          
+          <!--..........................................................................-->
+          <button type="button" class="collButtonCl"> <span style="font-size: 18pt;">Simulation</span> </button>
+          <div class="collContentCl">
+
+            <ol>
+              <li>A sample of size \(N\) is drawn from the regression model above</li>
+              <li>A regression line, i.e., \(\widehat{\beta}_0\) and \(\widehat{\beta}_1\), are estimated based on the sample drawn.</li>
+              <li>The value of the OLS estimate for the parameter of interest, i.e., \(\widehat{\beta}_1\), is stored.</li>
+              <li>Step 1) to 3) is repeated \(1000\) times resulting in \(1000\) estimates \(\widehat{\beta}_1\).</li>
+              <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the randomness of the generated sample the outcomes of the samples will vary across sample draws.</p>
+              <li>The distribution of \(\widehat{\beta}_1\) and the standardized \(\widehat{\beta}_1\), i.e., \(z_{\widehat{\beta}_1}\), are illustrated using histograms.</li>
+              <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the different outcomes of the samples the sample averages will vary across sample draws.</p>
+            </ol>
+
+          </div>
+
+          <!--..........................................................................-->
+          <hr>
+          <p style="font-size: 18pt">Illustration</p>
+
+          <p>Change the number of observations \(N\) to see the effect of the sample size \(N\) on the properties of the OLS estimator for the slope coefficient \(\beta_1\) of the linear regression model above.</p>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- mt-5: margin top -->
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="jumbotron">
+            <p style='font-size: 16pt;'>Range of \(X\) i.e., \(b - a\)</p>        
+            <br>        
+            <input id="ex601" type="text" data-slider-min="1" data-slider-max="81" data-slider-step="10" data-slider-value="1"/>
+          </div>
+          <div class="jumbotron">
+            <p style='font-size: 16pt;'>Variance of \(u\), i.e., \(\sigma_{u}\)</p>
+            <br>        
+            <input id="ex602" type="text" data-slider-min="1" data-slider-max="19" data-slider-step="3" data-slider-value="1"/>
+          </div>
+        </div>
+        <div class="col-sm-8">
+
+          <div class="jumbotron">
+
+            <div class="tab" style="text-align: center;">
+              <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N1Id', 'tabLinkL1N1Id', 'white')" id="tabLinkL1N1Id">Plot No 1</button>
+              <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N2Id', 'tabLinkL1N2Id', 'white')" id="tabLinkL1N2Id">Plot No 2</button>
+              <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N3Id', 'tabLinkL1N3Id', 'white')" id="tabLinkL1N3Id">Plot No 3</button>
+            </div>
+
+            <br>
+            <hr>
+
+            <!-- .................................................. -->
+            <div id="tabContentL1N1Id" class="tabContentL1Cl">
+              <p style="font-size: 16pt">Scatterplot with Fitted Regression Line</p>              
+              <p style='font-size: 14pt;'>(Based on one sample draw of size \(N\) on the DGP)</p>              
+              <!-- <p style='font-size: 14pt;'>The plot below illustrates the simulation exercise</p> -->
+              <img src="plot_01_Xint1_usd1.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
+              <!--
+              <hr>
+              <div w3-include-html="https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/ols-case-01/table_01_N10.html" id="tableL1N1Id"></div> 
+              -->
+            </div>
+
+            <!-- .................................................. -->
+            <div id="tabContentL1N2Id" class="tabContentL1Cl">
+              <p style='font-size: 16pt;'>Histogram of the OLS estimator for the slope coefficient \(\beta_1\)</p>
+              <p style='font-size: 14pt;'>(Based on \(1000\) sample draw of size \(N\) on the DGP)</p>              
+              <p style='font-size: 12pt;'>The plot below illustrates the Law of Large Numbers (LLN)</p>
+              <img src="plot_02_Xint1_usd1.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
+              <br><br>
+              <p>As the sample size \(N\) grows the estimated value \(\widehat{\beta}_1\) gets closer to \(\beta_1\), i.e.,</p>
+              $$
+              \begin{align}
+              \widehat{\beta}_1 \overset{p}{\to} \beta_1.
+              \end{align}
+              $$
+            </div>
+
+            <!-- .................................................. -->
+            <div id="tabContentL1N3Id" class="tabContentL1Cl">
+              <p style='font-size: 16pt;'>Histogram of the standardized OLS estimator for the slope coefficient \(\beta_1\)</p>
+              <p style='font-size: 14pt;'>(Based on \(1000\) sample draw of size \(N\) on the DGP)</p>              
+              <p style='font-size: 12pt;'>The plot below illustrates the Central Limit Theorem (CLT)</p>
+              <img src="plot_01_Xint1_usd1.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
+              <br><br>
+              <p>As the sample size \(N\) grows the distribution of the standardized estimated value,</p>
+              $$
+              \begin{align}
+              z_{\widehat{\beta}_1} = \frac{\widehat{\beta}_1^* - \beta_1}{\sigma_{\widehat{\beta_1}}},
+              \end{align}
+              $$
+              <p>gets closer and closer to the standard normal distribution \(N\left(0, 1\right)\).</p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!--..........................................................................-->
+    <div class="iliasExcCl">
+      <hr />
+      <p style="text-align: center; font-size: 20pt; font-weight: bold;">
+        <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1781360/index_ilias_html_xx.html">Back to <em>Startpage</em></a>
+      </p>
+      <hr />
+    </div>
+    
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js"></script>
+    <script>
+
+      //..............................
+      // handling of collapsibles
+      // see: https://www.w3schools.com/howto/howto_js_collapsible.asp
+      var coll = document.getElementsByClassName("collButtonCl");
+      var i;
+    
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.display === "block") {
+            content.style.display = "none";
+          } else {
+            content.style.display = "block";
+          }
+        });
+      }
+
+      //..............................
+      // handling of tabs      
+      // see: https://www.w3schools.com/howto/howto_js_tabs.asp
+
+      // open specific tab
+      function openSpecificTab(tabContentId, tabLinkId, color) {
+
+        // hide all elements with class="tabcontent_l1" by default */
+        var i, tabcontent, tablinks;
+
+        tabcontent = document.getElementsByClassName("tabContentL1Cl");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+
+        // remove the background color of all tablinks/buttons
+        tablinks = document.getElementsByClassName("tabLinkL1Cl");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].style.backgroundColor = "";
+        }
+
+        // show the specific tab content
+        document.getElementById(tabContentId).style.display = "block";
+
+        // add the specific color to the button used to open the tab content
+        document.getElementById(tabLinkId).style.backgroundColor = color;
+
+      }
+
+      //..............................
+      // handling of slider                
+      // see: https://seiyria.com/bootstrap-slider/
+           
+      var slider01 = new Slider("#ex601", { tooltip: 'always' });
+      var slider02 = new Slider("#ex602", { tooltip: 'always' });
+
+      slider01.on("slide", function() {
+
+        var sliderValue01 = slider01.getValue();
+        var sliderValue02 = slider02.getValue();
+        
+        document.getElementById("imageL1N1Id").setAttribute("src", "plot_01_Xint" + sliderValue01 + "_usd" + sliderValue02 + ".svg");
+        document.getElementById("imageL1N2Id").setAttribute("src", "plot_02_Xint" + sliderValue01 + "_usd" + sliderValue02 + ".svg");
+        document.getElementById("imageL1N3Id").setAttribute("src", "plot_03_Xint" + sliderValue01 + "_usd" + sliderValue02 + ".svg");
+
+        // for checks
+        var str01 = "plot_01_Xint";
+        console.log(str01.concat(sliderValue01, "_usd", sliderValue02, ".svg"))
+
+      })
+
+      slider02.on("slide", function() {
+
+        var sliderValue01 = slider01.getValue();
+        var sliderValue02 = slider02.getValue();
+
+        document.getElementById("imageL1N1Id").setAttribute("src", "plot_01_Xint" + sliderValue01 + "_usd" + sliderValue02 + ".svg");
+        document.getElementById("imageL1N2Id").setAttribute("src", "plot_02_Xint" + sliderValue01 + "_usd" + sliderValue02 + ".svg");
+        document.getElementById("imageL1N3Id").setAttribute("src", "plot_03_Xint" + sliderValue01 + "_usd" + sliderValue02 + ".svg");
+
+        // for checks
+        var str01 = "plot_01_Xint";
+        console.log(str01.concat(sliderValue01, "_usd", sliderValue02, ".svg"))
+
+      })
+
+      // set start page
+      document.getElementById("tabLinkL1N1Id").click();
+
+    </script>
+
+  </body>
+</html>
