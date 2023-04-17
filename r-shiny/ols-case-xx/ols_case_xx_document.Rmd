@@ -1,0 +1,64 @@
+---
+output: html_document
+runtime: shiny
+---
+
+<style>
+
+body{
+  font-family: Helvetica;
+  font-size: 16pt;
+}
+
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<hr>
+
+<!-- # OLS: Case 1 -->
+
+# Linear Regression Model
+
+<hr>
+
+## Motivation
+
+### Experiment No 01
+
+Understand the effect of increasing the sample size on the sampling distribution of the slope coefficient of a linear regression model.
+
+Change the number of observations $N$ to see the effect of the sample size $N$ on the properties of the OLS estimator for the slope coefficient $\beta_1$ of the linear regression model below.
+
+<hr>
+
+## Regression Model
+
+We are interested in the sampling properties of the OLS estimator for the slope coefficient $\beta_1$ of the following linear regression model
+
+\begin{align}
+Y_i &= \beta_0 + \beta_1 X_i + u_i, \\
+X_i &\sim U_{\left[a, b\right]}, \\
+u_i &\sim N\left(0, \sigma_u\right).
+\end{align}
+
+<!-- X_i &\sim N\left(0, \sigma_X\right), \\ -->
+
+<hr>
+
+```{r tabsets, echo=FALSE}
+shinyAppDir(
+  "ols-case-xx-app",
+  options = list(
+    width = "100%", height = 700
+  )
+)
+```
+
+<hr>
+
+## Interpretation
+
+* ...
