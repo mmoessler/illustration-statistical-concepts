@@ -21,9 +21,9 @@ ui <- fluidPage(
       tags$hr(),
       
       # Input 1: Sample size ----
-      sliderInput(inputId = "rho",
+      sliderInput(inputId = "a1",
                   label = withMathJax(
-                    ' \\(\\rho\\)'
+                    ' \\(\\alpha_1\\)'
                   ),
                   # label = "Variance of $X$",
                   min = as.numeric(-1),
@@ -102,12 +102,25 @@ server <- function(input, output) {
 
   Sim <- reactive({
     
-    # function to simulate b0_hat and b1_hat ----
+    # Function to simulate b0_hat and b1_hat
     bet_hat_sim_fun <- function(RR, NN,
                                 b0, b1, b2,
-                                X1.int, X2.int,
+                                X.sd,
                                 u.sd,
-                                rho){
+                                a1,
+                                uX2.sd){
+      
+      # see: https://www.google.com/search?q=r+software+omitted+variable+bias+simulation&sxsrf=AJOqlzWrbiaPlr5TvV2vu6EBO-qGzM65QQ%3A1678217183774&source=hp&ei=348HZJmMLdnBxc8PkKmYmAc&iflsig=AK50M_UAAAAAZAed74jAt5BuT9RVufTb0SfMrTaimDHN&oq=r+software+omitted+variable+bias+si&gs_lcp=Cgdnd3Mtd2l6EAMYADIFCCEQoAEyBQghEKABMgUIIRCgATIECCEQFToHCCMQ6gIQJzoHCC4Q6gIQJzoLCAAQgAQQsQMQgwE6DgguEIAEELEDEMcBENEDOggIABCxAxCDAToFCC4QgAQ6DgguEIAEELEDEIMBENQCOhEILhCABBCxAxCDARDHARDRAzoICC4QgAQQ1AI6CAgAEIAEELEDOgQIIxAnOg4ILhDHARCxAxDRAxCABDoICC4QgAQQsQM6BQgAEIAEOg0IABCABBCxAxCDARAKOhQILhCABBCxAxCDARDHARDRAxDUAjoICAAQgAQQywE6CAghEBYQHhAdUPIFWNwgYPAqaAFwAHgBgAHSAYgB-Q6SAQYzLjEwLjGYAQCgAQGwAQo&sclient=gws-wiz#fpstate=ive&vld=cid:a582aae0,vid:BmQvpLiM1ks
+      
+      # # inputs
+      # RR <- 10000
+      # NN <- 2
+      # b0 <- -2
+      # b1 <- 3.5
+      # X.sd <- 1
+      # u.sd <- 100
+      
+      
       
       # initialize vectors for simulation results
       b0h <- numeric(RR)
@@ -121,26 +134,15 @@ server <- function(input, output) {
       
       for (ii in 1:RR) {
         
-        # X1 <- runif(NN, min = 0 - X1.int/2, max = 0 + X1.int/2)
-        X1 <- runif(NN, min = 1, max = 1 + X1.int)
-        # X2 <- runif(NN, min = 0 - X2.int/2, max = 0 + X2.int/2)
-        X2 <- runif(NN, min = 1, max = 1 + X2.int)
+        X1 <- rnorm(NN, mean = 0, sd = X.sd)
         
-        # X1.sd <- 1/12*((0 + X1.int/2) - (0 - X1.int/2))^2
-        X1.sd <- 1/12*((1 + X1.int) - 1)^2
-        # X2.sd <- 1/12*((0 + X2.int/2) - (0 - X2.int/2))^2
-        X2.sd <- 1/12*((1 + X2.int) - 1)^2
-        
-        # m.12 <- rho * (X2.sd/X1.sd)
-        # X1 <- m.12 * X2 
-        m.21 <- rho * (X1.sd/X2.sd)
-        X2 <- m.21 * X1
+        uX2 <- rnorm(NN, mean = 0, sd = uX2.sd)
+        X2 <- a1 * X1 + uX2
         
         u <- rnorm(NN, mean = 0, sd = u.sd)
-        Y1 <- b0 + b1 * X1 + b2 * X2 + u
-        Y2 <- b0 + b1 * X1 + u
+        Y <- b0 + b1 * X1 + b2 * X2 + u
         
-        tmp <- lm(Y1 ~ X1 + 1)
+        tmp <- lm(Y ~ X1 + 1)
         
         # get estimates
         b0h[ii] <- tmp$coefficients[1]
@@ -159,7 +161,7 @@ server <- function(input, output) {
       }
       
       return(list(b0h = b0h, b1h = b1h,
-                  Y1 = Y1, Y2 = Y2, X1 = X1, X2 = X2, u = u,
+                  Y = Y, X1 = X1, X2 = X2, u = u, uX2 = uX2,
                   var.b0 = var.b0, var.b1 = var.b1,
                   b0h.z = b0h.z, b1h.z = b1h.z))
       
@@ -168,20 +170,21 @@ server <- function(input, output) {
     # inputs
     RR <- 1000
     NN <- 100
-    b0 <- 0
-    b1 <- 1
+    b0 <- -2
+    b1 <- 3.5
+    X.sd <- 10
+    u.sd <- 10
     b2 <- 1
-    X1.int <- 20
-    X2.int <- 20
-    u.sd <- 5
-    rho <- input$rho
-
+    a1 <- input$a1
+    uX2.sd <- 10
+    
     # simulation
     tmp.sim <- bet_hat_sim_fun(RR = RR, NN = NN,
                                b0 = b0, b1 = b1, b2 = b2,
-                               X1.int = X1.int, X2.int = X2.int,
+                               X.sd = X.sd,
                                u.sd = u.sd,
-                               rho = rho)
+                               a1 = a1,
+                               uX2.sd = uX2.sd)
     
     tmp.sim
     
@@ -192,32 +195,22 @@ server <- function(input, output) {
     # inputs
     RR <- 1000
     NN <- 100
-    b0 <- 1
-    b1 <- 1
-    b2 <- 1
-    X1.int <- 20
-    X2.int <- 20
+    b0 <- -2
+    b1 <- 3.5
+    X.sd <- 10
     u.sd <- 10
-    rho <- input$rho
+    b2 <- 1
+    a1 <- input$a1
+    uX2.sd <- 10
     
     # reactive
     tmp.sim <- Sim()
     
-    # fit models
-    lm.01.tmp <- lm(tmp.sim$Y1 ~ tmp.sim$X1 + 1)
-    lm.02.tmp <- lm(tmp.sim$Y2 ~ tmp.sim$X1 + 1)
-    
     # illustration
-    plot(x = tmp.sim$X1, y = tmp.sim$Y1,
+    plot(x = tmp.sim$X1, y = tmp.sim$Y,
          xlab = "X", ylab = "Y",
-         xlim = c(0, 20), ylim = c(-10, 50), col = "red")
-    
-    lines(x = tmp.sim$X1, y = tmp.sim$Y2, type = "p", col = "darkgreen")
-    
-    # abline(a = b0, b = b1, lty = 2, col = "black", lwd = 2)
-    
-    abline(a = summary(lm.01.tmp)$coefficients[1,1], b = summary(lm.01.tmp)$coefficients[2,1], lty = 2, col = "red", lwd = 2)
-    abline(a = summary(lm.02.tmp)$coefficients[1,1], b = summary(lm.02.tmp)$coefficients[2,1], lty = 2, col = "darkgreen", lwd = 2)
+         xlim = c(-50, 50), ylim = c(-150, 150))
+    abline(a = b0, b = b1, lty = 2, col = "red", lwd = 2)
     
   })
   
@@ -227,12 +220,11 @@ server <- function(input, output) {
     RR <- 1000
     NN <- 100
     b0 <- -2
-    b1 <- 1
+    b1 <- 3.5
     b2 <- 1
-    X1.int <- 10
-    X2.int <- 10
     u.sd <- 10
-    rho <- input$rho
+    a1 <- input$a1
+    uX2.sd <- 10
     
     # reactive
     tmp.sim <- Sim()
@@ -285,12 +277,11 @@ server <- function(input, output) {
     RR <- 1000
     NN <- 100
     b0 <- -2
-    b1 <- 1
+    b1 <- 3.5
     b2 <- 1
-    X1.int <- 10
-    X2.int <- 10
     u.sd <- 10
-    rho <- input$rho
+    a1 <- input$a1
+    uX2.sd <- 10
     
     # reactive
     tmp.sim <- Sim()
@@ -370,9 +361,9 @@ server <- function(input, output) {
     #                   "</div>")
     
     note.01 <- paste0("<div style='text-decoration: none; font-size: 14pt'>",  
-                      "<hr>",
-                      "<p>This is a sctterplot of \\(N\\) realizations of \\(Y\\) and \\(X\\) from the linear regression model above with the corresponding fitted regression line.</p>",
-                      "<p>The red dots correspond to the observed relationship between \\(Y\\) and \\(X\\) and the green dots correspond to the observed relationships between \\(Y\\) and \\(X\\)</p>",
+                      "<p>",
+                      "This is a sctterplot of \\(N\\) realizations of \\(Y\\) and \\(X\\) from the linear regression model above with the corresponding fitted regression line.",
+                      "</p>",
                       "</div>")
     
     # note.01

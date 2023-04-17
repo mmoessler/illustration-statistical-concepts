@@ -121,15 +121,11 @@ server <- function(input, output) {
       
       for (ii in 1:RR) {
         
-        # X1 <- runif(NN, min = 0 - X1.int/2, max = 0 + X1.int/2)
-        X1 <- runif(NN, min = 1, max = 1 + X1.int)
-        # X2 <- runif(NN, min = 0 - X2.int/2, max = 0 + X2.int/2)
-        X2 <- runif(NN, min = 1, max = 1 + X2.int)
+        X1 <- runif(NN, min = 0 - X1.int/2, max = 0 + X1.int/2)
+        X2 <- runif(NN, min = 0 - X2.int/2, max = 0 + X2.int/2)
         
-        # X1.sd <- 1/12*((0 + X1.int/2) - (0 - X1.int/2))^2
-        X1.sd <- 1/12*((1 + X1.int) - 1)^2
-        # X2.sd <- 1/12*((0 + X2.int/2) - (0 - X2.int/2))^2
-        X2.sd <- 1/12*((1 + X2.int) - 1)^2
+        X1.sd <- 1/12*((0 + X1.int/2) - (0 - X1.int/2))^2
+        X2.sd <- 1/12*((0 + X2.int/2) - (0 - X2.int/2))^2
         
         # m.12 <- rho * (X2.sd/X1.sd)
         # X1 <- m.12 * X2 
@@ -170,7 +166,7 @@ server <- function(input, output) {
     NN <- 100
     b0 <- 0
     b1 <- 1
-    b2 <- 1
+    b2 <- 10
     X1.int <- 20
     X2.int <- 20
     u.sd <- 5
@@ -195,8 +191,8 @@ server <- function(input, output) {
     b0 <- 1
     b1 <- 1
     b2 <- 1
-    X1.int <- 20
-    X2.int <- 20
+    X1.int <- 50
+    X2.int <- 50
     u.sd <- 10
     rho <- input$rho
     
@@ -210,11 +206,11 @@ server <- function(input, output) {
     # illustration
     plot(x = tmp.sim$X1, y = tmp.sim$Y1,
          xlab = "X", ylab = "Y",
-         xlim = c(0, 20), ylim = c(-10, 50), col = "red")
+         xlim = c(-20, 20), ylim = c(-50, 50), col = "red")
     
     lines(x = tmp.sim$X1, y = tmp.sim$Y2, type = "p", col = "darkgreen")
     
-    # abline(a = b0, b = b1, lty = 2, col = "black", lwd = 2)
+    abline(a = b0, b = b1, lty = 2, col = "black", lwd = 2)
     
     abline(a = summary(lm.01.tmp)$coefficients[1,1], b = summary(lm.01.tmp)$coefficients[2,1], lty = 2, col = "red", lwd = 2)
     abline(a = summary(lm.02.tmp)$coefficients[1,1], b = summary(lm.02.tmp)$coefficients[2,1], lty = 2, col = "darkgreen", lwd = 2)
@@ -370,9 +366,9 @@ server <- function(input, output) {
     #                   "</div>")
     
     note.01 <- paste0("<div style='text-decoration: none; font-size: 14pt'>",  
-                      "<hr>",
-                      "<p>This is a sctterplot of \\(N\\) realizations of \\(Y\\) and \\(X\\) from the linear regression model above with the corresponding fitted regression line.</p>",
-                      "<p>The red dots correspond to the observed relationship between \\(Y\\) and \\(X\\) and the green dots correspond to the observed relationships between \\(Y\\) and \\(X\\)</p>",
+                      "<p>",
+                      "This is a sctterplot of \\(N\\) realizations of \\(Y\\) and \\(X\\) from the linear regression model above with the corresponding fitted regression line.",
+                      "</p>",
                       "</div>")
     
     # note.01

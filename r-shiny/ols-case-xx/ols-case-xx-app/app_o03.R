@@ -15,22 +15,80 @@ ui <- fluidPage(
       # tags$hr(),
       
       # tags$h3("Change the inputs"),
-      # tags$div(HTML("<span style='margin-top: 25pt; font-size: 18pt'>Change Inputs</span>")),
       tags$div(HTML("<span style='font-size: 18pt'>Change the Inputs</span>")),
       
       tags$hr(),
       
-      # Input 1: Sample size ----
-      sliderInput(inputId = "rho",
+      # Input: Slope coefficient of included variable ----
+      sliderInput(inputId = "b1",
+                  label = "Slope Coefficient",
+                  min = as.numeric(1),
+                  max = as.numeric(3),
+                  value = as.numeric(2),
+                  step = 0.5),
+      
+      # Input: Sample size ----
+      sliderInput(inputId = "NN",
+                  # label = withMathJax(
+                  #   'Sample Size \\(N\\)'
+                  # ),
+                  label = "Sample Size",
+                  min = as.numeric(1),
+                  max = as.numeric(100),
+                  value = as.numeric(11),
+                  step = 1),
+      
+      # Input: Spreading of X ----
+      sliderInput(inputId = "X1.int",
+                  label = "Spread of X",
+                  min = as.numeric(1),
+                  max = as.numeric(20),
+                  value = as.numeric(10),
+                  step = 1),
+      
+      # Input: variance u ----
+      sliderInput(inputId = "u.sd",
+                  label = "Standard deviation u",
+                  min = as.numeric(1),
+                  max = as.numeric(20),
+                  value = as.numeric(10),
+                  step = 1),
+
+      tags$div(HTML("<span style='font-size: 14pt'>Error-in-variables bias</span>")),
+      
+      # Input: Corelation between X u ----
+      sliderInput(inputId = "rho.ux",
                   label = withMathJax(
-                    ' \\(\\rho\\)'
+                    ' \\(\\rho_{X_1 u}\\)'
                   ),
-                  # label = "Variance of $X$",
+                  # label = "Correlations of $X$ and $u$",
                   min = as.numeric(-1),
                   max = as.numeric(1),
-                  value = as.numeric(0.25),
+                  value = as.numeric(0),
                   step = 0.05),
       
+      tags$div(HTML("<span style='font-size: 14pt'>Omitted variable bias</span>")),
+
+      # Input: Corelation between X u ----
+      sliderInput(inputId = "rho.21",
+                  label = withMathJax(
+                    ' \\(\\rho_{X_1 y_2}\\)'
+                  ),
+                  # label = "Correlations of $X$ and $u$",
+                  min = as.numeric(-1),
+                  max = as.numeric(1),
+                  value = as.numeric(0),
+                  step = 0.05),
+
+      # Input: Slope coefficient of omitted variable ----
+      sliderInput(inputId = "b2",
+                  label = "Slope Coefficient",
+                  min = as.numeric(-3),
+                  max = as.numeric(3),
+                  value = as.numeric(0),
+                  step = 1),
+      
+            
     ),
 
     # Main panel for displaying outputs ----
@@ -73,29 +131,24 @@ ui <- fluidPage(
                                     )
                )
 
-        )#,
-        
-      #   # Output 1: non standardized ----
-      #   column(12,
-      #          # HTML("<hr>"),
-      #          h3("Law of Large Number (LLN): Consistency"),
-      #          h4("Sampling distribution of estimator"),
-      #          h5("Slope coefficient"),
-      #          plotOutput("Plot01", height = 350)),
-      #   
-      #   # Output 2: standardized ----
-      #   column(12,
-      #          HTML("<hr>"),
-      #          h3("Central Limit Theorem (CLT): Asymptotic Normality"),
-      #          h4("Sampling Distribution of Standardized Sample Average"),
-      #          h5("Slope Coefficient"),
-      #          plotOutput("Plot02", height = 350)),
-
+        )
       )
-
     )
   )
 )
+
+# # inputs for checks
+# input <- list()
+# RR <- 1000
+# input$NN <- 11
+# b0 <- 1
+# input$b1 <- 2
+# input$b2 <- 1
+# input$X1.int <- 10
+# X2.int <- 20
+# input$u.sd <- 10
+# input$rho.ux <- 0
+# input$rho.21 <- 0
 
 # Define server logic for random distribution app ----
 server <- function(input, output) {
@@ -107,7 +160,22 @@ server <- function(input, output) {
                                 b0, b1, b2,
                                 X1.int, X2.int,
                                 u.sd,
-                                rho){
+                                rho.ux, rho.21){
+      
+      # # inputs for checks
+      # RR <- 1000
+      # NN <- 11
+      # b0 <- 1
+      # b1 <- 1
+      # b2 <- 0
+      # X1.int <- 20
+      # X2.int <- 20
+      # u.sd <- 1
+      # rho.ux <- 0
+      # rho.21 <- 0
+      
+      
+      
       
       # initialize vectors for simulation results
       b0h <- numeric(RR)
@@ -121,23 +189,22 @@ server <- function(input, output) {
       
       for (ii in 1:RR) {
         
-        # X1 <- runif(NN, min = 0 - X1.int/2, max = 0 + X1.int/2)
         X1 <- runif(NN, min = 1, max = 1 + X1.int)
-        # X2 <- runif(NN, min = 0 - X2.int/2, max = 0 + X2.int/2)
         X2 <- runif(NN, min = 1, max = 1 + X2.int)
         
-        # X1.sd <- 1/12*((0 + X1.int/2) - (0 - X1.int/2))^2
         X1.sd <- 1/12*((1 + X1.int) - 1)^2
-        # X2.sd <- 1/12*((0 + X2.int/2) - (0 - X2.int/2))^2
         X2.sd <- 1/12*((1 + X2.int) - 1)^2
         
-        # m.12 <- rho * (X2.sd/X1.sd)
-        # X1 <- m.12 * X2 
-        m.21 <- rho * (X1.sd/X2.sd)
+        # relationship u and x1 (error in variable)
+        m.ux <- rho.ux * (X1.sd/u.sd)
+        ux <- m.ux * X1
+        
+        # relationship X2 and x1 (omitted variable)
+        m.21 <- rho.21 * (X1.sd/X2.sd)
         X2 <- m.21 * X1
         
         u <- rnorm(NN, mean = 0, sd = u.sd)
-        Y1 <- b0 + b1 * X1 + b2 * X2 + u
+        Y1 <- b0 + b1 * X1 + b2 * X2 + ux + u
         Y2 <- b0 + b1 * X1 + u
         
         tmp <- lm(Y1 ~ X1 + 1)
@@ -159,7 +226,7 @@ server <- function(input, output) {
       }
       
       return(list(b0h = b0h, b1h = b1h,
-                  Y1 = Y1, Y2 = Y2, X1 = X1, X2 = X2, u = u,
+                  Y1 = Y1, Y2 = Y2, X1 = X1, X2 = X2, u = u, ux = ux,
                   var.b0 = var.b0, var.b1 = var.b1,
                   b0h.z = b0h.z, b1h.z = b1h.z))
       
@@ -167,21 +234,22 @@ server <- function(input, output) {
     
     # inputs
     RR <- 1000
-    NN <- 100
-    b0 <- 0
-    b1 <- 1
-    b2 <- 1
-    X1.int <- 20
+    NN <- input$NN
+    b0 <- 1
+    b1 <- input$b1
+    b2 <- input$b2
+    X1.int <- input$X1.int
     X2.int <- 20
-    u.sd <- 5
-    rho <- input$rho
+    u.sd <- input$u.sd
+    rho.ux <- input$rho.ux
+    rho.21 <- input$rho.21
 
     # simulation
     tmp.sim <- bet_hat_sim_fun(RR = RR, NN = NN,
                                b0 = b0, b1 = b1, b2 = b2,
                                X1.int = X1.int, X2.int = X2.int,
                                u.sd = u.sd,
-                               rho = rho)
+                               rho.ux = rho.ux, rho.21 = rho.21)
     
     tmp.sim
     
@@ -191,14 +259,15 @@ server <- function(input, output) {
     
     # inputs
     RR <- 1000
-    NN <- 100
+    NN <- input$NN
     b0 <- 1
-    b1 <- 1
-    b2 <- 1
-    X1.int <- 20
+    b1 <- input$b1
+    b2 <- input$b2
+    X1.int <- input$X1.int
     X2.int <- 20
-    u.sd <- 10
-    rho <- input$rho
+    u.sd <- input$u.sd
+    rho.ux <- input$rho.ux
+    rho.21 <- input$rho.21
     
     # reactive
     tmp.sim <- Sim()
@@ -210,7 +279,7 @@ server <- function(input, output) {
     # illustration
     plot(x = tmp.sim$X1, y = tmp.sim$Y1,
          xlab = "X", ylab = "Y",
-         xlim = c(0, 20), ylim = c(-10, 50), col = "red")
+         xlim = c(0, 50), ylim = c(-25, 70), col = "red")
     
     lines(x = tmp.sim$X1, y = tmp.sim$Y2, type = "p", col = "darkgreen")
     
@@ -225,14 +294,15 @@ server <- function(input, output) {
     
     # inputs
     RR <- 1000
-    NN <- 100
-    b0 <- -2
-    b1 <- 1
-    b2 <- 1
-    X1.int <- 10
-    X2.int <- 10
-    u.sd <- 10
-    rho <- input$rho
+    NN <- input$NN
+    b0 <- 1
+    b1 <- input$b1
+    b2 <- input$b2
+    X1.int <- input$X1.int
+    X2.int <- 20
+    u.sd <- input$u.sd
+    rho.ux <- input$rho.ux
+    rho.21 <- input$rho.21
     
     # reactive
     tmp.sim <- Sim()
@@ -283,14 +353,15 @@ server <- function(input, output) {
     
     # inputs
     RR <- 1000
-    NN <- 100
-    b0 <- -2
-    b1 <- 1
-    b2 <- 1
-    X1.int <- 10
-    X2.int <- 10
-    u.sd <- 10
-    rho <- input$rho
+    NN <- input$NN
+    b0 <- 1
+    b1 <- input$b1
+    b2 <- input$b2
+    X1.int <- input$X1.int
+    X2.int <- 20
+    u.sd <- input$u.sd
+    rho.ux <- input$rho.ux
+    rho.21 <- input$rho.21
     
     # reactive
     tmp.sim <- Sim()
