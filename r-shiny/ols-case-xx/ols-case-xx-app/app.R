@@ -61,6 +61,16 @@ ui <- fluidPage(
 
       tags$div(HTML("<span style='font-size: 14pt'>Error-in-variables bias</span>")),
       
+      # Input: variance uX1 ----
+      sliderInput(inputId = "ux.sd",
+                  label = withMathJax(
+                    'Spread of \\(u_{X_{1}}\\), i.e., \\(\\sigma_{u_{X_{1}}}\\)'
+                  ),
+                  min = as.numeric(1),
+                  max = as.numeric(20),
+                  value = as.numeric(10),
+                  step = 1),
+      
       # Input: Corelation between X u ----
       sliderInput(inputId = "rho.ux",
                   label = withMathJax(
@@ -166,7 +176,7 @@ server <- function(input, output) {
                                 b0, b1, b2,
                                 X1.int, X2.int,
                                 u.sd,
-                                rho.ux, rho.21){
+                                ux.sd, rho.ux, rho.21){
       
       # # inputs for checks
       # RR <- 1000
@@ -203,12 +213,16 @@ server <- function(input, output) {
         X2.sd <- 1/12*((1 + X2.int) - 1)^2
         
         # relationship u and x1 (error in variable)
-        m.ux <- rho.ux * (X1.sd/u.sd)
+        m.ux <- rho.ux * (ux.sd/X1.sd)
         ux <- m.ux * X1
         
+        ux.bia <- rho.ux * (ux.sd/X1.sd)
+
         # relationship X2 and x1 (omitted variable)
-        m.21 <- rho.21 * (X1.sd/X2.sd)
+        m.21 <- rho.21 * (X2.sd/X1.sd)
         X2 <- m.21 * X1
+        
+        bia.21 <- b2 * rho.21 * (X2.sd/X1.sd)
         
         u <- rnorm(NN, mean = 0, sd = u.sd)
         Y1 <- b0 + b1 * X1 + b2 * X2 + ux + u
@@ -229,13 +243,23 @@ server <- function(input, output) {
         # compute t-statistics
         b1h.z[ii] <- (b1h[ii] - b1) / sqrt(var.b1[ii])
         b0h.z[ii] <- (b0h[ii] - b0) / sqrt(var.b0[ii])
-        
+
       }
+      
+      # bootstrap analysis of bias
+      b1h.z.boot.mea <- 1/RR * sum(b1h.z)
+      b1h.z.boot.sd <- 1/(RR - 1) * sum((b1h.z - b1h.z.boot.mea)^2)
+      
+      b0h.z.boot.mea <- 1/RR * sum(b0h.z)
+      b0h.z.boot.sd <- 1/(RR - 1) * sum((b0h.z - b0h.z.boot.mea)^2)
       
       return(list(b0h = b0h, b1h = b1h,
                   Y1 = Y1, Y2 = Y2, X1 = X1, X2 = X2, u = u, ux = ux,
                   var.b0 = var.b0, var.b1 = var.b1,
-                  b0h.z = b0h.z, b1h.z = b1h.z))
+                  b0h.z = b0h.z, b1h.z = b1h.z,
+                  ux.bia = ux.bia, bia.21 = bia.21,
+                  b1h.z.boot.mea = b1h.z.boot.mea, b1h.z.boot.sd = b1h.z.boot.sd,
+                  b0h.z.boot.mea = b0h.z.boot.mea, b0h.z.boot.sd = b0h.z.boot.sd))
       
     }
     
@@ -248,6 +272,7 @@ server <- function(input, output) {
     X1.int <- input$X1.int
     X2.int <- 20
     u.sd <- input$u.sd
+    ux.sd <- input$ux.sd
     rho.ux <- input$rho.ux
     rho.21 <- input$rho.21
 
@@ -255,7 +280,7 @@ server <- function(input, output) {
     tmp.sim <- bet_hat_sim_fun(RR = RR, NN = NN,
                                b0 = b0, b1 = b1, b2 = b2,
                                X1.int = X1.int, X2.int = X2.int,
-                               u.sd = u.sd,
+                               u.sd = u.sd, ux.sd = ux.sd,
                                rho.ux = rho.ux, rho.21 = rho.21)
     
     tmp.sim
@@ -273,6 +298,7 @@ server <- function(input, output) {
     X1.int <- input$X1.int
     X2.int <- 20
     u.sd <- input$u.sd
+    ux.sd <- input$ux.sd
     rho.ux <- input$rho.ux
     rho.21 <- input$rho.21
     
@@ -308,6 +334,7 @@ server <- function(input, output) {
     X1.int <- input$X1.int
     X2.int <- 20
     u.sd <- input$u.sd
+    ux.sd <- input$ux.sd
     rho.ux <- input$rho.ux
     rho.21 <- input$rho.21
     
@@ -324,7 +351,8 @@ server <- function(input, output) {
          ylab = "Absolute Frequency")
     
     # line for mean population parameter
-    abline(v = b1, lty = 2, col = "red", lwd = 2)
+    abline(v = b1, lty = 2, col = "darkgreen", lwd = 2)
+    abline(v = b1 + tmp.sim$ux.bia + tmp.sim$bia.21, lty = 2, col = "red", lwd = 2)
     
     # legend
     legend("topleft",
@@ -347,8 +375,18 @@ server <- function(input, output) {
     X1.int <- input$X1.int
     X2.int <- 20
     u.sd <- input$u.sd
+    ux.sd <- input$ux.sd
     rho.ux <- input$rho.ux
     rho.21 <- input$rho.21
+    
+    # sd's
+    X1.sd <- 1/12*((1 + X1.int) - 1)^2
+    X2.sd <- 1/12*((1 + X2.int) - 1)^2
+    # bias'
+    ux.bia <- rho.ux * (ux.sd/X1.sd)
+    bia.21 <- b2 * rho.21 * (X2.sd/X1.sd)
+    # se
+    var.b1.pop <- (b2^2 * X2.sd^2 + ux.sd^2 + u.sd^2)/(NN * X1.sd^2)
     
     # reactive
     tmp.sim <- Sim()
@@ -375,7 +413,7 @@ server <- function(input, output) {
     rect(x$breaks[-nB], 0, x$breaks[-1L], x$density)
     
     # pdf for normal distribution
-    curve(dnorm(x, mean = 0, sd = 1), -3, 3,
+    curve(dnorm(x, mean = 0, sd = 1), -6, 6,
           xlim = c(-3,3), 
           ylim=c(0,0.6),
           lty = 2,
@@ -383,14 +421,14 @@ server <- function(input, output) {
           xlab = "", 
           ylab = "",
           add = TRUE,
-          col = "red")
+          col = "darkgreen")
     
     # legend
     legend("topright",
-           legend = "Standard Normal PDF",
-           lty = 2,
-           lwd = 1,
-           col = "red",
+           legend = c("Standard Normal PDF"),
+           lty = c(2, 2),
+           lwd = c(1, 1),
+           col = c("darkgreen"),
            inset = 0.05)
       
 
