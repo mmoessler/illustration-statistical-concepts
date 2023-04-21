@@ -18,19 +18,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <hr>
 
-<!-- # OLS: Case 1 -->
-
 # Linear Regression Model
 
 <hr>
 
 ## Motivation
 
-### Experiment No 01
+Understand the effect of different features of the data generating process (DGP) on the sampling distribution of the slope coefficient of a linear regression model.
 
-Understand the effect of increasing the sample size on the sampling distribution of the slope coefficient of a linear regression model.
-
-Change the number of observations $N$ to see the effect of the sample size $N$ on the properties of the OLS estimator for the slope coefficient $\beta_1$ of the linear regression model below.
+E.g., change the number of observations $N$ to see the effect of the sample size $N$ on the properties of the OLS estimator for the slope coefficient $\beta_1$ of the linear regression model below.
 
 <hr>
 
@@ -40,11 +36,53 @@ We are interested in the sampling properties of the OLS estimator for the slope 
 
 \begin{align}
 Y_i &= \beta_0 + \beta_1 X_i + u_i, \\
-X_i &\sim U_{\left[a, b\right]}, \\
+X_{1i} &\sim U_{\left[a_{X_1}, b_{X_1}\right]}, \\
 u_i &\sim N\left(0, \sigma_u\right).
 \end{align}
 
 <!-- X_i &\sim N\left(0, \sigma_X\right), \\ -->
+
+<hr>
+
+## Features
+
+Overall:
+
+* Sample size $N$
+* Spread of $X_{1}$, i.e., $b_{X_1} - a_{X_1}$
+* Spread of $u$, i.e., $\sigma_{u}$
+
+Violations of the LS assumptions for causal inference:
+
+\begin{align}
+\text{true:} \;\;\; Y_{1i} &= \beta_{0} + \beta_{1} X_{1i} + \beta_{2} X_{2i} + u_{X_1 i} + u_{i}, \\
+\text{observed:} \;\;\; Y_{2i} &= \beta_{0} + \beta_1 X_{1i} + u_{i}^{*}, \\
+\text{with:} \;\;\; u_{i}^{*} &= \beta_{2} X_{2i} + u_{x_1 i} + u_{i}.
+\end{align}
+
+Error-in-variable problem:
+
+\begin{align}
+u_{X_1 i} &= m_{u X_1} X_{1i} \\
+m_{u X_1} &= \rho_{u X_1} \frac{\sigma_{X_1}}{\sigma_{u}}
+\end{align}
+
+* $\rho_{u X_1} \neq 0$
+* Note, this is what can be found in S&W, 2020, p. 214
+
+Omitted variable problem:
+
+\begin{align}
+X_{2i} &= m_{X_2 X_1} X_{1i} \\
+m_{X_2 X_1} &= \rho_{X_2 X_1} \frac{\sigma_{X_1}}{\sigma_{X_2}}
+\end{align}
+
+* $\beta_{2} \neq 0$
+* $\rho_{X_2 X_1} \neq 0$
+
+
+
+
 
 <hr>
 
