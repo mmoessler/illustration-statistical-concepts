@@ -4,6 +4,7 @@ library(shiny)
 # source("/../../r-scripts/regression_simulation.R")
 # source("./r-scripts/regression_simulation.R")
 source("regression_simulation.R")
+source("plot_functions.R")
 
 # Define UI for random distribution app ----
 ui <- fluidPage(
@@ -243,7 +244,7 @@ ui <- fluidPage(
                                     
                                     tags$div(HTML("<span style='font-size: 14pt;'>Histogram of the standardized OLS estimator for \\(\\beta_1\\)</span>")),
                                     
-                                    plotOutput("Plot03")
+                                    plotOutput("Plot04")
                                     
                                     )
                )
@@ -511,6 +512,80 @@ server <- function(input, output) {
 
   })
 
+  output$Plot04 <- renderPlot({
+    
+    # inputs
+    rr <- 1000
+    nn <- input$nn
+    b0 <- 1
+    b1 <- input$b1
+    b2 <- input$b2
+    x1.sd <- input$x1.sd
+    x2.sd <- input$x2.sd
+    z.sd <- input$z.sd
+    u.sd <- input$u.sd
+    rho.21 <- input$rho.21
+    rho.z1 <- input$rho.z1
+    g0 <- input$g0
+    g1 <- input$g1
+    
+    # reactive
+    tmp.sim <- Sim()
+    
+    # prepare plot
+    x.axi.tic.01 <- seq(-6, 6, 1.0)
+    x.axi.tic.02 <- seq(-6, 6, 0.5)
+    
+    y.axi.tic.01 <- seq(0, 0.5, 0.10)
+    y.axi.tic.02 <- seq(0, 0.5, 0.05)
+    
+    main <- ""
+    sub <- ""
+    xlab <- ""
+    ylab <- ""
+    x.mar <- 0
+    y.mar <- 0
+    par.inp <- NULL
+    
+    plot_new_fun_xx(x.axi.tic.01, x.axi.tic.02, y.axi.tic.01, y.axi.tic.02,
+                    main = "", sub = "", xlab = "", ylab = "",
+                    x.mar = 0, y.mar = 0,
+                    par.inp = NULL, date = FALSE)
+        
+    # generate histogram of estimator
+    h1 <- hist(x = tmp.sim$b1h.z, freq = FALSE, plot = FALSE)
+    h2 <- hist(x = tmp.sim$b1h.z.ord, freq = FALSE, plot = FALSE)
+    
+    # plot h1
+    nB <- length(h1$breaks)
+    rect(h1$breaks[-nB], 0, h1$breaks[-1L], h1$density, col = scales::alpha("darkgreen", 0.25))
+    
+    # plot h2
+    nB <- length(h2$breaks)
+    rect(h2$breaks[-nB], 0, h2$breaks[-1L], h2$density, col = scales::alpha("red", 0.25))
+    
+    # pdf for normal distribution
+    curve(dnorm(x, mean = 0, sd = 1), -6, 6,
+          xlim = c(-3,3), 
+          ylim=c(0,0.6),
+          lty = 2,
+          lwd = 2, 
+          xlab = "", 
+          ylab = "",
+          add = TRUE,
+          col = "black")
+    
+    # legend
+    legend("topright",
+           legend = c("Standard Normal PDF"),
+           lty = c(2, 2),
+           lwd = c(1, 1),
+           col = c("darkgreen"),
+           inset = 0.05)
+    
+    
+  })
+  
   output$Text01 <- renderText({
     
     note.01 <- paste0("<div style='text-decoration: none; font-size: 14pt'>",  
