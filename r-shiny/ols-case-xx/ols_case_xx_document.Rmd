@@ -80,7 +80,14 @@ m_{X_2 X_1} &= \rho_{X_2 X_1} \frac{\sigma_{X_1}}{\sigma_{X_2}}
 * $\beta_{2} \neq 0$
 * $\rho_{X_2 X_1} \neq 0$
 
+Heteroskedastic Regression:
 
+\begin{align}
+u_{i} &\sim N\left(0, \sigma^{2}_{i}\right) \\
+\sigma^{2}_{i} &= \text{exp}\left(\gamma_0 + \gamma_1 X_{1i}\right)
+\end{align}
+
+Instrumental variable regression
 
 
 
