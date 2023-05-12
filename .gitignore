@@ -40,3 +40,6 @@ vignettes/*.pdf
 
 # Trials
 trials/
+
+# Old
+old/
