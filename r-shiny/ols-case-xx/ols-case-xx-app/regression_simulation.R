@@ -79,6 +79,9 @@ bet_hat_sim_fun <- function(rr, nn,
     # get some residuals
     res.01 <- y - fit.01$fitted.values + b2 * x2 # correlated correct/unobserved residuals
     
+    # regression of residuals on x1
+    fit.03 <- lm(res.01 ~ x1)
+    
     # get some estimates
     b0h[ii] <- fit.02$coefficients[1] # biased coefficients
     b1h[ii] <- fit.02$coefficients[2]
@@ -100,9 +103,9 @@ bet_hat_sim_fun <- function(rr, nn,
     b0h.z[ii] <- (b0h[ii] - b0) / sqrt(var.b0[ii])
     
     # 1st stage
-    fit.03 <- lm(x1 ~ z - 1)
+    fit.04 <- lm(x1 ~ z - 1)
     # 2nd stage
-    fit.04 <- lm(y ~ fit.03$fitted.values - 1)
+    fit.05 <- lm(y ~ fit.03$fitted.values - 1)
     
     # or, see, s&w, equ. 12.04
     szy <- crossprod(z, y) / nn
@@ -120,9 +123,6 @@ bet_hat_sim_fun <- function(rr, nn,
   b0h.boot.mea <- 1/rr * sum(b0h)
   b0h.z.boot.mea <- 1/rr * sum(b0h.z)
   b0h.z.boot.sd <- 1/(rr - 1) * sum((b0h.z - b0h.z.boot.mea)^2)
-  
-  # regression of residuals on x1
-  fit.05 <- lm(res.01 ~ x1)
   
   ret.lis <- list(b0h = b0h, b1h = b1h,
                   y = y, x1 = x1, x2 = x2, z = z, u = u,
