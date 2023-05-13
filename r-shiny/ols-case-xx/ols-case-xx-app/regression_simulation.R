@@ -121,13 +121,16 @@ bet_hat_sim_fun <- function(rr, nn,
   b0h.z.boot.mea <- 1/rr * sum(b0h.z)
   b0h.z.boot.sd <- 1/(rr - 1) * sum((b0h.z - b0h.z.boot.mea)^2)
   
+  # regression of residuals on x1
+  fit.05 <- lm(res.01 ~ x1)
+  
   ret.lis <- list(b0h = b0h, b1h = b1h,
                   y = y, x1 = x1, x2 = x2, z = z, u = u,
                   var.b0 = var.b0, var.b1 = var.b1, var.b1.ord = var.b1.ord,
                   b0h.z = b0h.z, b1h.z = b1h.z, b1h.z.ord = b1h.z.ord,
                   b1h.z.boot.mea = b1h.z.boot.mea, b1h.z.boot.sd = b1h.z.boot.sd, b1h.boot.mea = b1h.boot.mea,
                   b0h.z.boot.mea = b0h.z.boot.mea, b0h.z.boot.sd = b0h.z.boot.sd, b0h.boot.mea = b0h.boot.mea,
-                  fit.01 = fit.01, fit.02 = fit.02,
+                  fit.01 = fit.01, fit.02 = fit.02, fit.03 = fit.03, fit.04 = fit.04, fit.05 = fit.05,
                   res.01 = res.01)
   
   return(ret.lis)
