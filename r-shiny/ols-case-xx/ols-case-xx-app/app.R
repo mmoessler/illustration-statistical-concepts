@@ -252,6 +252,7 @@ server <- function(input, output) {
     
   })
 
+  # plot 01 01 ----
   output$Plot0101 <- renderPlot({
     
     # inputs
@@ -273,51 +274,66 @@ server <- function(input, output) {
     # reactive
     tmp.sim <- Sim()
     
-    # prepare plot
-    x.axi.tic.01 <- seq(-30, 30, 5)
-    x.axi.tic.02 <- seq(-30, 30, 5)
     
-    y.axi.tic.01 <- seq(-70, 70, 10)
-    y.axi.tic.02 <- seq(-70, 70, 5)
     
-    main <- ""
-    sub <- ""
-    xlab <- ""
-    ylab <- ""
-    x.mar <- 0
-    y.mar <- 0
-    par.inp <- NULL
-    
-    plot_new_fun_xx(x.axi.tic.01, x.axi.tic.02, y.axi.tic.01, y.axi.tic.02,
-                    main = "", sub = "", xlab = "", ylab = "",
-                    x.mar = 0, y.mar = 0,
-                    par.inp = NULL, date = FALSE)
-    
-    lines(x = tmp.sim$x1, y = tmp.sim$y, type = "p", col = "red")
+    # plot
+    plot(x = tmp.sim$x1, y = tmp.sim$y,
+         xlab = "X", ylab = "Y/YX2",
+         col = "red") # biased/observed relationship
     
     lines(x = tmp.sim$x1, y = (tmp.sim$y - b2 * tmp.sim$x2), type = "p", col = "darkgreen") # correct/unobserved relationship
     
-    fun_01 <- function(x) {
-      y <- tmp.sim$fit.01$coefficients[1] + tmp.sim$fit.01$coefficients[2] * x
-      y[which(y <= min(c(y.axi.tic.01, y.axi.tic.02)))] <- NA
-      y[which(y >= max(c(y.axi.tic.01, y.axi.tic.02)))] <- NA
-      y
-    }
+    abline(a = summary(tmp.sim$fit.01)$coefficients[1,1], b = summary(tmp.sim$fit.01)$coefficients[2,1], lty = 2, col = "darkgreen", lwd = 2) # bh1 of correct/unobserved fit
     
-    curve(fun_01, from = min(c(x.axi.tic.01, x.axi.tic.02)), to = max(c(x.axi.tic.01, x.axi.tic.02)), lty = 2, col = "darkgreen", lwd = 2, add = TRUE)
-
-    fun_02 <- function(x) {
-      y <- tmp.sim$fit.02$coefficients[1] + tmp.sim$fit.02$coefficients[2] * x
-      y[which(y <= min(c(y.axi.tic.01, y.axi.tic.02)))] <- NA
-      y[which(y >= max(c(y.axi.tic.01, y.axi.tic.02)))] <- NA
-      y
-    }
+    abline(a = summary(tmp.sim$fit.02)$coefficients[1,1], b = summary(tmp.sim$fit.02)$coefficients[2,1], lty = 2, col = "red", lwd = 2) # bh1 of biased/observed fit
     
-    curve(fun_02, from = min(c(x.axi.tic.01, x.axi.tic.02)), to = max(c(x.axi.tic.01, x.axi.tic.02)), lty = 2, col = "red", lwd = 2, add = TRUE)
+    
+    
+    # # prepare plot
+    # x.axi.tic.01 <- seq(-50, 50, 10)
+    # x.axi.tic.02 <- seq(-50, 50, 5)
+    # 
+    # y.axi.tic.01 <- seq(-100, 100, 10)
+    # y.axi.tic.02 <- seq(-100, 100, 5)
+    # 
+    # main <- ""
+    # sub <- ""
+    # xlab <- ""
+    # ylab <- ""
+    # x.mar <- 0
+    # y.mar <- 0
+    # par.inp <- NULL
+    # 
+    # plot_new_fun_xx(x.axi.tic.01, x.axi.tic.02, y.axi.tic.01, y.axi.tic.02,
+    #                 main = "", sub = "", xlab = "", ylab = "",
+    #                 x.mar = 0, y.mar = 0,
+    #                 par.inp = NULL, date = FALSE)
+    # 
+    # lines(x = tmp.sim$x1, y = tmp.sim$y, type = "p", col = "red")
+    # 
+    # lines(x = tmp.sim$x1, y = (tmp.sim$y - b2 * tmp.sim$x2), type = "p", col = "darkgreen") # correct/unobserved relationship
+    # 
+    # fun_01 <- function(x) {
+    #   y <- tmp.sim$fit.01$coefficients[1] + tmp.sim$fit.01$coefficients[2] * x
+    #   y[which(y <= min(c(y.axi.tic.01, y.axi.tic.02)))] <- NA
+    #   y[which(y >= max(c(y.axi.tic.01, y.axi.tic.02)))] <- NA
+    #   y
+    # }
+    # 
+    # curve(fun_01, from = min(c(x.axi.tic.01, x.axi.tic.02)), to = max(c(x.axi.tic.01, x.axi.tic.02)), lty = 2, col = "darkgreen", lwd = 2, add = TRUE)
+    # 
+    # fun_02 <- function(x) {
+    #   y <- tmp.sim$fit.02$coefficients[1] + tmp.sim$fit.02$coefficients[2] * x
+    #   y[which(y <= min(c(y.axi.tic.01, y.axi.tic.02)))] <- NA
+    #   y[which(y >= max(c(y.axi.tic.01, y.axi.tic.02)))] <- NA
+    #   y
+    # }
+    # 
+    # curve(fun_02, from = min(c(x.axi.tic.01, x.axi.tic.02)), to = max(c(x.axi.tic.01, x.axi.tic.02)), lty = 2, col = "red", lwd = 2, add = TRUE)
     
   })
   
-  # population residuals
+  # plot 01 02 ----
   output$Plot0102 <- renderPlot({
     
     # inputs
@@ -339,41 +355,55 @@ server <- function(input, output) {
     # reactive
     tmp.sim <- Sim()
     
-    # prepare plot
-    x.axi.tic.01 <- seq(-30, 30, 5)
-    x.axi.tic.02 <- seq(-30, 30, 5)
-
-    y.axi.tic.01 <- seq(-30, 30, 10)
-    y.axi.tic.02 <- seq(-30, 30, 5)
-
-    main <- ""
-    sub <- ""
-    xlab <- ""
-    ylab <- ""
-    x.mar <- 0
-    y.mar <- 0
-    par.inp <- NULL
     
-    plot_new_fun_xx(x.axi.tic.01, x.axi.tic.02, y.axi.tic.01, y.axi.tic.02,
-                    main = "", sub = "", xlab = "", ylab = "",
-                    x.mar = 0, y.mar = 0,
-                    par.inp = NULL, date = FALSE)
     
-    lines(x = tmp.sim$x1, y = tmp.sim$res.01, type = "p", col = "red")
+    # plot
+    plot(x = tmp.sim$x1, y = tmp.sim$res.01,
+         xlab = "X", ylab = "u",
+         col = "black")
     
-    lines(c(min(c(x.axi.tic.01, x.axi.tic.02)), max(c(x.axi.tic.01, x.axi.tic.02))), c(0, 0), lty = 2, lwd = 2)
+    abline(h = 0, lty = 2, lwd = 2)
     
-    fun_03 <- function(x) {
-      y <- tmp.sim$fit.05$coefficients[1] + tmp.sim$fit.05$coefficients[2] * x
-      y[which(y <= min(c(y.axi.tic.01, y.axi.tic.02)))] <- NA
-      y[which(y >= max(c(y.axi.tic.01, y.axi.tic.02)))] <- NA
-      y
-    }
+    abline(a = summary(tmp.sim$fit.03)$coefficients[1,1], b = summary(tmp.sim$fit.03)$coefficients[2,1], lty = 2, col = "red", lwd = 2)
     
-    curve(fun_03, from = min(c(x.axi.tic.01, x.axi.tic.02)), to = max(c(x.axi.tic.01, x.axi.tic.02)), lty = 2, col = "red", lwd = 2, add = TRUE)
+    
+    
+    # # prepare plot
+    # x.axi.tic.01 <- seq(-30, 30, 5)
+    # x.axi.tic.02 <- seq(-30, 30, 5)
+    # 
+    # y.axi.tic.01 <- seq(-30, 30, 10)
+    # y.axi.tic.02 <- seq(-30, 30, 5)
+    # 
+    # main <- ""
+    # sub <- ""
+    # xlab <- ""
+    # ylab <- ""
+    # x.mar <- 0
+    # y.mar <- 0
+    # par.inp <- NULL
+    # 
+    # plot_new_fun_xx(x.axi.tic.01, x.axi.tic.02, y.axi.tic.01, y.axi.tic.02,
+    #                 main = "", sub = "", xlab = "", ylab = "",
+    #                 x.mar = 0, y.mar = 0,
+    #                 par.inp = NULL, date = FALSE)
+    # 
+    # lines(x = tmp.sim$x1, y = tmp.sim$res.01, type = "p", col = "red")
+    # 
+    # lines(c(min(c(x.axi.tic.01, x.axi.tic.02)), max(c(x.axi.tic.01, x.axi.tic.02))), c(0, 0), lty = 2, lwd = 2)
+    # 
+    # fun_03 <- function(x) {
+    #   y <- tmp.sim$fit.03$coefficients[1] + tmp.sim$fit.03$coefficients[2] * x
+    #   y[which(y <= min(c(y.axi.tic.01, y.axi.tic.02)))] <- NA
+    #   y[which(y >= max(c(y.axi.tic.01, y.axi.tic.02)))] <- NA
+    #   y
+    # }
+    # 
+    # curve(fun_03, from = min(c(x.axi.tic.01, x.axi.tic.02)), to = max(c(x.axi.tic.01, x.axi.tic.02)), lty = 2, col = "red", lwd = 2, add = TRUE)
     
   })
   
+  # plot 02 -----
   output$Plot02 <- renderPlot({
     
     # inputs
@@ -394,36 +424,20 @@ server <- function(input, output) {
     # reactive
     tmp.sim <- Sim()
     
-    # prepare plot
-    x.axi.tic.01 <- seq(-6, 6, 1.0)
-    x.axi.tic.02 <- seq(-6, 6, 0.5)
     
-    y.axi.tic.01 <- seq(0, 5, 0.5)
-    y.axi.tic.02 <- seq(0, 5, 1)
     
-    main <- ""
-    sub <- ""
-    xlab <- ""
-    ylab <- ""
-    x.mar <- 0
-    y.mar <- 0
-    par.inp <- NULL
-    
-    plot_new_fun_xx(x.axi.tic.01, x.axi.tic.02, y.axi.tic.01, y.axi.tic.02,
-                    main = "", sub = "", xlab = "", ylab = "",
-                    x.mar = 0, y.mar = 0,
-                    par.inp = NULL, date = FALSE)
-    
-    h1 <- hist(x = tmp.sim$b1h, freq = FALSE, plot = FALSE)
-    
-    # plot h1
-    nB <- length(h1$breaks)
-    rect(h1$breaks[-nB], 0, h1$breaks[-1L], h1$density, col = scales::alpha("red", 0.25))
+    # plot histogram of estimator
+    hist(x = tmp.sim$b1h, freq = FALSE,
+         xlim = c(-6, 6),
+         ylim = c(0, 5),
+         # main=paste("n=",N),
+         main = "",
+         xlab = "", 
+         ylab = "Absolute Frequency")
     
     # line for mean population parameter
-    lines(c(b1, b1), c(min(c(y.axi.tic.01, y.axi.tic.02)), max(c(y.axi.tic.01, y.axi.tic.02))), lty = 2, col = "darkgreen", lwd = 2)
-    
-    lines(c(tmp.sim$b1h.boot.mea, tmp.sim$b1h.boot.mea), c(min(c(y.axi.tic.01, y.axi.tic.02)), max(c(y.axi.tic.01, y.axi.tic.02))), lty = 2, col = "red", lwd = 2)
+    abline(v = b1, lty = 2, col = "darkgreen", lwd = 2)
+    abline(v = tmp.sim$b1h.boot.mea, lty = 2, col = "red", lwd = 2)
     
     # legend
     legend("topleft",
@@ -432,9 +446,51 @@ server <- function(input, output) {
            lwd = 1,
            col = "red",
            inset = 0.05)
+    
+    
+    
+    # # prepare plot
+    # x.axi.tic.01 <- seq(-6, 6, 1.0)
+    # x.axi.tic.02 <- seq(-6, 6, 0.5)
+    # 
+    # y.axi.tic.01 <- seq(0, 5, 0.5)
+    # y.axi.tic.02 <- seq(0, 5, 1)
+    # 
+    # main <- ""
+    # sub <- ""
+    # xlab <- ""
+    # ylab <- ""
+    # x.mar <- 0
+    # y.mar <- 0
+    # par.inp <- NULL
+    # 
+    # plot_new_fun_xx(x.axi.tic.01, x.axi.tic.02, y.axi.tic.01, y.axi.tic.02,
+    #                 main = "", sub = "", xlab = "", ylab = "",
+    #                 x.mar = 0, y.mar = 0,
+    #                 par.inp = NULL, date = FALSE)
+    # 
+    # h1 <- hist(x = tmp.sim$b1h, freq = FALSE, plot = FALSE)
+    # 
+    # # plot h1
+    # nB <- length(h1$breaks)
+    # rect(h1$breaks[-nB], 0, h1$breaks[-1L], h1$density, col = scales::alpha("red", 0.25))
+    # 
+    # # line for mean population parameter
+    # lines(c(b1, b1), c(min(c(y.axi.tic.01, y.axi.tic.02)), max(c(y.axi.tic.01, y.axi.tic.02))), lty = 2, col = "darkgreen", lwd = 2)
+    # 
+    # lines(c(tmp.sim$b1h.boot.mea, tmp.sim$b1h.boot.mea), c(min(c(y.axi.tic.01, y.axi.tic.02)), max(c(y.axi.tic.01, y.axi.tic.02))), lty = 2, col = "red", lwd = 2)
+    # 
+    # # legend
+    # legend("topleft",
+    #        legend = "Population coefficient",
+    #        lty = 2,
+    #        lwd = 1,
+    #        col = "red",
+    #        inset = 0.05)
 
   })
   
+  # plot 03 ----
   output$Plot03 <- renderPlot({
     
     # inputs
@@ -455,29 +511,26 @@ server <- function(input, output) {
     # reactive
     tmp.sim <- Sim()
     
-    # prepare plot
-    x.axi.tic.01 <- seq(-5, 5, 1.0)
-    x.axi.tic.02 <- seq(-5, 5, 0.5)
     
-    y.axi.tic.01 <- seq(0, 0.5, 0.10)
-    y.axi.tic.02 <- seq(0, 0.5, 0.05)
     
-    main <- ""
-    sub <- ""
-    xlab <- ""
-    ylab <- ""
-    x.mar <- 0
-    y.mar <- 0
-    par.inp <- NULL
-    
-    plot_new_fun_xx(x.axi.tic.01, x.axi.tic.02, y.axi.tic.01, y.axi.tic.02,
-                    main = "", sub = "", xlab = "", ylab = "",
-                    x.mar = 0, y.mar = 0,
-                    par.inp = NULL, date = FALSE)
-        
     # generate histogram of estimator
-    h1 <- hist(x = tmp.sim$b1h.z, freq = FALSE, plot = FALSE)
-    h2 <- hist(x = tmp.sim$b1h.z.ord, freq = FALSE, plot = FALSE)
+    h1 <- hist(x = tmp.sim$b1h.z, freq = FALSE)
+    h2 <- hist(x = tmp.sim$b1h.z.ord, freq = FALSE)
+    
+    # plot histogram of estimator
+    main <- c("")
+    sub <- c("")
+    xlab <- c("")
+    ylab <- c("Relative Frequency")
+    
+    xlim <- c(-6, 6)
+    ylim <- c(0, max(c(h2$density, 0.40)))
+    
+    plot.new()
+    plot.window(xlim, ylim, "")
+    title(main = main, sub = sub, xlab = xlab, ylab = ylab)
+    axis(1)
+    axis(2)
     
     # plot h1
     nB <- length(h1$breaks)
@@ -488,7 +541,9 @@ server <- function(input, output) {
     rect(h2$breaks[-nB], 0, h2$breaks[-1L], h2$density, col = scales::alpha("red", 0.25))
     
     # pdf for normal distribution
-    curve(dnorm(x, mean = 0, sd = 1), -5, 5,
+    curve(dnorm(x, mean = 0, sd = 1), -6, 6,
+          xlim = c(-3,3), 
+          ylim=c(0,0.6),
           lty = 2,
           lwd = 2, 
           xlab = "", 
@@ -504,6 +559,56 @@ server <- function(input, output) {
            col = c("darkgreen"),
            inset = 0.05)
     
+    
+    
+    # # prepare plot
+    # x.axi.tic.01 <- seq(-5, 5, 1.0)
+    # x.axi.tic.02 <- seq(-5, 5, 0.5)
+    # 
+    # y.axi.tic.01 <- seq(0, 0.5, 0.10)
+    # y.axi.tic.02 <- seq(0, 0.5, 0.05)
+    # 
+    # main <- ""
+    # sub <- ""
+    # xlab <- ""
+    # ylab <- ""
+    # x.mar <- 0
+    # y.mar <- 0
+    # par.inp <- NULL
+    # 
+    # plot_new_fun_xx(x.axi.tic.01, x.axi.tic.02, y.axi.tic.01, y.axi.tic.02,
+    #                 main = "", sub = "", xlab = "", ylab = "",
+    #                 x.mar = 0, y.mar = 0,
+    #                 par.inp = NULL, date = FALSE)
+    #     
+    # # generate histogram of estimator
+    # h1 <- hist(x = tmp.sim$b1h.z, freq = FALSE, plot = FALSE)
+    # h2 <- hist(x = tmp.sim$b1h.z.ord, freq = FALSE, plot = FALSE)
+    # 
+    # # plot h1
+    # nB <- length(h1$breaks)
+    # rect(h1$breaks[-nB], 0, h1$breaks[-1L], h1$density, col = scales::alpha("darkgreen", 0.25))
+    # 
+    # # plot h2
+    # nB <- length(h2$breaks)
+    # rect(h2$breaks[-nB], 0, h2$breaks[-1L], h2$density, col = scales::alpha("red", 0.25))
+    # 
+    # # pdf for normal distribution
+    # curve(dnorm(x, mean = 0, sd = 1), -5, 5,
+    #       lty = 2,
+    #       lwd = 2, 
+    #       xlab = "", 
+    #       ylab = "",
+    #       add = TRUE,
+    #       col = "black")
+    # 
+    # # legend
+    # legend("topright",
+    #        legend = c("Standard Normal PDF"),
+    #        lty = c(2, 2),
+    #        lwd = c(1, 1),
+    #        col = c("darkgreen"),
+    #        inset = 0.05)
     
   })
   
