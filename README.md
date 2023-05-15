@@ -71,7 +71,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/ols-cas
 
 ```
 
-Run the following codes in R (old approach):
+Run the following codes in R (shiny, i.e., old approach):
 
 ```
 
@@ -123,7 +123,7 @@ source("https://raw.githubusercontent.com/mmoessler/illustration-statistical-con
 
 -->
 
-### Case XX
+### Case xx (shiny approach)
 
 This illustration shows the effect/consequences of omitted variable bias and heteroskedasticity on the sampling distribution of the slope parameter $\beta_1$.
 
