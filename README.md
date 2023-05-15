@@ -81,7 +81,7 @@ source("https://raw.githubusercontent.com/mmoessler/illustration-statistical-con
 
 ### Case 2
 
-This illustration shows the effect of changing the sample size $N$ and changing the value of the slope parameter, i.e., $\beat_1$.
+This illustration shows the effect of changing the sample size $N$ and changing the value of the slope parameter, i.e., $\beta_1$.
 
 Open the following link in your browser:
 
@@ -90,6 +90,8 @@ Open the following link in your browser:
 https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/ols-case-02/ols_case_02_html_xx.html
 
 ```
+
+<!--
 
 ### Case 3
 
@@ -116,5 +118,17 @@ Run the following codes in R (old approach):
 ```
 
 source("https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/r-shiny/ols_case_03_run.R")
+
+```
+
+-->
+
+### Case XX
+
+This illustration shows the effect/consequences of omitted variable bias and heteroskedasticity on the sampling distribution of the slope parameter $\beta_1$.
+
+```
+
+source("https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/r-shiny/ols_case_xx_run.R")
 
 ```
