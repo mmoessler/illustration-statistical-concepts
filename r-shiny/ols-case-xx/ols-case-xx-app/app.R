@@ -30,7 +30,7 @@ ui <- fluidPage(
                   label = withMathJax(
                     'Slope coefficient \\(\\beta_1\\)'
                   ),
-                  min = as.numeric(1),
+                  min = as.numeric(-3),
                   max = as.numeric(3),
                   value = as.numeric(2),
                   step = 0.5),
@@ -114,32 +114,33 @@ ui <- fluidPage(
                   label = withMathJax(
                     'Heteroskedasticity \\(\\gamma_{1}\\)'
                   ),
-                  min = as.numeric(-1),
-                  max = as.numeric(1),
+                  min = as.numeric(-0.2),
+                  max = as.numeric( 0.2),
                   value = as.numeric(0),
-                  step = 0.1),
+                  step = 0.1)
+      # ,
       
-      tags$div(HTML("<span style='font-size: 14pt'>Instrument Variable Regression</span>")),
-      
-      # standard deviation of z ----
-      sliderInput(inputId = "z.sd",
-                  label = withMathJax(
-                    'Standard deviation of \\(Z\\)'
-                  ),
-                  min = as.numeric(1),
-                  max = as.numeric(20),
-                  value = as.numeric(10),
-                  step = 1),
-      
-      # correlation between x1 and z ----
-      sliderInput(inputId = "rho.z1",
-                  label = withMathJax(
-                    'Instrument relevance \\(\\rho_{Z X_1}\\)'
-                  ),
-                  min = as.numeric(-1),
-                  max = as.numeric(1),
-                  value = as.numeric(0),
-                  step = 0.05)
+      # tags$div(HTML("<span style='font-size: 14pt'>Instrument Variable Regression</span>")),
+      # 
+      # # standard deviation of z ----
+      # sliderInput(inputId = "z.sd",
+      #             label = withMathJax(
+      #               'Standard deviation of \\(Z\\)'
+      #             ),
+      #             min = as.numeric(1),
+      #             max = as.numeric(20),
+      #             value = as.numeric(10),
+      #             step = 1),
+      # 
+      # # correlation between x1 and z ----
+      # sliderInput(inputId = "rho.z1",
+      #             label = withMathJax(
+      #               'Instrument relevance \\(\\rho_{Z X_1}\\)'
+      #             ),
+      #             min = as.numeric(-1),
+      #             max = as.numeric(1),
+      #             value = as.numeric(0),
+      #             step = 0.05)
       
     ),
 
@@ -164,11 +165,14 @@ ui <- fluidPage(
                            tabPanel("Sample Draw",
                                     tags$br(),
                                     
-                                    tags$div(HTML("<span style='font-size: 14pt;'>Scatterplot Sample Draw</span>")),
+                                    tags$div(HTML("<span style='font-size: 14pt;'>Scatterplot Sample Draws</span>")),
+                                    # tags$div(HTML("<span style='font-size: 12pt;'>(Observed and Unoserved Effects)</span>")),
+                                    tags$div(HTML("<span style='font-size: 12pt;'>(\\(X_1\\) and \\(Y\\) with and without removing effect of \\(X_2\\))</span>")),
                                     
                                     plotOutput("Plot0101"),
                                     
                                     tags$div(HTML("<span style='font-size: 14pt;'>Scatterplot Unobservable Residulas</span>")),
+                                    tags$div(HTML("<span style='font-size: 12pt;'>(\\(Y\\) on \\(X_1\\) without removing effect of \\(X_2\\))</span>")),
                                     
                                     plotOutput("Plot0102"),
                                     
@@ -234,10 +238,10 @@ server <- function(input, output) {
     b2 <- input$b2
     x1.sd <- input$x1.sd
     x2.sd <- input$x2.sd
-    z.sd <- input$z.sd
+    z.sd <- 1
     u.sd <- input$u.sd
     rho.21 <- input$rho.21
-    rho.z1 <- input$rho.z1
+    rho.z1 <- 0
     g0 <- input$g0
     g1 <- input$g1
 
@@ -267,7 +271,7 @@ server <- function(input, output) {
     u.sd <- input$u.sd
     ux.sd <- input$ux.sd
     rho.21 <- input$rho.21
-    rho.z1 <- input$rho.z1
+    rho.z1 <- 0
     g0 <- input$g0
     g1 <- input$g1
     
@@ -348,7 +352,7 @@ server <- function(input, output) {
     u.sd <- input$u.sd
     ux.sd <- input$ux.sd
     rho.21 <- input$rho.21
-    rho.z1 <- input$rho.z1
+    rho.z1 <- 0
     g0 <- input$g0
     g1 <- input$g1
     
@@ -414,7 +418,7 @@ server <- function(input, output) {
     b2 <- input$b2
     x1.sd <- input$x1.sd
     x2.sd <- input$x2.sd
-    z.sd <- input$z.sd
+    z.sd <- 1
     u.sd <- input$u.sd
     rho.21 <- input$rho.21
     rho.z1 <- 0
@@ -501,10 +505,10 @@ server <- function(input, output) {
     b2 <- input$b2
     x1.sd <- input$x1.sd
     x2.sd <- input$x2.sd
-    z.sd <- input$z.sd
+    z.sd <- 1
     u.sd <- input$u.sd
     rho.21 <- input$rho.21
-    rho.z1 <- input$rho.z1
+    rho.z1 <- 0
     g0 <- input$g0
     g1 <- input$g1
     
@@ -552,11 +556,16 @@ server <- function(input, output) {
           col = "black")
     
     # legend
+    legend("topleft",
+           legend = c("based on robust se", "based on ordinary se"),
+           fill =  c(scales::alpha("darkgreen", 0.25), scales::alpha("red", 0.25)),
+           inset = 0.05)
+    
     legend("topright",
            legend = c("Standard Normal PDF"),
-           lty = c(2, 2),
-           lwd = c(1, 1),
-           col = c("darkgreen"),
+           lty = c(2),
+           lwd = c(1),
+           col = c("black"),
            inset = 0.05)
     
     
