@@ -91,9 +91,9 @@ bet_hat_sim_fun <- function(rr, nn,
     hi <- 1 - mean(x1) / mean(x1^2) * x1
     var.b0[ii] <- var(hi * u) / (nn * mean(hi^2)^2)
     # compute the variance of hat_beta_1
-    var.b1[ii] <- var( ( x1 - mean(x1) ) * u ) / ( nn * var(x1)^2 ) # robust
+    # var.b1[ii] <- var( ( x1 - mean(x1) ) * u ) / ( nn * var(x1)^2 ) # robust
     var.b1[ii] <- var( ( x1 - mean(x1) ) * (u + b2 * x2) ) / ( nn * var(x1)^2 ) # robust
-    var.b1.ord[ii] <- var( u ) / ( nn * var(x1) ) # ordinary
+    # var.b1.ord[ii] <- var( u ) / ( nn * var(x1) ) # ordinary
     var.b1.ord[ii] <- var( (u + b2 * x2) ) / ( nn * var(x1) ) # ordinary
     
     # compute t-statistics
