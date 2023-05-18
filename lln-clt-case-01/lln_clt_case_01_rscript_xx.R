@@ -188,7 +188,7 @@ for (ii in 1:length(NN.vec)) {
          col = "grey")
     
     # line for mean population parameter
-    abline(v = p, lty = 2, col = "red", lwd = 2)
+    abline(v = 1/2 * (a + b), lty = 2, col = "red", lwd = 2)
     
     # legend
     legend("topright",
