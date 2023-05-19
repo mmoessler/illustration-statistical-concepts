@@ -146,12 +146,14 @@
 
             <!--..........................................................................-->
             <!-- see: https://www.w3schools.com/html/html5_audio.asp -->
+            <!--
             <div style="text-align: center;">
               <audio controls>
                 <source src="simulation_audio_01.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
               </audio>
             </div>
+            -->
 
           </div>
 
@@ -173,16 +175,35 @@
           <div class="jumbotron">
             <p style='font-size: 16pt;'>Sample size \(N\)</p>        
             <br>        
-            <!-- <input id="ex601" type="text" data-slider-min="5" data-slider-max="95" data-slider-step="10" data-slider-value="5"/> -->
-            <input id="ex601" type="text" data-slider-min="0" data-slider-max="9" data-slider-step="1" data-slider-value="1"/>
+            <input id="ex601" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="1"/>
+            <p style='font-size: 16pt;'>Lower bound \(a\)</p>        
+            <br>        
+            <input id="ex602" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0"/>
+            <p style='font-size: 16pt;'>Upper bound \(b\)</p>        
+            <br>        
+            <input id="ex603" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0"/>
+          </div>
+
+          <!--
+          <div class="jumbotron">
+            <p style='font-size: 16pt;'>Sample size \(N\)</p>        
+            <br>        
+            <input id="ex601" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="1"/>
           </div>
           <div class="jumbotron">
-            <p style='font-size: 16pt;'>Probability of success \(p\)</p>        
+            <p style='font-size: 16pt;'>Lower bound \(a\)</p>        
             <br>        
-            <!-- <input id="ex602" type="text" data-slider-min="0.2" data-slider-max="0.8" data-slider-step="0.2" data-slider-value="0.4"/> -->
-            <input id="ex602" type="text" data-slider-min="0" data-slider-max="3" data-slider-step="1" data-slider-value="1"/>
+            <input id="ex602" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0"/>
           </div>
+          <div class="jumbotron">
+            <p style='font-size: 16pt;'>Upper bound \(b\)</p>        
+            <br>        
+            <input id="ex603" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0"/>
+          </div>
+          -->
+
         </div>
+        
         <div class="col-sm-8">
 
           <div class="jumbotron">
@@ -202,16 +223,18 @@
               <p style='font-size: 14pt;'>(Based on one sample draw of size \(N\) on the DGP)</p>              
               <p style='font-size: 12pt;'>The plot below illustrates the simulation exercise</p>                          
               <!-- <img src="plot_01_N5_p2.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;"> --> 
-              <img src="plot_01_1_1.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
+              <img src="plot_01_1_1_1.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
 
               <!--..........................................................................-->
               <!-- see: https://www.w3schools.com/html/html5_audio.asp -->
+              <!--
               <div style="text-align: center;">
                 <audio controls>
                   <source src="interpretation_audio_01.mp3" type="audio/mpeg">
                   Your browser does not support the audio element.
                 </audio>
               </div>
+              -->
 
             </div>
 
@@ -220,8 +243,7 @@
               <p style='font-size: 16pt;'>Histogram of the sample average \(\overline{Y}\)</p>
               <p style='font-size: 14pt;'>(Based on \(1000\) sample draw of size \(N\) on the DGP)</p>              
               <p style='font-size: 12pt;'>The plot below illustrates the Law of Large Numbers (LLN)</p>
-              <!-- <img src="plot_02_N5_p2.svg" alt="" id="imageL1N2Id" style="text-align: center;"> -->
-              <img src="plot_02_1_1.svg" alt="" id="imageL1N2Id" style="text-align: center;">
+              <img src="plot_02_1_1_1.svg" alt="" id="imageL1N2Id" style="text-align: center;">
               <br><br>
               <p>As the sample size \(N\) grows the sample average \(\overline{Y}\) gets closer to \(\mu\), i.e.,</p>
               $$
@@ -233,12 +255,14 @@
 
               <!--..........................................................................-->
               <!-- see: https://www.w3schools.com/html/html5_audio.asp -->
+              <!--
               <div style="text-align: center;">
                 <audio controls>
                   <source src="interpretation_audio_02.mp3" type="audio/mpeg">
                   Your browser does not support the audio element.
                 </audio>
               </div>
+              -->
 
             </div>
 
@@ -247,8 +271,7 @@
               <p style='font-size: 16pt;'>Histogram of the standardized sample average \(z_{\overline{Y}}\)</p>
               <p style='font-size: 14pt;'>(Based on \(1000\) sample draw of size \(N\) on the DGP)</p>              
               <p style='font-size: 12pt;'>The plot below illustrates the Central Limit Theorem (CLT)</p>
-              <!-- <img src="plot_03_N5_p2.svg" alt="" id="imageL1N3Id"> -->
-              <img src="plot_03_1_1.svg" alt="" id="imageL1N3Id">
+              <img src="plot_03_1_1_1.svg" alt="" id="imageL1N3Id">
               <br><br>
               <p>As the sample size \(N\) grows the distribution of the standardized sample average,</p>
               $$
@@ -345,62 +368,64 @@
       // handling of slider                
       // see: https://seiyria.com/bootstrap-slider/
            
-      var nnSeq = jStat.seq(5, 95, 10);
-      //var pSeq = jStat.seq(0.2, 0.8, 0.2);
-      var pSeq = [0.2, 0.4, 0.6, 0.8];
+      var nVec = [5, 10, 25, 50, 100]
+      var aVec = [-3.0, -2.5, -2.0, -1.5, -1.0]
+      var bVec = [1.0, 1.5, 2.0, 2.5, 3.0]
 
       //var slider01 = new Slider("#ex601", { tooltip: 'always' });
       var slider01 = new Slider("#ex601", { 
         tooltip: "always",
         formatter: function(value) {
-          return "current value: " + nnSeq[value]
+          return "current value: " + nVec[value]
         } 
       });
       //var slider02 = new Slider("#ex602", { tooltip: 'always' });
       var slider02 = new Slider("#ex602", { 
         tooltip: "always",
         formatter: function(value) {
-          return "current value: " + pSeq[value]
+          return "current value: " + aVec[value]
+        } 
+      });
+      //var slider03 = new Slider("#ex603", { tooltip: 'always' });
+      var slider03 = new Slider("#ex603", { 
+        tooltip: "always",
+        formatter: function(value) {
+          return "current value: " + bVec[value]
         } 
       });
 
-      //slider01.on("slide", function() {
-      //  var sliderValue01 = slider01.getValue();
-      //  var sliderValue02 = slider02.getValue()*10;
-      //  document.getElementById("imageL1N1Id").setAttribute("src", "plot_01_N" + sliderValue01 + "_p" + sliderValue02 + ".svg");
-      //  document.getElementById("imageL1N2Id").setAttribute("src", "plot_02_N" + sliderValue01 + "_p" + sliderValue02 + ".svg");
-      //  document.getElementById("imageL1N3Id").setAttribute("src", "plot_03_N" + sliderValue01 + "_p" + sliderValue02 + ".svg");
-      //})
-
       slider01.on("slide", function() {
-        var sliderValue01 = slider01.getValue();
-        var sliderValue02 = slider02.getValue();
-        document.getElementById("imageL1N1Id").setAttribute("src", "plot_01_" + sliderValue01 + "_" + sliderValue02 + ".svg");
-        document.getElementById("imageL1N2Id").setAttribute("src", "plot_02_" + sliderValue01 + "_" + sliderValue02 + ".svg");
-        document.getElementById("imageL1N3Id").setAttribute("src", "plot_03_" + sliderValue01 + "_" + sliderValue02 + ".svg");
+        var sliderValue01 = slider01.getValue() + 1;
+        var sliderValue02 = slider02.getValue() + 1;
+        var sliderValue03 = slider03.getValue() + 1;
+        document.getElementById("imageL1N1Id").setAttribute("src", "plot_01_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
+        document.getElementById("imageL1N2Id").setAttribute("src", "plot_02_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
+        document.getElementById("imageL1N3Id").setAttribute("src", "plot_03_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
+
+        console.log("plot_01_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg")
+
       })
 
-      //slider02.on("slide", function() {
-      //  var sliderValue01 = slider01.getValue();
-      //  var sliderValue02 = slider02.getValue()*10;
-      //  document.getElementById("imageL1N1Id").setAttribute("src", "plot_01_N" + sliderValue01 + "_p" + sliderValue02 + ".svg");
-      //  document.getElementById("imageL1N2Id").setAttribute("src", "plot_02_N" + sliderValue01 + "_p" + sliderValue02 + ".svg");
-      //  document.getElementById("imageL1N3Id").setAttribute("src", "plot_03_N" + sliderValue01 + "_p" + sliderValue02 + ".svg");
-      //})
-
       slider02.on("slide", function() {
-        var sliderValue01 = slider01.getValue();
-        var sliderValue02 = slider02.getValue();
-        document.getElementById("imageL1N1Id").setAttribute("src", "plot_01_" + sliderValue01 + "_" + sliderValue02 + ".svg");
-        document.getElementById("imageL1N2Id").setAttribute("src", "plot_02_" + sliderValue01 + "_" + sliderValue02 + ".svg");
-        document.getElementById("imageL1N3Id").setAttribute("src", "plot_03_" + sliderValue01 + "_" + sliderValue02 + ".svg");
+        var sliderValue01 = slider01.getValue() + 1;
+        var sliderValue02 = slider02.getValue() + 1;
+        var sliderValue03 = slider03.getValue() + 1;
+        document.getElementById("imageL1N1Id").setAttribute("src", "plot_01_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
+        document.getElementById("imageL1N2Id").setAttribute("src", "plot_02_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
+        document.getElementById("imageL1N3Id").setAttribute("src", "plot_03_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
+      })
+
+      slider03.on("slide", function() {
+        var sliderValue01 = slider01.getValue() + 1;
+        var sliderValue02 = slider02.getValue() + 1;
+        var sliderValue03 = slider03.getValue() + 1;
+        document.getElementById("imageL1N1Id").setAttribute("src", "plot_01_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
+        document.getElementById("imageL1N2Id").setAttribute("src", "plot_02_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
+        document.getElementById("imageL1N3Id").setAttribute("src", "plot_03_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
       })
 
       // set start page
       document.getElementById("tabLinkL1N1Id").click();
-
-      console.log(nnSeq);
-      console.log(pSeq);
 
     </script>
   </body>
