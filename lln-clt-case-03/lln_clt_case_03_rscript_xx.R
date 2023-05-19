@@ -8,31 +8,11 @@ setwd("./lln-clt-case-03")
 # set seed 
 set.seed(12345)
 
-# function to simulate sample average for bernoulli experiment ----
-Y_bar_ber_sim_fun <- function(RR, NN, p){
-  
-  # theoretical moments
-  mu <- p      # mean
-  s2 <- p*(1-p) # variance
-  
-  Y.bar   <- numeric(RR)
-  Y.bar.z <- numeric(RR)
-  
-  for (ii in 1:RR) {
-    Y.sim <- rbinom(n=NN, size=1, prob=p)
-    Y.bar[ii]   <- mean(Y.sim)
-    Y.bar.z[ii] <- (mean(Y.sim)-mu)/sqrt(s2/NN)
-    # see, S&W, 2020, p.89
-  }
-  
-  return(list(Y.bar = Y.bar, Y.bar.z = Y.bar.z, Y.sim = Y.sim))
-  
-}
-
+# function to simulate sample average  ----
 Y_bar_uni_sim_fun <- function(RR, NN, a, b){
   
   # theoretical moments
-  mu <- 1/2 * (a + b)      # mean
+  mu <- 1/2 * (a + b)    # mean
   s2 <- 1/12 * (b - a)^2 # variance
   
   Y.bar   <- numeric(RR)
@@ -49,7 +29,6 @@ Y_bar_uni_sim_fun <- function(RR, NN, a, b){
 }
 
 # inputs (variable)
-# NN.vec <- seq(5, 95, 10)
 NN.vec <- c(5, 10, 25, 50, 100)
 a.vec <- seq(-3, -1, 0.5)
 b.vec <- seq(1, 3, 0.5)
@@ -57,8 +36,7 @@ b.vec <- seq(1, 3, 0.5)
 # inputs (fixed)
 RR <- 1000
 
-# simulation
-
+# simulation/illustration ----
 for (ii in 1:length(NN.vec)) {
   
   for (jj in 1:length(a.vec)) {
@@ -75,8 +53,7 @@ for (ii in 1:length(NN.vec)) {
       # construct sample mean
       lm.tmp <- lm(tmp.sim$Y.sim ~ 1)
       
-      # plot no 01 ----
-      
+      # plot no 01: histogram ----
       plt.nam <- paste("plot_01_", ii, "_", jj, "_", kk, ".svg", sep = "")
       svg(plt.nam) 
       
@@ -143,8 +120,7 @@ for (ii in 1:length(NN.vec)) {
       
       dev.off()
       
-      # plot no 02 ----
-      
+      # plot no 02: histogram sample average (non-standardized) ----
       plt.nam <- paste("plot_02_", ii, "_", jj, "_", kk, ".svg", sep = "")
       svg(plt.nam) 
       
