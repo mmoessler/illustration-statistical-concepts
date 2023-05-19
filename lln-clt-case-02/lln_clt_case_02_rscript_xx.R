@@ -59,7 +59,7 @@ for (ii in 1:length(NN.vec)) {
     tmp <- c(NN - sum(tmp.sim$Y.sim), sum(tmp.sim$Y.sim))
     
     tmp.bp <- barplot(tmp,
-                      ylim = c(0, 1),
+                      ylim = c(0, 100),
                       names.arg = c("0","1"))
     grid()
     
@@ -67,7 +67,7 @@ for (ii in 1:length(NN.vec)) {
             ylim = c(0, 100),
             names.arg = c("0","1"), add = TRUE)
     
-    rect(xleft = rect.xleft.01, ybottom = rect.ybottom.01, xright = rect.xright.01, ytop = rect.ytop.01, col = "white")
+    rect(xleft = 0.25, ybottom = 82.5, xright = 0.75, ytop = 97.5, col = "white")
     
     text(x = 0.5, y = 93,
          bquote(bar(Y) ~" " == .(format(round(summary(lm.tmp)$coefficients[1,1], 3), nsmall = 3))),
