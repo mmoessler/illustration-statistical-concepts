@@ -38,20 +38,24 @@ ui <- fluidPage(
                   label = withMathJax(
                     'Minimum \\(a\\)'
                   ),
-                  min = as.numeric(-3),
-                  max = as.numeric(-1),
-                  value = as.numeric(-3),
-                  step = 0.5),
+                  # min = as.numeric(-10),
+                  # max = as.numeric(-1),
+                  min = as.numeric(1),
+                  max = as.numeric(1),
+                  value = as.numeric(1),
+                  step = 1),
       
       # maximum b ----
       sliderInput(inputId = "b",
                   label = withMathJax(
                     'Maximum \\(b\\)'
                   ),
-                  min = as.numeric(1),
-                  max = as.numeric(3),
-                  value = as.numeric(3),
-                  step = 0.5)
+                  # min = as.numeric(1),
+                  # max = as.numeric(10),
+                  min = as.numeric(1.1),
+                  max = as.numeric(100),
+                  value = as.numeric(1.1),
+                  step = 0.1)
       
     ),
 
