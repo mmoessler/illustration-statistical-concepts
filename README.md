@@ -36,6 +36,24 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/lln-clt
 
 ```
 
+### Continuous uniform distribution
+
+Consider iid draws from the following distribution,
+
+$$
+\begin{align*}
+Y_i &\sim U_{\left[a,b\right]}.
+\end{align*}
+$$
+
+This illustration shows the effect of changing the sample size $N$, the lower bound $a$ and the upper bound $b$ on the sampling distribution of the sample average.
+
+```
+
+https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/lln-clt-case-03/lln_clt_case_03_html_xx.html
+
+```
+
 ## Sampling properties of OLS estimator
 
 The illustrations below shows the sampling properties of the OLS estimator as estimator for the slope coefficient $\beta_1$ in the following simple linear regerssion model,
