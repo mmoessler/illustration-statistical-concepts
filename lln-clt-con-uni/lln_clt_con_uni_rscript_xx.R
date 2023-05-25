@@ -54,7 +54,7 @@ for (ii in 1:length(NN.vec)) {
       lm.tmp <- lm(tmp.sim$Y.sim ~ 1)
       
       # plot no 01: histogram ----
-      plt.nam <- paste(wd, "figure_01_", ii, "_", jj, "_", kk, ".svg", sep = "")
+      plt.nam <- paste(fig.dir, "figure_01_", ii, "_", jj, "_", kk, ".svg", sep = "")
       svg(plt.nam) 
       
       # construct histogram
@@ -121,7 +121,7 @@ for (ii in 1:length(NN.vec)) {
       dev.off()
       
       # plot no 02: histogram sample average (non-standardized) ----
-      plt.nam <- paste(wd, "figure_02_", ii, "_", jj, "_", kk, ".svg", sep = "")
+      plt.nam <- paste(fig.dir, "figure_02_", ii, "_", jj, "_", kk, ".svg", sep = "")
       svg(plt.nam) 
       
       # generate histogram of estimator
@@ -193,9 +193,8 @@ for (ii in 1:length(NN.vec)) {
       
       dev.off()
       
-      # plot no 03 ----
-      
-      plt.nam <- paste(wd, "figure_03_", ii, "_", jj, "_", kk, ".svg", sep = "")
+      # plot no 03 histogram sample average (standardized) ----
+      plt.nam <- paste(fig.dir, "figure_03_", ii, "_", jj, "_", kk, ".svg", sep = "")
       svg(plt.nam) 
     
       # construct histogram

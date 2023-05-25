@@ -1,7 +1,7 @@
 <html>
   <head>
 
-    <title>LLN and CLT: Case No 01</title>
+    <title>LLN and CLT: Continuous Uniform Distribution</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
@@ -69,7 +69,7 @@
           \end{align}
           $$            
 
-          as estimator for the mean \(\text{E}\left(Y_{i}\right)\) of the continuous uniform distribution given by,
+          as estimator for the mean \(\mu=\text{E}\left(Y_{i}\right)\) of the continuous uniform distribution given by,
 
           $$
           \begin{align}
@@ -105,7 +105,7 @@
                       <hr>
                       <p style='font-size: 12pt;'>Sample size \(N\)</p>        
                       <br>        
-                      <input id="ex601" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="1"/>
+                      <input id="ex601" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0"/>
                       <p style='font-size: 12pt;'>Lower bound \(a\)</p>        
                       <br>        
                       <input id="ex602" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0"/>
@@ -197,7 +197,7 @@
               
               $$
               \begin{align}
-              \mu=\frac{1}{2}\left(a+b\right),
+              \mu=p,
               \end{align}
               $$ 
 
@@ -205,12 +205,12 @@
               
               $$
               \begin{align}
-              \sigma^{2}=\frac{1}{12}\left(b-a\right)^{2},
+              \sigma^{2}=p\left(1-p\right),
               \end{align}
               $$
 
               <p>
-                where \(a\) and \(b\) are the lower and upper bound of the continuous uniform distribution, respectively.
+                where \(p\) ist the probability of success of the Bernoulli distribution.
               </p>
               
             </div>
