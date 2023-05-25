@@ -38,7 +38,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/lln-clt
 
 ### Continuous uniform distribution
 
-Consider iid draws from the following distribution,
+Consider iid draws from the following distribution continuous uniform distribution,
 
 $$
 \begin{align*}
@@ -46,11 +46,11 @@ Y_i &\sim U_{\left[a,b\right]}.
 \end{align*}
 $$
 
-This illustration shows the effect of changing the sample size $N$, the lower bound $a$ and the upper bound $b$ on the sampling distribution of the sample average.
+This illustration shows the effect of changing the sample size $N$ and the lower bound $a$ and the upper bound $b$ of the continuous uniform distribution on the sampling distribution of the sample average as estimator for mean of the continuous uniform distribution.
 
 ```
 
-https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/lln-clt-case-03/lln_clt_case_03_html_xx.html
+https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/lln-clt-con-uni/lln_clt_con_uni_html_xx.html
 
 ```
 
