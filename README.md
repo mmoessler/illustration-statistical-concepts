@@ -2,33 +2,15 @@
 
 Illustration of statistical concepts and methods using simulation studies.
 
-## Sampling properties of sample average
+### Bernoulli distribution
 
-The illustrations below show the sampling properties of the sample average as estimator for the probability of success $p$ in a Bernoulli experiment, i.e., based on the following statistical model,
+Consider iid draws from the Bernoulli distribution,
 
 $$
-\begin{align*}
-Y_i &\sim B\left(p\right). \\
-\end{align*}
+Y_{i} \sim \text{Bernoulli} \left(p\right)
 $$
 
-### Case 1
-
-This illustration shows the effect of changing the sample size $N$ for fixed $p=0.4$.
-
-Open the following link in your browser.
-
-```
-
-https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/lln-clt-case-01/lln_clt_case_01_html_xx.html
-
-```
-
-### Case 2
-
-This illustration shows the effect of changing the sample size $N$ and the probability of success $p$.
-
-Open the following link in your browser.
+This illustration shows the effect of changing the sample size $N$ and probability of success $p$ of the Bernoulli distribution on the sampling distribution of the sample average as estimator for mean of the Bernoulli distribution.
 
 ```
 
@@ -38,7 +20,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/lln-clt
 
 ### Continuous uniform distribution
 
-Consider iid draws from the following distribution continuous uniform distribution,
+Consider iid draws from the continuous uniform distribution,
 
 $$
 \begin{align*}
