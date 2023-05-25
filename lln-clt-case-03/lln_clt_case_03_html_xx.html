@@ -54,7 +54,8 @@
       /* collapsible content */
       .collContentCl {
         display: none;
-        background-color: #EAECEE;
+        /* background-color: #EAECEE; */
+        background-color: #ffffff;
         padding-top: 5px;
         padding-right: 10px;
         padding-bottom: 5px;
@@ -89,8 +90,12 @@
       }
 
       /* margin of jumbotron id top */
-      div#top.jumbotron{
+      div#topJumb.jumbotron{
         margin-top:50px; 
+      }
+
+      .innerJumb{
+        background-color: #ffffff;
       }
 
     </style>
@@ -101,23 +106,38 @@
     <div class="container mt-5">
       <div class="row">
 
-        <div class="jumbotron" id="top">
+          <div class="jumbotron" id="topJumb">
+            
+            <p style='font-size: 28pt;'>Properties of the Sample Average</p>
+            <p style='font-size: 18pt; margin-top: -10px;'>(Continuous Uniform Distribution)</p> 
+      
+          </div>
 
-          <p style='font-size: 28pt;'>Properties of the Sample Average</p>        
+      </div>
+    </div>
+
+
+    <div class="container mt-5">
+      <div class="row">
+
+        <div class="jumbotron">
 
           <!--..........................................................................-->
-          <hr>
 
           <p style="font-size: 18pt">Motivation</p>
 
-          <p>Understand the effect of increasing the sample size \(N\) on the sampling distribution of the sample average as estimator for the probability of success \(p\) of a Bernoulli experiment.</p>
+          <p>Understand the effect of increasing the sample size \(N\) on the sampling distribution of the sample average as estimator for the mean.</p>
 
           <!--..........................................................................-->
           <hr>
 
           <p style="font-size: 18pt">Statistical Model</p>
 
-          <p>We are interested in the sampling properties of the sample average as estimator for the mean of the continuous uniform distribution with lower bound \(a\) and upper bound \(b\), i.e., the observations \(Y_i\) are drawn from</p>
+          <!--
+          <p>We are interested in the sampling properties of the sample average as estimator for the mean of the continuous uniform distribution,</p>
+          -->
+        
+          <p>Suppose an i.i.d sequence of observations \(Y_{1}, Y_{2}, ..., Y_{N}\) is drawn from the continuous uniform distribution,</p>
 
           $$
           \begin{align}
@@ -125,24 +145,48 @@
           \end{align}
           $$
 
-          for different values \(a\) and \(b\).
-
-          <!--..........................................................................-->          
+          <p>where \(a\) and \(b\) are parameters representing the lower and upper bound of the continuous uniform distribution.</p>
+          
+          <!--..........................................................................-->
           <hr>
 
+          <p style="font-size: 18pt">Parameter of Interest</p>
+          
+          <p>We are interested in the sampling properties of the sample average \(\overline{Y}\) given by,</p>
+
+          $$
+          \begin{align}
+          \overline{Y} = \frac{1}{N}\sum_{i=1}^{N} Y_{i},
+          \end{align}
+          $$            
+
+          as estimator for the mean \(\text{E}\left(Y_{i}\right)\) of the continuous uniform distribution given by,
+
+          $$
+          \begin{align}
+          \text{E}\left(Y_{i}\right)=\frac{1}{2}\left(a+b\right).
+          \end{align}
+          $$ 
+
           <!--..........................................................................-->
+          <!--     
+          <hr>
+          -->
+
+          <!--..........................................................................-->
+          <!--          
           <button type="button" class="collButtonCl"> <span style="font-size: 18pt;">Simulation</span> </button>
           <div class="collContentCl">
 
             <ol>
-              <li>A sample of size \(N\) is drawn from the a Bernoulli distribution with probability of success \(p=0.4\).</li>
-              <li>The sample average of the outcomes (success \(Y_i=1\) and no success \(Y_i=0\)) are calculated based on the sample drawn.</li>
+              <li>A sample of size \(N\), i.e., a sequence of observations \(Y_{1}, Y_{2}, ..., Y_{N}\) is drawn from the distribution above.</li>
+              <li>Based on the sequence of observations, i.e., \(Y_{1}, Y_{2}, ... Y_{N}\), the sample average is calculated.</li>
               <li>The value of the sample average, i.e., \(\overline{Y}\), is stored.</li>
               <li>Step 1) to 3) is repeated \(1000\) times resulting in \(1000\) sample averages.</li>
-              <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the randomness of the generated sample the outcomes of the samples will vary across sample draws.</p>
               <li>The distribution of \(\overline{Y}\) and the standardized \(\overline{Y}\), i.e., \(z_{\overline{Y}}\), are illustrated using histograms.</li>
               <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the different outcomes of the samples the sample averages will vary across sample draws.</p>
             </ol>
+            -->
 
             <!--..........................................................................-->
             <!-- see: https://www.w3schools.com/html/html5_audio.asp -->
@@ -154,143 +198,169 @@
               </audio>
             </div>
             -->
-
-          </div>
-
-          <!--..........................................................................-->
-          <hr>
-          <p style="font-size: 18pt">Illustration</p>
-
-          <p>Change the number of observations \(N\) to see the effect of the sample size \(N\) on the properties of the sample average \(\overline{Y}\) as estimator for the probability of success \(p\).</p>
-
-        </div>
-
-      </div>
-    </div>
-
-    <!-- mt-5: margin top -->
-    <div class="container mt-5">
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="jumbotron">
-            <p style='font-size: 16pt;'>Sample size \(N\)</p>        
-            <br>        
-            <input id="ex601" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="1"/>
-            <p style='font-size: 16pt;'>Lower bound \(a\)</p>        
-            <br>        
-            <input id="ex602" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0"/>
-            <p style='font-size: 16pt;'>Upper bound \(b\)</p>        
-            <br>        
-            <input id="ex603" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0"/>
-          </div>
-
-          <!--
-          <div class="jumbotron">
-            <p style='font-size: 16pt;'>Sample size \(N\)</p>        
-            <br>        
-            <input id="ex601" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="1"/>
-          </div>
-          <div class="jumbotron">
-            <p style='font-size: 16pt;'>Lower bound \(a\)</p>        
-            <br>        
-            <input id="ex602" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0"/>
-          </div>
-          <div class="jumbotron">
-            <p style='font-size: 16pt;'>Upper bound \(b\)</p>        
-            <br>        
-            <input id="ex603" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0"/>
+          <!--          
           </div>
           -->
 
         </div>
-        
-        <div class="col-sm-8">
+
+      </div>
+    </div>
+
+    <div class="container mt-5">
+      <div class="row">
 
           <div class="jumbotron">
-
-            <div class="tab" style="text-align: center;">
-              <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N1Id', 'tabLinkL1N1Id', 'white')" id="tabLinkL1N1Id">Sample Draw</button>
-              <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N2Id', 'tabLinkL1N2Id', 'white')" id="tabLinkL1N2Id">Consistency</button>
-              <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N3Id', 'tabLinkL1N3Id', 'white')" id="tabLinkL1N3Id">Asymptotic Normality</button>
-            </div>
-
-            <br>
-            <hr>
-
-            <!-- .................................................. -->
-            <div id="tabContentL1N1Id" class="tabContentL1Cl">
-              <p style="font-size: 16pt">Bar Plot Sample Draw</p>              
-              <p style='font-size: 14pt;'>(Based on one sample draw of size \(N\) on the DGP)</p>              
-              <p style='font-size: 12pt;'>The plot below illustrates the simulation exercise</p>                          
-              <!-- <img src="plot_01_N5_p2.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;"> --> 
-              <img src="plot_01_1_1_1.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
-
-              <!--..........................................................................-->
-              <!-- see: https://www.w3schools.com/html/html5_audio.asp -->
-              <!--
-              <div style="text-align: center;">
-                <audio controls>
-                  <source src="interpretation_audio_01.mp3" type="audio/mpeg">
-                  Your browser does not support the audio element.
-                </audio>
-              </div>
-              -->
-
-            </div>
-
-            <!-- .................................................. -->
-            <div id="tabContentL1N2Id" class="tabContentL1Cl">
-              <p style='font-size: 16pt;'>Histogram of the sample average \(\overline{Y}\)</p>
-              <p style='font-size: 14pt;'>(Based on \(1000\) sample draw of size \(N\) on the DGP)</p>              
-              <p style='font-size: 12pt;'>The plot below illustrates the Law of Large Numbers (LLN)</p>
-              <img src="plot_02_1_1_1.svg" alt="" id="imageL1N2Id" style="text-align: center;">
-              <br><br>
-              <p>As the sample size \(N\) grows the sample average \(\overline{Y}\) gets closer to \(\mu\), i.e.,</p>
-              $$
-              \begin{align}
-              \overline{Y} \overset{p}{\to} \mu.
-              \end{align}
-              $$
-              <p>Note, in our case \(\mu\) is the probability of success \(p\).</p>
-
-              <!--..........................................................................-->
-              <!-- see: https://www.w3schools.com/html/html5_audio.asp -->
-              <!--
-              <div style="text-align: center;">
-                <audio controls>
-                  <source src="interpretation_audio_02.mp3" type="audio/mpeg">
-                  Your browser does not support the audio element.
-                </audio>
-              </div>
-              -->
-
-            </div>
-
-            <!-- .................................................. -->
-            <div id="tabContentL1N3Id" class="tabContentL1Cl">
-              <p style='font-size: 16pt;'>Histogram of the standardized sample average \(z_{\overline{Y}}\)</p>
-              <p style='font-size: 14pt;'>(Based on \(1000\) sample draw of size \(N\) on the DGP)</p>              
-              <p style='font-size: 12pt;'>The plot below illustrates the Central Limit Theorem (CLT)</p>
-              <img src="plot_03_1_1_1.svg" alt="" id="imageL1N3Id">
-              <br><br>
-              <p>As the sample size \(N\) grows the distribution of the standardized sample average,</p>
-              $$
-              \begin{align}
-              z_{\overline{Y}} &= \frac{\overline{Y} - \mu}{\sigma_{\overline{Y}}}, \\
-              z_{\overline{Y}} &= \frac{\overline{Y} - \mu}{\frac{\sigma}{\sqrt{N}}},
-              \end{align}
-              $$
-              <p>gets closer and closer to the standard normal distribution \(N\left(0, 1\right)\).</p>
-              <p>Note, in our case \(\mu\) is the probability of success \(p\).</p>
+            
+            <!--..........................................................................-->            
+            <p style="font-size: 18pt">Illustration</p>
               
+            <p>Change the sample size \(N\) and see the effect on the properties of the sample average \(\overline{Y}\) as estimator for the mean \(\text{E}\left(Y_i\right)\).</p>            
+      
+            <!--
+            <p>Change the sample size \(N\) and see the effect on the properties of the sample average as estimator for the mean.</p>
+            -->
+      
+            <!-- mt-5: margin top -->
+            <div class="container mt-5" style="margin-top: 50px;">
+              <div class="row">
+
+                <div class="col-sm-4">
+                  <div class="jumbotron innerJumb">
+
+                    <p style="font-size: 18pt; margin-top: 10px; text-align: center;">Parameters</p>
+                    <!--<button class="tabLinkL1Cl">Parameters</button>-->
+                    
+                    <div style='margin-top: 50px;'>
+                      <hr>
+                      <p style='font-size: 14pt;'>Sample size \(N\)</p>        
+                      <br>        
+                      <input id="ex601" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="1"/>
+                      <p style='font-size: 14pt;'>Lower bound \(a\)</p>        
+                      <br>        
+                      <input id="ex602" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0"/>
+                      <p style='font-size: 14pt;'>Upper bound \(b\)</p>        
+                      <br>        
+                      <input id="ex603" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0"/>
+                    </div>
+
+                  </div>
+                </div>
+                
+                <div class="col-sm-8">
+                  <div class="jumbotron innerJumb">
+            
+                    <div class="tab" style="text-align: center;">
+                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N1Id', 'tabLinkL1N1Id', 'white')" id="tabLinkL1N1Id">Sample Draw</button>
+                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N2Id', 'tabLinkL1N2Id', 'white')" id="tabLinkL1N2Id">Consistency</button>
+                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N3Id', 'tabLinkL1N3Id', 'white')" id="tabLinkL1N3Id">Asymptotic Normality</button>
+                    </div>
+
+                    <br>
+                    <hr>
+
+                    <!-- .................................................. -->
+                    <div id="tabContentL1N1Id" class="tabContentL1Cl">
+                      <p style="font-size: 16pt">Bar Plot Sample Draw</p>              
+                      <p style='font-size: 14pt;'>(Based on one sample draw of size \(N\) on the DGP)</p>              
+                      <p style='font-size: 12pt;'>The plot below illustrates the simulation exercise</p>                          
+                      <img src="plot_01_1_1_1.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
+
+                      <!--..........................................................................-->
+                      <!-- see: https://www.w3schools.com/html/html5_audio.asp -->
+                      <!--
+                      <div style="text-align: center;">
+                        <audio controls>
+                          <source src="interpretation_audio_01.mp3" type="audio/mpeg">
+                          Your browser does not support the audio element.
+                        </audio>
+                      </div>
+                      -->
+
+                    </div>
+
+                    <!-- .................................................. -->
+                    <div id="tabContentL1N2Id" class="tabContentL1Cl">
+                      <p style='font-size: 16pt;'>Histogram of the sample average \(\overline{Y}\)</p>
+                      <p style='font-size: 14pt;'>(Based on \(1000\) sample draw of size \(N\) on the DGP)</p>              
+                      <p style='font-size: 12pt;'>The plot below illustrates the Law of Large Numbers (LLN)</p>
+                      <img src="plot_02_1_1_1.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
+                      <br><br>
+                      <p>As the sample size \(N\) grows the sample average \(\overline{Y}\) gets closer to \(\mu\), i.e.,</p>
+                      $$
+                      \begin{align}
+                      \overline{Y} \overset{p}{\to} \mu.
+                      \end{align}
+                      $$
+                      <p>Note, in our case \(\mu\) is the probability of success \(p\).</p>
+
+                      <!--..........................................................................-->
+                      <!-- see: https://www.w3schools.com/html/html5_audio.asp -->
+                      <!--
+                      <div style="text-align: center;">
+                        <audio controls>
+                          <source src="interpretation_audio_02.mp3" type="audio/mpeg">
+                          Your browser does not support the audio element.
+                        </audio>
+                      </div>
+                      -->
+
+                    </div>
+
+                    <!-- .................................................. -->
+                    <div id="tabContentL1N3Id" class="tabContentL1Cl">
+                      <p style='font-size: 16pt;'>Histogram of the standardized sample average \(z_{\overline{Y}}\)</p>
+                      <p style='font-size: 14pt;'>(Based on \(1000\) sample draw of size \(N\) on the DGP)</p>              
+                      <p style='font-size: 12pt;'>The plot below illustrates the Central Limit Theorem (CLT)</p>
+                      <img src="plot_03_1_1_1.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
+                      <br><br>
+                      <p>As the sample size \(N\) grows the distribution of the standardized sample average,</p>
+                      $$
+                      \begin{align}
+                      z_{\overline{Y}} &= \frac{\overline{Y} - \mu}{\sigma_{\overline{Y}}}, \\
+                      z_{\overline{Y}} &= \frac{\overline{Y} - \mu}{\frac{\sigma}{\sqrt{N}}},
+                      \end{align}
+                      $$
+                      <p>gets closer and closer to the standard normal distribution \(N\left(0, 1\right)\).</p>
+                      <p>Note, in our case \(\mu\) is the probability of success \(p\).</p>
+                      
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
             </div>
 
           </div>
 
-        </div>
+      </div>
+    </div>
+    
+    <div class="container mt-5">
+      <div class="row">
+
+          <div class="jumbotron">
+            
+            <!--..........................................................................-->
+            <p style="font-size: 18pt">Simulation</p>
+              
+            <ol>
+              <li>A sample of size \(N\), i.e., a sequence of observations \(Y_{1}, Y_{2}, ..., Y_{N}\) is drawn from the distribution above.</li>
+              <li>Based on the sequence of observations, i.e., \(Y_{1}, Y_{2}, ... Y_{N}\), the sample average is calculated.</li>
+              <li>The value of the sample average, i.e., \(\overline{Y}\), is stored.</li>
+              <li>Step 1) to 3) is repeated \(1000\) times resulting in \(1000\) sample averages.</li>
+              <li>The distribution of \(\overline{Y}\) and the standardized \(\overline{Y}\), i.e., \(z_{\overline{Y}}\), are illustrated using histograms.</li>
+              <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the different outcomes of the samples the sample averages will vary across sample draws.</p>
+            </ol>
+      
+          </div>
+
       </div>
     </div>
 
+
+    
     <!--..........................................................................-->
     <div class="iliasExcCl">
       <hr />
