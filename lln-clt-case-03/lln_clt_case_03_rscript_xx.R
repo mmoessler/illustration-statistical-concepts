@@ -2,9 +2,8 @@
 # remove all objects
 rm(list=ls())
 
-# set working directory
-# setwd("./lln-clt-case-03")
-wd <- "./lln-clt-case-03/"
+# set directory of figures
+fig.dir <- "./lln-clt-case-03/figures/"
 
 # set seed 
 set.seed(12345)
@@ -55,7 +54,7 @@ for (ii in 1:length(NN.vec)) {
       lm.tmp <- lm(tmp.sim$Y.sim ~ 1)
       
       # plot no 01: histogram ----
-      plt.nam <- paste(wd, "plot_01_", ii, "_", jj, "_", kk, ".svg", sep = "")
+      plt.nam <- paste(wd, "figure_01_", ii, "_", jj, "_", kk, ".svg", sep = "")
       svg(plt.nam) 
       
       # construct histogram
@@ -122,7 +121,7 @@ for (ii in 1:length(NN.vec)) {
       dev.off()
       
       # plot no 02: histogram sample average (non-standardized) ----
-      plt.nam <- paste(wd, "plot_02_", ii, "_", jj, "_", kk, ".svg", sep = "")
+      plt.nam <- paste(wd, "figure_02_", ii, "_", jj, "_", kk, ".svg", sep = "")
       svg(plt.nam) 
       
       # generate histogram of estimator
@@ -196,7 +195,7 @@ for (ii in 1:length(NN.vec)) {
       
       # plot no 03 ----
       
-      plt.nam <- paste(wd, "plot_03_", ii, "_", jj, "_", kk, ".svg", sep = "")
+      plt.nam <- paste(wd, "figure_03_", ii, "_", jj, "_", kk, ".svg", sep = "")
       svg(plt.nam) 
     
       # construct histogram

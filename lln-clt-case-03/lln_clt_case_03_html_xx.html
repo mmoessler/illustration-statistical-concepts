@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
 
+    <!-- include my style sheet -->
+    <link rel="stylesheet" href="mystyle.css">
+
     <!-- hohenheim logo and chair -->
     <div class="logoCl iliasExcCl" style="text-align:center;" background-color="#eeeeee;">
       <br />
@@ -13,92 +16,6 @@
       <br />
         <p> Econometrics and Statistics (520K) </p>
     </div>
-
-    <style>
-
-      .iliasExcCl{
-        display: none;
-      }
-
-      body{
-        font-family: Helvetica;
-        font-size: 14pt;
-      }
-
-      /* hohenheim logo and chair */
-      .logoCl {
-        background-color: #003f75;
-        color: white;
-        font-family: Arial Nova Cond Light;
-        font-size: 24pt;
-      }
-
-      /* collapsible button */
-      .collButtonCl {
-        margin-top: 5px;
-        margin-bottom: 5px; 
-        background-color: white;
-        color: #333333;
-        font-style: italic;
-        cursor: pointer;
-        width: 100%;
-        padding: 5px;
-        border: 1px solid;
-        border-color: #cccccc;
-        text-align: left;
-        outline: none;
-        font-family: Helvetica;
-        font-size: 16pt;
-      }
-
-      /* collapsible content */
-      .collContentCl {
-        display: none;
-        /* background-color: #EAECEE; */
-        background-color: #ffffff;
-        padding-top: 5px;
-        padding-right: 10px;
-        padding-bottom: 5px;
-        padding-left: 10px;
-      }
-
-      /* style the buttons that are used to open the tab content */
-      .tabLinkL1Cl {
-        display: inline-table;
-        max-height: 500px;
-        min-height: 44px;
-        overflow-y: auto;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        padding: 14px 16px;
-        background-color: #f1f1f1;
-      }
-
-      /* change background color of buttons on hover */
-      .tabLinkL1Cl:hover {
-        background-color: #ddd;
-      }
-
-      /* create an active/current tablink class */
-      .tabLinkL1Cl.active {
-        background-color: #ccc;
-      }
-
-      /* sample value - set it as you like*/
-      .slider.slider-horizontal{
-        width:100%; 
-      }
-
-      /* margin of jumbotron id top */
-      div#topJumb.jumbotron{
-        margin-top:50px; 
-      }
-
-      .innerJumb{
-        background-color: #ffffff;
-      }
-
-    </style>
 
   </head>
   <body>
@@ -122,13 +39,10 @@
 
         <div class="jumbotron">
 
-          <!--..........................................................................-->
-
           <p style="font-size: 18pt">Motivation</p>
 
           <p>Understand the effect of increasing the sample size \(N\) on the sampling distribution of the sample average as estimator for the mean.</p>
 
-          <!--..........................................................................-->
           <hr>
 
           <p style="font-size: 18pt">Statistical Model</p>
@@ -143,7 +57,6 @@
 
           <p>where \(a\) and \(b\) are parameters representing the lower and upper bound of the continuous uniform distribution.</p>
           
-          <!--..........................................................................-->
           <hr>
 
           <p style="font-size: 18pt">Estimator and Parameter of Interest</p>
@@ -176,12 +89,10 @@
 
           <div class="jumbotron">
             
-            <!--..........................................................................-->            
             <p style="font-size: 18pt">Illustration</p>
               
             <p>Change the sample size \(N\) and see the effect on the properties of the sample average \(\overline{Y}\) as estimator for the mean \(\mu\).</p>            
       
-            <!-- mt-5: margin top -->
             <div class="container mt-5" style="margin-top: 50px;">
               <div class="row">
 
@@ -218,19 +129,17 @@
                     <br>
                     <hr>
 
-                    <!-- .................................................. -->
                     <div id="tabContentL1N1Id" class="tabContentL1Cl">
                       <p style="font-size: 16pt">Bar Plot Sample Draw</p>              
                       <p style='font-size: 12pt;'>The plot below illustrates the simulation exercise</p>                          
-                      <img src="plot_01_1_1_1.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
+                      <img src="./figures/figure_01_1_1_1.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
 
                     </div>
 
-                    <!-- .................................................. -->
                     <div id="tabContentL1N2Id" class="tabContentL1Cl">
                       <p style='font-size: 16pt;'>Histogram of the sample average \(\overline{Y}\)</p>
                       <p style='font-size: 12pt;'>The plot below illustrates the Law of Large Numbers (LLN)</p>
-                      <img src="plot_02_1_1_1.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
+                      <img src="./figures/figure_02_1_1_1.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
                       <br><br>
                       <p>As the sample size \(N\) grows the sample average \(\overline{Y}\) gets closer to \(\mu\), i.e.,</p>
                       $$
@@ -241,11 +150,10 @@
 
                     </div>
 
-                    <!-- .................................................. -->
                     <div id="tabContentL1N3Id" class="tabContentL1Cl">
                       <p style='font-size: 16pt;'>Histogram of the standardized sample average \(z_{\overline{Y}}\)</p>
                       <p style='font-size: 12pt;'>(The plot below illustrates the Central Limit Theorem (CLT))</p>
-                      <img src="plot_03_1_1_1.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
+                      <img src="./figures/figure_03_1_1_1.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
                       <br><br>
                       <p>As the sample size \(N\) grows the distribution of the standardized sample average,</p>
                       $$
@@ -274,10 +182,8 @@
 
           <div class="jumbotron">
             
-            <!--..........................................................................-->
             <p style="font-size: 18pt">More Details</p>
                     
-            <!--..........................................................................-->
             <button type="button" class="collButtonCl"> <span style="font-size: 18pt;">Construction of \(z_{\overline{Y}}\)</span> </button>
             <div class="collContentCl">
 
@@ -308,9 +214,7 @@
               </p>
               
             </div>
-            <!--..........................................................................-->
 
-            <!--..........................................................................-->
             <button type="button" class="collButtonCl"> <span style="font-size: 18pt;">Simulation Exercise</span> </button>
             <div class="collContentCl">
 
@@ -324,17 +228,12 @@
               </ol>
 
             </div>
-            <!--..........................................................................-->
-
 
         </div>
 
       </div>
     </div>
-
-
     
-    <!--..........................................................................-->
     <div class="iliasExcCl">
       <hr />
       <p style="text-align: center; font-size: 20pt; font-weight: bold;">
@@ -358,118 +257,8 @@
       src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js">
     </script>
 
-    <script>
+    <!-- include my javascript -->
+    <script src="myScript.js"></script>
 
-      //..............................
-      // handling of collapsibles
-      // see: https://www.w3schools.com/howto/howto_js_collapsible.asp
-      var coll = document.getElementsByClassName("collButtonCl");
-      var i;
-    
-      for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-          this.classList.toggle("active");
-          var content = this.nextElementSibling;
-          if (content.style.display === "block") {
-            content.style.display = "none";
-          } else {
-            content.style.display = "block";
-          }
-        });
-      }
-
-      //..............................
-      // handling of tabs      
-      // see: https://www.w3schools.com/howto/howto_js_tabs.asp
-
-      // open specific tab
-      function openSpecificTab(tabContentId, tabLinkId, color) {
-
-        // hide all elements with class="tabcontent_l1" by default */
-        var i, tabcontent, tablinks;
-
-        tabcontent = document.getElementsByClassName("tabContentL1Cl");
-        for (i = 0; i < tabcontent.length; i++) {
-          tabcontent[i].style.display = "none";
-        }
-
-        // remove the background color of all tablinks/buttons
-        tablinks = document.getElementsByClassName("tabLinkL1Cl");
-        for (i = 0; i < tablinks.length; i++) {
-          tablinks[i].style.backgroundColor = "";
-        }
-
-        // show the specific tab content
-        document.getElementById(tabContentId).style.display = "block";
-
-        // add the specific color to the button used to open the tab content
-        document.getElementById(tabLinkId).style.backgroundColor = color;
-
-      }
-
-      //..............................
-      // handling of slider                
-      // see: https://seiyria.com/bootstrap-slider/
-           
-      var nVec = [5, 10, 25, 50, 100]
-      var aVec = [-4.0, -3.5, -3.0, -2.5, -2.0]
-      var bVec = [2.0, 2.5, 3.0, 3.5, 4.0]
-
-      //var slider01 = new Slider("#ex601", { tooltip: 'always' });
-      var slider01 = new Slider("#ex601", { 
-        tooltip: "always",
-        formatter: function(value) {
-          return "current value: " + nVec[value]
-        } 
-      });
-      //var slider02 = new Slider("#ex602", { tooltip: 'always' });
-      var slider02 = new Slider("#ex602", { 
-        tooltip: "always",
-        formatter: function(value) {
-          return "current value: " + aVec[value]
-        } 
-      });
-      //var slider03 = new Slider("#ex603", { tooltip: 'always' });
-      var slider03 = new Slider("#ex603", { 
-        tooltip: "always",
-        formatter: function(value) {
-          return "current value: " + bVec[value]
-        } 
-      });
-
-      slider01.on("slide", function() {
-        var sliderValue01 = slider01.getValue() + 1;
-        var sliderValue02 = slider02.getValue() + 1;
-        var sliderValue03 = slider03.getValue() + 1;
-        document.getElementById("imageL1N1Id").setAttribute("src", "plot_01_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
-        document.getElementById("imageL1N2Id").setAttribute("src", "plot_02_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
-        document.getElementById("imageL1N3Id").setAttribute("src", "plot_03_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
-
-        console.log("plot_01_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg")
-
-      })
-
-      slider02.on("slide", function() {
-        var sliderValue01 = slider01.getValue() + 1;
-        var sliderValue02 = slider02.getValue() + 1;
-        var sliderValue03 = slider03.getValue() + 1;
-        document.getElementById("imageL1N1Id").setAttribute("src", "plot_01_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
-        document.getElementById("imageL1N2Id").setAttribute("src", "plot_02_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
-        document.getElementById("imageL1N3Id").setAttribute("src", "plot_03_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
-      })
-
-      slider03.on("slide", function() {
-        var sliderValue01 = slider01.getValue() + 1;
-        var sliderValue02 = slider02.getValue() + 1;
-        var sliderValue03 = slider03.getValue() + 1;
-        document.getElementById("imageL1N1Id").setAttribute("src", "plot_01_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
-        document.getElementById("imageL1N2Id").setAttribute("src", "plot_02_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
-        document.getElementById("imageL1N3Id").setAttribute("src", "plot_03_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
-      })
-
-      // set start page
-      document.getElementById("tabLinkL1N1Id").click();
-
-    </script>
   </body>
 </html>
