@@ -3,7 +3,8 @@
 rm(list=ls())
 
 # set working directory
-setwd("./lln-clt-case-03")
+# setwd("./lln-clt-case-03")
+wd <- "./lln-clt-case-03/"
 
 # set seed 
 set.seed(12345)
@@ -30,8 +31,8 @@ Y_bar_uni_sim_fun <- function(RR, NN, a, b){
 
 # inputs (variable)
 NN.vec <- c(5, 10, 25, 50, 100)
-a.vec <- seq(-3, -1, 0.5)
-b.vec <- seq(1, 3, 0.5)
+a.vec <- seq(-4, -2, 0.5)
+b.vec <- seq(2, 4, 0.5)
 
 # inputs (fixed)
 RR <- 1000
@@ -54,7 +55,7 @@ for (ii in 1:length(NN.vec)) {
       lm.tmp <- lm(tmp.sim$Y.sim ~ 1)
       
       # plot no 01: histogram ----
-      plt.nam <- paste("plot_01_", ii, "_", jj, "_", kk, ".svg", sep = "")
+      plt.nam <- paste(wd, "plot_01_", ii, "_", jj, "_", kk, ".svg", sep = "")
       svg(plt.nam) 
       
       # construct histogram
@@ -68,13 +69,13 @@ for (ii in 1:length(NN.vec)) {
       xlab <- c("")
       ylab <- c("Relative Frequency")
       
-      xlim <- c(-4, 4)
-      ylim <- c(0, 1)
+      xlim <- c(-5, 5)
+      ylim <- c(0, 1.2)
       
       plot.new()
       plot.window(xlim, ylim, "")
       title(main = main, sub = sub, xlab = xlab, ylab = ylab)
-      axis(1)
+      axis(side = 1, at = seq(-5, 5, 1))
       axis(2)
       
       grid()
@@ -95,24 +96,24 @@ for (ii in 1:length(NN.vec)) {
              inset = 0.05)
       
       # add blank rectangle
-      rect.xleft.01 <- -4
-      rect.xright.01 <- -2
-      rect.ybottom.01 <- 0.75
-      rect.ytop.01 <- 0.95
+      rect.xleft.01 <- -5.25
+      rect.xright.01 <- -2.75
+      rect.ybottom.01 <- 0.95
+      rect.ytop.01 <- 1.15
       
       rect(xleft = rect.xleft.01, ybottom = rect.ybottom.01, xright = rect.xright.01, ytop = rect.ytop.01, col = "white")
       
       # add mu text
-      text.x.01 <- -3
-      text.y.01 <- 0.9
+      text.x.01 <- -4
+      text.y.01 <- 1.1
       
       text(x = text.x.01, y = text.y.01,
            bquote(bar(Y) ~" " == .(format(round(summary(lm.tmp)$coefficients[1,1], 3), nsmall = 3))),
            cex = 1.25)
       
       # add sigma text
-      text.x.02 <- -3
-      text.y.02 <- 0.8
+      text.x.02 <- -4
+      text.y.02 <- 1.0
       
       text(x = text.x.02, y = text.y.02,
            bquote(widehat(sigma)[~bar(Y)] == .(format(round(summary(lm.tmp)$coefficients[1,2], 3), nsmall = 3))),
@@ -121,7 +122,7 @@ for (ii in 1:length(NN.vec)) {
       dev.off()
       
       # plot no 02: histogram sample average (non-standardized) ----
-      plt.nam <- paste("plot_02_", ii, "_", jj, "_", kk, ".svg", sep = "")
+      plt.nam <- paste(wd, "plot_02_", ii, "_", jj, "_", kk, ".svg", sep = "")
       svg(plt.nam) 
       
       # generate histogram of estimator
@@ -136,7 +137,7 @@ for (ii in 1:length(NN.vec)) {
       ylab <- c("Absolute Frequency")
       
       xlim <- c(-6, 6)
-      ylim <- c(0, 8)
+      ylim <- c(0, 5)
       
       plot.new()
       plot.window(xlim, ylim, "")
@@ -153,8 +154,30 @@ for (ii in 1:length(NN.vec)) {
       # add line for mean population parameter
       abline(v = 1/2 * (a + b), lty = 2, col = "red", lwd = 2)
       
+      # # # legend
+      # # legend("topright",
+      # #        legend = c(expression(mu==frac(1,2)~~(a + b))),
+      # #        lty = 2,
+      # #        lwd = 1,
+      # #        col = "red",
+      # #        inset = 0.05)
+      # 
       # # legend
-      # legend("topright",
+      # leg <- legend("topright",
+      #               legend = c(expression(mu==frac(1,2)~~(a + b))),
+      #               lty = 2,
+      #               lwd = 1,
+      #               col = "red",
+      #               inset = 0.05,
+      #               plot = FALSE)
+      # 
+      # # adjust as desired
+      # leftx <- leg$rect$left
+      # rightx <- (leg$rect$left + leg$rect$w * 1.0) * 1
+      # topy <- leg$rect$top
+      # bottomy <- (leg$rect$top - leg$rect$h * 1.2) * 1
+      # 
+      # legend(x = c(leftx, rightx), y = c(topy, bottomy),
       #        legend = c(expression(mu==frac(1,2)~~(a + b))),
       #        lty = 2,
       #        lwd = 1,
@@ -162,22 +185,8 @@ for (ii in 1:length(NN.vec)) {
       #        inset = 0.05)
       
       # legend
-      leg <- legend("topright",
-                    legend = c(expression(mu==frac(1,2)~~(a + b))),
-                    lty = 2,
-                    lwd = 1,
-                    col = "red",
-                    inset = 0.05,
-                    plot = FALSE)
-      
-      # adjust as desired
-      leftx <- leg$rect$left
-      rightx <- (leg$rect$left + leg$rect$w * 1.0) * 1
-      topy <- leg$rect$top
-      bottomy <- (leg$rect$top - leg$rect$h * 1.2) * 1
-      
-      legend(x = c(leftx, rightx), y = c(topy, bottomy),
-             legend = c(expression(mu==frac(1,2)~~(a + b))),
+      legend("topright",
+             legend = c(expression("Value of "*mu)),
              lty = 2,
              lwd = 1,
              col = "red",
@@ -187,7 +196,7 @@ for (ii in 1:length(NN.vec)) {
       
       # plot no 03 ----
       
-      plt.nam <- paste("plot_03_", ii, "_", jj, "_", kk, ".svg", sep = "")
+      plt.nam <- paste(wd, "plot_03_", ii, "_", jj, "_", kk, ".svg", sep = "")
       svg(plt.nam) 
     
       # construct histogram
