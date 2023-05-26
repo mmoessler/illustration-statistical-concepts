@@ -1,4 +1,5 @@
 
+# function to simulate correlated multivariate normal distribution for n=3
 tri_mv_nor <- function(mu, sig, rho, nn) {
   
   C <- diag(3)
@@ -38,8 +39,6 @@ bet_hat_sim_fun_01 <- function(rr, nn,
   # rho.z1 <- 0
   # g0 <- 0
   # g1 <- 0
-  
-  
   
   
   
