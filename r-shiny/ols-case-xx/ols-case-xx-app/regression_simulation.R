@@ -17,8 +17,8 @@ tri_mv_nor <- function(mu, sig, rho, nn) {
   
 }
 
-# function to simulate b0_hat and b1_hat ----
-bet_hat_sim_fun <- function(rr, nn,
+# function to simulate b0_hat and b1_hat based on normal distribution ----
+bet_hat_sim_fun_01 <- function(rr, nn,
                             b0, b1, b2,
                             x1.sd, x2.sd, z.sd, u.sd,
                             rho.21, rho.z1,
@@ -153,3 +153,4 @@ bet_hat_sim_fun <- function(rr, nn,
 # g1 <- 0
 # 
 # tmp.sim <- bet_hat_sim_fun(rr, nn, b0, b1, b2, x1.sd, x2.sd, z.sd, u.sd, rho.21, rho.z1, g0, g1)
+

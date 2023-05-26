@@ -246,11 +246,11 @@ server <- function(input, output) {
     g1 <- input$g1
 
     # simulation
-    tmp.sim <- bet_hat_sim_fun(rr = rr, nn = nn,
-                               b0 = b0, b1 = b1, b2 = b2,
-                               x1.sd = x1.sd, x2.sd = x2.sd, z.sd = z.sd, u.sd = u.sd,
-                               rho.21 = rho.21, rho.z1 = rho.z1,
-                               g0 = g0, g1 = g1)
+    tmp.sim <- bet_hat_sim_fun_01(rr = rr, nn = nn,
+                                  b0 = b0, b1 = b1, b2 = b2,
+                                  x1.sd = x1.sd, x2.sd = x2.sd, z.sd = z.sd, u.sd = u.sd,
+                                  rho.21 = rho.21, rho.z1 = rho.z1,
+                                  g0 = g0, g1 = g1)
     
     tmp.sim
     
