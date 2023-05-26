@@ -96,7 +96,7 @@ for (ii in 1:length(NN.vec)) {
     ylab <- c("Relative Frequency")
     
     xlim <- c(0, 1)
-    ylim <- c(0, 10)
+    ylim <- c(0, 12)
     
     plot.new()
     plot.window(xlim, ylim, "")
