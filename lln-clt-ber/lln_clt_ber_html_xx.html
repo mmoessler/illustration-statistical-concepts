@@ -41,13 +41,13 @@
 
           <p style="font-size: 18pt">Motivation</p>
 
-          <p>Understand the effect of increasing the sample size \(N\) on the sampling distribution of the sample average as estimator for the mean.</p>
+          <p>Understand the effect of increasing the sample size \(n\) on the sampling distribution of the sample average as estimator for the mean.</p>
 
           <hr>
 
           <p style="font-size: 18pt">Statistical Model</p>
         
-          <p>Suppose an i.i.d sequence of observations \(Y_{1}, Y_{2}, ..., Y_{N}\) is drawn from the Bernoulli distribution,</p>
+          <p>Suppose an i.i.d sequence of observations \(Y_{1}, Y_{2}, ..., Y_{n}\) is drawn from the Bernoulli distribution,</p>
 
           $$
           \begin{align}
@@ -65,7 +65,7 @@
 
           $$
           \begin{align}
-          \overline{Y} = \frac{1}{N}\sum_{i=1}^{N} Y_{i},
+          \overline{Y} = \frac{1}{N}\sum_{i=1}^{n} Y_{i},
           \end{align}
           $$            
 
@@ -91,7 +91,7 @@
             
             <p style="font-size: 18pt">Illustration</p>
               
-            <p>Change the sample size \(N\) and see the effect on the properties of the sample average \(\overline{Y}\) as estimator for the mean \(\mu\).</p>            
+            <p>Change the sample size \(n\) and see the effect on the properties of the sample average \(\overline{Y}\) as estimator for the mean \(\mu\).</p>            
       
             <div class="container mt-5" style="margin-top: 50px;">
               <div class="row">
@@ -103,7 +103,7 @@
                     
                     <div style='margin-top: 50px;'>
                       <hr>
-                      <p style='font-size: 12pt;'>Sample size \(N\)</p>        
+                      <p style='font-size: 12pt;'>Sample size \(n\)</p>        
                       <br>        
                       <input id="ex601" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0"/>
                       <p style='font-size: 12pt;'>Probability of success \(p\)</p>        
@@ -138,7 +138,7 @@
                       <p style='font-size: 12pt;'>The plot below illustrates the Law of Large Numbers (LLN)</p>
                       <img src="./figures/figure_02_1_1.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
                       <br><br>
-                      <p>As the sample size \(N\) grows the sample average \(\overline{Y}\) gets closer to \(\mu\), i.e.,</p>
+                      <p>As the sample size \(n\) grows the sample average \(\overline{Y}\) gets closer to \(\mu\), i.e.,</p>
                       $$
                       \begin{align}
                       \overline{Y} \overset{p}{\to} \mu.
@@ -152,7 +152,7 @@
                       <p style='font-size: 12pt;'>(The plot below illustrates the Central Limit Theorem (CLT))</p>
                       <img src="./figures/figure_03_1_1.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
                       <br><br>
-                      <p>As the sample size \(N\) grows the distribution of the standardized sample average,</p>
+                      <p>As the sample size \(n\) grows the distribution of the standardized sample average,</p>
                       $$
                       \begin{align}
                       z_{\overline{Y}} &= \frac{\overline{Y} - \mu}{\sigma_{\overline{Y}}}, \\
@@ -216,8 +216,8 @@
             <div class="collContentCl">
 
               <ol style="margin-top: 10px;">
-                <li>A sample of size \(N\), i.e., a sequence of observations \(Y_{1}, Y_{2}, ..., Y_{N}\) is drawn from the distribution above.</li>
-                <li>Based on the sequence of observations, i.e., \(Y_{1}, Y_{2}, ... Y_{N}\), the sample average is calculated.</li>
+                <li>A sample of size \(n\), i.e., a sequence of observations \(Y_{1}, Y_{2}, ..., Y_{n}\) is drawn from the distribution above.</li>
+                <li>Based on the sequence of observations, i.e., \(Y_{1}, Y_{2}, ... Y_{n}\), the sample average is calculated.</li>
                 <li>The value of the sample average, i.e., \(\overline{Y}\), is stored.</li>
                 <li>Step 1) to 3) is repeated \(1000\) times resulting in \(1000\) sample averages.</li>
                 <li>The distribution of \(\overline{Y}\) and the standardized \(\overline{Y}\), i.e., \(z_{\overline{Y}}\), are illustrated using histograms.</li>
