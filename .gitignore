@@ -38,8 +38,5 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 
-# Trials
-trials/
-
 # Old
 old/
