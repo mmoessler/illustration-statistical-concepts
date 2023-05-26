@@ -14,7 +14,7 @@ This illustration shows the effect of changing the sample size $N$ and probabili
 
 ```
 
-https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/lln-clt-case-02/lln_clt_case_02_html_xx.html
+https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/lln-clt-ber/lln_clt_ber_html_xx.html
 
 ```
 
