@@ -1,4 +1,0 @@
-
-see: https://ttsmp3.com/
-
-The bar plot illustrates the number of drawn failures denoted as zero and the number of drawn successes denoted as one for n draws from the Bernoulli distribution with probability of successes denoted p.
