@@ -10,7 +10,7 @@ $$
 Y_{i} \sim \text{Bernoulli} \left(p\right)
 $$
 
-This illustration shows the effect of changing the sample size $N$ and probability of success $p$ of the Bernoulli distribution on the sampling distribution of the sample average as estimator for mean of the Bernoulli distribution.
+This illustration shows the effect of changing the sample size $n$ and probability of success $p$ of the Bernoulli distribution on the sampling distribution of the sample average as estimator for mean of the Bernoulli distribution.
 
 ```
 
@@ -20,7 +20,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/lln-clt
 
 ### Continuous uniform distribution
 
-Consider iid draws from the continuous uniform distribution,
+Consider i.i.d. draws from the continuous uniform distribution,
 
 $$
 \begin{align*}
@@ -28,7 +28,7 @@ Y_i &\sim U_{\left[a,b\right]}.
 \end{align*}
 $$
 
-This illustration shows the effect of changing the sample size $N$ and the lower bound $a$ and the upper bound $b$ of the continuous uniform distribution on the sampling distribution of the sample average as estimator for mean of the continuous uniform distribution.
+This illustration shows the effect of changing the sample size $n$ and the lower bound $a$ and the upper bound $b$ of the continuous uniform distribution on the sampling distribution of the sample average as estimator for mean of the continuous uniform distribution.
 
 ```
 
@@ -38,97 +38,27 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/lln-clt
 
 ## Sampling properties of OLS estimator
 
-The illustrations below shows the sampling properties of the OLS estimator as estimator for the slope coefficient $\beta_1$ in the following simple linear regerssion model,
+This illustratio shows the effect of the sample size $n$, the slope parameter $\beta_{1}$, the variance of $X_{i}$, i.e., $\sigma_{X}$, and the variance of $u_{i}$, i.e., $\sigma_{u}$ of the regression model,
 
 $$
-\begin{align*}
-Y_i &= -2 + 3.5 X_i + u_i, \\
-X_i &\sim N\left(0,10\right), \\
-u_i &\sim N\left(0,10\right),
-\end{align*}
+\begin{align}
+Y_{i} = \beta_{0} + \beta_{1} X_{i} + u_{i},
+\end{align}
 $$
 
-with $\beta_0 = 1$, $\beta_1 = 2$, $\sigma_X^2 = 10$ and $\sigma_u^2 = 10$ and with,
+with,
 
 $$
-\begin{align*}
-\text{E}\left[u|X\right] = 0, \\
-\text{Var}\left[u|X\right] = 0,
-\end{align*}
+\begin{align}
+X_{i} &\sim N\left(0, \sigma_{X}\right), \\
+u_{i} &\sim N\left(0, \sigma_{u}\right),
+\end{align}
 $$
 
-Each case below focus on the effect of changing a parameter of the statistical model above.
-
-### Case 1
-
-This illustration shows the effect of changing the sample size $N$.
-
-Open the following link in your browser:
+on the sampling distribution of the OLS estimator $\widehat{\beta}_{1}$ for the slope parameter $\beta_{1}$.
 
 ```
 
 https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/ols-case-01/ols_case_01_html_xx.html
-
-```
-
-Run the following codes in R (shiny, i.e., old approach):
-
-```
-
-source("https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/r-shiny/ols_case_01_run.R")
-
-```
-
-### Case 2
-
-This illustration shows the effect of changing the sample size $N$ and changing the value of the slope parameter, i.e., $\beta_1$.
-
-Open the following link in your browser:
-
-```
-
-https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/ols-case-02/ols_case_02_html_xx.html
-
-```
-
-<!--
-
-### Case 3
-
-This illustration shows the effect of changing the sample size $N$ and changing the variance of $u$, i.e., $\sigma_u^2$.
-
-### Case 4
-
-This illustration shows the effect of changing the sample size $N$ and changing the variance of $X$, i.e., $\sigma_X^2$.
-
-Run the following codes in R (old approach):
-
-```
-
-source("https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/r-shiny/ols_case_02_run.R")
-
-```
-
-### Case 4
-
-This illustration shows the effect of ..., i.e., of omitted variable bias (OVB).
-
-Run the following codes in R (old approach):
-
-```
-
-source("https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/r-shiny/ols_case_03_run.R")
-
-```
-
--->
-
-### Case xx (shiny approach)
-
-This illustration shows the effect/consequences of omitted variable bias and heteroskedasticity on the sampling distribution of the slope parameter $\beta_1$.
-
-```
-
-source("https://raw.githubusercontent.com/mmoessler/illustration-statistical-concepts/main/r-shiny/ols_case_xx_run.R")
 
 ```
