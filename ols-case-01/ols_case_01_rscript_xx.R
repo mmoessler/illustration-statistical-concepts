@@ -146,15 +146,15 @@ bet_hat_sim_fun_01 <- function(rr, nn,
 }
 
 # inputs (variable)
-# nn.vec <- c(5, 10, 25, 50, 100)
-# b1.vec <- c(-2, -1, 0 , 1, 2)
-# u.sd.vec <- c(1, 2, 3)
-# x1.sd.vec <- c(1, 5, 15)
+nn.vec <- c(5, 10, 25, 50, 100)
+b1.vec <- c(-2, -1, 0 , 1, 2)
+u.sd.vec <- c(1, 2, 3)
+x1.sd.vec <- c(1, 5, 15)
 
-nn.vec <- c(5, 100)
-b1.vec <- c(-2, 2)
-u.sd.vec <- c(1, 3)
-x1.sd.vec <- c(1, 15)
+# nn.vec <- c(5, 100)
+# b1.vec <- c(-2, 2)
+# u.sd.vec <- c(1, 3)
+# x1.sd.vec <- c(1, 15)
 
 # inputs (fixed)
 rr <- 1000
