@@ -26,7 +26,7 @@
           <div class="jumbotron" id="topJumb">
             
             <p style='font-size: 28pt;'>Properties of the OLS Estimator</p>
-            <p style='font-size: 18pt; margin-top: -10px;'>Large sample Properties</p> 
+            <p style='font-size: 18pt; margin-top: -10px;'>Large sample Properties in General</p> 
       
           </div>
 
@@ -79,7 +79,7 @@
           \end{align}
           $$  
 
-          as estimator for the slope parameter \(\beta_{1}\) of the regression model above.
+          <p>as estimator for the slope parameter \(\beta_{1}\) of the regression model above.</p>
 
         </div>
 
@@ -108,7 +108,7 @@
                       <p style='font-size: 12pt;'>Sample size \(N\)</p>        
                       <br>        
                       <input id="ex601" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0"/>
-                      <p style='font-size: 12pt;'>Slope \(\beta\)</p>        
+                      <p style='font-size: 12pt;'>Slope \(\beta_{1}\)</p>        
                       <br>        
                       <input id="ex602" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0"/>
                       <p style='font-size: 12pt;'>Variance of \(u_{i}\)</p>        
@@ -246,7 +246,7 @@
                 <li>Based on the sequence of observations \(X_{1}, X_{2}, ..., X_{n}\) and \(u_{1}, u_{2}, ..., u_{n}\) a sequence of observations \(Y_{1}, Y_{2}, ..., Y_{n}\)  is constructed based on the regression model above.</li>
                 <li>Based on the sequence of observations \(Y_{1}, Y_{2}, ... Y_{N}\) and \(X_{1}, X_{2}, ..., X_{n}\), the intercept \(\beta_{0}\) and the slop parameter \(\beta_{1}\) is estimated using OLS.</li>
                 <li>The value of the estimate for the slope parameter, i.e., \(\widehat{\beta}_{1}\), is stored.</li>
-                <li>Step 1) to 4) is repeated \(1000\) times resulting in \(1000\) OLS estimates for the slope parameter, i.e., \(\widehat{\beta}_{1}\).</li>
+                <li>Step 1) to 4) is repeated \(10,000\) times resulting in \(1000\) OLS estimates for the slope parameter, i.e., \(\widehat{\beta}_{1}\).</li>
                 <li>The distribution of \(\widehat{\beta}_{1}\) and the standardized \(\widehat{\beta}_{1}\), i.e., \(z_{\widehat{\beta}_{1}}\), are illustrated using histograms.</li>
                 <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the different outcomes of the samples the OLS estimates will vary across sample draws.</p>
               </ol>
