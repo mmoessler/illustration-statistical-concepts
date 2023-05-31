@@ -41,7 +41,7 @@
 
           <p style="font-size: 18pt">Motivation</p>
 
-          <p>Understand the effect of increasing the sample size \(N\) on the sampling distribution of the OLS estimator.</p>
+          <p>Understand the effect of increasing the sample size \(n\) on the sampling distribution of the OLS estimator.</p>
 
           <hr>
 
@@ -105,7 +105,7 @@
                     
                     <div style='margin-top: 50px;'>
                       <hr>
-                      <p style='font-size: 12pt;'>Sample size \(N\)</p>        
+                      <p style='font-size: 12pt;'>Sample size \(n\)</p>        
                       <br>        
                       <input id="ex601" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0"/>
                       <p style='font-size: 12pt;'>Slope \(\beta_{1}\)</p>        
@@ -141,8 +141,6 @@
                       
                       <img src="./figures/figure_01_1_1_1_1.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
 
-                      <br><br>
-
                       <p>The relationship is illustrated by the scatter plot between,</p>
 
                       $$
@@ -160,8 +158,6 @@
                       <p style="font-size: 16pt">Scatter Plot (fitted residuals)</p>
 
                       <img src="./figures/figure_02_1_1_1_1.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
-
-                      <br><br>
 
                       <p>The fitted unobserved residuals are constructed such as,</p>
 
@@ -181,9 +177,7 @@
                       
                       <img src="./figures/figure_03_1_1_1_1.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
 
-                      <br><br>
-
-                      <p>As the sample size \(N\) grows the OLS estimator \(\widehat{\beta}_{1}\) gets closer to \(\beta\), i.e.,</p>
+                      <p>As the sample size \(n\) grows the OLS estimator \(\widehat{\beta}_{1}\) gets closer to \(\beta\), i.e.,</p>
                       
                       $$
                       \begin{align}
@@ -199,9 +193,7 @@
 
                       <img src="./figures/figure_04_1_1_1_1.svg" alt="" id="imageL1N4Id" style="text-align: center; max-width: 100%;">
 
-                      <br><br>
-
-                      <p>As the sample size \(N\) grows the distribution of the standardized sample average,</p>
+                      <p>As the sample size \(n\) grows the distribution of the standardized sample average,</p>
 
                       $$
                       \begin{align}
@@ -268,7 +260,7 @@
               <ol style="margin-top: 10px;">
                 <li>A i.i.d. sample of size \(n\), i.e., a sequence of observations \(X_{1}, X_{2}, ..., X_{n}\) and \(u_{1}, u_{2}, ..., u_{n}\), are drawn from the distribution of \(X_{i}\) and \(u_{i}\) specified above.</li>
                 <li>Based on the sequence of observations \(X_{1}, X_{2}, ..., X_{n}\) and \(u_{1}, u_{2}, ..., u_{n}\) a sequence of observations \(Y_{1}, Y_{2}, ..., Y_{n}\)  is constructed based on the regression model above.</li>
-                <li>Based on the sequence of observations \(Y_{1}, Y_{2}, ... Y_{N}\) and \(X_{1}, X_{2}, ..., X_{n}\), the intercept \(\beta_{0}\) and the slop parameter \(\beta_{1}\) is estimated using OLS.</li>
+                <li>Based on the sequence of observations \(Y_{1}, Y_{2}, ... Y_{n}\) and \(X_{1}, X_{2}, ..., X_{n}\), the intercept \(\beta_{0}\) and the slop parameter \(\beta_{1}\) is estimated using OLS.</li>
                 <li>The value of the estimate for the slope parameter, i.e., \(\widehat{\beta}_{1}\), is stored.</li>
                 <li>Step 1) to 4) is repeated \(10,000\) times resulting in \(1000\) OLS estimates for the slope parameter, i.e., \(\widehat{\beta}_{1}\).</li>
                 <li>The distribution of \(\widehat{\beta}_{1}\) and the standardized \(\widehat{\beta}_{1}\), i.e., \(z_{\widehat{\beta}_{1}}\), are illustrated using histograms.</li>
