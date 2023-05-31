@@ -46,89 +46,134 @@ document.getElementById(tabLinkId).style.backgroundColor = color;
 
 }
 
-//..............................
-// handling of slider                
-// see: https://seiyria.com/bootstrap-slider/
-    
 var nVec = [5, 10, 25, 50, 100]
 var bVec = [-2, -1, 0, 1, 2]
 var uVec = [1, 5, 15]
 var xVec = [1, 5, 15]
 
+// set initial value for slider 1
+document.getElementById("ex601Val").innerHTML = "\\(n = " + nVec[0] + "\\)";
+var element = document.getElementById("ex601Val");
+MathJax.typeset([element]);
+
+// set initial value for slider 2
+document.getElementById("ex602Val").innerHTML = "\\(\\beta_{1} = " + bVec[0] + "\\)";
+var element = document.getElementById("ex602Val");
+MathJax.typeset([element]);
+
+// set initial value for slider 3
+document.getElementById("ex603Val").innerHTML = "\\(\\sigma_{u}^{2} = " + uVec[0] + "\\)";
+var element = document.getElementById("ex603Val");
+MathJax.typeset([element]);
+
+// set initial value for slider 4
+document.getElementById("ex604Val").innerHTML = "\\(\\sigma_{X}^{2} = " + xVec[0] + "\\)";
+var element = document.getElementById("ex604Val");
+MathJax.typeset([element]);
+
+//..............................
+// handling of slider                
+// see: https://seiyria.com/bootstrap-slider/
+    
 //var slider01 = new Slider("#ex601", { tooltip: 'always' });
 var slider01 = new Slider("#ex601", { 
-    tooltip: "always",
+    tooltip: "never",
     formatter: function(value) {
-        return "current value: " + nVec[value]
+        return nVec[value];
     } 
 });
 //var slider02 = new Slider("#ex602", { tooltip: 'always' });
 var slider02 = new Slider("#ex602", { 
-    tooltip: "always",
+    tooltip: "never",
     formatter: function(value) {
-        return "current value: " + bVec[value]
+        return bVec[value]
     } 
 });
 //var slider03 = new Slider("#ex603", { tooltip: 'always' });
 var slider03 = new Slider("#ex603", { 
-    tooltip: "always",
+    tooltip: "never",
     formatter: function(value) {
-        return "current value: " + uVec[value]
+        return uVec[value]
     } 
 });
 //var slider04 = new Slider("#ex604", { tooltip: 'always' });
 var slider04 = new Slider("#ex604", { 
-    tooltip: "always",
+    tooltip: "never",
     formatter: function(value) {
-        return "current value: " + xVec[value]
+        return xVec[value]
     } 
 });
 
 slider01.on("slide", function() {
+
     var sliderValue01 = slider01.getValue() + 1;
     var sliderValue02 = slider02.getValue() + 1;
     var sliderValue03 = slider03.getValue() + 1;
     var sliderValue04 = slider04.getValue() + 1;
+
     document.getElementById("imageL1N1Id").setAttribute("src", "./figures/figure_01_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + "_" + sliderValue04 + ".svg");
     document.getElementById("imageL1N2Id").setAttribute("src", "./figures/figure_02_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + "_" + sliderValue04 + ".svg");
     document.getElementById("imageL1N3Id").setAttribute("src", "./figures/figure_03_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + "_" + sliderValue04 + ".svg");
     document.getElementById("imageL1N4Id").setAttribute("src", "./figures/figure_04_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + "_" + sliderValue04 + ".svg");
 
-    console.log("./figures/figure_01_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + "_" + sliderValue04 + ".svg")
+    document.getElementById("ex601Val").innerHTML = "\\(n = " + nVec[slider01.getValue()] + "\\)";
+    var element = document.getElementById("ex601Val");
+    MathJax.typeset([element]);
 
 })
 
 slider02.on("slide", function() {
+    
     var sliderValue01 = slider01.getValue() + 1;
     var sliderValue02 = slider02.getValue() + 1;
     var sliderValue03 = slider03.getValue() + 1;
     var sliderValue04 = slider04.getValue() + 1;
+
     document.getElementById("imageL1N1Id").setAttribute("src", "./figures/figure_01_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + "_" + sliderValue04 + ".svg");
     document.getElementById("imageL1N2Id").setAttribute("src", "./figures/figure_02_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + "_" + sliderValue04 + ".svg");
     document.getElementById("imageL1N3Id").setAttribute("src", "./figures/figure_03_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + "_" + sliderValue04 + ".svg");
     document.getElementById("imageL1N4Id").setAttribute("src", "./figures/figure_04_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + "_" + sliderValue04 + ".svg");
+
+    document.getElementById("ex602Val").innerHTML = "\\(\\beta_{1} = " + bVec[slider02.getValue()] + "\\)";
+    var element = document.getElementById("ex602Val");
+    MathJax.typeset([element]);
+
 })
 
 slider03.on("slide", function() {
+
     var sliderValue01 = slider01.getValue() + 1;
     var sliderValue02 = slider02.getValue() + 1;
     var sliderValue03 = slider03.getValue() + 1;
     var sliderValue04 = slider04.getValue() + 1;
+
     document.getElementById("imageL1N1Id").setAttribute("src", "./figures/figure_01_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + "_" + sliderValue04 + ".svg");
     document.getElementById("imageL1N2Id").setAttribute("src", "./figures/figure_02_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + "_" + sliderValue04 + ".svg");
     document.getElementById("imageL1N3Id").setAttribute("src", "./figures/figure_03_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + "_" + sliderValue04 + ".svg");
     document.getElementById("imageL1N4Id").setAttribute("src", "./figures/figure_04_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + "_" + sliderValue04 + ".svg");
+
+    document.getElementById("ex603Val").innerHTML = "\\(\\sigma_{u}^{2} = " + uVec[slider03.getValue()] + "\\)";
+    var element = document.getElementById("ex603Val");
+    MathJax.typeset([element]);
+
 })
 
 slider04.on("slide", function() {
+
     var sliderValue01 = slider01.getValue() + 1;
     var sliderValue02 = slider02.getValue() + 1;
     var sliderValue03 = slider03.getValue() + 1;
     var sliderValue04 = slider04.getValue() + 1;
+
     document.getElementById("imageL1N1Id").setAttribute("src", "./figures/figure_01_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + "_" + sliderValue04 + ".svg");
     document.getElementById("imageL1N2Id").setAttribute("src", "./figures/figure_02_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + "_" + sliderValue04 + ".svg");
     document.getElementById("imageL1N3Id").setAttribute("src", "./figures/figure_03_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + "_" + sliderValue04 + ".svg");
     document.getElementById("imageL1N4Id").setAttribute("src", "./figures/figure_04_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + "_" + sliderValue04 + ".svg");
+
+    document.getElementById("ex604Val").innerHTML = "\\(\\sigma_{X}^{2} = " + xVec[slider04.getValue()] + "\\)";
+    var element = document.getElementById("ex604Val");
+    MathJax.typeset([element]);
+
 })
 
 // set start page
