@@ -52,7 +52,7 @@ document.getElementById(tabLinkId).style.backgroundColor = color;
     
 var nVec = [5, 10, 25, 50, 100]
 var bVec = [-2, -1, 0, 1, 2]
-var uVec = [1, 2, 3]
+var uVec = [1, 5, 15]
 var xVec = [1, 5, 15]
 
 //var slider01 = new Slider("#ex601", { tooltip: 'always' });
