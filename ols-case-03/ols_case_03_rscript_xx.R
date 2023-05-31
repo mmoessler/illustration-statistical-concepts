@@ -81,12 +81,10 @@ bet_hat_sim_fun_01 <- function(rr, nn,
     y <- b0 + b1 * x1 + b2 * x2 + u 
     
     # fit linear model
-    # fit.01 <- lm(y ~ x1 + x2 + 1) # correct/unobserved fit
     fit.01 <- lm(y - b2 * x2 ~ x1 + 1) # correct/unobserved fit
-    fit.02 <- lm(y ~ x1 + 1)      # biased/observed fit
+    fit.02 <- lm(y ~ x1 + 1) # biased/observed fit
     
     # get some residuals
-    # res.01 <- y - fit.01$fitted.values + b2 * x2 # correlated correct/unobserved residuals
     res.01 <- fit.01$residuals + b2 * x2 # correlated correct/unobserved residuals
     
     # regression of residuals on x1
@@ -151,10 +149,15 @@ bet_hat_sim_fun_01 <- function(rr, nn,
 nn.vec <- c(5, 10, 25, 50, 100)
 b1.vec <- c(-1, 0, 1)
 b2.vec <- c(-1, 0, 1)
-rho.vec <- c(-0.9, 0, 0.9)
+rho.vec <- c(-0.9, -0.5, 0, 0.5, 0.9)
+
+# nn.vec <- c(5, 100)
+# b1.vec <- c(-1, 1)
+# b2.vec <- c(-1, 1)
+# rho.vec <- c(-0.9, 0.9)
 
 # inputs (fixed)
-rr <- 1000
+rr <- 10000
 nn <- 100
 b0 <- 1
 b1 <- 1

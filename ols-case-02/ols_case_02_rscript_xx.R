@@ -81,11 +81,11 @@ bet_hat_sim_fun_01 <- function(rr, nn,
     y <- b0 + b1 * x1 + b2 * x2 + u 
     
     # fit linear model
-    fit.01 <- lm(y ~ x1 + x2 + 1) # correct/unobserved fit
-    fit.02 <- lm(y ~ x1 + 1)      # biased/observed fit
+    fit.01 <- lm(y - b2 * x2 ~ x1 + 1) # correct/unobserved fit
+    fit.02 <- lm(y ~ x1 + 1) # biased/observed fit
     
     # get some residuals
-    res.01 <- y - fit.01$fitted.values + b2 * x2 # correlated correct/unobserved residuals
+    res.01 <- fit.01$residuals + b2 * x2 # correlated correct/unobserved residuals
     
     # regression of residuals on x1
     fit.03 <- lm(res.01 ~ x1)
@@ -151,21 +151,25 @@ x1.sd.vec <- c(1, 5, 10)
 u.sd.vec <- c(1, 5, 10)
 g1.vec <- c(-0.2, -0.1, 0, 0.1, 0.2)
 
-nn.vec <- c(5, 100)
-x1.sd.vec <- c(1, 15)
-u.sd.vec <- c(1, 15)
-g1.vec <- c(-0.2, 0.2)
+# nn.vec <- c(5, 100)
+# x1.sd.vec <- c(1, 15)
+# u.sd.vec <- c(1, 15)
+# g1.vec <- c(-0.2, 0.2)
 
 # inputs (fixed)
-rr <- 1000
-b1 <- 1
+rr <- 10000
+nn <- 100
 b0 <- 1
+b1 <- 1
 b2 <- 0
-x2.sd <- 1
-z.sd <- 1
+x1.sd <- 10
+x2.sd <- 10
+z.sd <- 10
+u.sd <- 10
 rho.21 <- 0
 rho.z1 <- 0
 g0 <- 0
+g1 <- 0
 
 # simulation/illustration ----
 run.all <- length(nn.vec) * length(x1.sd.vec) * length(u.sd.vec) * length(g1.vec)
@@ -224,7 +228,7 @@ for (ii in 1:length(nn.vec)) {
         
         dev.off()
         
-        # plot no 01: scatterplot fitted residuals ----
+        # plot no 02: scatterplot fitted residuals ----
         plt.nam <- paste(fig.dir, "figure_02_", ii, "_", jj, "_", kk, "_", ll, ".svg", sep = "")
         svg(plt.nam) 
         
