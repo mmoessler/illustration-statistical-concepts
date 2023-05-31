@@ -26,7 +26,7 @@
           <div class="jumbotron" id="topJumb">
             
             <p style='font-size: 28pt;'>Properties of the OLS Estimator</p>
-            <p style='font-size: 18pt; margin-top: -10px;'>(Effect of heteroskedasticity)</p> 
+            <p style='font-size: 18pt; margin-top: -10px;'>Effect of Heteroskedasticity</p> 
       
           </div>
 
@@ -47,7 +47,7 @@
 
           <p style="font-size: 18pt">Statistical Model</p>
         
-          <p>Consider the simple linear regression model,</p>
+          <p>Consider the linear regression model,</p>
 
           $$
           \begin{align}
@@ -55,7 +55,7 @@
           \end{align}
           $$
 
-          <p>where \(\beta_{0}\) is the intercept and \(\beta_{1}\) is the slope parameter.</p>
+          <p>where \(\beta_{0}=1\) is the intercept and \(\beta_{1}\) is the slope parameter.</p>
 
           <p>Furthermore, suppose \(X_{i}\) and \(u_{i}\) are independently normally distributed, i.e.,</p>
 
@@ -65,7 +65,7 @@
           \end{align}
           $$
 
-          <p>where \(\sigma_{X}^{2}\) and \(\sigma_{ui}^{2}\) is the variance of \(X_{i}\) and \(u_{i}\) and where 
+          <p>where \(\sigma_{X}^{2}\) and \(\sigma_{ui}^{2}\) is the variance of \(X_{i}\) and \(u_{i}\).
 
           <!--
           <hr>
@@ -91,9 +91,11 @@
 
           $$
           \begin{align}
-          \sigma_{ui}^{2} = \text{exp}\left(\gamma_{0} + \gamma_{1} X_{i}\right).
+          \sigma_{ui}^{2} = \text{exp}\left(\gamma_{0} + \gamma_{1} X_{i}\right),
           \end{align}
           $$
+
+          <p>where \(\gamma_{0}=0\) and \(\gamma_{1}\) are parameters which determine the shape of the heteroskedasticity.</p>
 
           <p>Thus, for positive/negative values of \(\gamma_{1}\) the variance of \(u_{i}\) is positively/negatively related with the value of \(X_{i}\).</p>
 
@@ -127,16 +129,16 @@
                       <hr>
                       <p style='font-size: 12pt;'>Sample size \(n\)</p>        
                       <br>        
-                      <input id="ex601" type="text" data-slider-min="0" data-slider-max="1" data-slider-step="1" data-slider-value="0"/>
+                      <input id="ex601" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0"/>
                       <p style='font-size: 12pt;'>Variance of \(X_{i}\)</p>        
                       <br>        
-                      <input id="ex602" type="text" data-slider-min="0" data-slider-max="1" data-slider-step="1" data-slider-value="0"/>
+                      <input id="ex602" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="0"/>
                       <p style='font-size: 12pt;'>Variance of \(u_{i}\)</p>        
                       <br>        
-                      <input id="ex603" type="text" data-slider-min="0" data-slider-max="1" data-slider-step="1" data-slider-value="0"/>
+                      <input id="ex603" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="0"/>
                       <p style='font-size: 12pt;'>heteroskedasticity \(g_1\)</p>        
                       <br>        
-                      <input id="ex604" type="text" data-slider-min="0" data-slider-max="1" data-slider-step="1" data-slider-value="0"/>
+                      <input id="ex604" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0"/>
                     </div>
 
                   </div>
@@ -156,22 +158,49 @@
                     <hr>
 
                     <div id="tabContentL1N1Id" class="tabContentL1Cl">
+
                       <p style="font-size: 16pt">Scatterplot (observations)</p>              
-                      <p style='font-size: 12pt;'>The plot below illustrates the simulation exercise</p>                          
+
                       <img src="./figures/figure_01_1_1_1_1.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
+
+                      <br><br>
+
+                      <p>The relationship is illustrated by the scatterplot between,</p>
+
+                      $$
+                      \begin{align}
+                      Y_{i} \;\;\;\;\; \text{and} \;\;\;\;\; X_{i},
+                      \end{align}
+                      $$                      
+
+                      <p>for only one simulation.</p>
 
                     </div>
 
                     <div id="tabContentL1N2Id" class="tabContentL1Cl">
+
                       <p style="font-size: 16pt">Scatterplot (fitted residuals)</p>              
-                      <p style='font-size: 12pt;'>The plot below illustrates the fitted residuals</p>                          
+
                       <img src="./figures/figure_02_1_1_1_1.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
 
+                      <br><br>
+
+                      <p>The fitted unobserved residuals are constructed such as,</p>
+
+                      $$
+                      \begin{align}
+                      \widehat{u}_{i} = Y_{i} - \widehat{\beta}_{1} X_{i},
+                      \end{align}
+                      $$
+            
+                      <p>for only one simulation where \(\widehat{\beta}_{1}\) is the restpective OLS estimate.</p>
+            
                     </div>
 
                     <div id="tabContentL1N3Id" class="tabContentL1Cl">
+
                       <p style='font-size: 16pt;'>Histogram of the sample average \(\widehat{\beta}_{1}\)</p>
-                      <p style='font-size: 12pt;'>The plot below illustrates the Law of Large Numbers (LLN)</p>
+
                       <img src="./figures/figure_03_1_1_1_1.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
 
                       <br><br>
@@ -187,8 +216,9 @@
                     </div>
 
                     <div id="tabContentL1N4Id" class="tabContentL1Cl">
+
                       <p style='font-size: 16pt;'>Histogram of the standardized OLS estimator \(z_{\widehat{\beta}_{1}}\)</p>
-                      <p style='font-size: 12pt;'>(The plot below illustrates the Central Limit Theorem (CLT))</p>
+
                       <img src="./figures/figure_04_1_1_1_1.svg" alt="" id="imageL1N4Id" style="text-align: center; max-width: 100%;">
 
                       <br><br>
@@ -201,7 +231,7 @@
                       \end{align}
                       $$
 
-                      <p>based on robust standard errors \(\widehat{\sigma}_{\widehat{\beta}_{1}}\) gets closer to the standard normal distribution \(N\left(0, 1\right)\) (see green histogram).</p>
+                      <p>i.e., based on robust standard errors \(\widehat{\sigma}_{\widehat{\beta}_{1}}\) gets closer to the standard normal distribution \(N\left(0, 1\right)\) (see green histogram).</p>
 
                       <p>Instead,</p>
 
@@ -211,7 +241,7 @@
                       \end{align}
                       $$                      
 
-                      <p>based on ordinary standard errors \(\widetilde{\sigma}_{\widehat{\beta}_{1}}\) does not get closer to the standard normal distribution \(N\left(0, 1\right)\) (see red histogram).</p>
+                      <p>i.e., based on ordinary standard errors \(\widetilde{\sigma}_{\widehat{\beta}_{1}}\) does not get closer to the standard normal distribution \(N\left(0, 1\right)\) (see red histogram).</p>
 
                     </div>
 
@@ -264,7 +294,7 @@
 
             </div>
 
-            <button type="button" class="collButtonCl"> <span style="font-size: 18pt;">Simulation Exercise</span> </button>
+            <button type="button" class="collButtonCl"> <span style="font-size: 18pt;">Simulation Exercise (details)</span> </button>
             <div class="collContentCl">
 
               <ol style="margin-top: 10px;">
@@ -272,7 +302,7 @@
                 <li>Based on the sequence of observations \(X_{1}, X_{2}, ..., X_{n}\) and \(u_{1}, u_{2}, ..., u_{n}\) a sequence of observations \(Y_{1}, Y_{2}, ..., Y_{n}\)  is constructed based on the regression model above.</li>
                 <li>Based on the sequence of observations \(Y_{1}, Y_{2}, ... Y_{N}\) and \(X_{1}, X_{2}, ..., X_{n}\), the intercept \(\beta_{0}\) and the slop parameter \(\beta_{1}\) is estimated using OLS.</li>
                 <li>The value of the estimate for the slope parameter, i.e., \(\widehat{\beta}_{1}\), is stored.</li>
-                <li>Step 1) to 4) is repeated \(1000\) times resulting in \(1000\) OLS estimates for the slope parameter, i.e., \(\widehat{\beta}_{1}\).</li>
+                <li>Step 1) to 4) is repeated \(10,000\) times resulting in \(1000\) OLS estimates for the slope parameter, i.e., \(\widehat{\beta}_{1}\).</li>
                 <li>The distribution of \(\widehat{\beta}_{1}\) and the standardized \(\widehat{\beta}_{1}\), i.e., \(z_{\widehat{\beta}_{1}}\), are illustrated using histograms.</li>
                 <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the different outcomes of the samples the OLS estimates will vary across sample draws.</p>
               </ol>

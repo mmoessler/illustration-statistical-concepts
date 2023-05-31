@@ -26,7 +26,7 @@
           <div class="jumbotron" id="topJumb">
             
             <p style='font-size: 28pt;'>Properties of the OLS Estimator</p>
-            <p style='font-size: 18pt; margin-top: -10px;'>(Effect of Omitted Variable Bias (OVB))</p> 
+            <p style='font-size: 18pt; margin-top: -10px;'>Effect of Omitted Variable Bias (OVB)</p> 
       
           </div>
 
@@ -118,7 +118,7 @@
             
             <p style="font-size: 18pt">Illustration</p>
               
-            <p>Change the parameters and see the effect on the properties of the OLS estimator \(\widehat{\beta}_{1}\) as estimator for \(\beta_{1}\).</p>            
+            <p>Change the parameters and see the effect on the properties of the OLS estimator \(\widehat{\beta}_{1}\) as estimator for \(\beta_{1}\).</p>
       
             <div class="container mt-5" style="margin-top: 50px;">
               <div class="row">
@@ -132,7 +132,7 @@
                       <hr>
                       <p style='font-size: 12pt;'>Sample size \(n\)</p>        
                       <br>        
-                      <input id="ex601" type="text" data-slider-min="0" data-slider-max="1" data-slider-step="1" data-slider-value="0"/>
+                      <input id="ex601" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0"/>
                       <p style='font-size: 12pt;'>Effect \(X_{1}\) \(\left(\beta_{1}\right)\)</p>        
                       <br>        
                       <input id="ex602" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="0"/>
@@ -141,7 +141,7 @@
                       <input id="ex603" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="0"/>
                       <p style='font-size: 12pt;'>Correlation \(\rho_{X_1 X_2}\)</p>        
                       <br>        
-                      <input id="ex604" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="0"/>
+                      <input id="ex604" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="0"/>
                     </div>
 
                   </div>
@@ -161,15 +161,18 @@
                     <hr>
 
                     <div id="tabContentL1N1Id" class="tabContentL1Cl">
-                      <p style="font-size: 16pt">Scatterplot (observations)</p>              
-                      <p style='font-size: 12pt;'>The plot below illustrates the simulation exercise</p>                          
+
+                      <p style="font-size: 16pt">Scatterplot (observations)</p>
+                      
                       <img src="./figures/figure_01_1_1_1_1.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
+
                       <br><br>
-                      <p>The unobservable relationship is illustrated by the darkgreen scatterplot between,</p>
+
+                      <p>The unobservable relationship is illustrated by the green scatterplot between,</p>
 
                       $$
                       \begin{align}
-                      Y_{i} - \beta_{2} X_{2i} \;\;\;\;\; \text{and} \;\;\;\;\; X_{1i}.
+                      Y_{i} - \beta_{2} X_{2i} \;\;\;\;\; \text{and} \;\;\;\;\; X_{1i},
                       \end{align}
                       $$
             
@@ -181,13 +184,18 @@
                       \end{align}
                       $$
 
+                      <p>Both scatterplots illustrate the result for only one simulation.</p>
+
                     </div>
 
                     <div id="tabContentL1N2Id" class="tabContentL1Cl">
-                      <p style="font-size: 16pt">Scatterplot (fitted unobserved residuals)</p>              
-                      <p style='font-size: 12pt;'>The plot below illustrates the fitted unobserved residuals</p>                          
+
+                      <p style="font-size: 16pt">Scatterplot (fitted unobserved residuals)</p>
+                      
                       <img src="./figures/figure_02_1_1_1_1.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
+
                       <br><br>
+
                       <p>The fitted unobserved residuals are constructed such as,</p>
 
                       $$
@@ -196,15 +204,18 @@
                       \end{align}
                       $$
             
-                      <p>where \(\widehat{\widetilde{u}}_{i}\) are the fitted residuals of the observable regression model.</p>
+                      <p>for only one simulation where \(\widehat{\widetilde{u}}_{i}\) are the fitted residuals of the observable regression model.</p>
 
                     </div>
 
                     <div id="tabContentL1N3Id" class="tabContentL1Cl">
+
                       <p style='font-size: 16pt;'>Histogram of the sample average \(\widehat{\beta}_{1}\)</p>
-                      <p style='font-size: 12pt;'>The plot below illustrates the Law of Large Numbers (LLN)</p>
+
                       <img src="./figures/figure_03_1_1_1_1.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
+
                       <br><br>
+
                       <p>As the sample size \(N\) grows the OLS estimator \(\widehat{\beta}_{1}\) gets closer to,</p>
 
                       $$
@@ -215,28 +226,24 @@
 
                       <p>i.e., the OLS estimator is biased if \(\beta_{2} \neq 0\) or \(\rho_{X_{1}X_{2}} \neq 0\).</p>
 
-                      <!--
-                      <p>The bias can be quantified by:</p>
-
-                      <ol>
-                        <li>\(\beta_{2}\), the effect of the unobservable variable \(X_{2}\) on \(Y\) and</li>
-                        <li>\(\rho_{X_{1}X_{2}}\), the correlation between the variable of interest \(X_{2}\) and the unobservable variable \(X_{2}\).</li>
-                      </ol>
-                      -->
-
                     </div>
 
                     <div id="tabContentL1N4Id" class="tabContentL1Cl">
+
                       <p style='font-size: 16pt;'>Histogram of the standardized OLS estimator \(z_{\widehat{\beta}_{1}}\)</p>
-                      <p style='font-size: 12pt;'>(The plot below illustrates the Central Limit Theorem (CLT))</p>
+
                       <img src="./figures/figure_04_1_1_1_1.svg" alt="" id="imageL1N4Id" style="text-align: center; max-width: 100%;">
+
                       <br><br>
+
                       <p>In the case of omitted variable bias (OVB),</p>
+
                       $$
                       \begin{align}
                       z_{\widehat{\beta}_{1}} &= \frac{\widehat{\beta}_{1} - \beta_{\beta_{1}}}{\sigma_{\widehat{\beta}_{1}}},
                       \end{align}
                       $$
+
                       <p>does not get closer to the standard normal distribution \(N\left(0, 1\right)\).</p>
                       
                     </div>
@@ -314,7 +321,7 @@
 
             </div>            
 
-            <button type="button" class="collButtonCl"> <span style="font-size: 18pt;">Simulation Exercise</span> </button>
+            <button type="button" class="collButtonCl"> <span style="font-size: 18pt;">Simulation Exercise (details)</span> </button>
             <div class="collContentCl">
 
               <ol style="margin-top: 10px;">
@@ -323,7 +330,7 @@
                 <li>Based on the sequence of observations \(X_{11}, X_{12}, ..., X_{1n}\), \(X_{21}, X_{22}, ..., X_{2n}\) and \(u_{1}, u_{2}, ..., u_{n}\) a sequence of observations \(Y_{1}, Y_{2}, ..., Y_{n}\) is constructed based on the unobserved regression model above.</li>
                 <li>Based on the sequence of observations \(Y_{1}, Y_{2}, ... Y_{N}\) and \(X_{11}, X_{12}, ..., X_{1n}\), the intercept \(\beta_{0}\) and the slop parameter \(\beta_{1}\) of the observed regression model is estimated using OLS.</li>
                 <li>The value of the estimate for the slope parameter, i.e., \(\widehat{\beta}_{1}\), is stored.</li>
-                <li>Step 1) to 5) is repeated \(1000\) times resulting in \(1000\) OLS estimates for the slope parameter, i.e., \(\widehat{\beta}_{1}\).</li>
+                <li>Step 1) to 5) is repeated \(10,000\) times resulting in \(1000\) OLS estimates for the slope parameter, i.e., \(\widehat{\beta}_{1}\).</li>
                 <li>The distribution of \(\widehat{\beta}_{1}\) and the standardized \(\widehat{\beta}_{1}\), i.e., \(z_{\widehat{\beta}_{1}}\), are illustrated using histograms.</li>
                 <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the different outcomes of the samples the OLS estimates will vary across sample draws.</p>
               </ol>
