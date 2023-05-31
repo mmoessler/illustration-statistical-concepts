@@ -81,11 +81,11 @@ bet_hat_sim_fun_01 <- function(rr, nn,
     y <- b0 + b1 * x1 + b2 * x2 + u 
     
     # fit linear model
-    fit.01 <- lm(y ~ x1 + x2 + 1) # correct/unobserved fit
-    fit.02 <- lm(y ~ x1 + 1)      # biased/observed fit
+    fit.01 <- lm(y - b2 * x2 ~ x1 + 1) # correct/unobserved fit
+    fit.02 <- lm(y ~ x1 + 1) # biased/observed fit
     
     # get some residuals
-    res.01 <- y - fit.01$fitted.values + b2 * x2 # correlated correct/unobserved residuals
+    res.01 <- fit.01$residuals + b2 * x2 # correlated correct/unobserved residuals
     
     # regression of residuals on x1
     fit.03 <- lm(res.01 ~ x1)
@@ -148,16 +148,16 @@ bet_hat_sim_fun_01 <- function(rr, nn,
 # inputs (variable)
 nn.vec <- c(5, 10, 25, 50, 100)
 b1.vec <- c(-2, -1, 0 , 1, 2)
-u.sd.vec <- c(1, 2, 3)
-x1.sd.vec <- c(1, 5, 15)
+u.sd.vec <- c(1, 5, 10)
+x1.sd.vec <- c(1, 5, 10)
 
 # nn.vec <- c(5, 100)
 # b1.vec <- c(-2, 2)
-# u.sd.vec <- c(1, 3)
-# x1.sd.vec <- c(1, 15)
+# u.sd.vec <- c(1, 10)
+# x1.sd.vec <- c(1, 10)
 
 # inputs (fixed)
-rr <- 1000
+rr <- 10000
 b0 <- 1
 b2 <- 0
 x2.sd <- 1
@@ -224,8 +224,36 @@ for (ii in 1:length(nn.vec)) {
         
         dev.off()
         
-        # plot no 02: histogram estimator (non-standardized ----
+        # plot no 02: scatterplot fitted residuals ----
         plt.nam <- paste(fig.dir, "figure_02_", ii, "_", jj, "_", kk, "_", ll, ".svg", sep = "")
+        svg(plt.nam) 
+        
+        plot.new()
+        plot.window(xlim = c(-100, 100), ylim = c(-10, 10), log = "")
+        title(main = "", sub = "", xlab = "", ylab = "")
+        
+        axis(1)
+        axis(2)
+        
+        grid()
+        
+        lines(x = tmp.sim$x1, y = tmp.sim$res.01, type = "p", col = "red")
+        
+        # add zero line
+        abline(h = 0, lty = 2, lwd = 2)
+        
+        # add legend
+        legend("topright",
+               legend = c(expression("Fitted residuals "*u[i]*" ")),
+               lty = 2,
+               lwd = 1,
+               col = "red",
+               inset = 0.05)
+        
+        dev.off()
+        
+        # plot no 02: histogram estimator (non-standardized ----
+        plt.nam <- paste(fig.dir, "figure_03_", ii, "_", jj, "_", kk, "_", ll, ".svg", sep = "")
         svg(plt.nam) 
         
         x <- hist(x = tmp.sim$b1h,
@@ -258,8 +286,8 @@ for (ii in 1:length(nn.vec)) {
         
         dev.off()
         
-        # plot no 03 histogram estimator (standardized) ----
-        plt.nam <- paste(fig.dir, "figure_03_", ii, "_", jj, "_", kk, "_", ll, ".svg", sep = "")
+        # plot no 04 histogram estimator (standardized) ----
+        plt.nam <- paste(fig.dir, "figure_04_", ii, "_", jj, "_", kk, "_", ll, ".svg", sep = "")
         svg(plt.nam)
         
         # generate histogram of estimator
