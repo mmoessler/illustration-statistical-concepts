@@ -82,6 +82,9 @@ bet_hat_sim_fun_01 <- function(rr, nn,
     
     # fit linear model
     fit.01 <- lm(y - b2 * x2 ~ x1 + 1) # correct/unobserved fit
+    fit.x1 <- lm(y ~ x2 + 1)
+    fit.x2 <- lm(x1 ~ x2 + 1)
+    fit.x3 <- lm(fit.x1$residuals ~ fit.x2$residuals + 1)
     fit.02 <- lm(y ~ x1 + 1) # biased/observed fit
     
     # get some residuals
@@ -139,7 +142,8 @@ bet_hat_sim_fun_01 <- function(rr, nn,
                   b1h.z.boot.mea = b1h.z.boot.mea, b1h.z.boot.sd = b1h.z.boot.sd, b1h.boot.mea = b1h.boot.mea,
                   b0h.z.boot.mea = b0h.z.boot.mea, b0h.z.boot.sd = b0h.z.boot.sd, b0h.boot.mea = b0h.boot.mea,
                   fit.01 = fit.01, fit.02 = fit.02, fit.03 = fit.03, fit.04 = fit.04, fit.05 = fit.05,
-                  res.01 = res.01)
+                  res.01 = res.01,
+                  fit.x1 = fit.x1, fit.x2 = fit.x2, fit.x3 = fit.x3)
   
   return(ret.lis)
   
@@ -213,8 +217,11 @@ for (ii in 1:length(nn.vec)) {
         lines(x = tmp.sim$x1, y = tmp.sim$y, type = "p", col = "red")
         abline(a = summary(tmp.sim$fit.02)$coefficients[1,1], b = summary(tmp.sim$fit.02)$coefficients[2,1], lty = 2, col = "red", lwd = 2)
 
-        lines(x = tmp.sim$x1, y = (tmp.sim$y - b2 * tmp.sim$x2), type = "p", col = "darkgreen") # correct/unobserved relationship
-        abline(a = summary(tmp.sim$fit.01)$coefficients[1,1], b = summary(tmp.sim$fit.01)$coefficients[2,1], lty = 2, col = "darkgreen", lwd = 2) # correct/unobserved fit
+        # lines(x = tmp.sim$x1, y = (tmp.sim$y - b2 * tmp.sim$x2), type = "p", col = "darkgreen") # correct/unobserved relationship
+        # abline(a = summary(tmp.sim$fit.01)$coefficients[1,1], b = summary(tmp.sim$fit.01)$coefficients[2,1], lty = 2, col = "darkgreen", lwd = 2) # correct/unobserved fit
+
+        lines(x = tmp.sim$fit.x2$residuals, y = tmp.sim$fit.x1$residuals, type = "p", col = "darkgreen") # correct/unobserved relationship
+        abline(a = summary(tmp.sim$fit.x3)$coefficients[1,1], b = summary(tmp.sim$fit.x3)$coefficients[2,1], lty = 2, col = "darkgreen", lwd = 2) # correct/unobserved fit
         
         # add text
         rect(xleft = 45, ybottom = 67.5, xright = 95, ytop = 97.5, col = "white")
