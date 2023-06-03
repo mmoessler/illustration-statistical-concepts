@@ -142,19 +142,21 @@
                     <p style="font-size: 18pt; margin-top: 10px; text-align: center;">Parameters</p>
                     
                     <div style='margin-top: 50px;'>
+
                       <hr>
-                      <p style='font-size: 12pt;'>Sample size \(n\)</p>        
-                      <br>        
+
+                      <p style='font-size: 12pt; text-align: center'>Sample size</p><p style='font-size: 12pt; text-align: center' id="ex601Val"></p>        
                       <input id="ex601" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
-                      <p style='font-size: 12pt;'>Effect \(X_{1}\) \(\left(\beta_{1}\right)\)</p>        
-                      <br>        
+
+                      <p style='font-size: 12pt; text-align: center'>Effect of \(X_{1}\)</p><p style='font-size: 12pt; text-align: center' id="ex602Val"></p>        
                       <input id="ex602" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
-                      <p style='font-size: 12pt;'>Effect \(X_{2}\) \(\left(\beta_{2}\right)\)</p>        
-                      <br>        
+
+                      <p style='font-size: 12pt; text-align: center'>Effect of \(X_{2}\)</p><p style='font-size: 12pt; text-align: center' id="ex603Val"></p>       
                       <input id="ex603" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
-                      <p style='font-size: 12pt;'>Correlation \(\rho_{X_1 X_2}\)</p>        
-                      <br>        
+
+                      <p style='font-size: 12pt; text-align: center'>Correlation of \(X_{1}\) & \(X_{2}\)</p><p style='font-size: 12pt; text-align: center' id="ex604Val"></p>        
                       <input id="ex604" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+
                     </div>
 
                   </div>
@@ -267,11 +269,15 @@
 
                       <p>As the sample size \(N\) grows the OLS estimator \(\widehat{\beta}_{1}\) gets closer to,</p>
 
+                      <!--
                       $$
                       \begin{align}
                       \widehat{\beta}_{1} &\overset{p}{\rightarrow} \beta_{1} + \beta_{2} \rho_{X_{1}X_{2}} \frac{\sigma_{X_{2}}}{\sigma_{X_{1}}},
                       \end{align}
                       $$
+                      -->
+
+                      <p id="equBias"></p>
 
                       <p>i.e., the OLS estimator is biased if \(\beta_{2} \neq 0\) or \(\rho_{X_{1}X_{2}} \neq 0\).</p>
 
@@ -399,10 +405,14 @@
       <hr />
     </div>
 
-    <!-- include mathjax js via cdn -->
+    <!-- include mathjax js via cdn
     <script type="text/javascript" id="MathJax-script" async
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
     </script>
+     -->
+     <script
+     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+   </script>
 
     <!-- include bootstrap slider js via cdn --> 
     <script 
