@@ -51,8 +51,8 @@ document.getElementById(tabLinkId).style.backgroundColor = color;
 // see: https://seiyria.com/bootstrap-slider/
     
 var nVec = [5, 10, 25, 50, 100]
-var b1Vec = [-1, 0, 1]
-var b2Vec = [-1, 0, 1]
+var b1Vec = [-2, -1, 0, 1, 2]
+var b2Vec = [-2, -1, 0, 1, 2]
 var rhoVec = [-0.9, -0.5, 0, 0.5, 0.9]
 
 //var slider01 = new Slider("#ex601", { tooltip: 'always' });
