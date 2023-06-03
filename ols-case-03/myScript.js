@@ -24,25 +24,25 @@ for (i = 0; i < coll.length; i++) {
 // open specific tab
 function openSpecificTab(tabContentId, tabLinkId, color) {
 
-// hide all elements with class="tabcontent_l1" by default */
-var i, tabcontent, tablinks;
+    // hide all elements with class="tabcontent_l1" by default */
+    var i, tabcontent, tablinks;
 
-tabcontent = document.getElementsByClassName("tabContentL1Cl");
-for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-}
+    tabcontent = document.getElementsByClassName("tabContentL1Cl");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
 
-// remove the background color of all tablinks/buttons
-tablinks = document.getElementsByClassName("tabLinkL1Cl");
-for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].style.backgroundColor = "";
-}
+    // remove the background color of all tablinks/buttons
+    tablinks = document.getElementsByClassName("tabLinkL1Cl");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    }
 
-// show the specific tab content
-document.getElementById(tabContentId).style.display = "block";
+    // show the specific tab content
+    document.getElementById(tabContentId).style.display = "block";
 
-// add the specific color to the button used to open the tab content
-document.getElementById(tabLinkId).style.backgroundColor = color;
+    // add the specific color to the button used to open the tab content
+    document.getElementById(tabLinkId).style.backgroundColor = color;
 
 }
 
