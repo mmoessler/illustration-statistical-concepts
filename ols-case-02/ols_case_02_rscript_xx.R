@@ -304,13 +304,13 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                          bquote(widehat(sigma)[widehat(beta)[1]] == .(format(round(summary(tmp.sim$fit.02)$coefficients[2,2], 3), nsmall = 3))),
                          cex = 1.25)
                     
-                    # # add legend
-                    # legend("topleft",
-                    #        legend = c(expression(Y*" on "*X[1]*" "), expression(Y^adj*" on "*X[1]^adj*" ")),
-                    #        lty = c(2, 2),
-                    #        lwd = c(1, 1),
-                    #        col = c("red", "darkgreen"),
-                    #        inset = 0.05)
+                    # add legend
+                    legend("topleft",
+                           legend = c(expression(Y*" on "*X*" ")),
+                           lty = c(2),
+                           lwd = c(1),
+                           col = c("red"),
+                           inset = 0.05)
                     
                     dev.off()
                     

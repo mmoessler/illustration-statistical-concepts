@@ -80,9 +80,7 @@
             $$
   
             <p>where \(Y_{i}^{adj} = \left(Y_{i} - \beta_{2} X_{2i}\right)\) and \(X_{1i}^{adj} = \left(X_{1i} - \beta_{2} X_{2i}\right)\) are the variables adjusted for the effect of \(X_{2}\).</p>
-  
-            <!--<p>thus, the unobserved component \(\widetilde{u}_{i}\) of the observable regression model is given by,</p>-->
-            
+              
             <p>Furthermore, the unobserved component \(\widetilde{u}_{i}\) of the observable regression model can be written as,</p>
   
             $$
@@ -100,8 +98,6 @@
             $$
   
           </div>
-
-          <!--<p style="font-style: italic;">Check the real-world example below.</p>-->
 
           <hr>
 
@@ -182,13 +178,13 @@
 
                     <div id="tabContentL1N1Id" class="tabContentL1Cl">
 
-                      <p style="font-size: 16pt">Scatter plot (observations)</p>
+                      <p style="font-size: 16pt">Scatter plot (observed and adjusted observations)</p>
                       
                       <img src="./figures/figure_01_3_3_3_3.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
 
                       <br><br>
 
-                      <p>The green fitted regression line based on the regression of,</p>
+                      <p>The green fitted regression line is based on the regression of,</p>
 
                       $$
                       \begin{align}
@@ -196,9 +192,9 @@
                       \end{align}
                       $$
             
-                      <p>represents the unobservable relationship.</p>
+                      <p>and represents the unobservable relationship.</p>
 
-                      <p>The red fitted regression line based on the regression of,</p>
+                      <p>The red fitted regression line is based on the regression of,</p>
 
                       $$
                       \begin{align}
@@ -206,9 +202,9 @@
                       \end{align}
                       $$
 
-                      <p>represents the observable relationship.</p>
+                      <p>and represents the observable relationship.</p>
 
-                      <p>The scatter plots and the fitted regression line represent the result for only one simulation. The shaded area illustrate the range of all fitted regression lines across all simulation outcomoes.</p>
+                      <p>The scatter plots and the fitted regression lines represent the result for only one simulation. The shaded areas illustrate the range of all fitted regression lines across all simulation outcomes.</p>
 
                     </div>
 
@@ -218,23 +214,7 @@
                       
                       <img src="./figures/figure_02_3_3_3_3.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
 
-                      <br><br>
-
-                      <p>The fitted residuals of the unobservable model are constructed such as,</p>
-
-                      <!--
-                      $$
-                      \begin{align}
-                      \widehat{u}_{i} = \beta_{2} X_{2i} + \widehat{\widetilde{u}}_{i},
-                      \end{align}
-                      $$
-
-                      $$
-                      \begin{align}
-                      \widehat{\widetilde{u}}_{i} = \widehat{u}_{i} - \beta_{2} X_{2i},
-                      \end{align}
-                      $$
-                      -->
+                      <p>The fitted unobserved residuals are constructed as,</p>
             
                       $$
                       \begin{align}
@@ -242,17 +222,7 @@
                       \end{align}
                       $$
 
-                      <!--<p>for only one simulation where \(\widehat{\widetilde{u}}_{i}\) are the fitted residuals of the observable regression model.</p>-->
-
-                      <p>The relationship between \(\widehat{\widetilde{u}}_{i}\) and \(X_{1}\) is illustrated by the fitted regression line of,</p>
-
-                      <!--
-                      $$
-                      \begin{align}
-                      \widehat{\widetilde{u}}_{i} \;\;\;\;\; \text{on} \;\;\;\;\; X_{1i}.
-                      \end{align}
-                      $$
-                      -->
+                      <p>The green fitted regression line is based on the regression of,</p>
 
                       $$
                       \begin{align}
@@ -260,7 +230,7 @@
                       \end{align}
                       $$
 
-                      <p>The scatter plots and the fitted line illustrate the result for only one simulation. The shaded area illustrate the range for all simulation outcomoes.</p>
+                      <p>The scatter plots and the fitted regression line represent the result for only one simulation. The shaded area illustrate the range of all fitted regression lines across all simulation outcomes.</p>
 
                     </div>
 
@@ -274,17 +244,9 @@
 
                       <p>As the sample size \(N\) grows the OLS estimator \(\widehat{\beta}_{1}\) gets closer to,</p>
 
-                      <!--
-                      $$
-                      \begin{align}
-                      \widehat{\beta}_{1} &\overset{p}{\rightarrow} \beta_{1} + \beta_{2} \rho_{X_{1}X_{2}} \frac{\sigma_{X_{2}}}{\sigma_{X_{1}}},
-                      \end{align}
-                      $$
-                      -->
-
                       <p id="equBias"></p>
 
-                      <p>i.e., the OLS estimator is biased if \(\beta_{2} \neq 0\) or \(\rho_{X_{1}X_{2}} \neq 0\).</p>
+                      <p>i.e., the OLS estimator is biased if \(\beta_{2} \neq 0\) and \(\rho_{X_{1}X_{2}} \neq 0\).</p>
 
                     </div>
 
@@ -296,7 +258,7 @@
 
                       <br><br>
 
-                      <p>In the case of omitted variable bias (OVB),</p>
+                      <p>In the case of omitted variable bias (OVB), i.e., if \(\beta_{2} \neq 0\) and \(\rho_{X_{1}X_{2}} \neq 0\),</p>
 
                       $$
                       \begin{align}

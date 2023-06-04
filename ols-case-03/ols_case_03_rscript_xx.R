@@ -352,7 +352,7 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     
                     plot.new()
                     plot.window(xlim = c(-100, 100), ylim = c(-100, 100), log = "")
-                    title(main = "", sub = "", xlab = expression(X[1]), ylab = expression(u))
+                    title(main = "", sub = "", xlab = expression(X[1]), ylab = expression(widehat(u)))
                     
                     axis(1)
                     axis(2)
@@ -380,7 +380,7 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     
                     # add legend
                     legend("topright",
-                           legend = expression(u*" on "*X[1]*" "),
+                           legend = expression(widehat(u)*" on "*X[1]*" "),
                            lty = 2,
                            lwd = 1,
                            col = "darkgreen",

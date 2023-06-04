@@ -101,7 +101,36 @@
 
           <p>Heteroskedasticity effects the standard error of the OLS estimator \(\widehat{\beta}_{1}\) and thus the construction of the standardized OLS estimator \(z_{\widehat{\beta}_{1}}\).</p>
 
-          <p style="font-style: italic;">Check the details about Construction of \(z_{\widehat{\beta}_{1}}\) below.</p>
+          <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">More Details</span> </button>
+          <div class="collContentCl">
+
+            <p style="margin-top: 10px;">
+              For the construction of the standardized OLS estimator \(z_{\widehat{\beta}_{1}}\), the variance of \(\widehat{\beta}_{1}\), i.e., \(\sigma_{\widehat{\beta}_{1}}^{2}\), has to be estimated.
+            </p>
+            
+            <p>The variance of \(\widehat{\beta}_1\), i.e., \(\sigma_{\widehat{\beta}_{1}}^{2}\), can be robustly estimated by,</p>
+            
+            $$
+            \begin{align}
+            \widehat{\sigma}_{\widehat{\beta}_{1}}^{2} = \frac{1}{n} \times \frac{\frac{1}{n-2}\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}\widehat{u}_{i}^{2}}{\left[\frac{1}{n}\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}\right]^{2}},
+            \end{align}
+            $$
+
+            <p>where \(\widehat{u}_{i}\) are the residuals of the estimate regression line.</p>
+
+            <p>Note, the estimator for \(\sigma_{\widehat{\beta}_{1}}^{2}\) above is robust w.r.t. to heteroskedasticity, i.e., it does not rely on the assumption of homoskedasticity.</p>
+
+            <p>Instead, some statistic software report estimates \(\sigma_{\widehat{\beta}_{1}}^{2}\), based on the assumption of homoskedasticity.</p>
+            
+            <p>The so called homoskedaticity-only estimator of \(\sigma_{\widehat{\beta}_{1}}^{2}\), is given by,</p>
+
+            $$
+            \begin{align}
+            \widetilde{\sigma}_{\widehat{\beta}_{1}}^{2} = \frac{\frac{1}{n-2}\sum_{i=1}^{n}\widehat{u}_{i}^{2}}{\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}}.
+            \end{align}
+            $$
+
+          </div>
 
         </div>
 
@@ -165,17 +194,15 @@
 
                       <img src="./figures/figure_01_3_2_2_3.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
 
-                      <br><br>
-
-                      <p>The relationship is illustrated by the scatter plot between,</p>
+                      <p>The red fitted regression line is based on the regression of,</p>
 
                       $$
                       \begin{align}
-                      Y_{i} \;\;\;\;\; \text{and} \;\;\;\;\; X_{i},
+                      Y_{i} \;\;\;\;\; \text{on} \;\;\;\;\; X_{i}.
                       \end{align}
-                      $$                      
+                      $$
 
-                      <p>for only one simulation.</p>
+                      <p>The scatter plots and the fitted regression lines represent the result for only one simulation. The shaded areas illustrate the range of all fitted regression lines across all simulation outcomes.</p>
 
                     </div>
 
@@ -185,9 +212,7 @@
 
                       <img src="./figures/figure_02_3_2_2_3.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
 
-                      <br><br>
-
-                      <p>The fitted unobserved residuals are constructed such as,</p>
+                      <p>The fitted unobserved residuals are constructed as,</p>
 
                       $$
                       \begin{align}
@@ -265,38 +290,7 @@
             
             <p style="font-size: 18pt">More Details</p>
                     
-            <button type="button" class="collButtonCl"> <span style="font-size: 18pt;">Construction of \(z_{\overline{Y}}\)</span> </button>
-            <div class="collContentCl">
-
-              <p style="margin-top: 10px;">
-                For the construction of the standardized OLS estimator \(z_{\widehat{\beta}_{1}}\), the variance of \(\widehat{\beta}_{1}\), i.e., \(\sigma_{\widehat{\beta}_{1}}^{2}\), has to be estimated.
-              </p>
-              
-              <p>The variance of \(\widehat{\beta}_1\), i.e., \(\sigma_{\widehat{\beta}_{1}}^{2}\), can be robustly estimated by,</p>
-              
-              $$
-              \begin{align}
-              \widehat{\sigma}_{\widehat{\beta}_{1}}^{2} = \frac{1}{n} \times \frac{\frac{1}{n-2}\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}\widehat{u}_{i}^{2}}{\left[\frac{1}{n}\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}\right]^{2}},
-              \end{align}
-              $$
-
-              <p>where \(\widehat{u}_{i}\) are the residuals of the estimate regression line.</p>
-
-              <p>Note, the estimator for \(\sigma_{\widehat{\beta}_{1}}^{2}\) above is robust w.r.t. to heteroskedasticity, i.e., it does not rely on the assumption of homoskedasticity.</p>
-
-              <p>Instead, some statistic software report estimates \(\sigma_{\widehat{\beta}_{1}}^{2}\), based on the assumption of homoskedasticity.</p>
-              
-              <p>The so called homoskedaticity-only estimator of \(\sigma_{\widehat{\beta}_{1}}^{2}\), is given by,</p>
-
-              $$
-              \begin{align}
-              \widetilde{\sigma}_{\widehat{\beta}_{1}}^{2} = \frac{\frac{1}{n-2}\sum_{i=1}^{n}\widehat{u}_{i}^{2}}{\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}}.
-              \end{align}
-              $$
-
-            </div>
-
-            <button type="button" class="collButtonCl"> <span style="font-size: 18pt;">Simulation Exercise (details)</span> </button>
+            <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Simulation Exercise (details)</span> </button>
             <div class="collContentCl">
 
               <ol style="margin-top: 10px;">

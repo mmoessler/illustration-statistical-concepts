@@ -41,7 +41,13 @@
 
           <p style="font-size: 18pt">Motivation</p>
 
-          <p>Understand the effect of increasing the sample size \(n\) on the sampling distribution of the OLS estimator.</p>
+          <p>Understand the effect of ...</p>
+
+          <p style="margin-left: 10pt;"> (1) increasing the sample size \(n\),...</p>
+          <p style="margin-left: 10pt; margin-top: -10pt;"> (2) changing the variance of \(u_{i}\), i.e., \(\sigma_{u}\),...</p>
+          <p style="margin-left: 10pt; margin-top: -10pt;"> (3) changing the variance of \(X_{i}\), i.e., \(\sigma_{X}\),...</p>
+
+          <p>... on the sampling distribution of the OLS estimator for the slope coefficient of a simple linear regression model.</p>
 
           <hr>
 
@@ -139,29 +145,29 @@
 
                     <div id="tabContentL1N1Id" class="tabContentL1Cl">
 
-                      <p style="font-size: 16pt">Scatter Plot (observations)</p>
+                      <p style="font-size: 16pt">Scatter plot (observations)</p>
                       
                       <img src="./figures/figure_01_3_3_2_2.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
 
-                      <p>The relationship is illustrated by the scatter plot between,</p>
+                      <p>The red fitted regression line is based on the regression of,</p>
 
                       $$
                       \begin{align}
-                      Y_{i} \;\;\;\;\; \text{and} \;\;\;\;\; X_{i},
+                      Y_{i} \;\;\;\;\; \text{on} \;\;\;\;\; X_{i}.
                       \end{align}
-                      $$                      
+                      $$
 
-                      <p>for only one simulated sample draw of size \(n\).</p>
+                      <p>The scatter plots and the fitted regression lines represent the result for only one simulation. The shaded areas illustrate the range of all fitted regression lines across all simulation outcomes.</p>
 
                     </div>
 
                     <div id="tabContentL1N2Id" class="tabContentL1Cl">
 
-                      <p style="font-size: 16pt">Scatter Plot (fitted residuals)</p>
+                      <p style="font-size: 16pt">Scatter plot (fitted residuals)</p>
 
                       <img src="./figures/figure_02_3_3_2_2.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
 
-                      <p>The fitted unobserved residuals are constructed such as,</p>
+                      <p>The fitted unobserved residuals are constructed as,</p>
 
                       $$
                       \begin{align}
@@ -169,7 +175,7 @@
                       \end{align}
                       $$
             
-                      <p>for only one simulated sample draw of size \(n\) where \(\widehat{\beta}_{1}\) is the respective OLS estimate.</p>
+                      <p>for only one simulation where \(\widehat{\beta}_{1}\) is the respective OLS estimate.</p>
 
                     </div>
 
@@ -225,7 +231,7 @@
             
             <p style="font-size: 18pt">More Details</p>
                     
-            <button type="button" class="collButtonCl"> <span style="font-size: 18pt;">Construction of \(z_{\overline{Y}}\)</span> </button>
+            <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Construction of \(z_{\overline{Y}}\)</span> </button>
             <div class="collContentCl">
 
               <p style="margin-top: 10px;">
@@ -256,7 +262,7 @@
 
             </div>
 
-            <button type="button" class="collButtonCl"> <span style="font-size: 18pt;">Simulation Exercise</span> </button>
+            <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Simulation Exercise</span> </button>
             <div class="collContentCl">
 
               <ol style="margin-top: 10px;">

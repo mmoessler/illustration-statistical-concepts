@@ -56,54 +56,72 @@ var bVec = [2.0, 2.5, 3.0, 3.5, 4.0]
 
 //var slider01 = new Slider("#ex601", { tooltip: 'always' });
 var slider01 = new Slider("#ex601", { 
-    tooltip: "always",
+    tooltip: "never",
     formatter: function(value) {
-        return "current value: " + nVec[value]
+        return nVec[value]
     } 
 });
 //var slider02 = new Slider("#ex602", { tooltip: 'always' });
 var slider02 = new Slider("#ex602", { 
-    tooltip: "always",
+    tooltip: "never",
     formatter: function(value) {
-        return "current value: " + aVec[value]
+        return aVec[value]
     } 
 });
 //var slider03 = new Slider("#ex603", { tooltip: 'always' });
 var slider03 = new Slider("#ex603", { 
-    tooltip: "always",
+    tooltip: "never",
     formatter: function(value) {
-        return "current value: " + bVec[value]
+        return bVec[value]
     } 
 });
 
 slider01.on("slide", function() {
+
     var sliderValue01 = slider01.getValue() + 1;
     var sliderValue02 = slider02.getValue() + 1;
     var sliderValue03 = slider03.getValue() + 1;
+
     document.getElementById("imageL1N1Id").setAttribute("src", "./figures/figure_01_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
     document.getElementById("imageL1N2Id").setAttribute("src", "./figures/figure_02_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
     document.getElementById("imageL1N3Id").setAttribute("src", "./figures/figure_03_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
 
-    console.log("plot_01_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg")
+    document.getElementById("ex601Val").innerHTML = "\\(n = " + nVec[slider01.getValue()] + "\\)";
+    var element = document.getElementById("ex601Val");
+    MathJax.typeset([element]);
 
 })
 
 slider02.on("slide", function() {
+
     var sliderValue01 = slider01.getValue() + 1;
     var sliderValue02 = slider02.getValue() + 1;
     var sliderValue03 = slider03.getValue() + 1;
+
     document.getElementById("imageL1N1Id").setAttribute("src", "./figures/figure_01_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
     document.getElementById("imageL1N2Id").setAttribute("src", "./figures/figure_02_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
     document.getElementById("imageL1N3Id").setAttribute("src", "./figures/figure_03_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
+
+    document.getElementById("ex602Val").innerHTML = "\\(a = " + nVec[slider02.getValue()] + "\\)";
+    var element = document.getElementById("ex602Val");
+    MathJax.typeset([element]);
+
 })
 
 slider03.on("slide", function() {
+
     var sliderValue01 = slider01.getValue() + 1;
     var sliderValue02 = slider02.getValue() + 1;
     var sliderValue03 = slider03.getValue() + 1;
+
     document.getElementById("imageL1N1Id").setAttribute("src", "./figures/figure_01_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
     document.getElementById("imageL1N2Id").setAttribute("src", "./figures/figure_02_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
     document.getElementById("imageL1N3Id").setAttribute("src", "./figures/figure_03_" + sliderValue01 + "_" + sliderValue02 + "_" + sliderValue03 + ".svg");
+
+    document.getElementById("ex603Val").innerHTML = "\\(b = " + nVec[slider03.getValue()] + "\\)";
+    var element = document.getElementById("ex603Val");
+    MathJax.typeset([element]);
+
 })
 
 // set start page
