@@ -46,45 +46,66 @@ document.getElementById(tabLinkId).style.backgroundColor = color;
 
 }
 
+var nVec = [5, 10, 25, 50, 100]
+var pVec = [0.2, 0.4, 0.6, 0.8]
+
+// set initial value for slider 1
+document.getElementById("ex601Val").innerHTML = "\\(n = " + nVec[2] + "\\)";
+var element = document.getElementById("ex601Val");
+MathJax.typeset([element]);
+
+// set initial value for slider 2
+document.getElementById("ex602Val").innerHTML = "\\(\\beta_{1} = " + pVec[1] + "\\)";
+var element = document.getElementById("ex602Val");
+MathJax.typeset([element]);
+
 //..............................
 // handling of slider                
 // see: https://seiyria.com/bootstrap-slider/
     
-var nVec = [5, 10, 25, 50, 100]
-var pVec = [0.2, 0.4, 0.6, 0.8]
-
 //var slider01 = new Slider("#ex601", { tooltip: 'always' });
 var slider01 = new Slider("#ex601", { 
-    tooltip: "always",
+    tooltip: "never",
     formatter: function(value) {
-        return "current value: " + nVec[value]
+        return nVec[value]
     } 
 });
 //var slider02 = new Slider("#ex602", { tooltip: 'always' });
 var slider02 = new Slider("#ex602", { 
-    tooltip: "always",
+    tooltip: "never",
     formatter: function(value) {
-        return "current value: " + pVec[value]
+        return pVec[value]
     } 
 });
 
 slider01.on("slide", function() {
+
     var sliderValue01 = slider01.getValue() + 1;
     var sliderValue02 = slider02.getValue() + 1;
+
     document.getElementById("imageL1N1Id").setAttribute("src", "./figures/figure_01_" + sliderValue01 + "_" + sliderValue02 + ".svg");
     document.getElementById("imageL1N2Id").setAttribute("src", "./figures/figure_02_" + sliderValue01 + "_" + sliderValue02 + ".svg");
     document.getElementById("imageL1N3Id").setAttribute("src", "./figures/figure_03_" + sliderValue01 + "_" + sliderValue02 + ".svg");
 
-    console.log("./figures/figure_01_" + sliderValue01 + "_" + sliderValue02 + ".svg")
+    document.getElementById("ex601Val").innerHTML = "\\(n = " + nVec[slider01.getValue()] + "\\)";
+    var element = document.getElementById("ex601Val");
+    MathJax.typeset([element]);
 
 })
 
 slider02.on("slide", function() {
+
     var sliderValue01 = slider01.getValue() + 1;
     var sliderValue02 = slider02.getValue() + 1;
+
     document.getElementById("imageL1N1Id").setAttribute("src", "./figures/figure_01_" + sliderValue01 + "_" + sliderValue02 + ".svg");
     document.getElementById("imageL1N2Id").setAttribute("src", "./figures/figure_02_" + sliderValue01 + "_" + sliderValue02 + ".svg");
     document.getElementById("imageL1N3Id").setAttribute("src", "./figures/figure_03_" + sliderValue01 + "_" + sliderValue02 + ".svg");
+
+    document.getElementById("ex601Val").innerHTML = "\\(p = " + pVec[slider02.getValue()] + "\\)";
+    var element = document.getElementById("ex602Val");
+    MathJax.typeset([element]);
+
 })
 
 // set start page
