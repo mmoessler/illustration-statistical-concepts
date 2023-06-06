@@ -110,3 +110,17 @@ slider02.on("slide", function() {
 
 // set start page
 document.getElementById("tabLinkL1N1Id").click();
+
+
+
+  window.addEventListener("load", function() {
+    var placeholder = document.getElementById("table-placeholder");
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        placeholder.innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "./tables/table_01_N5.html", true);
+    xhttp.send();
+  });
