@@ -1,0 +1,85 @@
+.iliasExcCl{
+  display: none;
+}
+
+body{
+  font-family: Helvetica;
+  font-size: 14pt;
+}
+
+/* hohenheim logo and chair */
+.logoCl {
+  background-color: #003f75;
+  color: white;
+  font-family: Arial Nova Cond Light;
+  font-size: 24pt;
+}
+
+/* collapsible button */
+.collButtonCl {
+  margin-top: 5px;
+  margin-bottom: 5px; 
+  background-color: white;
+  color: #333333;
+  font-style: italic;
+  cursor: pointer;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid;
+  border-color: #cccccc;
+  text-align: left;
+  outline: none;
+  font-family: Helvetica;
+  font-size: 16pt;
+}
+
+/* collapsible content */
+.collContentCl {
+  display: none;
+  /* background-color: #EAECEE; */
+  background-color: #ffffff;
+  padding-top: 5px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+}
+
+/* style the buttons that are used to open the tab content */
+.tabLinkL1Cl {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 14px 16px;
+  background-color: #f1f1f1;
+}
+
+/* change background color of buttons on hover */
+.tabLinkL1Cl:hover {
+  background-color: #ddd;
+}
+
+/* create an active/current tablink class */
+.tabLinkL1Cl.active {
+  background-color: #ccc;
+}
+
+/* sample value - set it as you like*/
+.slider.slider-horizontal{
+  width:100%; 
+}
+
+/* margin of jumbotron id topJumb */
+div#topJumb.jumbotron{
+  margin-top:50px; 
+}
+
+.innerJumb{
+  background-color: #ffffff;
+}
+
+ol {
+  font-size: 16pt;
+}
