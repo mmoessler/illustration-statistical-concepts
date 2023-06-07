@@ -199,25 +199,21 @@ bet_hat_sim_fun_01 <- function(rr, nn,
 
 # inputs (variable)
 nn.vec <- c(5, 10, 25, 50, 100)
-x1.sd.vec <- c(1, 5, 10)
+b1.vec <- c(-2, -1, 0 , 1, 2)
 u.sd.vec <- c(1, 5, 10)
-g1.vec <- c(-0.2, -0.1, 0, 0.1, 0.2)
+x1.sd.vec <- c(1, 5, 10)
 
 # nn.vec <- c(5, 100)
-# x1.sd.vec <- c(1, 15)
-# u.sd.vec <- c(1, 15)
-# g1.vec <- c(-0.2, 0.2)
+# b1.vec <- c(-2, 2)
+# u.sd.vec <- c(1, 10)
+# x1.sd.vec <- c(1, 10)
 
 # inputs (fixed)
 rr <- 1000
-nn <- 100
 b0 <- 1
-b1 <- 1
 b2 <- 0
-x1.sd <- 10
-x2.sd <- 10
-z.sd <- 10
-u.sd <- 10
+x2.sd <- 1
+z.sd <- 1
 rho.21 <- 0
 rho.z1 <- 0
 g0 <- 0
@@ -226,7 +222,7 @@ g1 <- 0
 # set up parallelization ----
 
 # grid for names
-tmp.grd <- expand.grid(seq(1,length(nn.vec)), seq(1,length(x1.sd.vec)), seq(1,length(u.sd.vec)), seq(1,length(g1.vec)), stringsAsFactors = FALSE)
+tmp.grd <- expand.grid(seq(1,length(nn.vec)), seq(1,length(b1.vec)), seq(1,length(u.sd.vec)), seq(1,length(x1.sd.vec)), stringsAsFactors = FALSE)
 
 library(parallel)
 library(doSNOW)
@@ -255,9 +251,9 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     ll <- tmp.grd[ind, 4]
                     
                     nn <- nn.vec[ii]
-                    x1.sd <- x1.sd.vec[jj]
+                    b1 <- b1.vec[jj]
                     u.sd <- u.sd.vec[kk]
-                    g1 <- g1.vec[ll]
+                    x1.sd <- x1.sd.vec[ll]
                     
                     # simulation
                     tmp.sim <- bet_hat_sim_fun_01(rr = rr, nn = nn,
@@ -377,7 +373,7 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     rect(x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-(nbx+1)], 0, x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-1L], x$density[which(x$counts > 0)],
                          col = "grey")
                     
-                    # # add line for population parameter
+                    # add line for population parameter
                     abline(v = b1, lty = 2, col = "red", lwd = 2)
                     
                     # # add line for estimated parameter
@@ -411,11 +407,11 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     
                     # plot h1
                     nB <- length(h1$breaks)
-                    rect(h1$breaks[-nB], 0, h1$breaks[-1L], h1$density, col = scales::alpha("darkgreen", 0.25))
+                    rect(h1$breaks[-nB], 0, h1$breaks[-1L], h1$density, col = "grey")
                     
-                    # plot h2
-                    nB <- length(h2$breaks)
-                    rect(h2$breaks[-nB], 0, h2$breaks[-1L], h2$density, col = scales::alpha("red", 0.25))
+                    # # plot h2
+                    # nB <- length(h2$breaks)
+                    # rect(h2$breaks[-nB], 0, h2$breaks[-1L], h2$density, col = scales::alpha("red", 0.25))
                     
                     # add pdf for normal distribution
                     curve(dnorm(x, mean = 0, sd = 1), -6, 6,
@@ -426,11 +422,11 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                           add = TRUE,
                           col = "red")
                     
-                    # add legend no 01
-                    legend("topleft",
-                           legend = c(expression("robust"*~italic("SE")), expression("ordinary"*~italic("SE"))),
-                           fill =  c(scales::alpha("darkgreen", 0.25), scales::alpha("red", 0.25)),
-                           inset = 0.05)
+                    # # add legend no 01
+                    # legend("topleft",
+                    #        legend = c(expression("using robust"*~italic("SE")), expression("using ordinary"*~italic("SE"))),
+                    #        fill =  c(scales::alpha("darkgreen", 0.25), scales::alpha("red", 0.25)),
+                    #        inset = 0.05)
                     
                     # add legend no 03
                     legend("topright",
