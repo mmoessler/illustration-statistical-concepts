@@ -26,7 +26,7 @@
           <div class="jumbotron" id="topJumb">
             
             <p style='font-size: 28pt;'>Properties of the OLS Estimator</p>
-            <p style='font-size: 18pt; margin-top: -10px;'>Effect of Omitted Variable Bias (OVB)</p> 
+            <p style='font-size: 18pt; margin-top: -10px;'>Effect of Heteroskedasticity</p> 
       
           </div>
 
@@ -41,84 +41,96 @@
 
           <p style="font-size: 18pt">Motivation</p>
 
-          <p>Understand the effect of omitted variable bias (OVB) on the sampling distribution of the OLS estimator.</p>
+          <p>Understand the effect of heteroskedasticity on the sampling distribution of the OLS estimator.</p>
 
           <hr>
 
-          <p style="font-size: 18pt">Observable and Unobservable Statistical Model</p>
+          <p style="font-size: 18pt">Statistical Model</p>
         
-          <p>Suppose we are interested in the relationship between the variable \(Y\) and \(X_{1}\).</p>
-
-          <p>However, suppose the variable \(Y\) is determined by an additional unobservable variable \(X_{2}\).</p>
-
-          <p>To estimate the relationship between \(Y\) and \(X_{1}\) we estimate the following observable linear regression model,</p>
+          <p>Consider the linear regression model,</p>
 
           $$
           \begin{align}
-          Y_i = \widetilde{\beta}_{0} + \widetilde{\beta}_{1} X_{i} + \widetilde{u}_{i}.
+          Y_i = \beta_{0} + \beta_{1} X_{i} + u_{i},
           \end{align}
           $$
 
-          <p>However, the unobservable relationship is given by,</p>
+          <p>where \(\beta_{0}=1\) is the intercept and \(\beta_{1}\) is the slope parameter.</p>
+
+          <p>Furthermore, suppose \(X_{i}\) and \(u_{i}\) are independently normally distributed, i.e.,</p>
 
           $$
           \begin{align}
-          Y_{i} = \beta_{0} + \beta_{1} X_{1i} + \beta_{2} X_{2i} + u_{i}.
+          X_{i} \sim N\left(0, \sigma_{X}^{2}\right), \;\;\;\;\; u_{i} \sim N\left(0, \sigma_{ui}^{2}\right),
           \end{align}
           $$
+
+          <p>where \(\sigma_{X}^{2}\) and \(\sigma_{ui}^{2}\) is the variance of \(X_{i}\) and \(u_{i}\).
+
+          <!--
+          <hr>
+
+          <p style="font-size: 18pt">Estimator and Parameter of Interest</p>
+          
+          <p>We are interested in the sampling properties of the OLS estimator \(\widehat{\beta}_{1}\) given by,</p>
+
+          $$
+          \begin{align}
+          \widehat{\beta}_{1} = \frac{\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)\left(Y_{i} - \overline{Y}\right)}{\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}},
+          \end{align}
+          $$  
+
+          as estimator for the slope parameter \(\beta_{1}\) of the regression model above.
+          -->
+
+          <hr>
+
+          <p style="font-size: 18pt">Effects of heteroskedasticity</p>
+
+          <p>Heteroskedasticity occurs when \(\sigma_{ui}^{2}\) is not constant but a function of \(X_{i}\), e.g.,</p>
+
+          $$
+          \begin{align}
+          \sigma_{ui}^{2} = \text{exp}\left(\gamma_{0} + \gamma_{1} X_{i}\right),
+          \end{align}
+          $$
+
+          <p>where \(\gamma_{0}=0\) and \(\gamma_{1}\) are parameters which determine the shape of the heteroskedasticity.</p>
+
+          <p>Thus, for positive/negative values of \(\gamma_{1}\) the variance of \(u_{i}\) is positively/negatively related with the value of \(X_{i}\).</p>
+
+          <p>Heteroskedasticity effects the standard error of the OLS estimator \(\widehat{\beta}_{1}\) and thus the construction of the standardized OLS estimator \(z_{\widehat{\beta}_{1}}\).</p>
 
           <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">More Details</span> </button>
           <div class="collContentCl">
 
-            <p>Note, if the effect of \(X_{2}\) is known, the unobservable relationship can be also written as,</p>
+            <p style="margin-top: 10px;">
+              For the construction of the standardized OLS estimator \(z_{\widehat{\beta}_{1}}\), the variance of \(\widehat{\beta}_{1}\), i.e., \(\sigma_{\widehat{\beta}_{1}}^{2}\), has to be estimated.
+            </p>
+            
+            <p>The variance of \(\widehat{\beta}_1\), i.e., \(\sigma_{\widehat{\beta}_{1}}^{2}\), can be robustly estimated by,</p>
+            
+            $$
+            \begin{align}
+            \widehat{\sigma}_{\widehat{\beta}_{1}}^{2} = \frac{1}{n} \times \frac{\frac{1}{n-2}\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}\widehat{u}_{i}^{2}}{\left[\frac{1}{n}\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}\right]^{2}},
+            \end{align}
+            $$
+
+            <p>where \(\widehat{u}_{i}\) are the residuals of the estimate regression line.</p>
+
+            <p>Note, the estimator for \(\sigma_{\widehat{\beta}_{1}}^{2}\) above is robust w.r.t. to heteroskedasticity, i.e., it does not rely on the assumption of homoskedasticity.</p>
+
+            <p>Instead, some statistic software report estimates \(\sigma_{\widehat{\beta}_{1}}^{2}\), based on the assumption of homoskedasticity.</p>
+            
+            <p>The so called homoskedaticity-only estimator of \(\sigma_{\widehat{\beta}_{1}}^{2}\), is given by,</p>
 
             $$
             \begin{align}
-            \left(Y_{i} - \beta_{2} X_{2i}\right) &= \beta_{0} + \beta_{1} \left(X_{1i} - \beta_{2} X_{2i}\right) + u_{i} \\
-            Y_{i}^{adj} &= \beta_{0} + \beta_{1} X_{1i}^{adj} + u_{i},
+            \widetilde{\sigma}_{\widehat{\beta}_{1}}^{2} = \frac{\frac{1}{n-2}\sum_{i=1}^{n}\widehat{u}_{i}^{2}}{\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}}.
             \end{align}
             $$
-  
-            <p>where \(Y_{i}^{adj} = \left(Y_{i} - \beta_{2} X_{2i}\right)\) and \(X_{1i}^{adj} = \left(X_{1i} - \beta_{2} X_{2i}\right)\) are the variables adjusted for the effect of \(X_{2}\).</p>
-              
-            <p>Furthermore, the unobserved component \(\widetilde{u}_{i}\) of the observable regression model can be written as,</p>
-  
-            $$
-            \begin{align}
-            \widetilde{u}_{i} = \beta_{2} X_{2i} + u_{i}.
-            \end{align}
-            $$
-  
-            <p>Finally, \(X_{1i}\), \(X_{2i}\) and \(u_{i}\) are generated by i.i.d. draws from the following distributions</p>
-  
-            $$
-            \begin{align}
-            \left(\begin{array}{c} X_{1i} \\ X_{2i} \end{array}\right) \sim N\left( \begin{matrix} 0 \\ 0 \end{matrix} \; \begin{matrix} \phantom{,} \\ , \end{matrix} \;\;\; \begin{matrix} \sigma_{X_{1}}^{2} & \rho_{X_{1}X_{2}}\sigma_{X_{1}}\sigma_{X_{2}} \\ \rho_{X_{1}X_{2}}\sigma_{X_{1}}\sigma_{X_{2}} & \sigma_{X_{2}}^{2} \end{matrix}\right), \;\;\;\;\; u_{i} \sim N\left(0, \sigma_{u}^{2}\right).
-            \end{align}
-            $$
-  
+
           </div>
-
-          <hr>
-
-          <p style="font-size: 18pt">Conditions for and Effects of Omitted Variable Bias</p>
-
-          <p>Omitted variable bias (OVB) occurs when the following two conditions are true:</p>
-
-          <ol>
-            <li>\(X\) is correlated with the omitted variable.</li>
-            <li>The omitted variable is a determinant of the dependent variable, \(Y\).</li>
-          </ol>
-          
-          <p>The effect of omitted variable bias (OVB) can be quantified as,</p>
-
-          $$
-          \begin{align}
-          \widehat{\beta}_{1} &\overset{p}{\rightarrow} \beta_{1} + \beta_{2} \rho_{X_{1}X_{2}} \frac{\sigma_{X_{2}}}{\sigma_{X_{1}}}.
-          \end{align}
-          $$
-
-          <p style="font-style: italic;">Check the details about the effects of OVB below.</p>
 
         </div>
 
@@ -133,7 +145,7 @@
             <p style="font-size: 18pt">Illustration</p>
               
             <p>Change the parameters and see the effect on the properties of the OLS estimator \(\widehat{\beta}_{1}\) as estimator for \(\beta_{1}\).</p>
-      
+              
             <div class="container mt-5" style="margin-top: 50px;">
               <div class="row">
 
@@ -149,13 +161,13 @@
                       <p style='font-size: 12pt; text-align: center'>Sample size</p><p style='font-size: 12pt; text-align: center' id="ex601Val"></p>
                       <input id="ex601" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
 
-                      <p style='font-size: 12pt; text-align: center'>Effect of \(X_{1}\)</p><p style='font-size: 12pt; text-align: center' id="ex602Val"></p>
-                      <input id="ex602" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <p style='font-size: 12pt; text-align: center'>Variance of \(X_{i}\)</p><p style='font-size: 12pt; text-align: center' id="ex602Val"></p>
+                      <input id="ex602" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="1"/>
 
-                      <p style='font-size: 12pt; text-align: center'>Effect of \(X_{2}\)</p><p style='font-size: 12pt; text-align: center' id="ex603Val"></p>
-                      <input id="ex603" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <p style='font-size: 12pt; text-align: center'>Variance of \(u_{i}\)</p><p style='font-size: 12pt; text-align: center' id="ex603Val"></p>
+                      <input id="ex603" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="1"/>
 
-                      <p style='font-size: 12pt; text-align: center'>Correlation of \(X_{1}\) & \(X_{2}\)</p><p style='font-size: 12pt; text-align: center' id="ex604Val"></p>
+                      <p style='font-size: 12pt; text-align: center'>heteroskedasticity</p><p style='font-size: 12pt; text-align: center' id="ex604Val"></p>
                       <input id="ex604" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
 
                     </div>
@@ -178,31 +190,17 @@
 
                     <div id="tabContentL1N1Id" class="tabContentL1Cl">
 
-                      <p style="font-size: 16pt">Scatter plot (observed and adjusted observations)</p>
-                      
-                      <img src="./figures/figure_01_3_3_3_3.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
+                      <p style="font-size: 16pt">Scatter plot (observations)</p>              
 
-                      <br><br>
-
-                      <p>The green fitted regression line is based on the regression of,</p>
-
-                      $$
-                      \begin{align}
-                      Y_{i}^{adj} \;\;\;\;\; \text{on} \;\;\;\;\; X_{1i}^{adj},
-                      \end{align}
-                      $$
-            
-                      <p>and represents the unobservable relationship.</p>
+                      <img src="./figures/figure_01_3_2_2_3.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
 
                       <p>The red fitted regression line is based on the regression of,</p>
 
                       $$
                       \begin{align}
-                      Y_{i} \;\;\;\;\; \text{on} \;\;\;\;\; X_{1i},
+                      Y_{i} \;\;\;\;\; \text{on} \;\;\;\;\; X_{i}.
                       \end{align}
                       $$
-
-                      <p>and represents the observable relationship.</p>
 
                       <p>The scatter plots and the fitted regression lines represent the result for only one simulation. The shaded areas illustrate the range of all fitted regression lines across all simulation outcomes.</p>
 
@@ -210,43 +208,37 @@
 
                     <div id="tabContentL1N2Id" class="tabContentL1Cl">
 
-                      <p style="font-size: 16pt">Scatter plot (fitted unobserved residuals)</p>
-                      
-                      <img src="./figures/figure_02_3_3_3_3.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
+                      <p style="font-size: 16pt">Scatter plot (fitted residuals)</p>              
+
+                      <img src="./figures/figure_02_3_2_2_3.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
 
                       <p>The fitted unobserved residuals are constructed as,</p>
+
+                      $$
+                      \begin{align}
+                      \widehat{u}_{i} = Y_{i} - \widehat{\beta}_{1} X_{i},
+                      \end{align}
+                      $$
             
-                      $$
-                      \begin{align}
-                      \widehat{u}_{i} = \widehat{\widetilde{u}}_{i} - \beta_{2} X_{2i},
-                      \end{align}
-                      $$
-
-                      <p>The green fitted regression line is based on the regression of,</p>
-
-                      $$
-                      \begin{align}
-                      \widehat{u}_{i} \;\;\;\;\; \text{on} \;\;\;\;\; X_{1i}.
-                      \end{align}
-                      $$
-
-                      <p>The scatter plots and the fitted regression line represent the result for only one simulation. The shaded area illustrate the range of all fitted regression lines across all simulation outcomes.</p>
-
+                      <p>for only one simulation where \(\widehat{\beta}_{1}\) is the respective OLS estimate.</p>
+            
                     </div>
 
                     <div id="tabContentL1N3Id" class="tabContentL1Cl">
 
                       <p style='font-size: 16pt;'>Histogram of the sample average \(\widehat{\beta}_{1}\)</p>
 
-                      <img src="./figures/figure_03_3_3_3_3.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
+                      <img src="./figures/figure_03_3_2_2_3.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
 
                       <br><br>
 
-                      <p>As the sample size \(N\) grows the OLS estimator \(\widehat{\beta}_{1}\) gets closer to,</p>
+                      <p>As the sample size \(N\) grows the OLS estimator \(\widehat{\beta}_{1}\) gets closer to \(\beta\), i.e.,</p>
 
-                      <p id="equBias"></p>
-
-                      <p>i.e., the OLS estimator is biased if \(\beta_{2} \neq 0\) and \(\rho_{X_{1}X_{2}} \neq 0\).</p>
+                      $$
+                      \begin{align}
+                      \widehat{\beta}_{1} \overset{p}{\to} \beta.
+                      \end{align}
+                      $$
 
                     </div>
 
@@ -254,20 +246,30 @@
 
                       <p style='font-size: 16pt;'>Histogram of the standardized OLS estimator \(z_{\widehat{\beta}_{1}}\)</p>
 
-                      <img src="./figures/figure_04_3_3_3_3.svg" alt="" id="imageL1N4Id" style="text-align: center; max-width: 100%;">
+                      <img src="./figures/figure_04_3_2_2_3.svg" alt="" id="imageL1N4Id" style="text-align: center; max-width: 100%;">
 
                       <br><br>
 
-                      <p>In the case of omitted variable bias (OVB), i.e., if \(\beta_{2} \neq 0\) and \(\rho_{X_{1}X_{2}} \neq 0\),</p>
+                      <p>In the case of heteroskedasticity,</p>
 
                       $$
                       \begin{align}
-                      z_{\widehat{\beta}_{1}} &= \frac{\widehat{\beta}_{1} - \beta_{\beta_{1}}}{\sigma_{\widehat{\beta}_{1}}},
+                      z_{\overline{Y}} &= \frac{\overline{Y} - \beta}{\widehat{\sigma}_{\widehat{\beta}_{1}}},
                       \end{align}
                       $$
 
-                      <p>does not get closer to the standard normal distribution \(N\left(0, 1\right)\).</p>
-                      
+                      <p>i.e., based on robust standard errors \(\widehat{\sigma}_{\widehat{\beta}_{1}}\) gets closer to the standard normal distribution \(N\left(0, 1\right)\) (see green histogram).</p>
+
+                      <p>Instead,</p>
+
+                      $$
+                      \begin{align}
+                      z_{\overline{Y}} &= \frac{\overline{Y} - \beta}{\widetilde{\sigma}_{\widehat{\beta}_{1}}},
+                      \end{align}
+                      $$                      
+
+                      <p>i.e., based on ordinary standard errors \(\widetilde{\sigma}_{\widehat{\beta}_{1}}\) does not get closer to the standard normal distribution \(N\left(0, 1\right)\) (see red histogram).</p>
+
                     </div>
 
                   </div>
@@ -287,72 +289,16 @@
           <div class="jumbotron">
             
             <p style="font-size: 18pt">More Details</p>
-
-            <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Real-World Example</span> </button>
-            <div class="collContentCl">
-
-              <p>Suppose we are interested in the relationship between individual earnings \(\left(Y\right)\) and years of education \(\left(X_{1}\right)\).</p>
-
-              <p>However, suppose individual earnings \(\left(Y\right)\) is additional determined by individual ability \(\left(X_{2}\right)\) which is unobservable variable, or, hard to measure by the econometrician.</p>
-    
-              <p>The OLS estimator of regressing individual earnings on years of eduction is biased if,</p>
-    
-              <ol>
-                <li>Years of education is correlated with individual ability, e.g., if individuals who are smarter (higher individual ability) learn longer (more years of education).</li>
-                <li>Individual ability is a determinant of individual earnings, e.g., if individuals who are smarter earn more.</li>
-              </ol>      
-
-            </div>
-
-            <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Effects of Omitted Variable Bias (details)</span> </button>
-            <div class="collContentCl">
-
-              $$
-              \begin{align}
-              \widehat{\beta}_{1} &= \beta_{1} +
-              \frac{\sum_{i=1}^{n}\left(X_{1i}-\overline{X}_{1}\right)\widetilde{u}_{i}}{\sum_{i=1}^{n}\left(X_{1i}-\overline{X}_{1}\right)^{2}}
-              \\
-              \widehat{\beta}_{1} &= \beta_{1} +
-              \frac{\sum_{i=1}^{n}\left(X_{1i}-\overline{X}_{1}\right)\left(u_{i} + \beta_{2} X_{2i}\right)}{\sum_{i=1}^{n}\left(X_{1i}-\overline{X}_{1}\right)^{2}}
-              \\
-              \widehat{\beta}_{1} &= \beta_{1} +
-              \frac{\sum_{i=1}^{n}\left(X_{1i}-\overline{X}_{1}\right)u_{i} }{\sum_{i=1}^{n}\left(X_{1i}-\overline{X}_{1}\right)^{2}} + 
-              \beta_{2} \frac{\sum_{i=1}^{n}\left(X_{1i}-\overline{X}_{1}\right)X_{2i}}{\sum_{i=1}^{n}\left(X_{1i}-\overline{X}_{1}\right)^{2}}
-              \\
-              \widehat{\beta}_{1} &= \beta_{1} +
-              \beta_{2} \frac{\sum_{i=1}^{n}\left(X_{1i}-\overline{X}_{1}\right)X_{2i}}{\sum_{i=1}^{n}\left(X_{1i}-\overline{X}_{1}\right)^{2}}
-              \end{align}          
-              $$
-    
-              <p>Under the assumptions that \(\left(X_{1i}, Y_{i}\right)\), \(i = 1,2,...,n\), are i.i.d. and \(X_{1i}\) and \(Y_{i}\) have nonzero finite fourth moment and assuming the omitted variable is centered, i.e., has mean equals zero, it applies,</p>
-    
-              $$
-              \begin{align}
-              \sum_{i=1}^{n}\left(X_{1i}-\overline{X}_{1}\right)^{2} &\overset{p}{\rightarrow} \sigma_{X_{1}}^{2} \\
-              \sum_{i=1}^{n}\left(X_{1i}-\overline{X}_{1}\right)X_{2i} &\overset{p}{\rightarrow} \text{Cov}\left(X_{1i}, X_{2i}\right) = \rho_{X_{1}X_{2}}\sigma_{X_{1}}\sigma_{X_{2}}
-              \end{align}
-              $$
-              
-              <p>Thus, it applies,</p>
-    
-              $$
-              \begin{align}
-              \widehat{\beta}_{1} &\overset{p}{\rightarrow} \beta_{1} +  \beta_{2} \rho_{X_{1}X_{2}} \frac{\sigma_{X_{2}}}{\sigma_{X_{1}}}.
-              \end{align}
-              $$
-
-            </div>            
-
+                    
             <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Simulation Exercise (details)</span> </button>
             <div class="collContentCl">
 
               <ol style="margin-top: 10px;">
-                <li>A i.i.d. sample of size \(n\), i.e., a sequence of observations \(X_{11}, X_{12}, ..., X_{1n}\) and \(X_{21}, X_{22}, ..., X_{2n}\) are drawn from a multivariate normal distribution with a given correlation structure \(\rho_{X_{1}X_{2}}\) specified above.
-                <li>In addition a i.i.d. sample of size \(n\), i.e., a sequence of observations \(u_{1}, u_{2}, ..., u_{n}\), are drawn from the distribution of \(u_{i}\) specified above.</li>
-                <li>Based on the sequence of observations \(X_{11}, X_{12}, ..., X_{1n}\), \(X_{21}, X_{22}, ..., X_{2n}\) and \(u_{1}, u_{2}, ..., u_{n}\) a sequence of observations \(Y_{1}, Y_{2}, ..., Y_{n}\) is constructed based on the unobserved regression model above.</li>
-                <li>Based on the sequence of observations \(Y_{1}, Y_{2}, ... Y_{N}\) and \(X_{11}, X_{12}, ..., X_{1n}\), the intercept \(\beta_{0}\) and the slop parameter \(\beta_{1}\) of the observed regression model is estimated using OLS.</li>
+                <li>A i.i.d. sample of size \(n\), i.e., a sequence of observations \(X_{1}, X_{2}, ..., X_{n}\) and \(u_{1}, u_{2}, ..., u_{n}\), are drawn from the distribution of \(X_{i}\) and \(u_{i}\) specified above.</li>
+                <li>Based on the sequence of observations \(X_{1}, X_{2}, ..., X_{n}\) and \(u_{1}, u_{2}, ..., u_{n}\) a sequence of observations \(Y_{1}, Y_{2}, ..., Y_{n}\)  is constructed based on the regression model above.</li>
+                <li>Based on the sequence of observations \(Y_{1}, Y_{2}, ... Y_{N}\) and \(X_{1}, X_{2}, ..., X_{n}\), the intercept \(\beta_{0}\) and the slop parameter \(\beta_{1}\) is estimated using OLS.</li>
                 <li>The value of the estimate for the slope parameter, i.e., \(\widehat{\beta}_{1}\), is stored.</li>
-                <li>Step 1) to 5) is repeated \(10,000\) times resulting in \(1000\) OLS estimates for the slope parameter, i.e., \(\widehat{\beta}_{1}\).</li>
+                <li>Step 1) to 4) is repeated \(10,000\) times resulting in \(1000\) OLS estimates for the slope parameter, i.e., \(\widehat{\beta}_{1}\).</li>
                 <li>The distribution of \(\widehat{\beta}_{1}\) and the standardized \(\widehat{\beta}_{1}\), i.e., \(z_{\widehat{\beta}_{1}}\), are illustrated using histograms.</li>
                 <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the different outcomes of the samples the OLS estimates will vary across sample draws.</p>
               </ol>
@@ -378,7 +324,7 @@
     </script>
     -->
     <script
-     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
     </script>
 
     <!-- include bootstrap slider js via cdn --> 

@@ -98,16 +98,16 @@ bet_hat_sim_fun_01 <- function(rr, nn,
     
     # get some residuals
     res.01 <- fit.01$residuals + b2 * x2 # correlated correct/unobserved residuals
-
+    
     # regression of residuals on x1
     res.fit.01 <- lm(res.01 ~ x1)
-  
+    
     # get some predictions
     pre.mat.02[,ii] <- x1.pre %*% cbind(fit.02$coefficients)
     pre.mat.03[,ii] <- x1.pre %*% cbind(fit.03$coefficients)
     pre.mat.04[,ii] <- x1.pre %*% cbind(fit.04$coefficients)
     res.pre.mat.01[,ii] <- x1.pre %*% cbind(res.fit.01$coefficients)
-      
+    
     # get some estimates
     b0h[ii] <- fit.02$coefficients[1] # biased coefficients
     b1h[ii] <- fit.02$coefficients[2]
@@ -199,19 +199,19 @@ bet_hat_sim_fun_01 <- function(rr, nn,
 
 # inputs (variable)
 nn.vec <- c(5, 10, 25, 50, 100)
-b1.vec <- c(-2, -1, 0, 1, 2)
-b2.vec <- c(-2, -1, 0, 1, 2)
-rho.vec <- c(-0.9, -0.5, 0, 0.5, 0.9)
+x1.sd.vec <- c(1, 5, 10)
+u.sd.vec <- c(1, 5, 10)
+g1.vec <- c(-0.2, -0.1, 0, 0.1, 0.2)
 
 # nn.vec <- c(5, 100)
-# b1.vec <- c(-1, 1)
-# b2.vec <- c(-1, 1)
-# rho.vec <- c(-0.9, 0.9)
+# x1.sd.vec <- c(1, 15)
+# u.sd.vec <- c(1, 15)
+# g1.vec <- c(-0.2, 0.2)
 
 # inputs (fixed)
 rr <- 1000
 nn <- 100
-b0 <- 0
+b0 <- 1
 b1 <- 1
 b2 <- 0
 x1.sd <- 10
@@ -226,7 +226,7 @@ g1 <- 0
 # set up parallelization ----
 
 # grid for names
-tmp.grd <- expand.grid(seq(1,length(nn.vec)), seq(1,length(b1.vec)), seq(1,length(b2.vec)), seq(1,length(rho.vec)), stringsAsFactors = FALSE)
+tmp.grd <- expand.grid(seq(1,length(nn.vec)), seq(1,length(x1.sd.vec)), seq(1,length(u.sd.vec)), seq(1,length(g1.vec)), stringsAsFactors = FALSE)
 
 library(parallel)
 library(doSNOW)
@@ -255,9 +255,9 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     ll <- tmp.grd[ind, 4]
                     
                     nn <- nn.vec[ii]
-                    b1 <- b1.vec[jj]
-                    b2 <- b2.vec[kk]
-                    rho.21 <- rho.vec[ll]
+                    x1.sd <- x1.sd.vec[jj]
+                    u.sd <- u.sd.vec[kk]
+                    g1 <- g1.vec[ll]
                     
                     # simulation
                     tmp.sim <- bet_hat_sim_fun_01(rr = rr, nn = nn,
@@ -271,7 +271,7 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     
                     plot.new()
                     plot.window(xlim = c(-100, 100), ylim = c(-100, 100), log = "")
-                    title(main = "", sub = "", xlab = expression(X[1]~and~X[1]^adj), ylab = expression(Y~and~Y^adj))
+                    title(main = "", sub = "", xlab = expression(X), ylab = expression(Y))
                     
                     axis(1)
                     axis(2)
@@ -287,44 +287,12 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     y.pol[which(y.pol > 100)] <- 100
                     polygon(x.pol, y.pol, border = NA, col = scales::alpha("red", 0.25))
                     
-                    # # add polygon unbiased/unobserved
-                    # x.pol <- c(seq(-200, 200, 1), rev(seq(-200, 200, 1)))
-                    # y.pol <- c(tmp.sim$pre.max.03, rev(tmp.sim$pre.min.03))
-                    # x.pol[which(x.pol < -100)] <- -100
-                    # x.pol[which(x.pol > 100)] <- 100
-                    # y.pol[which(y.pol < -100)] <- -100
-                    # y.pol[which(y.pol > 100)] <- 100
-                    # polygon(x.pol, y.pol, border = NA, col = scales::alpha("blue", 0.25))
-                    
-                    # add polygon unbiased/unobserved
-                    x.pol <- c(seq(-200, 200, 1), rev(seq(-200, 200, 1)))
-                    y.pol <- c(tmp.sim$pre.max.04, rev(tmp.sim$pre.min.04))
-                    x.pol[which(x.pol < -100)] <- -100
-                    x.pol[which(x.pol > 100)] <- 100
-                    y.pol[which(y.pol < -100)] <- -100
-                    y.pol[which(y.pol > 100)] <- 100
-                    polygon(x.pol, y.pol, border = NA, col = scales::alpha("darkgreen", 0.25))
-                    
                     # add points biased/observed
                     lines(x = tmp.sim$x1, y = tmp.sim$y, type = "p", col = "red")
-
-                    # # add points unbiased/unobserved
-                    # lines(x = tmp.sim$x1.adj, y = tmp.sim$y.adj, type = "p", col = "blue")
-                    
-                    # add points unbiased/unobserved
-                    lines(x = tmp.sim$x1.res, y = tmp.sim$y.res, type = "p", col = "darkgreen")
                     
                     # add line biased/observed
                     mm <- which(tmp.sim$x1.pre[,2] >= -100 & tmp.sim$x1.pre[,2] <= 100 & tmp.sim$fit.02.pre >= -100 & tmp.sim$fit.02.pre <= 100)
                     lines(x = tmp.sim$x1.pre[mm,2], y = tmp.sim$fit.02.pre[mm], lty = 2, col = "red", lwd = 2)
-                    
-                    # # add line unbiased/unobserved
-                    # mm <- which(tmp.sim$x1.pre[,2] >= -100 & tmp.sim$x1.pre[,2] <= 100 & tmp.sim$fit.03.pre >= -100 & tmp.sim$fit.03.pre <= 100)
-                    # lines(x = tmp.sim$x1.pre[mm,2], y = tmp.sim$fit.03.pre[mm], lty = 2, col = "blue", lwd = 2)
-
-                    # add line unbiased/unobserved
-                    mm <- which(tmp.sim$x1.pre[,2] >= -100 & tmp.sim$x1.pre[,2] <= 100 & tmp.sim$fit.04.pre >= -100 & tmp.sim$fit.04.pre <= 100)
-                    lines(x = tmp.sim$x1.pre[mm,2], y = tmp.sim$fit.04.pre[mm], lty = 2, col = "darkgreen", lwd = 2)
                     
                     # add text
                     rect(xleft = 45, ybottom = 67.5, xright = 95, ytop = 97.5, col = "white")
@@ -338,10 +306,10 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     
                     # add legend
                     legend("topleft",
-                           legend = c(expression(Y*" on "*X[1]*" "), expression(Y^adj*" on "*X[1]^adj*" ")),
-                           lty = c(2, 2),
-                           lwd = c(1, 1),
-                           col = c("red", "darkgreen"),
+                           legend = c(expression(Y*" on "*X*" ")),
+                           lty = c(2),
+                           lwd = c(1),
+                           col = c("red"),
                            inset = 0.05)
                     
                     dev.off()
@@ -352,39 +320,39 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     
                     plot.new()
                     plot.window(xlim = c(-100, 100), ylim = c(-100, 100), log = "")
-                    title(main = "", sub = "", xlab = expression(X[1]), ylab = expression(widehat(u)))
+                    title(main = "", sub = "", xlab = expression(X), ylab = expression(widehat(u)))
                     
                     axis(1)
                     axis(2)
                     
                     grid()
                     
-                    # add polygon
-                    x.pol <- c(seq(-200, 200, 1), rev(seq(-200, 200, 1)))
-                    y.pol <- c(tmp.sim$res.pre.max.01, rev(tmp.sim$res.pre.min.01))
-                    x.pol[which(x.pol < -100)] <- -100
-                    x.pol[which(x.pol > 100)] <- 100
-                    y.pol[which(y.pol < -100)] <- -100
-                    y.pol[which(y.pol > 100)] <- 100
-                    polygon(x.pol, y.pol, border = NA, col = scales::alpha("darkgreen", 0.25))
+                    # # add polygon
+                    # x.pol <- c(seq(-200, 200, 1), rev(seq(-200, 200, 1)))
+                    # y.pol <- c(tmp.sim$res.pre.max.01, rev(tmp.sim$res.pre.min.01))
+                    # x.pol[which(x.pol < -100)] <- -100
+                    # x.pol[which(x.pol > 100)] <- 100
+                    # y.pol[which(y.pol < -100)] <- -100
+                    # y.pol[which(y.pol > 100)] <- 100
+                    # polygon(x.pol, y.pol, border = NA, col = scales::alpha("red", 0.25))
                     
                     # add points
-                    lines(x = tmp.sim$x1, y = tmp.sim$res.01, type = "p", col = "darkgreen")
+                    lines(x = tmp.sim$x1, y = tmp.sim$res.01, type = "p", col = "red")
                     
                     # add zero line
                     lines(x = seq(-100, 100, 1), y = rep(0, length(seq(-100, 100, 1))), lty = 2, lwd = 2)
                     
-                    # added fitted regression line        
-                    mm <- which(tmp.sim$x1.pre[,2] >= -100 & tmp.sim$x1.pre[,2] <= 100 & tmp.sim$res.fit.01.pre >= -100 & tmp.sim$res.fit.01.pre <= 100)
-                    lines(x = tmp.sim$x1.pre[mm,2], y = tmp.sim$res.fit.01.pre[mm], lty = 2, col = "darkgreen", lwd = 2)
+                    # # added fitted regression line        
+                    # mm <- which(tmp.sim$x1.pre[,2] >= -100 & tmp.sim$x1.pre[,2] <= 100 & tmp.sim$res.fit.01.pre >= -100 & tmp.sim$res.fit.01.pre <= 100)
+                    # lines(x = tmp.sim$x1.pre[mm,2], y = tmp.sim$res.fit.01.pre[mm], lty = 2, col = "red", lwd = 2)
                     
-                    # add legend
-                    legend("topright",
-                           legend = expression(widehat(u)*" on "*X[1]*" "),
-                           lty = 2,
-                           lwd = 1,
-                           col = "darkgreen",
-                           inset = 0.05)
+                    # # add legend
+                    # legend("topright",
+                    #        legend = c(expression("Fitted residuals "*u[i]*" ")),
+                    #        lty = 2,
+                    #        lwd = 1,
+                    #        col = "red",
+                    #        inset = 0.05)
                     
                     dev.off()
                     
@@ -409,18 +377,18 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     rect(x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-(nbx+1)], 0, x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-1L], x$density[which(x$counts > 0)],
                          col = "grey")
                     
-                    # add line for population parameter
-                    abline(v = b1, lty = 2, col = "darkgreen", lwd = 2)
+                    # # add line for population parameter
+                    abline(v = b1, lty = 2, col = "red", lwd = 2)
                     
-                    # add line for estimated parameter
-                    abline(v = tmp.sim$b1h.boot.mea, lty = 2, col = "red", lwd = 2)
+                    # # add line for estimated parameter
+                    # abline(v = tmp.sim$b1h.boot.mea, lty = 2, col = "red", lwd = 2)
                     
                     # add legend
                     legend("topleft",
-                           legend = c(expression(widetilde(beta)[1]*" "), expression(beta[1]*" ")),
-                           lty = c(2, 2),
-                           lwd = c(1, 1),
-                           col = c("red", "darkgreen"),
+                           legend = c(expression(beta[1]*" ")),
+                           lty = c(2),
+                           lwd = c(1),
+                           col = c("red"),
                            inset = 0.05)
                     
                     dev.off()
@@ -443,11 +411,11 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     
                     # plot h1
                     nB <- length(h1$breaks)
-                    rect(h1$breaks[-nB], 0, h1$breaks[-1L], h1$density, col = "grey")
+                    rect(h1$breaks[-nB], 0, h1$breaks[-1L], h1$density, col = scales::alpha("darkgreen", 0.25))
                     
-                    # # plot h2
-                    # nB <- length(h2$breaks)
-                    # rect(h2$breaks[-nB], 0, h2$breaks[-1L], h2$density, col = scales::alpha("red", 0.25))
+                    # plot h2
+                    nB <- length(h2$breaks)
+                    rect(h2$breaks[-nB], 0, h2$breaks[-1L], h2$density, col = scales::alpha("red", 0.25))
                     
                     # add pdf for normal distribution
                     curve(dnorm(x, mean = 0, sd = 1), -6, 6,
@@ -458,11 +426,11 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                           add = TRUE,
                           col = "red")
                     
-                    # # add legend no 01
-                    # legend("topleft",
-                    #        legend = c(expression("using robust"*~italic("SE")), expression("using ordinary"*~italic("SE"))),
-                    #        fill =  c(scales::alpha("darkgreen", 0.25), scales::alpha("red", 0.25)),
-                    #        inset = 0.05)
+                    # add legend no 01
+                    legend("topleft",
+                           legend = c(expression("robust"*~italic("SE")), expression("ordinary"*~italic("SE"))),
+                           fill =  c(scales::alpha("darkgreen", 0.25), scales::alpha("red", 0.25)),
+                           inset = 0.05)
                     
                     # add legend no 03
                     legend("topright",
