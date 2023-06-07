@@ -52,22 +52,22 @@ var uVec = [1, 5, 15]
 var xVec = [1, 5, 15]
 
 // set initial value for slider 1
-document.getElementById("ex601Val").innerHTML = "\\(n = " + nVec[0] + "\\)";
+document.getElementById("ex601Val").innerHTML = "\\(n = " + nVec[2] + "\\)";
 var element = document.getElementById("ex601Val");
 MathJax.typeset([element]);
 
 // set initial value for slider 2
-document.getElementById("ex602Val").innerHTML = "\\(\\beta_{1} = " + bVec[0] + "\\)";
+document.getElementById("ex602Val").innerHTML = "\\(\\beta_{1} = " + bVec[2] + "\\)";
 var element = document.getElementById("ex602Val");
 MathJax.typeset([element]);
 
 // set initial value for slider 3
-document.getElementById("ex603Val").innerHTML = "\\(\\sigma_{u}^{2} = " + uVec[0] + "\\)";
+document.getElementById("ex603Val").innerHTML = "\\(\\sigma_{u}^{2} = " + uVec[1] + "\\)";
 var element = document.getElementById("ex603Val");
 MathJax.typeset([element]);
 
 // set initial value for slider 4
-document.getElementById("ex604Val").innerHTML = "\\(\\sigma_{X}^{2} = " + xVec[0] + "\\)";
+document.getElementById("ex604Val").innerHTML = "\\(\\sigma_{X}^{2} = " + xVec[1] + "\\)";
 var element = document.getElementById("ex604Val");
 MathJax.typeset([element]);
 
