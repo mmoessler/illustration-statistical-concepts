@@ -53,12 +53,12 @@ for (ii in 1:length(NN.vec)) {
     lm.tmp <- lm(tmp.sim$Y.sim ~ 1)
     
     # 2) table of observations/estimation results ----
-    tab.nam <- paste("table_01_N", NN, ".html", sep = "")
+    tab.nam <- paste(tab.dir, "table_01_N", NN, ".html", sep = "")
     print(xtable::xtable(data.frame(N = seq(1, NN), y = tmp.sim$Y.sim),
                          align = c("p", "p", "r")),
           include.rownames = FALSE, type = "html", file = tab.nam)
 
-    tab.nam <- paste("table_02_N", NN, ".html", sep = "")
+    tab.nam <- paste(tab.dir, "table_02_N", NN, ".html", sep = "")
     lm.tmp <- lm(tmp.sim$Y.sim ~ 1)
     texreg::htmlreg(lm.tmp,
                     single.row = TRUE,
