@@ -39,15 +39,11 @@
 
         <div class="jumbotron">
 
-          <p style="font-size: 18pt">Motivation</p>
+          <p style="font-size: 18pt">Sample draws and sampling distribution</p>
 
-          <p>Understand the effect of ...</p>
-
-          <p style="margin-left: 10pt;"> (1) increasing the sample size \(n\),...</p>
-          <p style="margin-left: 10pt; margin-top: -10pt;"> (2) changing the variance of \(u_{i}\), i.e., \(\sigma_{u}^{2}\),...</p>
-          <p style="margin-left: 10pt; margin-top: -10pt;"> (3) changing the variance of \(X_{i}\), i.e., \(\sigma_{X}^{2}\),...</p>
-
-          <p>... on the sampling distribution of the OLS estimator for the slope coefficient of a simple linear regression model.</p>
+          <p style="margin-left: 10pt;">We simulate a sample draw of size \(n\) from our statistical model and calculate the the value for our estimator for the particular sample draw.</p>
+          <p style="margin-left: 10pt;">We repeat this exercise \(10,000\) times to get \(10,000\) values for our estimator.</p>
+          <p style="margin-left: 10pt;">The distribution of these \(10,000\) values for our estimator is the sampling distribution of our estimator.</p>
 
           <hr>
 
@@ -61,7 +57,7 @@
           \end{align}
           $$
 
-          <p>where \(\beta_{0}=0\) is the intercept and \(\beta_{1}\) is the slope parameter.</p>
+          <p>where \(\beta_{0}=0\) is the intercept and \(\beta_{1}=1\) is the slope parameter.</p>
 
           <p>Furthermore, assume \(X_{i}\) and \(u_{i}\) are i.i.d. normally distributed, i.e.,</p>
 
@@ -71,7 +67,7 @@
           \end{align}
           $$
 
-          <p>where \(\sigma_{X}^{2}\) and \(\sigma_{u}^{2}\) is the variance of \(X_{i}\) and \(u_{i}\), respectively.</p>
+          <p>where \(\sigma_{X}=5\) and \(\sigma_{u}=5\) is the standard deviation of \(X_{i}\) and \(u_{i}\), respectively.</p>
               
           <hr>
 
@@ -113,18 +109,27 @@
                       
                       <hr>
 
-                      <p style='font-size: 12pt; text-align: center'>Sample Size</p><p style='font-size: 12pt; text-align: center' id="ex601Val"></p>
+                      <p style='font-size: 12pt; text-align: center'>Sample Draw</p><p style='font-size: 12pt; text-align: center' id="ex601Val"></p>
                       <input id="ex601" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+
+                      <!--..........................................................................-->
+                      <!-- see: https://www.w3schools.com/html/html5_audio.asp -->
+
+                      <div style="text-align: center;">
+                        <button class="audioButtonCl" onclick="playAudioSlider01()"><span style='font-size: 10pt; line-height: 2; text-align: center'>Play</span></button>
+                        <button class="audioButtonCl" onclick="stopAudioSlider01()"><span style='font-size: 10pt; line-height: 2; text-align: center'>Stop</span></button>
+                      </div>
+
+                      <div style="text-align: center; margin-top: 10px; display: none;">
+                        <audio id="audioSlider01" controls>
+                          <source src="audio_slider01.mp3" type="audio/mpeg">
+                          Your browser does not support the audio element.
+                        </audio>
+                      </div>
                       
-                      <p style='font-size: 12pt; text-align: center'>Slope Coef.</p><p style='font-size: 12pt; text-align: center' id="ex602Val"></p>
+                      <p style='font-size: 12pt; text-align: center; margin-top: 10px;'>Sample Size</p><p style='font-size: 12pt; text-align: center' id="ex602Val"></p>
                       <input id="ex602" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
-
-                      <p style='font-size: 12pt; text-align: center'>Variance of \(u_{i}\)</p><p style='font-size: 12pt; text-align: center' id="ex603Val"></p>
-                      <input id="ex603" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="1"/>
-
-                      <p style='font-size: 12pt; text-align: center'>Variance of \(X_{i}\)</p><p style='font-size: 12pt; text-align: center' id="ex604Val"></p>
-                      <input id="ex604" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="1"/>
-
+                      
                     </div>
 
                   </div>
@@ -147,7 +152,7 @@
 
                       <p style="font-size: 16pt">Scatter plot (observations)</p>
                       
-                      <img src="./figures/figure_01_3_3_2_2.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
+                      <img src="./figures/figure_01_3_3.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
 
                       <p>The red fitted regression line is based on the regression of,</p>
 
@@ -165,7 +170,7 @@
 
                       <p style="font-size: 16pt">Scatter plot (fitted residuals)</p>
 
-                      <img src="./figures/figure_02_3_3_2_2.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
+                      <img src="./figures/figure_02_3_3.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
 
                       <p>The fitted unobserved residuals are constructed as,</p>
 
@@ -183,7 +188,7 @@
 
                       <p style='font-size: 16pt;'>Histogram of the OLS estimator \(\widehat{\beta}_{1}\)</p>
                       
-                      <img src="./figures/figure_03_3_3_2_2.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
+                      <img src="./figures/figure_03_3_3.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
 
                       <p>As the sample size \(n\) grows the OLS estimator \(\widehat{\beta}_{1}\) gets closer to \(\beta\), i.e.,</p>
                       
@@ -199,7 +204,7 @@
 
                       <p style='font-size: 16pt;'>Histogram of the standardized OLS estimator \(z_{\widehat{\beta}_{1}}\)</p>
 
-                      <img src="./figures/figure_04_3_3_2_2.svg" alt="" id="imageL1N4Id" style="text-align: center; max-width: 100%;">
+                      <img src="./figures/figure_04_3_3.svg" alt="" id="imageL1N4Id" style="text-align: center; max-width: 100%;">
 
                       <p>As the sample size \(n\) grows the distribution of the standardized sample average,</p>
 

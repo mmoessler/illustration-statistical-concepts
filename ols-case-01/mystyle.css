@@ -83,3 +83,80 @@
   ol {
     font-size: 16pt;
   }
+
+
+
+audio::-webkit-media-controls-mute-button,
+audio::-webkit-media-controls-timeline-container,
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display,
+audio::-webkit-media-controls-timeline,
+audio::-webkit-media-controls-volume-slider-container,
+audio::-webkit-media-controls-volume-slider,
+audio::-webkit-media-controls-seek-back-button,
+audio::-webkit-media-controls-seek-forward-button,
+audio::-webkit-media-controls-fullscreen-button,
+audio::-webkit-media-controls-rewind-button,
+audio::-webkit-media-controls-return-to-realtime-button,
+audio::-webkit-media-controls-toggle-closed-captions-button {
+  display: none;
+}
+
+/*
+audio::-webkit-media-controls-panel,
+audio::-webkit-media-controls-play-button,
+*/
+
+audio::-webkit-media-controls-panel{
+  height: 25px;
+  width: 100%;
+}
+
+audio{
+  height: 25px;
+  width: 100%;
+}
+
+
+
+audio::-webkit-media-controls-panel,
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-mute-button,
+audio::-webkit-media-controls-timeline-container,
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display,
+audio::-webkit-media-controls-timeline,
+audio::-webkit-media-controls-volume-slider-container,
+audio::-webkit-media-controls-volume-slider,
+audio::-webkit-media-controls-seek-back-button,
+audio::-webkit-media-controls-seek-forward-button,
+audio::-webkit-media-controls-fullscreen-button,
+audio::-webkit-media-controls-rewind-button,
+audio::-webkit-media-controls-return-to-realtime-button,
+audio::-webkit-media-controls-toggle-closed-captions-button {
+  display: none;
+}
+
+
+  /* style the buttons that are used to open the tab content */
+  .audioButtonCl {
+    display: inline-block;
+    max-height: 100px;
+    min-height: 10px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background-color: #f1f1f1;
+    line-height: 1;
+    vertical-align: middle
+  }
+
+  /* change background color of buttons on hover */
+  .audioButtonCl:hover {
+    background-color: #ddd;
+  }
+
+  /* create an active/current tablink class */
+  .audioButtonCl.active {
+    background-color: #ccc;
+  }
