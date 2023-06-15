@@ -1,4 +1,6 @@
 
 Sample Draw / Simulation of DGP:
-A differnt sample draw results in a different estimate and thus in a different fitted regreesion line.
-TThe red shaded area shows the range of the fitted regression line across all sample draws.
+A different sample draw results in a different estimate and thus in a different fitted regression line.
+
+Sample Size
+Increasing the sample size decreases the range of the different fitted regression lines across different sample draws.
