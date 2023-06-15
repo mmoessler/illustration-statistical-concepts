@@ -114,18 +114,12 @@
 
                       <!--..........................................................................-->
                       <!-- see: https://www.w3schools.com/html/html5_audio.asp -->
-
+                      <!--
                       <div style="text-align: center;">
                         <button class="audioButtonCl" onclick="playAudioSlider01()"><span style='font-size: 10pt; line-height: 2; text-align: center'>Play</span></button>
                         <button class="audioButtonCl" onclick="stopAudioSlider01()"><span style='font-size: 10pt; line-height: 2; text-align: center'>Stop</span></button>
                       </div>
-
-                      <div style="text-align: center; margin-top: 10px; display: none;">
-                        <audio id="audioSlider01" controls>
-                          <source src="audio_slider01.mp3" type="audio/mpeg">
-                          Your browser does not support the audio element.
-                        </audio>
-                      </div>
+                      -->
                       
                       <p style='font-size: 12pt; text-align: center; margin-top: 10px;'>Sample Size</p><p style='font-size: 12pt; text-align: center' id="ex602Val"></p>
                       <input id="ex602" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
@@ -165,8 +159,8 @@
                       <p>The scatter plots and the fitted regression lines represent the result for only one simulation. The shaded areas illustrate the range of all fitted regression lines across all simulations.</p>
 
                       <div class="tab" style="text-align: center;">
-                        <button class="animateButtonCl" onclick="animateButto01Click(org = 2, start = 0, stop = 4)" id="animateButtonL1N1Id">Animate <br> Sample Draw</button>
-                        <button class="animateButtonCl" onclick="animateButto01Click(org = 2, start = 0, stop = 4)" id="animateButtonL1N2Id">Animate <br> Sample Size</button>
+                        <button class="animateButtonCl" onclick="animateButto01Click(org = 2, start = 0, stop = 4, audioId = 'audioFigure01Slider01')" id="animateButtonL1N1Id">Animate <br> Sample Draw</button>
+                        <button class="animateButtonCl" onclick="animateButto02Click(org = 2, start = 0, stop = 4, audioId = 'audioFigure01Slider01')" id="animateButtonL1N2Id">Animate <br> Sample Size</button>
                       </div>
 
                     </div>
@@ -292,6 +286,17 @@
       </div>
     </div>
     
+    <!-- .................................................. -->
+    <!-- Collections of audios -->
+    <div style="text-align: center; margin-top: 10px; display: none;">
+
+      <audio id="audioFigure01Slider01" controls>
+        <source src="./audios/audio_figure01_slider01.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+    </div>
+
     <div class="iliasExcCl">
       <hr />
       <p style="text-align: center; font-size: 20pt; font-weight: bold;">
