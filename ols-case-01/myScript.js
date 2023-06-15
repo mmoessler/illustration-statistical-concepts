@@ -121,5 +121,91 @@ function stopAudioSlider01() {
     audio.currentTime = 0;
 }
 
+// Set some particular slider value
+function setSlider01Value() {
+
+    var sliderValue01 = 1;
+    var sliderValue02 = 1;
+
+    document.getElementById("imageL1N1Id").setAttribute("src", "./figures/figure_01_" + sliderValue01 + "_" + sliderValue02 + ".svg");
+    document.getElementById("imageL1N2Id").setAttribute("src", "./figures/figure_02_" + sliderValue01 + "_" + sliderValue02 + ".svg");
+    document.getElementById("imageL1N3Id").setAttribute("src", "./figures/figure_03_" + sliderValue01 + "_" + sliderValue02 + ".svg");
+    document.getElementById("imageL1N4Id").setAttribute("src", "./figures/figure_04_" + sliderValue01 + "_" + sliderValue02 + ".svg");
+
+    document.getElementById("ex601Val").innerHTML = "\\(r = " + rVec[slider01.getValue()] + "\\)";
+    var element = document.getElementById("ex601Val");
+    MathJax.typeset([element]);
+
+    var slider = document.getElementById("ex601");
+    slider.value = sliderValue01;
+
+};
+
+function sliderLoop(loopSliderValue01, loopSliderValue02) {
+
+    var sliderValue01 = loopSliderValue01 + 1;
+    var sliderValue02 = loopSliderValue02 + 1;
+
+    document.getElementById("imageL1N1Id").setAttribute("src", "./figures/figure_01_" + sliderValue01 + "_" + sliderValue02 + ".svg");
+    document.getElementById("imageL1N2Id").setAttribute("src", "./figures/figure_02_" + sliderValue01 + "_" + sliderValue02 + ".svg");
+    document.getElementById("imageL1N3Id").setAttribute("src", "./figures/figure_03_" + sliderValue01 + "_" + sliderValue02 + ".svg");
+    document.getElementById("imageL1N4Id").setAttribute("src", "./figures/figure_04_" + sliderValue01 + "_" + sliderValue02 + ".svg");
+
+    document.getElementById("ex601Val").innerHTML = "\\(r = " + rVec[slider01.getValue()] + "\\)";
+    var element = document.getElementById("ex601Val");
+    MathJax.typeset([element]);
+
+    var slider = document.getElementById("ex601");
+    slider.value = sliderValue01;
+
+};
+
+animateButto01Click = function(org, start, stop) {
+    
+    //var org = 2;
+    //var start = 0;
+    //var stop = 4; 
+
+    var ind = start;
+    var loopSliderValue02 = slider02.getValue();
+
+    var interval = setInterval(function() {
+
+      var loopSliderValue01 = ind;
+      
+      console.log('change slider');
+      slider01.setValue(ind);
+      console.log('change plot');
+      sliderLoop(loopSliderValue01, loopSliderValue02);
+
+      console.log(ind);
+      console.log(loopSliderValue01);
+      console.log(loopSliderValue02);
+
+      ind++;
+
+      if (ind > stop) {
+
+        var innterInteval = setInterval(function() {
+
+            slider01.setValue(ind);
+
+            slider01.setValue(org);
+            sliderLoop(org, loopSliderValue02);
+
+            clearInterval(innterInteval);
+
+        }, 1000);
+        
+        //slider01.setValue(ind);
+        clearInterval(interval);
+      }
+
+    }, 1000);
+
+}
+
+//document.getElementById("animateButtonL1N1Id").addEventListener("click", animateButto01Click(org = 2, start = 1, stop = 5));
+
 // set start page
 document.getElementById("tabLinkL1N1Id").click();
