@@ -160,3 +160,26 @@ audio::-webkit-media-controls-toggle-closed-captions-button {
   .audioButtonCl.active {
     background-color: #ccc;
   }
+
+  /* style the buttons that are used to open the tab content */
+  .animateButtonCl {
+    display: inline-block;
+    max-height: 100px;
+    min-height: 10px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background-color: #f1f1f1;
+    line-height: 1;
+    vertical-align: middle
+  }
+
+  /* change background color of buttons on hover */
+  .animateButtonCl:hover {
+    background-color: #ddd;
+  }
+
+  /* create an active/current tablink class */
+  .animateButtonCl.active {
+    background-color: #ccc;
+  }
