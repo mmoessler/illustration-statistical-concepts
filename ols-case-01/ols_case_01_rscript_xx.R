@@ -5,6 +5,11 @@ rm(list=ls())
 # set directory of figures
 fig.dir <- "./ols-case-01/figures/"
 
+# set plot margins
+par(mar = c(5.1, 4.1, 1, 2.1))
+# bottom, left, top, right
+# 5.1, 4.1, 4.1, 2.1
+
 # set seed 
 set.seed(12345)
 
