@@ -140,6 +140,11 @@ function sliderLoop(loopSliderValue01, loopSliderValue02) {
 
 };
 
+explainButto01Click = function(audioId) {
+  var audio = document.getElementById(audioId);
+  audio.play();
+}
+
 animateButto01Click = function(org, start, stop, audioId) {
   var audio = document.getElementById(audioId);
   audio.play();
