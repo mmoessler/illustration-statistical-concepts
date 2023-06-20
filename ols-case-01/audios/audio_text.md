@@ -55,4 +55,4 @@ A different sample draw results in a different standardized estimate for the slo
 
 ## Slider 2
 
-By increasing the sample size the sampling distribution of the standardized estimated slope coefficient gets closer to the standard normal distribution which pdf is illustrated by the green dasehd curve.
+By increasing the sample size the sampling distribution of the standardized estimated slope coefficient gets closer to the standard normal distribution which pdf is illustrated by the green dashed curve.
