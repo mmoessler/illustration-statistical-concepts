@@ -47,13 +47,14 @@
   /* style the buttons that are used to open the tab content */
   .tabLinkL1Cl {
     display: inline-table;
-    max-height: 500px;
-    min-height: 44px;
     overflow-y: auto;
     border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 14px 16px;
+    border-radius: 5px;
+    padding: 10px 10px;
     background-color: #f1f1f1;
+    font-size: 12pt;
+    line-height: 1;
+    vertical-align: middle;
   }
 
   /* change background color of buttons on hover */
@@ -105,14 +106,14 @@ audio::-webkit-media-controls-toggle-closed-captions-button {
 /* style the buttons that are used to start animation */
 .animateButtonCl {
   display: inline-block;
-  max-height: 100px;
-  min-height: 10px;
   overflow-y: auto;
   border: 1px solid #ddd;
-  border-radius: 3px;
+  border-radius: 5px;
+  padding: 5px 5px;
   background-color: #f1f1f1;
   line-height: 1;
-  vertical-align: middle
+  vertical-align: middle;
+  font-size: 12pt;
 }
 
 /* change background color of buttons on hover */
@@ -128,14 +129,14 @@ audio::-webkit-media-controls-toggle-closed-captions-button {
 /* style the buttons that are used to start explanation */
 .explainButtonCl {
   display: inline-block;
-  max-height: 100px;
-  min-height: 10px;
   overflow-y: auto;
   border: 1px solid #ddd;
-  border-radius: 3px;
+  border-radius: 5px;
+  padding: 5px 5px;
   background-color: #f1f1f1;
   line-height: 1;
-  vertical-align: middle
+  vertical-align: middle;
+  font-size: 12pt;
 }
 
 /* change background color of buttons on hover */
