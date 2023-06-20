@@ -6,9 +6,11 @@ rm(list=ls())
 fig.dir <- "./ols-case-01/figures/"
 
 # set plot margins
-par(mar = c(5.1, 4.1, 1, 2.1))
-# bottom, left, top, right
-# 5.1, 4.1, 4.1, 2.1
+set_plt_mar <- function() {
+  par(mar = c(5.1, 4.1, 1, 2.1))
+  # bottom, left, top, right
+  # 5.1, 4.1, 4.1, 2.1
+}
 
 # set seed 
 set.seed(12345)
@@ -279,7 +281,9 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     # plot no 01, r=1: scatterplot obsevations ----
                     r = 1
                     plt.nam <- paste(fig.dir, "figure_01_", r, "_", ii, ".svg", sep = "")
-                    svg(plt.nam) 
+                    svg(plt.nam)
+                    
+                    set_plt_mar()
                     
                     plot.new()
                     plot.window(xlim = c(-100, 100), ylim = c(-100, 100), log = "")
@@ -329,7 +333,9 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     # plot no 01, r=2: scatterplot obsevations ----
                     r = 2
                     plt.nam <- paste(fig.dir, "figure_01_", r, "_", ii, ".svg", sep = "")
-                    svg(plt.nam) 
+                    svg(plt.nam)
+                    
+                    set_plt_mar()
                     
                     plot.new()
                     plot.window(xlim = c(-100, 100), ylim = c(-100, 100), log = "")
@@ -379,7 +385,9 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     # plot no 01, r=3: scatterplot obsevations ----
                     r = 3
                     plt.nam <- paste(fig.dir, "figure_01_", r, "_", ii, ".svg", sep = "")
-                    svg(plt.nam) 
+                    svg(plt.nam)
+                    
+                    set_plt_mar()
                     
                     plot.new()
                     plot.window(xlim = c(-100, 100), ylim = c(-100, 100), log = "")
@@ -429,7 +437,9 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     # plot no 01, r=4: scatterplot obsevations ----
                     r = 4
                     plt.nam <- paste(fig.dir, "figure_01_", r, "_", ii, ".svg", sep = "")
-                    svg(plt.nam) 
+                    svg(plt.nam)
+                    
+                    set_plt_mar()
                     
                     plot.new()
                     plot.window(xlim = c(-100, 100), ylim = c(-100, 100), log = "")
@@ -479,7 +489,9 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     # plot no 01, r=5: scatterplot obsevations ----
                     r = 5
                     plt.nam <- paste(fig.dir, "figure_01_", r, "_", ii, ".svg", sep = "")
-                    svg(plt.nam) 
+                    svg(plt.nam)
+                    
+                    set_plt_mar()
                     
                     plot.new()
                     plot.window(xlim = c(-100, 100), ylim = c(-100, 100), log = "")
@@ -529,7 +541,9 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     # plot no 02, r=1: scatterplot fitted residuals ----
                     r <- 1
                     plt.nam <- paste(fig.dir, "figure_02_", r, "_", ii, ".svg", sep = "")
-                    svg(plt.nam) 
+                    svg(plt.nam)
+                    
+                    set_plt_mar()
                     
                     plot.new()
                     plot.window(xlim = c(-100, 100), ylim = c(-100, 100), log = "")
@@ -551,7 +565,9 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     # plot no 02, r=2: scatterplot fitted residuals ----
                     r <- 2
                     plt.nam <- paste(fig.dir, "figure_02_", r, "_", ii, ".svg", sep = "")
-                    svg(plt.nam) 
+                    svg(plt.nam)
+                    
+                    set_plt_mar()
                     
                     plot.new()
                     plot.window(xlim = c(-100, 100), ylim = c(-100, 100), log = "")
@@ -573,7 +589,9 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     # plot no 02, r=3: scatterplot fitted residuals ----
                     r <- 3
                     plt.nam <- paste(fig.dir, "figure_02_", r, "_", ii, ".svg", sep = "")
-                    svg(plt.nam) 
+                    svg(plt.nam)
+                    
+                    set_plt_mar()
                     
                     plot.new()
                     plot.window(xlim = c(-100, 100), ylim = c(-100, 100), log = "")
@@ -595,7 +613,9 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     # plot no 02, r=4: scatterplot fitted residuals ----
                     r <- 4
                     plt.nam <- paste(fig.dir, "figure_02_", r, "_", ii, ".svg", sep = "")
-                    svg(plt.nam) 
+                    svg(plt.nam)
+                    
+                    set_plt_mar()
                     
                     plot.new()
                     plot.window(xlim = c(-100, 100), ylim = c(-100, 100), log = "")
@@ -617,7 +637,9 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     # plot no 02, r=5: scatterplot fitted residuals ----
                     r <- 5
                     plt.nam <- paste(fig.dir, "figure_02_", r, "_", ii, ".svg", sep = "")
-                    svg(plt.nam) 
+                    svg(plt.nam)
+                    
+                    set_plt_mar()
                     
                     plot.new()
                     plot.window(xlim = c(-100, 100), ylim = c(-100, 100), log = "")
@@ -639,7 +661,9 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     # plot no 03, r=1: histogram estimator (non-standardized) ----
                     r = 1
                     plt.nam <- paste(fig.dir, "figure_03_", r, "_", ii, ".svg", sep = "")
-                    svg(plt.nam) 
+                    svg(plt.nam)
+                    
+                    set_plt_mar()
                     
                     x <- hist(x = tmp.sim$b1h,
                               freq = FALSE,
@@ -678,7 +702,9 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     # plot no 03, r=2: histogram estimator (non-standardized) ----
                     r = 2
                     plt.nam <- paste(fig.dir, "figure_03_", r, "_", ii, ".svg", sep = "")
-                    svg(plt.nam) 
+                    svg(plt.nam)
+                    
+                    set_plt_mar()
                     
                     x <- hist(x = tmp.sim$b1h,
                               freq = FALSE,
@@ -717,7 +743,9 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     # plot no 03, r=3: histogram estimator (non-standardized) ----
                     r = 3
                     plt.nam <- paste(fig.dir, "figure_03_", r, "_", ii, ".svg", sep = "")
-                    svg(plt.nam) 
+                    svg(plt.nam)
+                    
+                    set_plt_mar()
                     
                     x <- hist(x = tmp.sim$b1h,
                               freq = FALSE,
@@ -756,7 +784,9 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     # plot no 03, r=4: histogram estimator (non-standardized) ----
                     r = 4
                     plt.nam <- paste(fig.dir, "figure_03_", r, "_", ii, ".svg", sep = "")
-                    svg(plt.nam) 
+                    svg(plt.nam)
+                    
+                    set_plt_mar()
                     
                     x <- hist(x = tmp.sim$b1h,
                               freq = FALSE,
@@ -795,7 +825,9 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     # plot no 03, r=5: histogram estimator (non-standardized) ----
                     r = 5
                     plt.nam <- paste(fig.dir, "figure_03_", r, "_", ii, ".svg", sep = "")
-                    svg(plt.nam) 
+                    svg(plt.nam)
+                    
+                    set_plt_mar()
                     
                     x <- hist(x = tmp.sim$b1h,
                               freq = FALSE,
@@ -835,6 +867,8 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     r <- 1
                     plt.nam <- paste(fig.dir, "figure_04_", r, "_", ii, ".svg", sep = "")
                     svg(plt.nam)
+                        
+                    set_plt_mar()
                     
                     # generate histogram of estimator
                     h1 <- hist(x = tmp.sim$b1h.z, freq = FALSE)
@@ -880,6 +914,8 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     plt.nam <- paste(fig.dir, "figure_04_", r, "_", ii, ".svg", sep = "")
                     svg(plt.nam)
                     
+                    set_plt_mar()
+                    
                     # generate histogram of estimator
                     h1 <- hist(x = tmp.sim$b1h.z, freq = FALSE)
                     h2 <- hist(x = tmp.sim$b1h.z.ord, freq = FALSE)
@@ -923,6 +959,8 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     r <- 3
                     plt.nam <- paste(fig.dir, "figure_04_", r, "_", ii, ".svg", sep = "")
                     svg(plt.nam)
+                    
+                    set_plt_mar()
                     
                     # generate histogram of estimator
                     h1 <- hist(x = tmp.sim$b1h.z, freq = FALSE)
@@ -968,6 +1006,8 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     plt.nam <- paste(fig.dir, "figure_04_", r, "_", ii, ".svg", sep = "")
                     svg(plt.nam)
                     
+                    set_plt_mar()
+                    
                     # generate histogram of estimator
                     h1 <- hist(x = tmp.sim$b1h.z, freq = FALSE)
                     h2 <- hist(x = tmp.sim$b1h.z.ord, freq = FALSE)
@@ -1011,6 +1051,8 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     r <- 5
                     plt.nam <- paste(fig.dir, "figure_04_", r, "_", ii, ".svg", sep = "")
                     svg(plt.nam)
+                    
+                    set_plt_mar()
                     
                     # generate histogram of estimator
                     h1 <- hist(x = tmp.sim$b1h.z, freq = FALSE)
