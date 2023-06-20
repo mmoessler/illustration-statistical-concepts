@@ -100,13 +100,10 @@
             <div class="container mt-5" style="margin-top: 50px;">
               <div class="row">
 
-                <div class="col-sm-3" style="margin-top: 140px;">
+                <div class="col-sm-3" style="margin-top: 70px;">
                   <div class="jumbotron innerJumb">
 
-                    <!--
-                    <p style="font-size: 18pt; margin-top: 10px; text-align: center;">Parameters</p>
-                    -->
-                    <p style="font-size: 16pt; margin-top:-15px; text-align: center">Parameters</p>
+                    <p style="font-size: 14pt; margin-top:-25px; text-align: center">Parameters</p>
 
                     <div style='margin-top: 50px;'>
                       
@@ -126,7 +123,7 @@
                 <div class="col-sm-9">
                   <div class="jumbotron innerJumb">
             
-                    <div class="tab" style="text-align: center;">
+                    <div class="tab" style="text-align: center; margin-top: -20px;">
                       <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N1Id', 'tabLinkL1N1Id', 'white')" id="tabLinkL1N1Id">Sample Draw</button>
                       <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N2Id', 'tabLinkL1N2Id', 'white')" id="tabLinkL1N2Id">Residuals</button>
                       <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N3Id', 'tabLinkL1N3Id', 'white')" id="tabLinkL1N3Id">Consistency</button>
@@ -134,13 +131,12 @@
                     </div>
 
                     <br>
-                    <hr>
 
                     <div id="tabContentL1N1Id" class="tabContentL1Cl">
 
-                      <p style="font-size: 16pt">Scatter plot (observations)</p>
+                      <p style="font-size: 14pt; text-align: center; margin-bottom: 0;">Scatter plot (observations)</p>
                       
-                      <img src="./figures/figure_01_3_3.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
+                      <img src="./figures/figure_01_3_3.svg" alt="" id="imageL1N1Id" style="display: block; margin: 0 auto; max-width: 80%;">
 
                       <div class="tab" style="text-align: center;">
                         <button class="explainButtonCl" onclick="explainButto01Click(audioId = 'audioFigure01Overall')" id="explainButtonL1N1Id">Explain <br> Figure</button>
