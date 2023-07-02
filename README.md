@@ -1,6 +1,10 @@
 # illustration-statistical-concepts
 
-Illustration of statistical concepts and methods using simulation studies.
+<!-- Illustration of statistical concepts and methods using simulation studies. -->
+
+This repository contains tools to illustrate the sampling properties of (parametric) estimators for (parametric) models. 
+
+Starting point is a model for the data generating process (DGP)
 
 ## Sampling properties of sample average
 
@@ -63,3 +67,9 @@ This illustration shows the effect of omitted variables on the sampling distribu
 https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/ols-case-03/ols_case_03_html_xx.html
 
 ```
+
+
+
+# Licence
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
