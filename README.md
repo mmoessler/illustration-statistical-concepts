@@ -1,16 +1,36 @@
 # illustration-statistical-concepts
 
-<!-- Illustration of statistical concepts and methods using simulation studies. -->
+## Introduction
 
-This repository contains tools to illustrate the sampling properties of (parametric) estimators for (parametric) models. 
+This repository contains a learning module with interactive illustrations of statistical concepts.
 
-Starting point is a model for the data generating process (DGP)
+### Subject - What?
 
-## Sampling properties of sample average
+The focus is the sampling properties of estimators for parameters of statistical models.
 
-### Bernoulli distribution
+Starting point is (1) the specification of the data generating process (DGP) based on a statistical model and (2) the choice of an estimator to estimate the parameters of the statistical model.
 
-This illustration shows the effect of changing the sample size $n$ and probability of success $p$ of the Bernoulli distribution on the sampling distribution of the sample average as estimator for mean of the Bernoulli distribution.
+### Method - How?
+
+Step 1: Simmulation and illustration
+
+* The DGP based on a given statistical model is simulated and the values of a given estimator is calculated.
+* The simulation results of the DGP are illustrated using, i.e., barplots, scatterplots, etc,, and the distribution of the estimates are illustrated using histograms.
+* The simulation and illustration is performed for different specifications of the statistical model or for different estimators.
+* For each specification or estimator the illustrations are save in a different `.svg` file.
+* The simulations illustrations are performed using the programming language for statistical computing and graphics [R](https://www.r-project.org/). 
+
+Step 2: Interactive presentation
+
+* The different illustrations for different specifications are interactively embedded in a `.html` file using slider.
+* The effect of different specifications can be studied by changing the slider, i.e., the specification, and thus, the embedded illustration.
+* The interactive integration of the illustrations into the `.html` file is based on javascript. 
+
+## DGPs and Estimators
+
+### Bernoulli distribution and sample average
+
+This illustration shows the effect of changing the sample size $n$ and the probability of success $p$ of the Bernoulli distribution on the sampling distribution of the sample average as estimator for mean of the Bernoulli distribution.
 
 ```
 
@@ -18,7 +38,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/lln-clt
 
 ```
 
-### Continuous uniform distribution
+### Continuous uniform distribution and sample average
 
 This illustration shows the effect of changing the sample size $n$ and the lower bound $a$ and the upper bound $b$ of the continuous uniform distribution on the sampling distribution of the sample average as estimator for mean of the continuous uniform distribution.
 
@@ -28,7 +48,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/lln-clt
 
 ```
 
-## Sampling properties of OLS estimator
+## Simple linear regression model and OLS estimator
 
 Illustration of the properties of the OLS estimator to estimate the slope coefficient \(\beta_{1}\) of a linear regression model, i.e.,
 
@@ -72,4 +92,10 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/ols-cas
 
 # Licence
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+</a>
+<br />
+This work is licensed under a
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
+</a>.
