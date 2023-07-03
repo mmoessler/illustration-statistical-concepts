@@ -12,26 +12,36 @@ Starting point is the specification of the data generating process (DGP) based o
 
 ### Method - How?
 
-Simmulation and illustration
+Simmulation study and illustration/reporting of simulation results
 
 * The DGP based on a given statistical model is simulated and the values of a given estimator is calculated.
-* The simulation results of the DGP are illustrated using, i.e., barplots, scatterplots, etc,, and the distribution of the estimates are illustrated using histograms.
-* The simulation and illustration is performed for different specifications of the statistical model or for different estimators.
-* For each specification or estimator the illustrations are save in a different `.svg` file.
-* The simulations illustrations are performed using the programming language for statistical computing and graphics [R](https://www.r-project.org/). 
+* The simulation results, i.e., the sampling distribution of the estimator, are illustrated using  barplots, scatterplots and/or histograms.
+* Other simulation results can be reported using tables.
+* The simulation study is performed for different specifications of the statistical model or for different estimators.
+* For each specification or estimator the results, e.g., figures and/or tables are save in different `.svg` and/or `html` files.
+* The simulation study is performed using the programming language for statistical computing and graphics [R](https://www.r-project.org/). 
 
-Interactive presentation
+Interactive presentation of simulation results
 
-* The different illustrations for different specifications are interactively embedded in a `.html` file and linked to a slider input tag.
-* The effect of different specifications can be studied by changing the slider, i.e., the specification, and thus, the embedded illustration.
-* The interactive integration of the illustrations into the `.html` file is based on javascript. 
+* The results for different specifications, e.g., figures and/or tables, are interactively embedded in a `.html` file and linked to a slider input tag.
+* The effect of different specifications can be studied by changing the slider, i.e., the specification, and thus, the embedded results.
+* The interactive integration of the illustrations into the `.html` file is based on javascript.
 
 Structure of the learning module
 
 * The learning module contains different sub modules where each sub module has a specific learning goal, e.g., "understand the effect of the sample size on the sample properties of the sample average to estimate the mean of a Bernouli distribution".
 * The material of a sub module is collected in a sub folder, e.g., `ln-clt_ber`.
-* The sub folder contains the 
-
+* The sub folder contains:
+    * `.R` file, e.g., `lln_clt_ber_rscript.R`, with the simulation study and the results stored in the `figures` and/or `tables`subdirectory
+        * `figures` subdirectory with the illustrations of the simulation results
+        * `tables` subdirectory with the reports of the simulation results (optional)
+    * `.html` file, e.g., `lln_clt_ber_html.html`, with the interactive representation of the illustrations
+    * `myScript.js` with the javascript for the interactive illustrations
+    * `myStyle.css` with the css styles for the interactive illustrations
+    * Additional assets, e.g.,:
+        * `.png` file with a logo for the header of the `.html` file
+        * ...
+    
 ## DGPs and Estimators
 
 ### Bernoulli distribution and sample average
