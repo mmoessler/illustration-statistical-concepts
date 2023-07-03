@@ -34,23 +34,6 @@ bet_hat_sim_fun_01 <- function(rr, nn,
                                rho.21, rho.z1,
                                g0, g1){
   
-  # # inputs for checks
-  # rr <- 1000
-  # nn <- 100
-  # b0 <- -10
-  # b1 <- -1
-  # b2 <- -1
-  # x1.sd <- 1
-  # x2.sd <- 1
-  # z.sd <- 1
-  # u.sd <- 1
-  # rho.21 <- -0.5
-  # rho.z1 <- 0
-  # g0 <- 0
-  # g1 <- 0
-  
-  
-  
   # initialize vectors for simulation results
   b0h <- numeric(rr)
   b1h <- numeric(rr)
@@ -202,11 +185,6 @@ nn.vec <- c(5, 10, 25, 50, 100)
 x1.sd.vec <- c(1, 5, 10)
 u.sd.vec <- c(1, 5, 10)
 g1.vec <- c(-0.2, -0.1, 0, 0.1, 0.2)
-
-# nn.vec <- c(5, 100)
-# x1.sd.vec <- c(1, 15)
-# u.sd.vec <- c(1, 15)
-# g1.vec <- c(-0.2, 0.2)
 
 # inputs (fixed)
 rr <- 1000
