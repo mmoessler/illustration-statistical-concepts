@@ -12,9 +12,15 @@ The focus is the sampling properties of different estimators for the parameters 
 
 Starting point is the specification of the data generating process (DGP) based on a statistical model and the choice of an estimator to estimate the parameters of the statistical model.
 
+Based on simulation studies the effect of various changes to the DGP, e.g., an increasing sample size $N$, on the sampling properties of different estimators are analyzed and illustrated.
+
 ### Method - How?
 
-Simmulation study and illustration/reporting of simulation results
+To allow for a interactive and immediate user experience it is useful to seperate the simulation study and the interactive presentation of the simulation results. 
+
+This two-step procedure allows also for a flexibel implementation. I.e., the simulation studies can be conducted with any software such as *R*, *python*, etc. and the interactive presentation of the results can be achieved using basic web development languages such as `.html`, `.css` and `js`.
+
+Simmulation study and illustration/reporting of the simulation results
 
 * The DGP based on a given statistical model is simulated and the values of a given estimator is calculated.
 * The simulation results, i.e., the sampling distribution of the estimator, are illustrated using  barplots, scatterplots and/or histograms.
@@ -23,11 +29,16 @@ Simmulation study and illustration/reporting of simulation results
 * For each specification or estimator the results, e.g., figures and/or tables are save in different `.svg` and/or `html` files.
 * The simulation study is performed using the programming language for statistical computing and graphics [R](https://www.r-project.org/). 
 
-Interactive presentation of simulation results
+Interactive presentation of the simulation results
 
 * The results for different specifications, e.g., figures and/or tables, are interactively embedded in a `.html` file and linked to a slider input tag.
 * The effect of different specifications can be studied by changing the slider, i.e., the specification, and thus, the embedded results.
 * The interactive integration of the illustrations into the `.html` file is based on javascript.
+
+Integration in the lecture
+
+* The material of this learning module can be provided on a gradual basis using links to the specific illustrations / sub modules or as a complete course / module with a starting page and links to the sub modules.
+* The material can be hosted on *GitHub* or on a learning platform such as *ILIAS*. The easiest way to host the material on a learning platform such as *ILIAS* is using a import interface for `.html` structures. This is procedure is quite easy and flexibel in the case of *ILIAS*.
 
 Structure of the learning module
 
@@ -43,7 +54,17 @@ Structure of the learning module
     * Additional assets, e.g.,:
         * `.png` file with a logo for the header of the `.html` file
         * ...
-    
+
+
+
+### Goal - Why?
+
+The understanding of the sampling properties of estimators is one of the most important concepts of statistical inference, i.e, of learning from data about a (population) model of interest. 
+
+A popular approach to analyze and understand the sampling properties of estimators under different set-ups (DGPs) is through simulation studies. The results of the simulation studies can be reported using tables or illustrations, e.g., histograms.
+
+To understand the sampling properties it is useful to illustrate the sampling properties interactively, i.e, the student can change the DGP, e.g. increase the sample size" and can immediately observe the effects on the sampling distribution. 
+
 ## DGPs and Estimators
 
 ### Bernoulli distribution and sample average
