@@ -2,17 +2,17 @@
 
 ## Introduction
 
-This repository contains a learning module with interactive illustrations of statistical concepts.
+This repository contains the implementation of a learning module with interactive illustrations of statistical concepts.
 
 ### Subject - What?
 
-The focus is the sampling properties of estimators for parameters of statistical models.
+The focus is the sampling properties of different estimators for the parameters of different statistical models.
 
-Starting point is (1) the specification of the data generating process (DGP) based on a statistical model and (2) the choice of an estimator to estimate the parameters of the statistical model.
+Starting point is the specification of the data generating process (DGP) based on a statistical model and the choice of an estimator to estimate the parameters of the statistical model.
 
 ### Method - How?
 
-Step 1: Simmulation and illustration
+Simmulation and illustration
 
 * The DGP based on a given statistical model is simulated and the values of a given estimator is calculated.
 * The simulation results of the DGP are illustrated using, i.e., barplots, scatterplots, etc,, and the distribution of the estimates are illustrated using histograms.
@@ -20,11 +20,17 @@ Step 1: Simmulation and illustration
 * For each specification or estimator the illustrations are save in a different `.svg` file.
 * The simulations illustrations are performed using the programming language for statistical computing and graphics [R](https://www.r-project.org/). 
 
-Step 2: Interactive presentation
+Interactive presentation
 
-* The different illustrations for different specifications are interactively embedded in a `.html` file using slider.
+* The different illustrations for different specifications are interactively embedded in a `.html` file and linked to a slider input tag.
 * The effect of different specifications can be studied by changing the slider, i.e., the specification, and thus, the embedded illustration.
 * The interactive integration of the illustrations into the `.html` file is based on javascript. 
+
+Structure of the learning module
+
+* The learning module contains different sub modules where each sub module has a specific learning goal, e.g., "understand the effect of the sample size on the sample properties of the sample average to estimate the mean of a Bernouli distribution".
+* The material of a sub module is collected in a sub folder, e.g., `ln-clt_ber`.
+* The sub folder contains the 
 
 ## DGPs and Estimators
 
@@ -95,7 +101,9 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/ols-cas
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
 <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
 </a>
+
 <br />
+
 This work is licensed under a
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
 </a>.
