@@ -3,7 +3,7 @@
 rm(list=ls())
 
 # set directory of figures
-fig.dir <- "./lln-clt-con-uni/figures/"
+fig.dir <- "./con-uni-dis-sam-ave/figures/"
 
 # set seed 
 set.seed(12345)
