@@ -41,3 +41,12 @@ vignettes/*.pdf
 # Old/tests/...
 old/
 tests/
+
+# latex files
+*.sav
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.gz

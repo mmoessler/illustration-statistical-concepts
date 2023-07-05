@@ -6,19 +6,19 @@
 
 This repository contains the implementation of a learning module with interactive illustrations of statistical concepts.
 
-### Subject - What?
+### Subject of the learning module (What?)
 
-The focus is the sampling properties of different estimators for the parameters of different statistical models.
+The focus of the learning module is the sampling properties of different estimators for the parameters of different statistical models.
 
-Starting point is the specification of the data generating process (DGP) based on a statistical model and the choice of an estimator to estimate the parameters of the statistical model.
+Starting point is (1) the specification of the data generating process (DGP) based on a statistical model of interest and (2) the choice of an estimator to estimate the parameters of the statistical model of interest.
 
-Based on simulation studies the effect of various changes to the DGP, e.g., an increasing sample size $N$, on the sampling properties of different estimators are analyzed and illustrated.
+Based on simulation studies the effect of various changes to the DGP, e.g., increasing sample size $N$, on the sampling properties of different estimators are analyzed and illustrated.
 
-### Method - How?
+### Method/implementation of the learning module (How?)
 
-To allow for a interactive and immediate user experience it is useful to seperate the simulation study and the interactive presentation of the simulation results. 
+For an interactive and immediate user experience it is useful to seperate the simulation study and the interactive presentation of the simulation results. 
 
-This two-step procedure allows also for a flexibel implementation. I.e., the simulation studies can be conducted with any software such as *R*, *python*, etc. and the interactive presentation of the results can be achieved using basic web development languages such as `.html`, `.css` and `js`.
+This two-step procedure allows also a flexibel implementation. I.e., the simulation studies can be conducted with any software such as *R*, *python*, etc. and the interactive presentation of the results can be achieved using basic web development languages such as `.html`, `.css` and `js`.
 
 Simmulation study and illustration/reporting of the simulation results
 
@@ -35,10 +35,16 @@ Interactive presentation of the simulation results
 * The effect of different specifications can be studied by changing the slider, i.e., the specification, and thus, the embedded results.
 * The interactive integration of the illustrations into the `.html` file is based on javascript.
 
+Additional material, e.g., for explanation purposes
+
+* Verbal text or mathematical formula.
+* Audio or video explanations
+* Any additional can be added into the `html` file interactively or non-interactively.
+
 Integration in the lecture
 
-* The material of this learning module can be provided on a gradual basis using links to the specific illustrations / sub modules or as a complete course / module with a starting page and links to the sub modules.
-* The material can be hosted on *GitHub* or on a learning platform such as *ILIAS*. The easiest way to host the material on a learning platform such as *ILIAS* is using a import interface for `.html` structures. This is procedure is quite easy and flexibel in the case of *ILIAS*.
+* The material of this learning module can be provided on a gradual basis using links to the specific illustrations/sub modules or as a complete course/module with a starting page and links to the sub modules.
+* The material can be hosted on *GitHub* or on a learning platform such as *ILIAS*. The easiest way to host the material on a learning platform such as *ILIAS* is using a import interface for `.html` structures. In the case of the learning platform *ILIAS* this procedure is quite easy and flexibel.
 
 Structure of the learning module
 
@@ -55,9 +61,7 @@ Structure of the learning module
         * `.png` file with a logo for the header of the `.html` file
         * ...
 
-
-
-### Goal - Why?
+### Goal of the learning module (Why?)
 
 The understanding of the sampling properties of estimators is one of the most important concepts of statistical inference, i.e, of learning from data about a (population) model of interest. 
 
@@ -67,7 +71,9 @@ To understand the sampling properties it is useful to illustrate the sampling pr
 
 ## DGPs and Estimators
 
-### Bernoulli distribution and sample average
+### Univariate random experiments and sample average
+
+##### Bernoulli distribution and sample average
 
 This illustration shows the effect of changing the sample size $n$ and the probability of success $p$ of the Bernoulli distribution on the sampling distribution of the sample average as estimator for mean of the Bernoulli distribution.
 
@@ -87,7 +93,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/lln-clt
 
 ```
 
-## Simple linear regression model and OLS estimator
+### Simple linear regression model and OLS estimator
 
 Illustration of the properties of the OLS estimator to estimate the slope coefficient \(\beta_{1}\) of a linear regression model, i.e.,
 
@@ -97,7 +103,7 @@ Y_{i} = \beta_{0} + \beta_{1} X_{i} + u_{i}
 \end{align}
 $$
 
-### Large sample properties of the OLS estimator
+#### Large sample properties of the OLS estimator
 
 This illustration shows the effect of increasing the sample size \(N\) on the sampling distribution of the OLS estimator for the slope coefficient of a simple linear regression model.
 
@@ -107,7 +113,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/ols-cas
 
 ```
 
-### Effect of Heteroskedasticitiy
+#### Effect of Heteroskedasticitiy
 
 This illustration shows the effect of heteroskedasticity on the sampling distribution of the OLS estimator for the slope coefficient of a simple linear regression model.
 
@@ -117,7 +123,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/ols-cas
 
 ```
 
-### Effect of Omitted Variables
+#### Effect of Omitted Variables
 
 This illustration shows the effect of omitted variables on the sampling distribution of the OLS estimator for the slope coefficient of a simple linear regression model.
 
@@ -127,9 +133,14 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/ols-cas
 
 ```
 
+## To Dos
 
+* Include start page for complete distribution of the learning module
+* Extend parallelization beyond ols case 2-4 
+* Adapt the arrangement and style for an appealing appearance on mobile devices, e.g., via chrome explorer
+* Add a `.tex` slide presentation for the presentation of the learning module
 
-# Licence
+## Licence
 
 This project is part of the [DeLLFi](https://www.uni-hohenheim.de/en/project-dellfi) (Integrating digitalization along teaching, learning, and research) project of the University of Hohenheim and funded by [Foundation for Innovation in University Teaching](https://stiftung-hochschullehre.de/)
 
