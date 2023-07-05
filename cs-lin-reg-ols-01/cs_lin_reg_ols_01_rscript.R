@@ -3,7 +3,7 @@
 rm(list=ls())
 
 # set directory of figures
-fig.dir <- "./ols-case-01/figures/"
+fig.dir <- "./cs-lin-reg-ols-01/figures/"
 
 # set plot margins
 set_plt_mar <- function() {
