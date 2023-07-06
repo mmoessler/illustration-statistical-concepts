@@ -50,25 +50,6 @@ for (ii in 1:length(NN.vec)) {
     # construct sample mean
     lm.tmp <- lm(tmp.sim$Y.sim ~ 1)
     
-    # 2) table of observations/estimation results ----
-    tab.nam <- paste(tab.dir, "table_01_N", NN, ".html", sep = "")
-    print(xtable::xtable(data.frame(N = seq(1, NN), y = tmp.sim$Y.sim),
-                         align = c("p", "p", "r")),
-          include.rownames = FALSE, type = "html", file = tab.nam)
-
-    tab.nam <- paste(tab.dir, "table_02_N", NN, ".html", sep = "")
-    lm.tmp <- lm(tmp.sim$Y.sim ~ 1)
-    texreg::htmlreg(lm.tmp,
-                    single.row = TRUE,
-                    include.rsquared = FALSE,
-                    include.adjrs = FALSE,
-                    include.rmse = FALSE,
-                    custom.model.names = "Y",
-                    custom.coef.names = "sample average",
-                    caption = "",
-                    stars = NULL,
-                    file = tab.nam)
-    
     # plot no 01: barplot ----
     plt.nam <- paste(fig.dir, "figure_01_", ii, "_", jj, ".svg", sep = "")
     svg(plt.nam) 
