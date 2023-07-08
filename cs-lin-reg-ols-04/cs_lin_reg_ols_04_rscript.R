@@ -50,7 +50,7 @@ bet_hat_sim_fun_01 <- function(rr, nn,
   pre.mat.02 <- matrix(NA, nrow = nrow(x1.pre), ncol = rr) # based on biased/observed fit
   pre.mat.03 <- matrix(NA, nrow = nrow(x1.pre), ncol = rr) # based on true/unobserved fit
   pre.mat.04 <- matrix(NA, nrow = nrow(x1.pre), ncol = rr) # based on true/unobserved fit
-  res.pre.mat.01 <- matrix(NA, nrow = nrow(x1.pre), ncol = rr) # tru/unobserved residuals on x1
+  res.pre.mat.01 <- matrix(NA, nrow = nrow(x1.pre), ncol = rr) # true/unobserved residuals on x1
   
   for (ii in 1:rr) {
     
@@ -224,7 +224,6 @@ opts <- list(progress = progress)
 result <- foreach(ind = 1:nrow(tmp.grd),
                   .packages = needed.packages,
                   .options.snow = opts,
-                  # .verbose = T,
                   .options.RNG = 12345) %dorng% {
                     
                     ii <- tmp.grd[ind, 1]
@@ -265,15 +264,6 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     y.pol[which(y.pol > 100)] <- 100
                     polygon(x.pol, y.pol, border = NA, col = scales::alpha("red", 0.25))
                     
-                    # # add polygon unbiased/unobserved
-                    # x.pol <- c(seq(-200, 200, 1), rev(seq(-200, 200, 1)))
-                    # y.pol <- c(tmp.sim$pre.max.03, rev(tmp.sim$pre.min.03))
-                    # x.pol[which(x.pol < -100)] <- -100
-                    # x.pol[which(x.pol > 100)] <- 100
-                    # y.pol[which(y.pol < -100)] <- -100
-                    # y.pol[which(y.pol > 100)] <- 100
-                    # polygon(x.pol, y.pol, border = NA, col = scales::alpha("blue", 0.25))
-                    
                     # add polygon unbiased/unobserved
                     x.pol <- c(seq(-200, 200, 1), rev(seq(-200, 200, 1)))
                     y.pol <- c(tmp.sim$pre.max.04, rev(tmp.sim$pre.min.04))
@@ -296,10 +286,6 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     mm <- which(tmp.sim$x1.pre[,2] >= -100 & tmp.sim$x1.pre[,2] <= 100 & tmp.sim$fit.02.pre >= -100 & tmp.sim$fit.02.pre <= 100)
                     lines(x = tmp.sim$x1.pre[mm,2], y = tmp.sim$fit.02.pre[mm], lty = 2, col = "red", lwd = 2)
                     
-                    # # add line unbiased/unobserved
-                    # mm <- which(tmp.sim$x1.pre[,2] >= -100 & tmp.sim$x1.pre[,2] <= 100 & tmp.sim$fit.03.pre >= -100 & tmp.sim$fit.03.pre <= 100)
-                    # lines(x = tmp.sim$x1.pre[mm,2], y = tmp.sim$fit.03.pre[mm], lty = 2, col = "blue", lwd = 2)
-
                     # add line unbiased/unobserved
                     mm <- which(tmp.sim$x1.pre[,2] >= -100 & tmp.sim$x1.pre[,2] <= 100 & tmp.sim$fit.04.pre >= -100 & tmp.sim$fit.04.pre <= 100)
                     lines(x = tmp.sim$x1.pre[mm,2], y = tmp.sim$fit.04.pre[mm], lty = 2, col = "darkgreen", lwd = 2)
@@ -423,10 +409,6 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     nB <- length(h1$breaks)
                     rect(h1$breaks[-nB], 0, h1$breaks[-1L], h1$density, col = "grey")
                     
-                    # # plot h2
-                    # nB <- length(h2$breaks)
-                    # rect(h2$breaks[-nB], 0, h2$breaks[-1L], h2$density, col = scales::alpha("red", 0.25))
-                    
                     # add pdf for normal distribution
                     curve(dnorm(x, mean = 0, sd = 1), -6, 6,
                           lty = 2,
@@ -435,13 +417,7 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                           ylab = "",
                           add = TRUE,
                           col = "red")
-                    
-                    # # add legend no 01
-                    # legend("topleft",
-                    #        legend = c(expression("using robust"*~italic("SE")), expression("using ordinary"*~italic("SE"))),
-                    #        fill =  c(scales::alpha("darkgreen", 0.25), scales::alpha("red", 0.25)),
-                    #        inset = 0.05)
-                    
+
                     # add legend no 03
                     legend("topright",
                            legend = c(expression("pdf of "*italic("N")*"(0,1)")),

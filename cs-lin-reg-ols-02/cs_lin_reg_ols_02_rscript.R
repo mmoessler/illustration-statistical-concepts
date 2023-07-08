@@ -50,7 +50,7 @@ bet_hat_sim_fun_01 <- function(rr, nn,
   pre.mat.02 <- matrix(NA, nrow = nrow(x1.pre), ncol = rr) # based on biased/observed fit
   pre.mat.03 <- matrix(NA, nrow = nrow(x1.pre), ncol = rr) # based on true/unobserved fit
   pre.mat.04 <- matrix(NA, nrow = nrow(x1.pre), ncol = rr) # based on true/unobserved fit
-  res.pre.mat.01 <- matrix(NA, nrow = nrow(x1.pre), ncol = rr) # tru/unobserved residuals on x1
+  res.pre.mat.01 <- matrix(NA, nrow = nrow(x1.pre), ncol = rr) # true/unobserved residuals on x1
   
   for (ii in 1:rr) {
     
@@ -216,11 +216,10 @@ pb <- txtProgressBar(max = nrow(tmp.grd), style = 3)
 progress <- function(n) setTxtProgressBar(pb, n)
 opts <- list(progress = progress)
 
-# dp parallel simulation ----
+# do parallel simulation ----
 result <- foreach(ind = 1:nrow(tmp.grd),
                   .packages = needed.packages,
                   .options.snow = opts,
-                  # .verbose = T,
                   .options.RNG = 12345) %dorng% {
                     
                     ii <- tmp.grd[ind, 1]
@@ -301,32 +300,11 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     
                     grid()
                     
-                    # # add polygon
-                    # x.pol <- c(seq(-200, 200, 1), rev(seq(-200, 200, 1)))
-                    # y.pol <- c(tmp.sim$res.pre.max.01, rev(tmp.sim$res.pre.min.01))
-                    # x.pol[which(x.pol < -100)] <- -100
-                    # x.pol[which(x.pol > 100)] <- 100
-                    # y.pol[which(y.pol < -100)] <- -100
-                    # y.pol[which(y.pol > 100)] <- 100
-                    # polygon(x.pol, y.pol, border = NA, col = scales::alpha("red", 0.25))
-                    
                     # add points
                     lines(x = tmp.sim$x1, y = tmp.sim$res.01, type = "p", col = "red")
                     
                     # add zero line
                     lines(x = seq(-100, 100, 1), y = rep(0, length(seq(-100, 100, 1))), lty = 2, lwd = 2)
-                    
-                    # # added fitted regression line        
-                    # mm <- which(tmp.sim$x1.pre[,2] >= -100 & tmp.sim$x1.pre[,2] <= 100 & tmp.sim$res.fit.01.pre >= -100 & tmp.sim$res.fit.01.pre <= 100)
-                    # lines(x = tmp.sim$x1.pre[mm,2], y = tmp.sim$res.fit.01.pre[mm], lty = 2, col = "red", lwd = 2)
-                    
-                    # # add legend
-                    # legend("topright",
-                    #        legend = c(expression("Fitted residuals "*u[i]*" ")),
-                    #        lty = 2,
-                    #        lwd = 1,
-                    #        col = "red",
-                    #        inset = 0.05)
                     
                     dev.off()
                     
@@ -353,9 +331,6 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     
                     # add line for population parameter
                     abline(v = b1, lty = 2, col = "red", lwd = 2)
-                    
-                    # # add line for estimated parameter
-                    # abline(v = tmp.sim$b1h.boot.mea, lty = 2, col = "red", lwd = 2)
                     
                     # add legend
                     legend("topleft",
@@ -387,10 +362,6 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     nB <- length(h1$breaks)
                     rect(h1$breaks[-nB], 0, h1$breaks[-1L], h1$density, col = "grey")
                     
-                    # # plot h2
-                    # nB <- length(h2$breaks)
-                    # rect(h2$breaks[-nB], 0, h2$breaks[-1L], h2$density, col = scales::alpha("red", 0.25))
-                    
                     # add pdf for normal distribution
                     curve(dnorm(x, mean = 0, sd = 1), -6, 6,
                           lty = 2,
@@ -399,12 +370,6 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                           ylab = "",
                           add = TRUE,
                           col = "red")
-                    
-                    # # add legend no 01
-                    # legend("topleft",
-                    #        legend = c(expression("using robust"*~italic("SE")), expression("using ordinary"*~italic("SE"))),
-                    #        fill =  c(scales::alpha("darkgreen", 0.25), scales::alpha("red", 0.25)),
-                    #        inset = 0.05)
                     
                     # add legend no 03
                     legend("topright",
