@@ -41,23 +41,6 @@ bet_hat_sim_fun_01 <- function(rr, nn,
                                rho.21, rho.z1,
                                g0, g1){
   
-  # # inputs for checks
-  # rr <- 1000
-  # nn <- 100
-  # b0 <- -10
-  # b1 <- -1
-  # b2 <- -1
-  # x1.sd <- 1
-  # x2.sd <- 1
-  # z.sd <- 1
-  # u.sd <- 1
-  # rho.21 <- -0.5
-  # rho.z1 <- 0
-  # g0 <- 0
-  # g1 <- 0
-  
-  
-  
   # initialize vectors for simulation results
   b0h <- numeric(rr)
   b1h <- numeric(rr)
@@ -74,7 +57,7 @@ bet_hat_sim_fun_01 <- function(rr, nn,
   pre.mat.02 <- matrix(NA, nrow = nrow(x1.pre), ncol = rr) # based on biased/observed fit
   pre.mat.03 <- matrix(NA, nrow = nrow(x1.pre), ncol = rr) # based on true/unobserved fit
   pre.mat.04 <- matrix(NA, nrow = nrow(x1.pre), ncol = rr) # based on true/unobserved fit
-  res.pre.mat.01 <- matrix(NA, nrow = nrow(x1.pre), ncol = rr) # tru/unobserved residuals on x1
+  res.pre.mat.01 <- matrix(NA, nrow = nrow(x1.pre), ncol = rr) # true/unobserved residuals on x1
   
   # store first x results for plot 1
   x1.lis <- list()
@@ -265,7 +248,6 @@ opts <- list(progress = progress)
 result <- foreach(ind = 1:nrow(tmp.grd),
                   .packages = needed.packages,
                   .options.snow = opts,
-                  # .verbose = T,
                   .options.RNG = 12345) %dorng% {
                     
                     ii <- tmp.grd[ind, 1]
