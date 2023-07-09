@@ -42,7 +42,7 @@ This illustration shows the effect of increasing the sample size $n$ on the samp
 
 ```
 
-https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/cs-lin-reg-ols-01/cs_lin_reg_ols_html.html
+https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/cs-lin-reg-ols-01/cs_lin_reg_ols.html
 
 ```
 
@@ -58,7 +58,7 @@ on the sampling distribution of the OLS estimator for the slope coefficient of a
 
 ```
 
-https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/ols-case-01/ols_case_01_html_xx.html
+https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/cs-lin-reg-ols-02/cs_lin_reg_ols_02.html
 
 ```
 
@@ -68,7 +68,7 @@ This illustration shows the effect of heteroskedasticity on the sampling distrib
 
 ```
 
-https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/ols-case-02/ols_case_02_html_xx.html
+https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/cs-lin-reg-ols-03/cs_lin_reg_ols_03.html
 
 ```
 
@@ -78,16 +78,9 @@ This illustration shows the effect of omitted variables on the sampling distribu
 
 ```
 
-https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/ols-case-03/ols_case_03_html_xx.html
+https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/cs-lin-reg-ols-04/cs_lin_reg_ols_04.html
 
 ```
-
-## To Dos
-
-* Include start page for complete distribution of the learning module
-* Extend parallelization beyond ols case 2-4 
-* Adapt the arrangement and style for an appealing appearance on mobile devices, e.g., via chrome explorer
-* Add a `.tex` slide presentation for the presentation of the learning module
 
 ## Licence
 
