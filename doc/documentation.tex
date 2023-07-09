@@ -86,7 +86,64 @@ Other subjects are to understand the effect of omitted variable bias (OVB) and h
 
 \section{Method/implementation of the learning module (How?)}
 
+For an interactive and immediate user experience it is useful to separate the simulation study and the interactive presentation of the simulation results. 
 
+This two-step procedure allows also a flexibel implementation. I.e., the simulation studies can be conducted with any software such as \emph{R}, \emph{python}, etc. and the interactive presentation of the results can be achieved using basic web development languages such as \texttt{.html}, \texttt{.css} and \texttt{.js}.
+
+Simmulation study and illustration/reporting of the simulation results:
+
+\begin{itemize}
+	\item The DGP based on a given statistical model is simulated and the values of a given estimator is calculated.
+	\item The simulation results, i.e., the sampling distribution of the estimator, are illustrated using  barplots, scatterplots and/or histograms.
+	\item Other simulation results can be reported using tables.
+	\item The simulation study is performed for different specifications of the statistical model or for different estimators.
+	\item For each specification or estimator the results, e.g., figures and/or tables are save in different \texttt{.svg} and/or \texttt{html} files.
+	\item The simulation study is performed using the programming language for statistical computing and graphics \href{https://www.r-project.org/}{\emph{R}}.	
+\end{itemize}
+
+Interactive presentation of the simulation results:
+
+\begin{itemize}
+	\item The results for different specifications, e.g., figures and/or tables, are interactively embedded in a \texttt{.html} file and linked to a slider input tag.
+	\item The effect of different specifications can be studied by changing the slider, i.e., the specification, and thus, the embedded results.
+	\item The interactive integration of the illustrations into the \texttt{.html} file is based on javascript.
+\end{itemize}
+
+Additional material, e.g., for explanation purposes:
+
+\begin{itemize}
+	\item Verbal text or mathematical formula.
+	\item Audio or video explanations
+	\item Any additional can be added into the \texttt{html} file interactively or non-interactively.
+\end{itemize}
+
+Integration in the lecture:
+
+\begin{itemize}
+	\item The material of this learning module can be provided on a gradual basis using links to the specific illustrations/sub modules or as a complete course/module with a starting page and links to the sub modules.
+	\item The material can be hosted on \emph{GutHub} or on a learning platform such as \emph{ILIAS}. The easiest way to host the material on a learning platform such as \emph{ILIAS} is using a import interface for \texttt{.html} structures. In the case of the learning platform \emph{ILIAS} this procedure is quite easy and flexible.	
+\end{itemize}
+
+Structure of the learning module:
+
+\begin{itemize}
+	\item The learning module contains different sub modules where each sub module has a specific learning goal, e.g., ``understand the effect of the sample size on the sample properties of the sample average to estimate the mean of a Bernouli distribution''.
+	\item The material of a sub module is collected in a sub folder, e.g., \texttt{lln-clt-ber}.
+	\item The sub folder contains:
+	\begin{itemize}
+		\item \texttt{.R} file, e.g., \texttt{lln\_clt\_ber\_ber\_rscript.R}, with the simulation study and the results stored in the \texttt{figures} and/or \texttt{tables} subdirectory
+		\item \texttt{figures} subdirectory with the illustrations of the simulation results
+		\item \texttt{tables} subdirectory with the reports of the simulation results (optional)
+		\item \texttt{.html} file, e.g., \texttt{lln\_clt\_ber\_html.html}, with the interactive representation of the illustrations
+		\item \texttt{myScript.js} with the javascript for the interactive illustrations
+		\item \texttt{myStyle.css} with the css styles for the interactive illustrations
+		\item Additional assets, e.g.,:
+		\begin{itemize}
+			\item \texttt{.png} file with a logo for the header of the \texttt{.html} file
+			\item ...
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
 
 
 
