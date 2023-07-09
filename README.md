@@ -4,7 +4,7 @@
 
 ## DGPs and Estimators
 
-### Univariate random experiments and sample average
+### Univariate random variables and sample average
 
 ##### Bernoulli distribution and sample average
 
@@ -12,7 +12,7 @@ This illustration shows the effect of changing the sample size $n$ and the proba
 
 ```
 
-https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/ber-dis-sam-ave/ber_dis_sam_ave_html_xx.html
+https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/ber-dis-sam-ave/ber_dis_sam_ave_html.html
 
 ```
 
