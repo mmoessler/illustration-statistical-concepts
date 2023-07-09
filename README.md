@@ -22,7 +22,7 @@ This illustration shows the effect of changing the sample size $n$ and the lower
 
 ```
 
-https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/con-uni-dis-sam-ave/con_uni_dis_sam.html
+https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/con-uni-dis-sam-ave/con_uni_dis_sam_ave.html
 
 ```
 
