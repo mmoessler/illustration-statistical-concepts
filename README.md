@@ -6,7 +6,7 @@
 
 ### Univariate random variables and sample average
 
-##### Bernoulli distribution and sample average
+#### Bernoulli distribution and sample average
 
 This illustration shows the effect of changing the sample size $n$ and the probability of success $p$ of the Bernoulli distribution on the sampling distribution of the sample average as estimator for mean of the Bernoulli distribution.
 
@@ -50,9 +50,9 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/cs-lin-
 
 This illustration shows the effect of changing the parameters of the DFP, i.e.,  
 
-(1) changing the sample size $n$,
-(2) changing the variance of $u_{i}$, i.e., $\sigma_{u_{i}}^{2}$, and,
-(3) changing the variance of $X_{i}$, i.e., $\sigma_{X}^{2}$, 
+1. changing the sample size $n$,
+2. changing the variance of $u_{i}$, i.e., $\sigma_{u_{i}}^{2}$, and,
+3. changing the variance of $X_{i}$, i.e., $\sigma_{X}^{2}$, 
 
 on the sampling distribution of the OLS estimator for the slope coefficient of a simple linear regression model.
 
