@@ -34,7 +34,7 @@ a.vec <- seq(-4, -2, 0.5)
 b.vec <- seq(2, 4, 0.5)
 
 # inputs (fixed)
-RR <- 1000
+RR <- 10000
 
 # simulation/illustration ----
 for (ii in 1:length(NN.vec)) {

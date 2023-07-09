@@ -12,7 +12,7 @@ set.seed(12345)
 Y_bar_ber_sim_fun <- function(RR, NN, p){
   
   # theoretical moments
-  mu <- p      # mean
+  mu <- p # mean
   s2 <- p*(1-p) # variance
   
   Y.bar   <- numeric(RR)
@@ -33,7 +33,7 @@ NN.vec <- c(5, 10, 25, 50, 100)
 p.vec <- c(0.2, 0.4, 0.6, 0.8)
 
 # inputs (fixed)
-RR <- 1000
+RR <- 10000
 
 # simulation/illustration ----
 
