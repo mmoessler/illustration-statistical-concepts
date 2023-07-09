@@ -8,7 +8,7 @@
 
 ##### Bernoulli distribution and sample average
 
-This illustration shows the effect of changing the sample size \(n\) and the probability of success \(p\) of the Bernoulli distribution on the sampling distribution of the sample average as estimator for mean of the Bernoulli distribution.
+This illustration shows the effect of changing the sample size $n$ and the probability of success $p$ of the Bernoulli distribution on the sampling distribution of the sample average as estimator for mean of the Bernoulli distribution.
 
 ```
 
@@ -18,7 +18,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/ber-dis
 
 #### Continuous uniform distribution and sample average
 
-This illustration shows the effect of changing the sample size \(n\) and the lower bound \(a\) and the upper bound \(b\) of the continuous uniform distribution on the sampling distribution of the sample average as estimator for mean of the continuous uniform distribution.
+This illustration shows the effect of changing the sample size $n$ and the lower bound $a$ and the upper bound $b$ of the continuous uniform distribution on the sampling distribution of the sample average as estimator for mean of the continuous uniform distribution.
 
 ```
 
@@ -28,7 +28,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/con-uni
 
 ### Simple linear regression model and OLS estimator
 
-Illustration of the properties of the OLS estimator to estimate the slope coefficient \(\beta_{1}\) of a linear regression model, i.e.,
+Illustration of the properties of the OLS estimator to estimate the slope coefficient $\beta_{1}$ of a linear regression model, i.e.,
 
 $$
 \begin{align}
@@ -38,7 +38,7 @@ $$
 
 #### Sampling distribution and sample size
 
-This illustration shows the effect of increasing the sample size \(N\) on the sampling distribution of the OLS estimator for the slope coefficient of a simple linear regression model.
+This illustration shows the effect of increasing the sample size $n$ on the sampling distribution of the OLS estimator for the slope coefficient of a simple linear regression model.
 
 ```
 
@@ -50,9 +50,9 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/cs-lin-
 
 This illustration shows the effect of changing the parameters of the DFP, i.e.,  
 
-(1) changing the sample size \(n\),
-(2) changing the variance of \(u_{i}\), i.e., \(\sigma_{u_{i}}^{2}\), and,
-(3) changing the variance of \(X_{i}\), i.e., \(\sigma_{X}^{2}\), 
+(1) changing the sample size $n$,
+(2) changing the variance of $u_{i}$, i.e., $\sigma_{u_{i}}^{2}$, and,
+(3) changing the variance of $X_{i}$, i.e., $\sigma_{X}^{2}$, 
 
 on the sampling distribution of the OLS estimator for the slope coefficient of a simple linear regression model.
 
