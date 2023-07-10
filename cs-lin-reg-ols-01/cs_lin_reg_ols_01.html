@@ -26,7 +26,7 @@
           <div class="jumbotron" id="topJumb">
             
             <p style='font-size: 28pt;'>Properties of the OLS Estimator</p>
-            <p style='font-size: 18pt; margin-top: -10px;'>(Finite) Sample Distribution and Large Sample Distribution</p> 
+            <p style='font-size: 18pt; margin-top: -10px;'>(Finite) and Large Sample Distribution</p> 
       
           </div>
 
@@ -39,18 +39,17 @@
 
         <div class="jumbotron">
 
-          <p style="font-size: 18pt">Sample draws and sample distribution</p>
+          <p style="font-size: 18pt">Realization of the DGP and sample distribution of the estimator</p>
 
-          <p style="margin-left: 10pt;">We simulate a sample draw of (finite) size \(n\) based on the DGP below and calculate the value for the estimator below for the particular sample draw.</p>
-          <p style="margin-left: 10pt;">We repeat this exercise \(10,000\) times to get \(10,000\) values for our estimator.</p>
-          <p style="margin-left: 10pt;">The distribution of these \(10,000\) values for our estimator is the (finite) sample distribution of the estimator.</p>
-          <p style="margin-left: 10pt;">The distribution of these \(10,000\) values large $n$ is the (large) sample distribution of the estimator.</p>
+          <p style="margin-left: 10pt;">We simulate realizations of the DGP below and calculate the value for the estimator below for the particular realization of the DGP.</p>
+          <p style="margin-left: 10pt;">We repeat this exercise \(10,000\) times to get \(10,000\) values for the estimator. The distribution of these \(10,000\) values for the estimator is the (finite) sample distribution of the estimator.</p>
+          <p style="margin-left: 10pt;">The sample distribution of the estimator depends on the sample size \(n\). The limiting distribution, i.e., for \(n \rightarrow \infty\), is the large sample distribution of the estimator.</p>
 
           <hr>
 
-          <p style="font-size: 18pt">Data Generating Process (DGP)</p>
+          <p style="font-size: 18pt">Data generating process (DGP)</p>
         
-          <p>Consider the simple regression model,</p>
+          <p>Consider sample draws of size \(n\) from the simple regression model,</p>
 
           $$
           \begin{align}
@@ -250,7 +249,22 @@
           <div class="jumbotron">
             
             <p style="font-size: 18pt">More Details</p>
-                    
+
+            <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Simulation Exercise</span> </button>
+            <div class="collContentCl">
+
+              <ol style="margin-top: 10px;">
+                <li>A i.i.d. sample of size \(n\), i.e., a sequence of observations \(X_{1}, X_{2}, ..., X_{n}\) and \(u_{1}, u_{2}, ..., u_{n}\), are drawn from the distribution of \(X_{i}\) and \(u_{i}\) specified above.</li>
+                <li>Based on the sequence of observations \(X_{1}, X_{2}, ..., X_{n}\) and \(u_{1}, u_{2}, ..., u_{n}\) a sequence of observations \(Y_{1}, Y_{2}, ..., Y_{n}\)  is constructed based on the regression model above.</li>
+                <li>Based on the sequence of observations \(Y_{1}, Y_{2}, ... Y_{n}\) and \(X_{1}, X_{2}, ..., X_{n}\), the intercept \(\beta_{0}\) and the slop parameter \(\beta_{1}\) is estimated using OLS.</li>
+                <li>The value of the estimate for the slope parameter, i.e., \(\widehat{\beta}_{1}\), is stored.</li>
+                <li>Step 1) to 4) is repeated \(10,000\) times resulting in \(1000\) OLS estimates for the slope parameter, i.e., \(\widehat{\beta}_{1}\).</li>
+                <li>The distribution of \(\widehat{\beta}_{1}\) and the standardized \(\widehat{\beta}_{1}\), i.e., \(z_{\widehat{\beta}_{1}}\), are illustrated using histograms.</li>
+                <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the different outcomes of the samples the OLS estimates will vary across sample draws.</p>
+              </ol>
+
+            </div>
+
             <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Construction of \(z_{\overline{Y}}\)</span> </button>
             <div class="collContentCl">
 
@@ -279,21 +293,6 @@
               \widetilde{\sigma}_{\widehat{\beta}_{1}}^{2} = \frac{\frac{1}{n-2}\sum_{i=1}^{n}\widehat{u}_{i}^{2}}{\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}}.
               \end{align}
               $$
-
-            </div>
-
-            <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Simulation Exercise</span> </button>
-            <div class="collContentCl">
-
-              <ol style="margin-top: 10px;">
-                <li>A i.i.d. sample of size \(n\), i.e., a sequence of observations \(X_{1}, X_{2}, ..., X_{n}\) and \(u_{1}, u_{2}, ..., u_{n}\), are drawn from the distribution of \(X_{i}\) and \(u_{i}\) specified above.</li>
-                <li>Based on the sequence of observations \(X_{1}, X_{2}, ..., X_{n}\) and \(u_{1}, u_{2}, ..., u_{n}\) a sequence of observations \(Y_{1}, Y_{2}, ..., Y_{n}\)  is constructed based on the regression model above.</li>
-                <li>Based on the sequence of observations \(Y_{1}, Y_{2}, ... Y_{n}\) and \(X_{1}, X_{2}, ..., X_{n}\), the intercept \(\beta_{0}\) and the slop parameter \(\beta_{1}\) is estimated using OLS.</li>
-                <li>The value of the estimate for the slope parameter, i.e., \(\widehat{\beta}_{1}\), is stored.</li>
-                <li>Step 1) to 4) is repeated \(10,000\) times resulting in \(1000\) OLS estimates for the slope parameter, i.e., \(\widehat{\beta}_{1}\).</li>
-                <li>The distribution of \(\widehat{\beta}_{1}\) and the standardized \(\widehat{\beta}_{1}\), i.e., \(z_{\widehat{\beta}_{1}}\), are illustrated using histograms.</li>
-                <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the different outcomes of the samples the OLS estimates will vary across sample draws.</p>
-              </ol>
 
             </div>
 
