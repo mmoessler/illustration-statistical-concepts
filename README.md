@@ -42,11 +42,11 @@ This illustration shows the effect of increasing the sample size $n$ on the samp
 
 ```
 
-https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/cs-lin-reg-ols-01/cs_lin_reg_ols.html
+https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/cs-lin-reg-ols-01/cs_lin_reg_ols_01.html
 
 ```
 
-#### Parameters of the DGP
+#### Sample size and parameterization of the DGP
 
 This illustration shows the effect of changing the parameters of the DFP, i.e.,  
 
