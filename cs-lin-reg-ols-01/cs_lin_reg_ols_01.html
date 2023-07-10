@@ -26,7 +26,7 @@
           <div class="jumbotron" id="topJumb">
             
             <p style='font-size: 28pt;'>Properties of the OLS Estimator</p>
-            <p style='font-size: 18pt; margin-top: -10px;'>Sampling Distribution and Sample Size</p> 
+            <p style='font-size: 18pt; margin-top: -10px;'>(Finite) Sample Distribution and Large Sample Distribution</p> 
       
           </div>
 
@@ -39,15 +39,16 @@
 
         <div class="jumbotron">
 
-          <p style="font-size: 18pt">Sample draws and sampling distribution</p>
+          <p style="font-size: 18pt">Sample draws and sample distribution</p>
 
-          <p style="margin-left: 10pt;">We simulate a sample draw of size \(n\) from our statistical model and calculate the the value for our estimator for the particular sample draw.</p>
+          <p style="margin-left: 10pt;">We simulate a sample draw of (finite) size \(n\) based on the DGP below and calculate the value for the estimator below for the particular sample draw.</p>
           <p style="margin-left: 10pt;">We repeat this exercise \(10,000\) times to get \(10,000\) values for our estimator.</p>
-          <p style="margin-left: 10pt;">The distribution of these \(10,000\) values for our estimator is the sampling distribution of our estimator.</p>
+          <p style="margin-left: 10pt;">The distribution of these \(10,000\) values for our estimator is the (finite) sample distribution of the estimator.</p>
+          <p style="margin-left: 10pt;">The distribution of these \(10,000\) values large $n$ is the (large) sample distribution of the estimator.</p>
 
           <hr>
 
-          <p style="font-size: 18pt">Statistical Model</p>
+          <p style="font-size: 18pt">Data Generating Process (DGP)</p>
         
           <p>Consider the simple regression model,</p>
 
@@ -73,7 +74,7 @@
 
           <p style="font-size: 18pt">Estimator and Parameter of Interest</p>
           
-          <p>We are interested in the sampling properties of the OLS estimator \(\widehat{\beta}_{1}\) given by,</p>
+          <p>We are interested in the sample properties of the OLS estimator \(\widehat{\beta}_{1}\) given by,</p>
 
           $$
           \begin{align}
