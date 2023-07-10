@@ -38,7 +38,7 @@ One potential reason for this is that the sampling properties of estimators are 
 %
 The goal of this learning module is to give a more intuitive understanding of the sampling properties of estimators using interactive illustrations of simulation results. 
 
-An example is to understand the effect of the sample size $N$ on the sampling properties of the sample average $\overline{X}$ as an estimator for the mean $\mu$ of a random variable of interest as stated in the law of large numbers (LLN) and the central limit theorem (CLT). 
+An example is to understand the effect of the sample size $n$ on the sampling properties of the sample average $\overline{X}$ as an estimator for the mean $\mu$ of a random variable of interest as stated in the law of large numbers (LLN) and the central limit theorem (CLT). 
 %
 Using interactive illustrations of simulation results the students can increase the sample size and observe how the sample average gets closer to the mean (LLN) and how the sampling distribution of the standardized statistic of the sample average gets closer to the standard normal distribution (CLT).
 
@@ -54,31 +54,59 @@ Based on the DGP the parameter of interest is estimated using a particular estim
 %
 This learning module shows the effect of changes in the DGP on the sampling distribution of an estimator.  
 
-Note, the interactive illustration of the sampling properties of the sample average for increasing the sample size $N$, i.e., the large sample properties of the sample mean, is only one subject of interest. 
+Note, the interactive illustration of the sampling properties of the sample average for increasing the sample size $n$, i.e., the large sample properties of the sample mean, is only one subject of interest. 
 %
 Other subjects are to understand the effect of omitted variable bias (OVB) and heteroskedasticity on the sampling distribution of the OLS estimator in a simple linear regression model.
 
-\subsection{Bernoulli Distribution and Sample Average}
+\subsection{Univariate random variables and sample average}
+
+\subsubsection{Bernoulli distribution and sample average}
 
 % ber_dis_sam_ave
 
-\subsection{Continuous Uniform Distribution and Sample Average}
+This illustration shows the effect of changing the sample size $n$ and the probability of success $p$ of the Bernoulli distribution on the sampling distribution of the sample average as estimator for mean of the Bernoulli distribution.
+
+\subsubsection{Continuous uniform distribution and sample average}
 
 % con_und_dis_sam_ave
 
+This illustration shows the effect of changing the sample size $n$ and the lower bound $a$ and the upper bound $b$ of the continuous uniform distribution on the sampling distribution of the sample average as estimator for mean of the continuous uniform distribution.
+
 \subsection{Cross Section Linear Regression Model and Ordinary Least Squares}
 
-\subsubsection{Parameterization and the Effect of Sample Size}
+Illustration of the properties of the OLS estimator to estimate the slope coefficient $\beta_{1}$ of a linear regression model, i.e.,
+
+\begin{align}
+	Y_{i} = \beta_{0} + \beta_{1} X_{i} + u_{i}
+\end{align}
+
+\subsubsection{Sampling distribution and sample size}
 
 % cs_lin_reg_ols_01
 
-\subsubsection{Effect of Heteroskedasticity}
+This illustration shows the effect of increasing the sample size $n$ on the sampling distribution of the OLS estimator for the slope coefficient of a simple linear regression model.
+
+\subsubsection{Sample Size and parameterization of the DGP}
 
 % cs_lin_reg_ols_02
 
-\subsubsection{Effect of Omitted Variable Bias}
+This illustration shows the effect of changing the parameters of the DFP, i.e.,  
+
+\begin{itemize}
+	\item[1.] changing the sample size $n$,
+	\item[2.] changing the variance of $u_{i}$, i.e., $\sigma_{u_{i}}^{2}$, and,
+	\item[3.] changing the variance of $X_{i}$, i.e., $\sigma_{X}^{2}$, 
+\end{itemize}
+
+on the sampling distribution of the OLS estimator for the slope coefficient of a simple linear regression model.
+
+\subsubsection{Effect of Heteroskedasticity}
 
 % cs_lin_reg_ols_03
+
+\subsubsection{Effect of Omitted Variable Bias}
+
+% cs_lin_reg_ols_04
 
 
 
@@ -86,9 +114,9 @@ Other subjects are to understand the effect of omitted variable bias (OVB) and h
 
 \section{Method/implementation of the learning module (How?)}
 
-For an interactive and immediate user experience it is useful to separate the simulation study and the interactive presentation of the simulation results. 
+For an interactive and immediate user experience it is useful to separate the simulation study and the interactive presentation of the results. 
 
-This two-step procedure allows also a flexibel implementation. I.e., the simulation studies can be conducted with any software such as \emph{R}, \emph{python}, etc. and the interactive presentation of the results can be achieved using basic web development languages such as \texttt{.html}, \texttt{.css} and \texttt{.js}.
+This two-step procedure allows also a flexible implementation, i.e., the simulation studies can be conducted with any suitable software, e.g., \emph{R}, \emph{python}, etc. and the results can be presented interactively using basic web development languages, i.e., \texttt{.html}, \texttt{.css} and \texttt{.js}.
 
 Simmulation study and illustration/reporting of the simulation results:
 
