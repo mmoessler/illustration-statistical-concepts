@@ -46,19 +46,17 @@ Using interactive illustrations of simulation results the students can increase 
 
 \subsection{General}
 
-Subject of this learning module is the sampling properties of different estimators for different specifications of the data generating process (DGP). 
+Subject of this learning module are the sampling properties of estimators for different data generating processes (DGPs). 
 %
-The DGP is based on a statistical model with a particular parameter of interest, e.g., the mean of a Bernoulli random variable. 
+The DGPs are based on a statistical model with a particular parameter of interest, e.g., the mean of a Bernoulli random variable. 
 %
-The parameter of interest of the DGP is estimated using a particular estimator, e.g., the sample average. 
+The parameter(s) of interest of the DGPs are estimated using a particular estimator, e.g., the sample average. 
 %
-This learning module shows the effect of changes in the DGP on the sampling distribution of an estimator.  
+This learning module shows the effect of changes in the DGP, e.g., increasing the sample size $n$, on the sampling distribution of an estimator. 
 
 Note, the interactive illustration of the sampling properties of the sample average for increasing the sample size $n$, i.e., the large sample properties of the sample mean, is only one subject of interest. 
 %
 Other subjects are to understand the effect of omitted variable bias (OVB) and heteroskedasticity on the sampling distribution of the OLS estimator in a simple linear regression model.
-
-%Use the terminology simulate 10,000 realizations of the DGP... 
 
 \subsection{Univariate random variables and sample average}
 
@@ -123,7 +121,8 @@ This two-step procedure allows also a flexible implementation, i.e., the simulat
 \emph{Simulation study and illustration/reporting of the results:}
 
 \begin{itemize}
-	\item The DGP based on a given statistical model is simulated and the values of a given estimator is calculated.
+	\item A realization of the DGP is simulated and the values of a given estimator is calculated.
+	\time This procedure is repeated $10,000$ times. 
 	\item The simulation results, i.e., the sampling distribution of the estimator, are illustrated using  barplots, scatterplots and/or histograms.
 	\item Other simulation results can be reported using tables.
 	\item The simulation study is performed for different specifications of the statistical model or for different estimators.
