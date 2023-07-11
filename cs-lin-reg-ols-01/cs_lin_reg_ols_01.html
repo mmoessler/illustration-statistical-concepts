@@ -25,30 +25,33 @@
 
           <div class="jumbotron" id="topJumb">
             
-            <p style='font-size: 28pt;'>Properties of the OLS Estimator</p>
-            <p style='font-size: 18pt; margin-top: -10px;'>(Finite) and Large Sample Distribution</p> 
+            <p style="font-size: 28pt;">Linear Regression Model and the OLS Estimator</p>
+            <p style="font-size: 18pt;">Sample Distribution and Effect of the Sample Size</p> 
       
           </div>
 
       </div>
     </div>
 
-
     <div class="container mt-5">
       <div class="row">
 
         <div class="jumbotron">
 
-          <p style="font-size: 18pt">Realization of the DGP and sample distribution of the estimator</p>
+          <p style="font-size: 18pt">Topic of the module</p>
 
-          <p style="margin-left: 10pt;">We simulate realizations of the DGP below and calculate the value for the estimator below for the particular realization of the DGP.</p>
-          <p style="margin-left: 10pt;">We repeat this exercise \(10,000\) times to get \(10,000\) values for the estimator. The distribution of these \(10,000\) values for the estimator is the (finite) sample distribution of the estimator.</p>
-          <p style="margin-left: 10pt;">The sample distribution of the estimator depends on the sample size \(n\). The limiting distribution, i.e., for \(n \rightarrow \infty\), is the large sample distribution of the estimator.</p>
+          <div style="margin-left: 10pt;">
+          <p>Understand the procedure to simulate the samplin distribution of the OLS estimator for the slope parameter of the linear regression model.</p>
+          <p>A Realization of the DGP (see below) is simulated and the value for the estimator (see below) is calculated.</p>
+          <p>This exercise is repated \(10,\!000\) times resulting in \(10,\!000\) values for the estimators. The distribution of these \(10,\!000\) values is the sample distribution of the estimator.</p>
+          </div>
 
           <hr>
 
           <p style="font-size: 18pt">Data generating process (DGP)</p>
         
+          <div style="margin-left: 10pt;">
+
           <p>Consider sample draws of size \(n\) from the simple regression model,</p>
 
           $$
@@ -69,9 +72,13 @@
 
           <p>where \(\sigma_{X}=5\) and \(\sigma_{u}=5\) is the standard deviation of \(X_{i}\) and \(u_{i}\), respectively.</p>
               
+          </div>
+
           <hr>
 
-          <p style="font-size: 18pt">Estimator and Parameter of Interest</p>
+          <p style="font-size: 18pt">Estimator and parameter of interest</p>
+          
+          <div style="margin-left: 10pt;">
           
           <p>We are interested in the sample properties of the OLS estimator \(\widehat{\beta}_{1}\) given by,</p>
 
@@ -82,6 +89,8 @@
           $$  
 
           <p>as estimator for the slope parameter \(\beta_{1}\) of the regression model above.</p>
+
+          </div>
 
         </div>
 
@@ -94,9 +103,13 @@
           <div class="jumbotron">
             
             <p style="font-size: 18pt">Illustration</p>
-              
+            
+            <div style="margin-left: 10pt;">
+            
             <p>Change the parameters and see the effect on the properties of the OLS estimator \(\widehat{\beta}_{1}\) as estimator for \(\beta_{1}\).</p>            
       
+            </div>
+
             <div class="container mt-5" style="margin-top: 50px;">
               <div class="row">
 
@@ -105,14 +118,14 @@
 
                     <p style="font-size: 14pt; margin-top:-25px; text-align: center">Parameters</p>
 
-                    <div style='margin-top: 50px;'>
+                    <div style="margin-top: 50px;">
                       
                       <hr>
 
-                      <p style='font-size: 12pt; text-align: center'>Sample Draw</p><p style='font-size: 12pt; text-align: center' id="ex601Val"></p>
+                      <p style="font-size: 12pt; text-align: center">Sample Draw</p><p style="font-size: 12pt; text-align: center" id="ex601Val"></p>
                       <input id="ex601" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
                       
-                      <p style='font-size: 12pt; text-align: center; margin-top: 10px;'>Sample Size</p><p style='font-size: 12pt; text-align: center' id="ex602Val"></p>
+                      <p style="font-size: 12pt; text-align: center; margin-top: 10px;">Sample Size</p><p style="font-size: 12pt; text-align: center" id="ex602Val"></p>
                       <input id="ex602" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
                       
                     </div>
@@ -162,7 +175,7 @@
 
                     <div id="tabContentL1N2Id" class="tabContentL1Cl">
 
-                      <p style="font-size: 16pt">Scatter plot (fitted residuals)</p>
+                      <p style="font-size: 14pt; text-align: center; margin-bottom: 0;">Scatter plot (fitted residuals)</p>
 
                       <img src="./figures/figure_02_3_3.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
 
@@ -180,7 +193,7 @@
 
                     <div id="tabContentL1N3Id" class="tabContentL1Cl">
 
-                      <p style='font-size: 16pt;'>Histogram of the OLS estimator \(\widehat{\beta}_{1}\)</p>
+                      <p style='font-size: 14pt; text-align: center; margin-bottom: 0;'>Histogram of the OLS estimator \(\widehat{\beta}_{1}\)</p>
                       
                       <img src="./figures/figure_03_3_3.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
 
@@ -206,7 +219,7 @@
 
                     <div id="tabContentL1N4Id" class="tabContentL1Cl">
 
-                      <p style='font-size: 16pt;'>Histogram of the standardized OLS estimator \(z_{\widehat{\beta}_{1}}\)</p>
+                      <p style='font-size: 14pt; text-align: center; margin-bottom: 0;'>Histogram of the standardized OLS estimator \(z_{\widehat{\beta}_{1}}\)</p>
 
                       <img src="./figures/figure_04_3_3.svg" alt="" id="imageL1N4Id" style="text-align: center; max-width: 100%;">
 
@@ -265,7 +278,7 @@
 
             </div>
 
-            <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Construction of \(z_{\overline{Y}}\)</span> </button>
+            <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Construction of \(z_{\widehat{\beta}_{1}}\)</span> </button>
             <div class="collContentCl">
 
               <p style="margin-top: 10px;">
