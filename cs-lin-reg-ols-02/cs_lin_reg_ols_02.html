@@ -25,21 +25,20 @@
 
           <div class="jumbotron" id="topJumb">
             
-            <p style='font-size: 28pt;'>Properties of the OLS Estimator</p>
-            <p style='font-size: 18pt; margin-top: -10px;'>Large sample Properties in General</p> 
+            <p style='font-size: 28pt;'>Linear Regression Model and the OLS Estimator</p>
+            <p style='font-size: 18pt; margin-top: -10px;'>Effect of the Parametrization of the DGP</p> 
       
           </div>
 
       </div>
     </div>
 
-
     <div class="container mt-5">
       <div class="row">
 
         <div class="jumbotron">
 
-          <p style="font-size: 18pt">Motivation</p>
+          <p style="font-size: 18pt">Topic of the module</p>
 
           <p>Understand the effect of ...</p>
 
@@ -51,9 +50,9 @@
 
           <hr>
 
-          <p style="font-size: 18pt">Statistical Model</p>
+          <p style="font-size: 18pt">Data generating process (DGP)</p>
         
-          <p>Consider the simple regression model,</p>
+          <p>Consider \(n\) observations are generated from the simple regression model,</p>
 
           $$
           \begin{align}
@@ -75,7 +74,7 @@
               
           <hr>
 
-          <p style="font-size: 18pt">Estimator and Parameter of Interest</p>
+          <p style="font-size: 18pt">Estimator and parameter of interest</p>
           
           <p>We are interested in the sampling properties of the OLS estimator \(\widehat{\beta}_{1}\) given by,</p>
 
@@ -99,7 +98,7 @@
             
             <p style="font-size: 18pt">Illustration</p>
               
-            <p>Change the parameters and see the effect on the properties of the OLS estimator \(\widehat{\beta}_{1}\) as estimator for \(\beta_{1}\).</p>            
+            <p>Change the parameters and see the effect on the properties of the OLS estimator \(\widehat{\beta}_{1}\) as estimator for \(\beta_{1}\).</p>
       
             <div class="container mt-5" style="margin-top: 50px;">
               <div class="row">
@@ -113,17 +112,17 @@
                       
                       <hr>
 
-                      <p style='font-size: 12pt; text-align: center'>Sample Size</p><p style='font-size: 12pt; text-align: center' id="ex601Val"></p>
-                      <input id="ex601" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <p style='font-size: 12pt; text-align: center'>Sample Size</p><p style='font-size: 12pt; text-align: center' id="sliderValue01Id"></p>
+                      <input id="slider01Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
                       
-                      <p style='font-size: 12pt; text-align: center'>Slope Coef.</p><p style='font-size: 12pt; text-align: center' id="ex602Val"></p>
-                      <input id="ex602" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <p style='font-size: 12pt; text-align: center'>Slope Coef.</p><p style='font-size: 12pt; text-align: center' id="sliderValue02Id"></p>
+                      <input id="slider02Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
 
-                      <p style='font-size: 12pt; text-align: center'>Variance of \(u_{i}\)</p><p style='font-size: 12pt; text-align: center' id="ex603Val"></p>
-                      <input id="ex603" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="1"/>
+                      <p style='font-size: 12pt; text-align: center'>Variance of \(u_{i}\)</p><p style='font-size: 12pt; text-align: center' id="sliderValue03Id"></p>
+                      <input id="slider03Id" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="1"/>
 
-                      <p style='font-size: 12pt; text-align: center'>Variance of \(X_{i}\)</p><p style='font-size: 12pt; text-align: center' id="ex604Val"></p>
-                      <input id="ex604" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="1"/>
+                      <p style='font-size: 12pt; text-align: center'>Variance of \(X_{i}\)</p><p style='font-size: 12pt; text-align: center' id="sliderValue04Id"></p>
+                      <input id="slider04Id" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="1"/>
 
                     </div>
 
@@ -136,18 +135,32 @@
                     <div class="tab" style="text-align: center;">
                       <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N1Id', 'tabLinkL1N1Id', 'white')" id="tabLinkL1N1Id">Sample Draw</button>
                       <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N2Id', 'tabLinkL1N2Id', 'white')" id="tabLinkL1N2Id">Residuals</button>
-                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N3Id', 'tabLinkL1N3Id', 'white')" id="tabLinkL1N3Id">Consistency</button>
-                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N4Id', 'tabLinkL1N4Id', 'white')" id="tabLinkL1N4Id">Asymptotic Normality</button>
+                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N3Id', 'tabLinkL1N3Id', 'white')" id="tabLinkL1N3Id">Estimates</button>
+                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N4Id', 'tabLinkL1N4Id', 'white')" id="tabLinkL1N4Id">Std. Estimates</button>
                     </div>
 
                     <br>
-                    <hr>
 
                     <div id="tabContentL1N1Id" class="tabContentL1Cl">
 
-                      <p style="font-size: 16pt">Scatter plot (observations)</p>
+                      <p style="font-size: 14pt; text-align: center; margin-bottom: 0;">Scatter plot (observations)</p>
                       
                       <img src="./figures/figure_01_3_3_2_2.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
+
+                      <div class="tab" style="text-align: center;">
+                        <button class="explainButtonCl" onclick="explainButto01Click(audioId = 'audioFigure01OverallId')" id="explainButtonL1N1Id">Explain Figure</button>
+                        <br>
+                        <br>
+                        <button class="animateButtonCl" onclick="animateButto01Click(org = 2, start = 0, stop = 4, audioId = 'audioFigure01Slider01Id')" id="animateButtonL1N1Id">Animate <br> Sample Size</button>
+                        &nbsp;&nbsp;&nbsp;
+                        <button class="animateButtonCl" onclick="animateButto02Click(org = 2, start = 0, stop = 4, audioId = 'audioFigure01Slider02Id')" id="animateButtonL1N2Id">Animate <br> Slope Coef.</button>
+                        &nbsp;&nbsp;&nbsp;
+                        <button class="animateButtonCl" onclick="animateButto03Click(org = 1, start = 0, stop = 2, audioId = 'audioFigure01Slider03Id')" id="animateButtonL1N3Id">Animate <br> Variance of \(u_{i}\)</button>
+                        &nbsp;&nbsp;&nbsp;
+                        <button class="animateButtonCl" onclick="animateButto04Click(org = 1, start = 0, stop = 2, audioId = 'audioFigure01Slider04Id')" id="animateButtonL1N4Id">Animate <br> Variance of \(X_{i}\)</button>
+                      </div>
+
+                      <br>
 
                       <p>The red fitted regression line is based on the regression of,</p>
 
@@ -157,15 +170,30 @@
                       \end{align}
                       $$
 
-                      <p>The scatter plots and the fitted regression lines represent the result for only one simulation. The shaded areas illustrate the range of all fitted regression lines across all simulations.</p>
+                      <p>The scatter plots and the fitted regression lines represent the result for one realization of the DGP. The shaded area illustrate the range of all fitted regression lines across all \(10,\!000\) realizations of the DGP.</p>
 
                     </div>
 
                     <div id="tabContentL1N2Id" class="tabContentL1Cl">
 
-                      <p style="font-size: 16pt">Scatter plot (fitted residuals)</p>
+                      <p style="font-size: 14pt; text-align: center; margin-bottom: 0;">Scatter plot (fitted residuals)</p>
 
                       <img src="./figures/figure_02_3_3_2_2.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
+
+                      <div class="tab" style="text-align: center;">
+                        <button class="explainButtonCl" onclick="explainButto01Click(audioId = 'audioFigure01OverallId')" id="explainButtonL1N1Id">Explain Figure</button>
+                        <br>
+                        <br>
+                        <button class="animateButtonCl" onclick="animateButto01Click(org = 2, start = 0, stop = 4, audioId = 'audioFigure01Slider01Id')" id="animateButtonL1N1Id">Animate <br> Sample Size</button>
+                        &nbsp;&nbsp;&nbsp;
+                        <button class="animateButtonCl" onclick="animateButto02Click(org = 2, start = 0, stop = 4, audioId = 'audioFigure01Slider02Id')" id="animateButtonL1N2Id">Animate <br> Slope Coef.</button>
+                        &nbsp;&nbsp;&nbsp;
+                        <button class="animateButtonCl" onclick="animateButto03Click(org = 1, start = 0, stop = 2, audioId = 'audioFigure01Slider03Id')" id="animateButtonL1N3Id">Animate <br> Variance of \(u_{i}\)</button>
+                        &nbsp;&nbsp;&nbsp;
+                        <button class="animateButtonCl" onclick="animateButto04Click(org = 1, start = 0, stop = 2, audioId = 'audioFigure01Slider04Id')" id="animateButtonL1N4Id">Animate <br> Variance of \(X_{i}\)</button>
+                      </div>
+
+                      <br>                      
 
                       <p>The fitted unobserved residuals are constructed as,</p>
 
@@ -175,18 +203,33 @@
                       \end{align}
                       $$
             
-                      <p>for only one simulation where \(\widehat{\beta}_{1}\) is the respective OLS estimate.</p>
+                      <p>and illustrated for one realization of the DGP where \(\widehat{\beta}_{1}\) is the respective OLS estimate.</p>
 
                     </div>
 
                     <div id="tabContentL1N3Id" class="tabContentL1Cl">
 
-                      <p style='font-size: 16pt;'>Histogram of the OLS estimator \(\widehat{\beta}_{1}\)</p>
+                      <p style='font-size: 14pt; text-align: center; margin-bottom: 0;'>Histogram of the OLS estimates \(\widehat{\beta}_{1}\)</p>
                       
                       <img src="./figures/figure_03_3_3_2_2.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
 
-                      <p>As the sample size \(n\) grows the OLS estimator \(\widehat{\beta}_{1}\) gets closer to \(\beta\), i.e.,</p>
-                      
+                      <div class="tab" style="text-align: center;">
+                        <button class="explainButtonCl" onclick="explainButto01Click(audioId = 'audioFigure01OverallId')" id="explainButtonL1N1Id">Explain Figure</button>
+                        <br>
+                        <br>
+                        <button class="animateButtonCl" onclick="animateButto01Click(org = 2, start = 0, stop = 4, audioId = 'audioFigure01Slider01Id')" id="animateButtonL1N1Id">Animate <br> Sample Size</button>
+                        &nbsp;&nbsp;&nbsp;
+                        <button class="animateButtonCl" onclick="animateButto02Click(org = 2, start = 0, stop = 4, audioId = 'audioFigure01Slider02Id')" id="animateButtonL1N2Id">Animate <br> Slope Coef.</button>
+                        &nbsp;&nbsp;&nbsp;
+                        <button class="animateButtonCl" onclick="animateButto03Click(org = 1, start = 0, stop = 2, audioId = 'audioFigure01Slider03Id')" id="animateButtonL1N3Id">Animate <br> Variance of \(u_{i}\)</button>
+                        &nbsp;&nbsp;&nbsp;
+                        <button class="animateButtonCl" onclick="animateButto04Click(org = 1, start = 0, stop = 2, audioId = 'audioFigure01Slider04Id')" id="animateButtonL1N4Id">Animate <br> Variance of \(X_{i}\)</button>
+                      </div>
+
+                      <br> 
+
+                      <p>As the sample size \(n\) grows the OLS estimator \(\widehat{\beta}_{1}\) gets closer to \(\beta_1\),</p>
+
                       $$
                       \begin{align}
                       \widehat{\beta}_{1} \overset{p}{\to} \beta.
@@ -197,19 +240,34 @@
 
                     <div id="tabContentL1N4Id" class="tabContentL1Cl">
 
-                      <p style='font-size: 16pt;'>Histogram of the standardized OLS estimator \(z_{\widehat{\beta}_{1}}\)</p>
+                      <p style='font-size: 14pt; text-align: center; margin-bottom: 0;'>Histogram of the standardized OLS estimates \(z_{\widehat{\beta}_{1}}\)</p>
 
                       <img src="./figures/figure_04_3_3_2_2.svg" alt="" id="imageL1N4Id" style="text-align: center; max-width: 100%;">
 
-                      <p>As the sample size \(n\) grows the distribution of the standardized sample average,</p>
+                      <div class="tab" style="text-align: center;">
+                        <button class="explainButtonCl" onclick="explainButto01Click(audioId = 'audioFigure01OverallId')" id="explainButtonL1N1Id">Explain Figure</button>
+                        <br>
+                        <br>
+                        <button class="animateButtonCl" onclick="animateButto01Click(org = 2, start = 0, stop = 4, audioId = 'audioFigure01Slider01Id')" id="animateButtonL1N1Id">Animate <br> Sample Size</button>
+                        &nbsp;&nbsp;&nbsp;
+                        <button class="animateButtonCl" onclick="animateButto02Click(org = 2, start = 0, stop = 4, audioId = 'audioFigure01Slider02Id')" id="animateButtonL1N2Id">Animate <br> Slope Coef.</button>
+                        &nbsp;&nbsp;&nbsp;
+                        <button class="animateButtonCl" onclick="animateButto03Click(org = 1, start = 0, stop = 2, audioId = 'audioFigure01Slider03Id')" id="animateButtonL1N3Id">Animate <br> Variance of \(u_{i}\)</button>
+                        &nbsp;&nbsp;&nbsp;
+                        <button class="animateButtonCl" onclick="animateButto04Click(org = 1, start = 0, stop = 2, audioId = 'audioFigure01Slider04Id')" id="animateButtonL1N4Id">Animate <br> Variance of \(X_{i}\)</button>
+                      </div>
+
+                      <br>                       
+
+                      <p>As the sample size \(n\) grows the distribution of the standardized OLS estimator,</p>
 
                       $$
                       \begin{align}
-                      z_{\overline{Y}} &= \frac{\overline{Y} - \beta}{\sigma_{\widehat{\beta}_{1}}},
+                      z_{\widehat{\beta}_1} &= \frac{\widehat{\beta}_1 - \beta_1}{\sigma_{\widehat{\beta}_{1}}},
                       \end{align}
                       $$
 
-                      <p>gets closer to the standard normal distribution \(N\left(0, 1\right)\).</p>                      
+                      <p>gets closer to the standard normal distribution \(N\left(0, 1\right)\).</p>                    
 
                     </div>
 
@@ -227,11 +285,30 @@
     <div class="container mt-5">
       <div class="row">
 
-          <div class="jumbotron">
+        <div class="jumbotron">
             
             <p style="font-size: 18pt">More Details</p>
-                    
-            <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Construction of \(z_{\overline{Y}}\)</span> </button>
+
+            <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Simulation Exercise</span> </button>
+            <div class="collContentCl">
+
+              <ol type="1" style="margin-top: 10px;">
+                <li>A realization of the DGP specificied above is simulated:
+                <ol type="I">
+                  <li>A i.i.d. sequence of realizations \(X_{1}, X_{2}, ..., X_{n}\) and \(u_{1}, u_{2}, ..., u_{n}\) are drawn from the distribution of \(X_{i}\) and \(u_{i}\) above.</li>
+                  <li>Based on the sequence of observations \(X_{1}, X_{2}, ..., X_{n}\) and \(u_{1}, u_{2}, ..., u_{n}\) a sequence of observations \(Y_{1}, Y_{2}, ..., Y_{n}\) is constructed based on the regression model above.</li>                  
+                </ol>
+                </li>
+                <li>Based on the sequence of observations \(Y_{1}, Y_{2}, ... Y_{n}\) and \(X_{1}, X_{2}, ..., X_{n}\), the OLS estimates and standardized OLS estimates for the intercept \(\beta_{0}\) and slope parameter \(\beta_{1}\) are calcluated.</li>  
+                <li>The values of the OLS estimate \(\widehat{\beta}_{1}\) and the standardized OLS estimate \(z_{\widehat{\beta}_{1}}\) are stored.</li>
+                <li>Step 1 to 3 is repeated \(10,000\) times resulting in \(10,\!000\) OLS and standardized OLS estimates.</li>
+                <li>The distribution of the OLS and standardized estimates are illustrated using histograms.</li>
+                <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the different outcomes of the samples the OLS estimates will vary across sample draws.</p>
+              </ol>
+
+            </div>
+
+            <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Construction of \(z_{\widehat{\beta}_{1}}\)</span> </button>
             <div class="collContentCl">
 
               <p style="margin-top: 10px;">
@@ -262,26 +339,42 @@
 
             </div>
 
-            <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Simulation Exercise</span> </button>
-            <div class="collContentCl">
-
-              <ol style="margin-top: 10px;">
-                <li>A i.i.d. sample of size \(n\), i.e., a sequence of observations \(X_{1}, X_{2}, ..., X_{n}\) and \(u_{1}, u_{2}, ..., u_{n}\), are drawn from the distribution of \(X_{i}\) and \(u_{i}\) specified above.</li>
-                <li>Based on the sequence of observations \(X_{1}, X_{2}, ..., X_{n}\) and \(u_{1}, u_{2}, ..., u_{n}\) a sequence of observations \(Y_{1}, Y_{2}, ..., Y_{n}\)  is constructed based on the regression model above.</li>
-                <li>Based on the sequence of observations \(Y_{1}, Y_{2}, ... Y_{n}\) and \(X_{1}, X_{2}, ..., X_{n}\), the intercept \(\beta_{0}\) and the slop parameter \(\beta_{1}\) is estimated using OLS.</li>
-                <li>The value of the estimate for the slope parameter, i.e., \(\widehat{\beta}_{1}\), is stored.</li>
-                <li>Step 1) to 4) is repeated \(10,000\) times resulting in \(1000\) OLS estimates for the slope parameter, i.e., \(\widehat{\beta}_{1}\).</li>
-                <li>The distribution of \(\widehat{\beta}_{1}\) and the standardized \(\widehat{\beta}_{1}\), i.e., \(z_{\widehat{\beta}_{1}}\), are illustrated using histograms.</li>
-                <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the different outcomes of the samples the OLS estimates will vary across sample draws.</p>
-              </ol>
-
-            </div>
-
         </div>
 
       </div>
     </div>
     
+    <!-- .................................................. -->
+    <!-- Collections of audios -->
+    <div style="text-align: center; margin-top: 10px; display: none;">
+
+      <audio id="audioFigure01OverallId" controls>
+        <source src="./audios/audio_figure01_overall.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure01Slider01Id" controls>
+        <source src="./audios/audio_figure01_slider01.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure01Slider02Id" controls>
+        <source src="./audios/audio_figure01_slider02.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure01Slider03Id" controls>
+        <source src="./audios/audio_figure01_slider03.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure01Slider04Id" controls>
+        <source src="./audios/audio_figure01_slider04.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+    </div>
+
     <div class="iliasExcCl">
       <hr />
       <p style="text-align: center; font-size: 20pt; font-weight: bold;">
