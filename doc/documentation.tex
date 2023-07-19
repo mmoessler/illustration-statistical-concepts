@@ -135,9 +135,11 @@ on the sampling distribution of the OLS estimator for the slope coefficient of a
 
 \section{Method/implementation of the learning module (How?)}
 
+\subsection{General approach}
+
 For an interactive and immediate user experience it is useful to separate the simulation study and the interactive presentation of the results. 
 %
-This two-step procedure allows also a flexible implementation, i.e., the simulation studies can be conducted with any suitable software, e.g., \emph{R}, \emph{python}, etc. and the results can be presented interactively using basic web development languages, i.e., \texttt{.html}, \texttt{.css} and \texttt{.js}.
+This two-step procedure allows also a flexible implementation, i.e., the simulation studies can be conducted with any suitable software, e.g., \emph{R}, \emph{python}, etc. and the results can be presented interactively using basic web development languages, i.e., \emph{html}, \emph{css} and \emph{javascript}.
 
 \emph{Simulation study and illustration/reporting of the results:}
 
@@ -171,12 +173,131 @@ This two-step procedure allows also a flexible implementation, i.e., the simulat
 	\item Any additional material, e.g., video explanations, can be added into the \texttt{html} file interactively or non-interactively.
 \end{itemize}
 
-\subsection{Achieve an interactive and animated user experience}
+\subsection{Flexible presentation using \emph{html}}
+
+The content of each learning module is presented using \emph{html}, the most popular language to build web pages.\footnote{An introduction to the most important web page development languages can be found here: \href{https://www.w3schools.com/}{\texttt{https://www.w3schools.com/}}} 
+%
+This allows a very flexible presentation of the results. 
+%
+The styling of the learning module is based on \emph{css}, a popular language for styling web pages, and on \emph{bootstrap}, a popular \emph{css} framework. 
+%
+The interactive and animated feature of the learning module is based on \emph{javascript}, a popular language for programming web pages. 
+%
+The \emph{bootstrap} framework with its grid system allows the development of responsive, mobile-first websites with an appealing design. 
+%
+This enables an appealing experience of the learning also on mobile devices.
+
+
+
+\subsection{Interactive user experience using \emph{javascript}}
+
+The following explanations are based on the illustration of the properties of the sample average as estimator for the mean of a Bernoulli random variable, i.e., based on module \texttt{ber-dis-sam-ave}. 
+%
+The values of the parameters can be changed using \emph{bootstrap-slider} inputs\footnote{See: \href{https://github.com/seiyria/bootstrap-slider}{\texttt{https://github.com/seiyria/bootstrap-slider}}}.
+%
+For example for the input of the sample size the following \emph{html} code snippet is used. 
 
 \begin{CodeSnippet}[!hp]
 	\centering
-	\caption{Javascript snippet for explanation}
+	\caption{\emph{Html} code snippet for \emph{bootstrap-slider} input}
+	\tiny
+	\vspace{0.25cm}
+	\begin{BVerbatim}
+		
+		<p style='font-size: 12pt; text-align: center;'>Sample size \(n\)</p><p style='font-size: 12pt; text-align: center' id="sliderValue01Id"></p>
+		<input id="slider01Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+		
+	\end{BVerbatim}
+	\label{HtmlCodSniBsInput}
+\end{CodeSnippet}
+
+Changing the slider input values invokes \emph{javascript} function. 
+
+\begin{CodeSnippet}[!hp]
+	\centering
+	\caption{\emph{Javascript} code snippet for interactive sliders (no 1): Initialize slider values}
+	\normalsize
+	\vspace{0.25cm}
+	\begin{BVerbatim}
+		
+		var nVec = [5, 10, 25, 50, 100]
+		
+		// set initial value for slider 1
+		document.getElementById("sliderValue01Id").innerHTML = "\\(n = " + nVec[2] + "\\)";
+		var element = document.getElementById("sliderValue01Id");
+		MathJax.typeset([element]);
+		
+	\end{BVerbatim}
+	\label{JsCodSniSliInt01}
+\end{CodeSnippet}
+
+\begin{CodeSnippet}[!hp]
+	\centering
+	\caption{\emph{Javascript} code snippet for interactive sliders (no 2): Update slider values}
+	\normalsize
+	\vspace{0.25cm}
+	\begin{BVerbatim}
+						
+		var slider01 = new Slider("#slider01Id", { 
+			tooltip: "never",
+			formatter: function(value) {
+				return nVec[value]
+			} 
+		});
+		
+	\end{BVerbatim}
+	\label{JsCodSniSliInt02}
+\end{CodeSnippet}
+
+\begin{CodeSnippet}[!hp]
+	\centering
+	\caption{\emph{Javascript} code snippet for interactive sliders (no 3): Change illustration}
+	\tiny
+	\vspace{0.25cm}
+	\begin{BVerbatim}
+		
+		slider01.on("slide", function() {
+			
+			var sliderValue01 = slider01.getValue() + 1;
+			var sliderValue02 = slider02.getValue() + 1;
+			
+			document.getElementById("imageL1N1Id").setAttribute("src", "./figures/figure_01_" + sliderValue01 + "_" + sliderValue02 + ".svg");
+			document.getElementById("imageL1N2Id").setAttribute("src", "./figures/figure_02_" + sliderValue01 + "_" + sliderValue02 + ".svg");
+			document.getElementById("imageL1N3Id").setAttribute("src", "./figures/figure_03_" + sliderValue01 + "_" + sliderValue02 + ".svg");
+			
+			document.getElementById("sliderValue01Id").innerHTML = "\\(n = " + nVec[slider01.getValue()] + "\\)";
+			var element = document.getElementById("sliderValue01Id");
+			MathJax.typeset([element]);
+			
+		})
+		
+	\end{BVerbatim}
+	\label{JsCodSniSliInt03}
+\end{CodeSnippet}
+
+ 
+
+
+
+
+
+The interactive experience of the illustrations is based on three \emph{javascript} function which are linked to the sliders of the parameters. 
+%
+There is a 
+
+
+
+\subsection{Explained and animated user experience using \emph{javascript}}
+
+The following explanations are based on the illustration of the properties of the sample average as estimator for the mean of a Bernoulli random variable, i.e., based on module \texttt{ber-dis-sam-ave}. 
+%
+The explanation of the figure is based on a simple \emph{javascript} function \texttt{explainButto01Click}.
+
+\begin{CodeSnippet}[!hp]
+	\centering
+	\caption{\emph{Javascript} snippet for explanation}
 %	\scriptsize
+\vspace{0.25cm}
 	\begin{BVerbatim}
 
 explainButto01Click = function(audioId) {
@@ -186,13 +307,22 @@ explainButto01Click = function(audioId) {
 
 	\end{BVerbatim}
 	\vspace*{-2mm}
-	\label{CodSni01}
+	\label{JsCodSniExp}
 \end{CodeSnippet}
+
+The explained animation of the parameters is based on the \emph{javascipt} function \texttt{sliderLoop()} and the functions \texttt{animateButto01Click()} and \texttt{animateButto02Click()}. 
+%
+Note, for each parameter a function \texttt{animateButtoXXClick()} is used, i.e., for the module \texttt{ber-dis-sam-ave} there are two functions, \texttt{animateButto01Click} and \texttt{animateButto02Click}. 
+%
+%Thus, the number of functions \texttt{animateButtoXXClick} depends on the number of parameters used in the module. 
+%
+Furthermore, the body of both functions, \texttt{sliderLoop()} and \texttt{animateButtoXXClick()} depends on the number of figures (for \texttt{ber-dis-sam-ave} equals three) and the number of parameters (for \texttt{ber-dis-sam-ave} equals two) used in the module.
 
 \begin{CodeSnippet}[!hp]
 	\centering
-	\caption{Javascript snippet for explanation}
+	\caption{\emph{Javascript} snippet for explanation and animation (part I)}
 	%	\scriptsize
+\vspace{0.25cm}	
 	\begin{BVerbatim}
 		
 function sliderLoop(loopSliderValue01, loopSliderValue02) {
@@ -203,54 +333,94 @@ function sliderLoop(loopSliderValue01, loopSliderValue02) {
 	document.getElementById("imageL1N1Id").setAttribute("src", "./figures/figure_01_" + sliderValue01 + "_" + sliderValue02 + ".svg");
 	document.getElementById("imageL1N2Id").setAttribute("src", "./figures/figure_02_" + sliderValue01 + "_" + sliderValue02 + ".svg");
 	document.getElementById("imageL1N3Id").setAttribute("src", "./figures/figure_03_" + sliderValue01 + "_" + sliderValue02 + ".svg");
-	document.getElementById("imageL1N4Id").setAttribute("src", "./figures/figure_04_" + sliderValue01 + "_" + sliderValue02 + ".svg");
 	
-	document.getElementById("ex601Val").innerHTML = "\\(r = " + rVec[slider01.getValue()] + "\\)";
-	var element = document.getElementById("ex601Val");
+	document.getElementById("sliderValue01Id").innerHTML = "\\(n = " + nVec[slider01.getValue()] + "\\)";
+	var element = document.getElementById("sliderValue01Id");
 	MathJax.typeset([element]);
 	
-	var slider = document.getElementById("ex601");
+	document.getElementById("sliderValue02Id").innerHTML = "\\(p = " + pVec[slider02.getValue()] + "\\)";
+	var element = document.getElementById("sliderValue02Id");
+	MathJax.typeset([element]);
+	
+	var slider = document.getElementById("slider01Id");
 	slider.value = sliderValue01;
+	
+	var slider = document.getElementById("slider02Id");
+	slider.value = sliderValue02;
 	
 };
 		
 	\end{BVerbatim}
 	\vspace*{-2mm}
-	\label{CodSni01}
+	\label{JsCodSniAn01}
 \end{CodeSnippet}
-
 
 \begin{CodeSnippet}[!hp]
 	\centering
-	\caption{Javascript snippet for animation and explanation}
+	\caption{\emph{Javascript} snippet for explanation and animation (part II)}
 	%	\scriptsize
+\vspace{0.25cm}	
 	\begin{BVerbatim}
 		
-		animateButto01Click = function(org, start, stop, audioId) {
-			var audio = document.getElementById(audioId);
-			audio.play();
-			var ind = start;
-			var loopSliderValue02 = slider02.getValue();
-			var outerInterval = setInterval(function() {
-				var loopSliderValue01 = ind;
+animateButto01Click = function(org, start, stop, audioId) {
+	var audio = document.getElementById(audioId);
+	audio.play();
+	var ind = start;
+	var loopSliderValue02 = slider02.getValue();
+	var outerInterval = setInterval(function() {
+		var loopSliderValue01 = ind;
+		slider01.setValue(ind);
+		sliderLoop(loopSliderValue01, loopSliderValue02);
+		ind++;
+		if (ind > stop) {
+			var innerInterval = setInterval(function() {
 				slider01.setValue(ind);
-				sliderLoop(loopSliderValue01, loopSliderValue02);
-				ind++;
-				if (ind > stop) {
-					var innterInteval = setInterval(function() {
-						slider01.setValue(ind);
-						slider01.setValue(org);
-						sliderLoop(org, loopSliderValue02);
-						clearInterval(innterInteval);
-					}, 1000);
-					clearInterval(outerInterval);
-				}
+				slider01.setValue(org);
+				sliderLoop(org, loopSliderValue02);
+				clearInterval(innerInterval);
 			}, 1000);
+			clearInterval(outerInterval);
 		}
+	}, 1000);
+}
 		
 	\end{BVerbatim}
 	\vspace*{-2mm}
-	\label{CodSni02}
+	\label{JsCodSniAn02}
+\end{CodeSnippet}
+
+\begin{CodeSnippet}[!hp]
+	\centering
+	\caption{\emph{Javascript} snippet for explanation and animation (part III)}
+	%	\scriptsize
+	\vspace{0.25cm}	
+	\begin{BVerbatim}
+		
+animateButto02Click = function(org, start, stop, audioId) {    
+	var audio = document.getElementById(audioId);
+	audio.play();
+	var ind = start;
+	var loopSliderValue01 = slider01.getValue();
+	var outerInterval = setInterval(function() {
+		var loopSliderValue02 = ind;
+		slider02.setValue(ind);
+		sliderLoop(loopSliderValue01, loopSliderValue02);
+		ind++;
+		if (ind > stop) {
+			var innerInterval = setInterval(function() {
+				slider02.setValue(ind);
+				slider02.setValue(org);            
+				sliderLoop(loopSliderValue01, org);
+				clearInterval(innerInterval);
+			}, 1000);        
+			clearInterval(outerInterval);
+		}
+	}, 1000);
+}
+		
+	\end{BVerbatim}
+	\vspace*{-2mm}
+	\label{JsCodSniAn03}
 \end{CodeSnippet}
 
 \subsection{Integration in the lecture}
