@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="eng">
+  <head>
+
+    <title>Illustration Statistical Concepts</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
+
+    <!-- include my style sheet -->
+    <link rel="stylesheet" href="mystyle.css">
+
+    <style>
+      .accessIliasCl{
+        display: none;
+      }
+      .accessGithubCl{
+        display: block;
+      }
+    </style>
+
+    <!-- logo -->
+    <div class="logoCl header01Cl" style="text-align:center; padding-top: 20px; padding-bottom: 20px;" background-color="#eeeeee;">
+      <img src="RZ_UniHohenheim_Logo_1C_Weiss_EN.svg" height="300px"/>
+    </div>
+
+  </head>
+  <body>
+
+    <div class="container mt-5">
+      <div class="row">
+
+        <div class="jumbotron" id="topJumb">
+
+          <p style="font-size: 28pt; text-decoration: none; text-align: center">Interactive and Animated <br> Illustrations of <br> Sampling Properties of Estimators</p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-5">
+      <div class="row">
+
+        <div class="jumbotron">
+
+          <p style="font-size: 18pt">Content</p>
+
+          <div style="margin-left: 20px;">
+
+            <p>This learning module contains interactive and animated illustrations of the sampling properties of (parametric) estimators for parametric statistical models.</p>
+
+            <p>Starting point is a specification of the data generating process (DGP).</p>
+
+            <p>To understand the sample properties of an estimator, realizations of data are simulated based on a DGP of interest and the value of an estimator of interest is calculated.</p>
+
+            <p>This procedure is repeated for a large number of times whereas the values of the estimator is stored for each realization of the data and the distribution of the values of the estimator is analyzed across simulations.</p>
+
+          </div>
+          <!--..........................................................................-->
+          <hr>
+
+          <p style="font-size: 18pt">Motivation</p>
+
+          <div style="margin-left: 20px;">
+        
+            <p>Interactive and animated illustrations based on simulation studies to understand:</p>
+
+              <ul>
+                <li>The role of the law of large numbers (LLN) and the central limit theorem (CLT) for the sampling properties of estimators in general.</li>
+                <li>The sampling properties of the sample average and the ordinary least squares (OLS) estimator in particular.</li>
+                <li>The effect of heteroskedasticity on the sampling distribution of the ordinary least squares (OLS) estimator in a linear regression model.</li>
+                <li>The relevance of the assumptions for causal inference on the sampling distribution of the ordinary least squares (OLS) estimator in a linear regression model.</li>
+              </ul>
+          
+          </div>
+
+          <!--..........................................................................-->
+          <hr>
+
+          <p style="font-size: 18pt">Approach</p>
+
+          <div style="margin-left: 20px;">
+
+            <p>The course is divided into individual topics consisting of individual modules.</p>
+            <p>Each topic and module addresses a specific learning goal, e.g., to understand the role of the law of large numbers (LLN), e.g., for the sampling properties of the sample average.</p>
+            <p>To reach these learning goals the modules contain interactive and animated illustrations based on simulation studies.</p>
+            <p>The learning modules can be studied in the given order or independently.</p>                    
+          
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-5">
+      <div class="row">
+
+        <div class="jumbotron">
+
+          <p style="font-size: 18pt">Properties of the the Sample Average</p>
+
+          <div style="margin-left: 20px;">
+          
+            Illustration of the properties of the sample average as estimator mean.
+
+          </div>
+
+          <br>
+
+          <div style="margin-left: 20px;">
+
+            <!--..........................................................................-->
+            <p style="font-size: 16pt;">Probability of Success of a Bernoulli Experiment</p>
+            
+            <div style="margin-left: 20px;">
+
+              <p><u>Motivation</u>: Understand the effect of increasing the sample size \(N\) on the sampling distribution of the sample average as estimator for the mean, i.e., the probability of success \(p\), of a Bernoulli experiment.</p>
+              <p><u>Results</u>: By increasing the sample size \(N\) the sample average gets closer to the population mean and the sampling distribution of the standardized sample average gets closer the standard normal distribution.</p>
+              <p class="accessIliasCl"><u>Access</u>: <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1781360/ber-dis-sam-ave/ber_dis_sam_ave.html">Link to Module</a></p>
+              <p class="accessGithubCl"><u>Access</u>: <a href="https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/ber-dis-sam-ave/ber_dis_sam_ave.html">Link to Module</a></p>
+
+            </div>
+
+            <!--..........................................................................-->
+            <p style="font-size: 16pt;">Mean of the Continuous Uniform Distribution</p>
+
+            <div style="margin-left: 20px;">
+
+              <p><u>Motivation</u>: Understand the effect of increasing the sample size \(N\) on the sampling distribution of the sample average as estimator for the mean of a random variable following a continuous uniform distribution.</p>
+              <p><u>Results</u>: By increasing the sample size \(N\) the sample average gets closer to the population mean and the sampling distribution of the standardized sample average gets closer the standard normal distribution.</p>
+              <p class="accessIliasCl"><u>Access</u>: <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1781360/con-uni-dis-sam-ave/con_uni_dis_sam_ave.html">Link to Module</a></p>
+              <p class="accessGithubCl"><u>Access</u>: <a href="https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/con-uni-dis-sam-ave/con_uni_dis_sam_ave.html">Link to Module</a></p>
+
+            </div>
+
+          </div>                        
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-5">
+      <div class="row">
+
+        <div class="jumbotron">
+
+          <p style="font-size: 18pt">Properties of the OLS estimator in a Regression Model</p>
+
+          <div style="margin-left: 20px;">
+          
+            Illustration of the properties of the OLS estimator to estimate the slope coefficient \(\beta_{1}\) of a linear regression model, i.e.,
+            
+            $$
+            \begin{align}
+            Y_{i} = \beta_{0} + \beta_{1} X_{i} + u_{i}
+            \end{align}
+            $$
+          
+          </div>
+
+          <br>
+
+          <div style="margin-left: 20px;">
+
+            <!--..........................................................................-->
+            <p style="font-size: 16pt;">Effect of sample size</p>
+
+            <div style="margin-left: 20px;">
+
+              <p><u>Motivation</u>: ... </p>
+              <p><u>Results</u>: ... </p>
+              <p class="accessIliasCl"><u>Access</u>: <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1781360/cs-lin-reg-ols-01/cs_lin_reg_ols_01.html">Link to Module</a></p>
+              <p class="accessGithubCl"><u>Access</u>: <a href="https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/cs-lin-reg-ols-01/cs_lin_reg_ols_01.html">Link to Module</a></p>
+
+            </div>
+
+            <!--..........................................................................-->
+            <p style="font-size: 16pt;">Effect of the parameterization</p>
+
+            <div style="margin-left: 20px;">
+
+              <p><u>Motivation</u>: ... </p>
+              <p><u>Results</u>: ... </p>
+              <p class="accessIliasCl"><u>Access</u>: <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1781360/cs-lin-reg-ols-02/cs_lin_reg_ols_02.html">Link to Module</a></p>
+              <p class="accessGithubCl"><u>Access</u>: <a href="https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/cs-lin-reg-ols-02/cs_lin_reg_ols_02.html">Link to Module</a></p>
+
+            </div>
+
+              <!--..........................................................................-->
+              <p style="font-size: 16pt;">Effect of heteroskedasticitiy</p>
+
+              <div style="margin-left: 20px;">
+
+                <p><u>Motivation</u>: Understand the effect of heteroskedasticity on the sampling distribution of the OLS estimator for the slope coefficient of a simple linear regression model.</p>
+                <p><u>Results</u>: To account for potential heteroskedasticity the heteroskedasticity robust estimator for the standard errors of the OLS estimator should be used.</p>
+                <p class="accessIliasCl"><u>Access</u>: <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1781360/ols-case-03/ols_case_03_html_xx.html">Link to Module</a></p>
+                <p class="accessGithubCl"><u>Access</u>: <a href="https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/cs-lin-reg-ols-03/cs_lin_reg_ols_03.html">Link to Module</a></p>
+
+              </div>
+
+              <!--..........................................................................-->
+              <p style="font-size: 16pt;">Effect of Omitted Variables</p>
+
+              <div style="margin-left: 20px;">
+
+                <p><u>Motivation</u>: Understand the effect of omitted variables on the sampling distribution of the OLS estimator for the slope coefficient of a simple linear regression model.</p>
+                <p><u>Results</u>: If an omitted variable, e.g., \(X_{2}\), is a relevant determinant of \(Y_{i}\) and correlated with the variable of interest, e.g., \(X_{1}\), the OLS estimator is biased.</p>
+                <p><u>Access</u>: <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1781360/ols-case-03/ols_case_03_html_xx.html">Link to Module</a></p>
+                <p class="accessGithubCl"><u>Access</u>: <a href="https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/cs-lin-reg-ols-04/cs_lin_reg_ols_04.html">Link to Module</a></p>
+
+              </div>                         
+
+          </div> 
+
+        </div>
+      </div>
+    </div>
+
+    <!-- include footer 01 -->
+    <div class="footer01Cl">
+      <hr>
+      <table style="width:100%">
+        <tr>
+          <td style="width: 25%; text-align: left; padding-left: 10px;">
+            <img src="RZ_UniHohenheim_Logo_4C_E_blau_EN.svg" height="100px"/>
+          </td>
+          <td style="width: 50%; text-align: center;">
+            <p style="font-size: 10pt; text-align: center;">This module is part of the <a href="https://www.uni-hohenheim.de/en/project-dellfi">DeLLFi</a> project of the University of Hohenheim and funded by the <br> <a href="https://stiftung-hochschullehre.de/">Foundation for Innovation in University Teaching</a></p>
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+              <img alt="Creative Commons License" style="border-width:0; padding-top: -20px;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+            </a> 
+          </td>
+          <td style="width: 25%; text-align: right; padding-right: 10px;">
+            <img src="Logo_Stiftung_Hochschullehre.svg" height="100px"/>
+          </td>
+        </tr>
+      </table>
+      <hr>
+    </div>
+
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+
+  </body>
+</html>
