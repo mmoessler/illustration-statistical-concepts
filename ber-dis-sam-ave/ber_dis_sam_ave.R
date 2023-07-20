@@ -5,6 +5,13 @@ rm(list=ls())
 # set directory of figures and tables
 fig.dir <- "./ber-dis-sam-ave/figures/"
 
+# set plot margins
+set_plt_mar <- function() {
+  par(mar = c(5.1, 4.1, 1, 2.1))
+  # bottom, left, top, right
+  # 5.1, 4.1, 4.1, 2.1
+}
+
 # set seed 
 set.seed(12345)
 
@@ -29,7 +36,7 @@ Y_bar_ber_sim_fun <- function(RR, NN, p){
 }
 
 # inputs (variable)
-NN.vec <- c(5, 10, 25, 50, 100)
+n.vec <- c(5, 10, 25, 50, 100)
 p.vec <- c(0.2, 0.4, 0.6, 0.8)
 
 # inputs (fixed)
@@ -37,11 +44,11 @@ RR <- 10000
 
 # simulation/illustration ----
 
-for (ii in 1:length(NN.vec)) {
+for (ii in 1:length(n.vec)) {
   
   for (jj in 1:length(p.vec)) {
     
-    NN <- NN.vec[ii]
+    NN <- n.vec[ii]
     p <- p.vec[jj]
     
     # simulation
@@ -53,6 +60,8 @@ for (ii in 1:length(NN.vec)) {
     # plot no 01: barplot ----
     plt.nam <- paste(fig.dir, "figure_01_", ii, "_", jj, ".svg", sep = "")
     svg(plt.nam) 
+    
+    set_plt_mar()
     
     tmp <- c(NN - sum(tmp.sim$Y.sim), sum(tmp.sim$Y.sim))
     
@@ -80,8 +89,10 @@ for (ii in 1:length(NN.vec)) {
     plt.nam <- paste(fig.dir, "figure_02_", ii, "_", jj, ".svg", sep = "")
     svg(plt.nam) 
     
+    set_plt_mar()
+    
     # select reasonable bin width
-    brk.int <- 1/NN.vec[ii]
+    brk.int <- 1/n.vec[ii]
     
     x <- hist(x = tmp.sim$Y.bar,
               breaks = seq(0, 1, brk.int),
@@ -125,6 +136,8 @@ for (ii in 1:length(NN.vec)) {
     # plot no 03 histogram estimator (standardized) ----
     plt.nam <- paste(fig.dir, "figure_03_", ii, "_", jj, ".svg", sep = "")
     svg(plt.nam) 
+    
+    set_plt_mar()
     
     # select reasonable bin width
     kk <- unique(tmp.sim$Y.bar.z)
