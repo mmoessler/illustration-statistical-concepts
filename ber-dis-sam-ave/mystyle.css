@@ -66,11 +66,37 @@
     background-color: #ccc;
   }
 
-  /* sample value - set it as you like*/
-  .slider.slider-horizontal{
-    width:100%; 
+  /* buttons used to animate the parameters */
+  .animateButtonCl {
+    display: inline-table;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px 4px 1px 4px;
+    background-color: #f1f1f1;
   }
 
+  .animateButtonCl:hover {
+    background-color: #ddd;
+  }
+
+  /* buttons that are used to explain the figures */
+  .explainButtonCl {
+    display: inline-table;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px 4px 1px 4px;
+    background-color: #f1f1f1;
+  }
+
+  .explainButtonCl:hover {
+    background-color: #ddd;
+  }
+
+  /* horizontal width of slider */
+  .slider.slider-horizontal {
+    width:100%; 
+  }
+  
   /* margin of jumbotron id top */
   div#topJumb.jumbotron{
     margin-top:50px; 
