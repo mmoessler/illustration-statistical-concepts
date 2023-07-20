@@ -2,26 +2,26 @@
 // loop over 2 slider and 2 figures
 function sliderLoop(loopSliderValue01, loopSliderValue02) {
 
-    var sliderValue01 = loopSliderValue01 + 1;
-    var sliderValue02 = loopSliderValue02 + 1;
+  var sliderValue01 = loopSliderValue01 + 1;
+  var sliderValue02 = loopSliderValue02 + 1;
 
-    document.getElementById("imageL1N1Id").setAttribute("src", "./figures/figure_01_" + sliderValue01 + "_" + sliderValue02 + ".svg");
-    document.getElementById("imageL1N2Id").setAttribute("src", "./figures/figure_02_" + sliderValue01 + "_" + sliderValue02 + ".svg");
-    document.getElementById("imageL1N3Id").setAttribute("src", "./figures/figure_03_" + sliderValue01 + "_" + sliderValue02 + ".svg");
+  document.getElementById("imageL1N1Id").setAttribute("src", "./figures/figure_01_" + sliderValue01 + "_" + sliderValue02 + ".svg");
+  document.getElementById("imageL1N2Id").setAttribute("src", "./figures/figure_02_" + sliderValue01 + "_" + sliderValue02 + ".svg");
+  document.getElementById("imageL1N3Id").setAttribute("src", "./figures/figure_03_" + sliderValue01 + "_" + sliderValue02 + ".svg");
 
-    document.getElementById("sliderValue01Id").innerHTML = par01Str01 + par01Vec[slider01.getValue()] + "\\)";
-    var element = document.getElementById("sliderValue01Id");
-    MathJax.typeset([element]);
+  document.getElementById("sliderValue01Id").innerHTML = par01Str01 + par01Vec[slider01.getValue()] + "\\)";
+  var element = document.getElementById("sliderValue01Id");
+  MathJax.typeset([element]);
 
-    document.getElementById("sliderValue02Id").innerHTML = par02Str01 + par02Vec[slider02.getValue()] + "\\)";
-    var element = document.getElementById("sliderValue02Id");
-    MathJax.typeset([element]);
+  document.getElementById("sliderValue02Id").innerHTML = par02Str01 + par02Vec[slider02.getValue()] + "\\)";
+  var element = document.getElementById("sliderValue02Id");
+  MathJax.typeset([element]);
 
-    var slider = document.getElementById("slider01Id");
-    slider.value = sliderValue01;
+  var slider = document.getElementById("slider01Id");
+  slider.value = sliderValue01;
 
-    var slider = document.getElementById("slider02Id");
-    slider.value = sliderValue02;
+  var slider = document.getElementById("slider02Id");
+  slider.value = sliderValue02;
 
 };
 
@@ -76,4 +76,3 @@ animateButto02Click = function(org, start, stop, audioId) {
     }
   }, 1000);
 }
-
