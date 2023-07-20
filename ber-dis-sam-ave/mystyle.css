@@ -1,107 +1,123 @@
-.iliasExcCl{
-    display: none;
-  }
 
-  body{
-    font-family: Helvetica;
-    font-size: 14pt;
-  }
+/* include/exclude UHO logo */
+.header01Cl{
+  display: block;
+}
 
-  /* hohenheim logo and chair */
-  .logoCl {
-    background-color: #003f75;
-    color: white;
-    font-family: Arial Nova Cond Light;
-    font-size: 24pt;
-  }
+/* include/exclude UHO / Stiftung logo */
+.footer01Cl {
+  display: block;
+}
 
-  /* collapsible button */
-  .collButtonCl {
-    margin-top: 5px;
-    margin-bottom: 5px; 
-    background-color: white;
-    color: #333333;
-    font-style: italic;
-    cursor: pointer;
-    width: 100%;
-    padding: 5px;
-    border: 1px solid;
-    border-color: #cccccc;
-    text-align: left;
-    outline: none;
-    font-family: Helvetica;
-    font-size: 16pt;
-  }
+/* include/exclude link to github start */
+.footerGihubCl {
+  display: block;
+}
 
-  /* collapsible content */
-  .collContentCl {
-    display: none;
-    /* background-color: #EAECEE; */
-    background-color: #ffffff;
-    padding-top: 5px;
-    padding-right: 10px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-  }
+/* include/exclude link to ilias start */
+.footerIliasCl {
+  display: none;
+}
 
-  /* style the buttons that are used to open the tab content */
-  .tabLinkL1Cl {
-    display: inline-table;
-    max-height: 500px;
-    min-height: 44px;
-    overflow-y: auto;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 14px 16px;
-    background-color: #f1f1f1;
-  }
+body{
+  font-family: Helvetica;
+  font-size: 14pt;
+}
 
-  /* change background color of buttons on hover */
-  .tabLinkL1Cl:hover {
-    background-color: #ddd;
-  }
+/* hohenheim logo and chair */
+.logoCl {
+  background-color: #003f75;
+  color: white;
+  font-family: Arial Nova Cond Light;
+  font-size: 24pt;
+}
 
-  /* create an active/current tablink class */
-  .tabLinkL1Cl.active {
-    background-color: #ccc;
-  }
+/* collapsible button */
+.collButtonCl {
+  margin-top: 5px;
+  margin-bottom: 5px; 
+  background-color: white;
+  color: #333333;
+  font-style: italic;
+  cursor: pointer;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid;
+  border-color: #cccccc;
+  text-align: left;
+  outline: none;
+  font-family: Helvetica;
+  font-size: 16pt;
+}
 
-  /* buttons used to animate the parameters */
-  .animateButtonCl {
-    display: inline-table;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 4px 4px 1px 4px;
-    background-color: #f1f1f1;
-  }
+/* collapsible content */
+.collContentCl {
+  display: none;
+  background-color: #ffffff;
+  padding-top: 5px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+}
 
-  .animateButtonCl:hover {
-    background-color: #ddd;
-  }
+/* style the buttons that are used to open the tab content */
+.tabLinkL1Cl {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 14px 16px;
+  background-color: #f1f1f1;
+}
 
-  /* buttons that are used to explain the figures */
-  .explainButtonCl {
-    display: inline-table;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 4px 4px 1px 4px;
-    background-color: #f1f1f1;
-  }
+/* change background color of buttons on hover */
+.tabLinkL1Cl:hover {
+  background-color: #ddd;
+}
 
-  .explainButtonCl:hover {
-    background-color: #ddd;
-  }
+/* create an active/current tablink class */
+.tabLinkL1Cl.active {
+  background-color: #ccc;
+}
 
-  /* horizontal width of slider */
-  .slider.slider-horizontal {
-    width:100%; 
-  }
-  
-  /* margin of jumbotron id top */
-  div#topJumb.jumbotron{
-    margin-top:50px; 
-  }
+/* buttons used to animate the parameters */
+.animateButtonCl {
+  display: inline-table;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px 4px 1px 4px;
+  background-color: #f1f1f1;
+}
 
-  .innerJumb{
-    background-color: #ffffff;
-  }
+.animateButtonCl:hover {
+  background-color: #ddd;
+}
+
+/* buttons that are used to explain the figures */
+.explainButtonCl {
+  display: inline-table;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px 4px 1px 4px;
+  background-color: #f1f1f1;
+}
+
+.explainButtonCl:hover {
+  background-color: #ddd;
+}
+
+/* horizontal width of slider */
+.slider.slider-horizontal {
+  width:100%; 
+}
+
+/* margin of jumbotron id top */
+div#topJumb.jumbotron{
+  margin-top:50px; 
+}
+
+.innerJumb{
+  background-color: #ffffff;
+}
