@@ -1,3 +1,4 @@
+<!doctype html>
 <html lang="eng">
   <head>
 
@@ -106,12 +107,21 @@
                     <div style='margin-top: 50px;'>
 
                       <hr>
-                      <p style='font-size: 12pt; text-align: center;'>Sample size \(n\)</p><p style='font-size: 12pt; text-align: center' id="sliderValue01Id"></p>
+
+                      <p style="font-size: 12pt; text-align: center;">Sample size \(n\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue01Id"></p>
                       <input id="slider01Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <div style="font-size: 12pt; text-align: center;">
+                        <button class="animateButtonCl" onclick="animateButto01Click(org = 2, start = 0, stop = 4, audioId = 'audioFigure01Slider01Id')">Animate \(n\)</button>
+                      </div>
+                      
+                      <br>
 
-                      <p style='font-size: 12pt; text-align: center;'>Probability of <br> success \(p\)</p><p style='font-size: 12pt; text-align: center' id="sliderValue02Id"></p>
+                      <p style="font-size: 12pt; text-align: center;">Probability of <br> success \(p\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue02Id"></p>
                       <input id="slider02Id" type="text" data-slider-min="0" data-slider-max="3" data-slider-step="1" data-slider-value="1"/>
-
+                      <div style="font-size: 12pt; text-align: center;">
+                        <button class="animateButtonCl" onclick="animateButto02Click(org = 1, start = 0, stop = 3, audioId = 'audioFigure01Slider02Id')">Animate \(p\)</button>
+                      </div>
+                      
                     </div>
 
                   </div>
@@ -131,19 +141,17 @@
 
                     <div id="tabContentL1N1Id" class="tabContentL1Cl">
 
-                      <p style="font-size: 14pt; text-align: center; margin-bottom: 0;">Bar chart</p>
+                      <table style="width:100%; margin-bottom: 10px;">
+                        <tr>
+                          <td style="width: 10%"></td>
+                          <td style="width: 80%; font-size: 16pt; text-align: left;">Bar chart</td>
+                          <td style="width: 10%; font-size: 14pt; text-align: right;">
+                            <button class="explainButtonCl" onclick="explainButto01Click(audioId = 'audioFigure01OverallId')">Explain</button>
+                          </td>
+                        </tr>
+                      </table>
 
                       <img src="./figures/figure_01_3_2.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
-
-                      <div class="tab" style="text-align: center;">
-                        <button class="explainButtonCl" onclick="explainButto01Click(audioId = 'audioFigure01OverallId')">Explain <br> Figure</button>
-                        &nbsp;&nbsp;&nbsp;
-                        <button class="animateButtonCl" onclick="animateButto01Click(org = 2, start = 0, stop = 4, audioId = 'audioFigure01Slider01Id')">Animate <br> Sample Size</button>
-                        &nbsp;&nbsp;&nbsp;
-                        <button class="animateButtonCl" onclick="animateButto02Click(org = 2, start = 0, stop = 3, audioId = 'audioFigure01Slider02Id')">Animate <br> Probability of Success</button>
-                      </div>
-                      
-                      <br>
 
                       <p>The bar chart shows the number of ones and zeros of one realization of the DGP.</p>
                       
@@ -151,17 +159,17 @@
 
                     <div id="tabContentL1N2Id" class="tabContentL1Cl">
 
-                      <p style='font-size: 14pt; text-align: center; margin-bottom: 0;'>Histogram of the OLS sample average \(\overline{Y}\)</p>
+                      <table style="width:100%; margin-bottom: 10px;">
+                        <tr>
+                          <td style="width: 10%"></td>
+                          <td style="width: 80%; font-size: 16pt; text-align: left;">Histogram of the OLS sample average \(\overline{Y}\)</td>
+                          <td style="width: 10%; font-size: 14pt; text-align: right;">
+                            <button class="explainButtonCl" onclick="explainButto01Click(audioId = 'audioFigure02OverallId')">Explain</button>
+                          </td>
+                        </tr>
+                      </table>
 
                       <img src="./figures/figure_02_3_2.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
-
-                      <div class="tab" style="text-align: center;">
-                        <button class="explainButtonCl" onclick="explainButto01Click(audioId = 'audioFigure02OverallId')" id="explainButtonL1N1Id">Explain <br> Figure</button>
-                        &nbsp;&nbsp;&nbsp;
-                        <button class="animateButtonCl" onclick="animateButto01Click(org = 2, start = 0, stop = 4, audioId = 'audioFigure02Slider01Id')" id="animateButtonL1N1Id">Animate <br> Sample Size</button>
-                        &nbsp;&nbsp;&nbsp;
-                        <button class="animateButtonCl" onclick="animateButto02Click(org = 2, start = 0, stop = 3, audioId = 'audioFigure02Slider02Id')" id="animateButtonL1N2Id">Animate <br> Probability of Success</button>
-                      </div>
 
                       <br>
 
@@ -177,17 +185,17 @@
 
                     <div id="tabContentL1N3Id" class="tabContentL1Cl">
 
-                      <p style='font-size: 14pt; text-align: center; margin-bottom: 0;'>Histogram of the standardized sample average \(z_{\overline{Y}}\)</p>
+                      <table style="width:100%; margin-bottom: 10px;">
+                        <tr>
+                          <td style="width: 10%"></td>
+                          <td style="width: 80%; font-size: 16pt; text-align: left;">Histogram of the standardized sample average \(z_{\overline{Y}}\)</td>
+                          <td style="width: 10%; font-size: 14pt; text-align: right;">
+                            <button class="explainButtonCl" onclick="explainButto01Click(audioId = 'audioFigure02OverallId')">Explain</button>
+                          </td>
+                        </tr>
+                      </table>
 
                       <img src="./figures/figure_03_3_2.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
-
-                      <div class="tab" style="text-align: center;">
-                        <button class="explainButtonCl" onclick="explainButto01Click(audioId = 'audioFigure01OverallId')" id="explainButtonL1N1Id">Explain <br> Figure</button>
-                        &nbsp;&nbsp;&nbsp;
-                        <button class="animateButtonCl" onclick="animateButto01Click(org = 2, start = 0, stop = 4, audioId = 'audioFigure01Slider01Id')" id="animateButtonL1N1Id">Animate <br> Sample Size</button>
-                        &nbsp;&nbsp;&nbsp;
-                        <button class="animateButtonCl" onclick="animateButto02Click(org = 2, start = 0, stop = 3, audioId = 'audioFigure01Slider02Id')" id="animateButtonL1N2Id">Animate <br> Probability of Success</button>
-                      </div>
 
                       <br>
 
