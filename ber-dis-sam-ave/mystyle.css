@@ -20,8 +20,13 @@
 }
 
 body{
-  font-family: Helvetica;
+  font-family: "Helvetica", sans-serif; 
   font-size: 14pt;
+  font-weight: 400;
+}
+
+.mjx-math {
+  font-weight: 400;
 }
 
 /* hohenheim logo and chair */
