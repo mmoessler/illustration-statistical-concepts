@@ -26,14 +26,34 @@ function sliderLoop(loopSliderValue01, loopSliderValue02, loopSliderValue03) {
 };
 
 // explanation button
-explainButto01Click = function(audioId) {
-  var audio = document.getElementById(audioId);
+explainButto01Click = function() {
+
+  if (activeTabId == "tabContentL1N1Id") {
+    var audio = document.getElementById("audioFigure01OverallId");
+  } else if (activeTabId == "tabContentL1N2Id") {
+    var audio = document.getElementById("audioFigure02OverallId");
+  } else if (activeTabId == "tabContentL1N3Id") {
+    var audio = document.getElementById("audioFigure03OverallId");
+  } else {
+    var audio = document.getElementById("audioErrorId");
+  }
   audio.play();
+  
 }
 
 // animate silder 1 out of 3
-animateButto01Click = function(org, start, stop, audioId) {
-  document.getElementById(audioId).play();
+animateButto01Click = function(org, start, stop) {
+
+  if (activeTabId == "tabContentL1N1Id") {
+    var audio = document.getElementById("audioFigure01Slider01Id");
+  } else if (activeTabId == "tabContentL1N2Id") {
+    var audio = document.getElementById("audioFigure02Slider01Id");
+  } else if (activeTabId == "tabContentL1N3Id") {
+    var audio = document.getElementById("audioFigure03Slider01Id");
+  } else {
+    var audio = document.getElementById("audioErrorId");
+  }
+  audio.play();
   var ind = start;
   var loopSliderValue02 = slider02.getValue();
   var loopSliderValue03 = slider03.getValue();
@@ -55,8 +75,18 @@ animateButto01Click = function(org, start, stop, audioId) {
 }
 
 // animate silder 2 out of 3
-animateButto02Click = function(org, start, stop, audioId) {    
-  document.getElementById(audioId).play();
+animateButto02Click = function(org, start, stop) {
+
+  if (activeTabId == "tabContentL1N1Id") {
+    var audio = document.getElementById("audioFigure01Slider02Id");
+  } else if (activeTabId == "tabContentL1N2Id") {
+    var audio = document.getElementById("audioFigure02Slider02Id");
+  } else if (activeTabId == "tabContentL1N3Id") {
+    var audio = document.getElementById("audioFigure03Slider02Id");
+  } else {
+    var audio = document.getElementById("audioErrorId");
+  }
+  audio.play();
   var ind = start;
   var loopSliderValue01 = slider01.getValue();
   var loopSliderValue03 = slider03.getValue();
@@ -78,8 +108,18 @@ animateButto02Click = function(org, start, stop, audioId) {
 }
 
 // animate silder 3 out of 3
-animateButto03Click = function(org, start, stop, audioId) {    
-  document.getElementById(audioId).play();
+animateButto03Click = function(org, start, stop) {   
+  
+  if (activeTabId == "tabContentL1N1Id") {
+    var audio = document.getElementById("audioFigure01Slider03Id");
+  } else if (activeTabId == "tabContentL1N2Id") {
+    var audio = document.getElementById("audioFigure02Slider03Id");
+  } else if (activeTabId == "tabContentL1N3Id") {
+    var audio = document.getElementById("audioFigure03Slider03Id");
+  } else {
+    var audio = document.getElementById("audioErrorId");
+  }
+  audio.play();  
   var ind = start;
   var loopSliderValue01 = slider01.getValue();
   var loopSliderValue02 = slider02.getValue();
