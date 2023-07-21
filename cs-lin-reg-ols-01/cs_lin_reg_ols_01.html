@@ -132,7 +132,7 @@
                       <p style="font-size: 12pt; text-align: center;">Realization DGP \(r\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue01Id"></p>
                       <input id="slider01Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
                       <div style="font-size: 12pt; text-align: center;">
-                        <button class="animateButtonCl" onclick="animateButto01Click(org = 2, start = 0, stop = 4)">Animate \(r\)</button>
+                        <button class="animateButtonCl" onclick="animateButton01Click(org = 2, start = 0, stop = 4)">Animate \(r\)</button>
                       </div>
 
                       <br>
@@ -140,7 +140,7 @@
                       <p style="font-size: 12pt; text-align: center;">Sample size \(n\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue02Id"></p>
                       <input id="slider02Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
                       <div style="font-size: 12pt; text-align: center;">
-                        <button class="animateButtonCl" onclick="animateButto02Click(org = 2, start = 0, stop = 4)">Animate \(n\)</button>
+                        <button class="animateButtonCl" onclick="animateButton02Click(org = 2, start = 0, stop = 4)">Animate \(n\)</button>
                       </div>
                       
                     </div>
@@ -167,7 +167,7 @@
                           <td style="width: 10%"></td>
                           <td style="width: 80%; font-size: 14pt; text-align: left;">Scatter plot (realizations)</td>
                           <td style="width: 10%; font-size: 14pt; text-align: right;">
-                            <button class="explainButtonCl" onclick="explainButto01Click()">Explain</button>
+                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
                           </td>
                         </tr>
                       </table>
@@ -195,7 +195,7 @@
                           <td style="width: 10%"></td>
                           <td style="width: 80%; font-size: 14pt; text-align: left;">Scatter plot (fitted residuals)</td>
                           <td style="width: 10%; font-size: 14pt; text-align: right;">
-                            <button class="explainButtonCl" onclick="explainButto01Click()">Explain</button>
+                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
                           </td>
                         </tr>
                       </table>
@@ -223,7 +223,7 @@
                           <td style="width: 10%"></td>
                           <td style="width: 80%; font-size: 14pt; text-align: left;">Histogram of the OLS estimates \(\widehat{\beta}_{1}\)</td>
                           <td style="width: 10%; font-size: 14pt; text-align: right;">
-                            <button class="explainButtonCl" onclick="explainButto01Click()">Explain</button>
+                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
                           </td>
                         </tr>
                       </table>
@@ -251,7 +251,7 @@
                           <td style="width: 10%"></td>
                           <td style="width: 80%; font-size: 14pt; text-align: left;">Histogram of the standardized OLS estimates \(z_{\widehat{\beta}_{1}}\)</td>
                           <td style="width: 10%; font-size: 14pt; text-align: right;">
-                            <button class="explainButtonCl" onclick="explainButto01Click()">Explain</button>
+                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
                           </td>
                         </tr>
                       </table>
@@ -471,19 +471,19 @@
       src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js">
     </script>
 
-  <!-- adjust inputs -->
-  <script>
+    <!-- adjust inputs -->
+    <script>
 
-    var par01Vec = [1, 2, 3, 4, 5];
-    var par02Vec = [5, 10, 25, 50, 100];
+      var par01Vec = [1, 2, 3, 4, 5];
+      var par02Vec = [5, 10, 25, 50, 100];
 
-    var par01Ini = 2;
-    var par02Ini = 2;
+      var par01Ini = 2;
+      var par02Ini = 2;
 
-    var par01Str01 = "\\(r = ";
-    var par02Str01 = "\\(n = ";
+      var par01Str01 = "\\(r = ";
+      var par02Str01 = "\\(n = ";
 
-  </script>
+    </script>
 
     <!-- include my javascript -->
     <script src="myScript.js"></script>
