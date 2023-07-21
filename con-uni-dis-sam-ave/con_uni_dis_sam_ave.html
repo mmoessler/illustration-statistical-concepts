@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="eng">
+  <head>
+
+    <title>LLN and CLT: Continuous Uniform Distribution</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
+
+    <!-- my style sheet -->
+    <link rel="stylesheet" href="mystyle.css">
+
+    <!-- logo -->
+    <div class="logoCl header01Cl" style="text-align:center; padding-top: 20px; padding-bottom: 20px;" background-color="#eeeeee;">
+      <img src="RZ_UniHohenheim_Logo_1C_Weiss_EN.svg" height="300px"/>
+    </div>
+
+  </head>
+  <body>
+
+    <div class="container mt-5">
+      <div class="row">
+
+          <div class="jumbotron" id="topJumb">
+            
+            <p style="font-size: 28pt;">Properties of the Sample Average</p>
+            <p style="font-size: 18pt; margin-top: -10px">(Continuous Uniform Distribution)</p> 
+      
+          </div>
+
+      </div>
+    </div>
+
+    <div class="container mt-5">
+      <div class="row">
+
+        <div class="jumbotron">
+
+          <p style="font-size: 18pt">Motivation</p>
+
+          <p>Understand the effect of increasing the sample size \(n\) on the sampling distribution of the sample average as estimator for the mean.</p>
+
+          <hr>
+
+          <p style="font-size: 18pt">Statistical Model</p>
+        
+          <p>Suppose an i.i.d sequence of observations \(Y_{1}, Y_{2}, ..., Y_{n}\) is drawn from the continuous uniform distribution,</p>
+
+          $$
+          \begin{align}
+          Y_i &\sim U_{\left[a,b\right]},
+          \end{align}
+          $$
+
+          <p>where \(a\) and \(b\) are parameters representing the lower and upper bound of the continuous uniform distribution.</p>
+          
+          <hr>
+
+          <p style="font-size: 18pt">Estimator and Parameter of Interest</p>
+          
+          <p>We are interested in the sampling properties of the sample average \(\overline{Y}\) given by,</p>
+
+          $$
+          \begin{align}
+          \overline{Y} = \frac{1}{n}\sum_{i=1}^{N} Y_{i},
+          \end{align}
+          $$            
+
+          as estimator for the mean \(\mu=\text{E}\left(Y_{i}\right)\) of the continuous uniform distribution given by,
+
+          $$
+          \begin{align}
+          \mu=\frac{1}{2}\left(a+b\right),
+          \end{align}
+          $$ 
+
+          where \(a\) and \(b\) are the lower and upper bound of the continuous uniform distribution, respectively.
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container mt-5">
+      <div class="row">
+
+          <div class="jumbotron">
+            
+            <p style="font-size: 18pt">Illustration</p>
+              
+            <p>Change the parameters and see the effect on the properties of the sample average \(\overline{Y}\) as estimator for \(\mu\).</p>
+      
+            <div class="container mt-5" style="margin-top: 50px;">
+              <div class="row">
+
+                <div class="col-sm-3">
+                  <div class="jumbotron innerJumb">
+
+                    <p style="font-size: 18pt; margin-top: 10px; text-align: center;">Parameters</p>
+                    
+                    <div style='margin-top: 50px;'>
+                      
+                      <hr>
+
+                      <p style="font-size: 12pt; text-align: center;">Sample size \(n\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue01Id"></p>
+                      <input id="slider01Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <div style="font-size: 12pt; text-align: center;">
+                        <button class="animateButtonCl" onclick="animateButto01Click(org = 2, start = 0, stop = 4, audioId = 'audioFigure01Slider01Id')">Animate \(n\)</button>
+                      </div>
+                      
+                      <br>
+
+                      <p style="font-size: 12pt;">Lower bound \(a\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue02Id"></p>
+                      <input id="slider02Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <div style="font-size: 12pt; text-align: center;">
+                        <button class="animateButtonCl" onclick="animateButto02Click(org = 2, start = 0, stop = 4, audioId = 'audioFigure01Slider02Id')">Animate \(a\)</button>
+                      </div>
+                      
+                      <br>
+
+                      <p style="font-size: 12pt;">Upper bound \(b\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue03Id"></p>
+                      <input id="slider03Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <div style="font-size: 12pt; text-align: center;">
+                        <button class="animateButtonCl" onclick="animateButto03Click(org = 2, start = 0, stop = 4, audioId = 'audioFigure01Slider03Id')">Animate \(b\)</button>
+                      </div>
+                      
+                    </div>
+
+                  </div>
+                </div>
+                
+                <div class="col-sm-9">
+                  <div class="jumbotron innerJumb">
+            
+                    <div class="tab" style="text-align: center;">
+                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N1Id', 'tabLinkL1N1Id', 'white')" id="tabLinkL1N1Id">Realizations</button>
+                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N2Id', 'tabLinkL1N2Id', 'white')" id="tabLinkL1N2Id">Estimates</button>
+                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N3Id', 'tabLinkL1N3Id', 'white')" id="tabLinkL1N3Id">Std. Estimates</button>
+                    </div>
+
+                    <br>
+                    <hr>
+
+                    <div id="tabContentL1N1Id" class="tabContentL1Cl">
+
+                      <table style="width:100%; margin-bottom: 10px;">
+                        <tr>
+                          <td style="width: 10%"></td>
+                          <td style="width: 80%; font-size: 16pt; text-align: left;">Bar chart</td>
+                          <td style="width: 10%; font-size: 14pt; text-align: right;">
+                            <button class="explainButtonCl" onclick="explainButto01Click(audioId = 'audioFigure01OverallId')">Explain</button>
+                          </td>
+                        </tr>
+                      </table>
+
+                      <img src="./figures/figure_01_3_3_3.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
+
+                      <p>The bar chart shows the number of ones and zeros of one realization of the DGP.</p>
+
+                    </div>
+
+                    <div id="tabContentL1N2Id" class="tabContentL1Cl">
+
+                      <table style="width:100%; margin-bottom: 10px;">
+                        <tr>
+                          <td style="width: 10%"></td>
+                          <td style="width: 80%; font-size: 16pt; text-align: left;">Histogram of the OLS sample average \(\overline{Y}\)</td>
+                          <td style="width: 10%; font-size: 14pt; text-align: right;">
+                            <button class="explainButtonCl" onclick="explainButto01Click(audioId = 'audioFigure02OverallId')">Explain</button>
+                          </td>
+                        </tr>
+                      </table>
+
+                      <img src="./figures/figure_02_3_3_3.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
+
+                      <br>
+
+                      <p>As the sample size \(n\) grows the sample average \(\overline{Y}\) gets closer to \(\mu\), i.e.,</p>
+
+                      $$
+                      \begin{align}
+                      \overline{Y} \overset{p}{\to} \mu.
+                      \end{align}
+                      $$
+
+                    </div>
+
+                    <div id="tabContentL1N3Id" class="tabContentL1Cl">
+
+                      <table style="width:100%; margin-bottom: 10px;">
+                        <tr>
+                          <td style="width: 10%"></td>
+                          <td style="width: 80%; font-size: 16pt; text-align: left;">Histogram of the standardized sample average \(z_{\overline{Y}}\)</td>
+                          <td style="width: 10%; font-size: 14pt; text-align: right;">
+                            <button class="explainButtonCl" onclick="explainButto01Click(audioId = 'audioFigure02OverallId')">Explain</button>
+                          </td>
+                        </tr>
+                      </table>
+
+                      <img src="./figures/figure_03_3_3_3.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
+
+                      <p>As the sample size \(n\) grows the distribution of the standardized sample average,</p>
+
+                      $$
+                      \begin{align}
+                      z_{\overline{Y}} &= \frac{\overline{Y} - \mu}{\sigma_{\overline{Y}}}, \\
+                      z_{\overline{Y}} &= \frac{\overline{Y} - \mu}{\frac{\sigma}{\sqrt{N}}},
+                      \end{align}
+                      $$
+
+                      <p>gets closer to the standard normal distribution \(N\left(0, 1\right)\).</p>
+                      
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+      </div>
+    </div>
+    
+    <div class="container mt-5">
+      <div class="row">
+
+          <div class="jumbotron">
+            
+            <p style="font-size: 18pt">More Details</p>
+                    
+            <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Construction of \(z_{\overline{Y}}\)</span> </button>
+            <div class="collContentCl">
+
+              <p style="margin-top: 10px;">
+                For the construction of the standardized sample average \(z_{\overline{Y}}\), the mean \(\mu\) as well as the variance \(\sigma^{2}\) are used.
+              </p>
+              
+              <p>
+                For the continuous uniform distribution the mean is given by,
+              </p>
+              
+              $$
+              \begin{align}
+              \mu=\frac{1}{2}\left(a+b\right),
+              \end{align}
+              $$ 
+
+              <p>and the variance is given by,</p>
+              
+              $$
+              \begin{align}
+              \sigma^{2}=\frac{1}{12}\left(b-a\right)^{2},
+              \end{align}
+              $$
+
+              <p>
+                where \(p\) ist the probability of success of the Bernoulli distribution.
+              </p>
+              
+            </div>
+
+            <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Simulation Exercise</span> </button>
+            <div class="collContentCl">
+
+              <ol style="margin-top: 10px;">
+                <li>A i.i.d. sample of size \(n\), i.e., a sequence of observations \(Y_{1}, Y_{2}, ..., Y_{n}\) is drawn from the distribution above.</li>
+                <li>Based on the sequence of observations, i.e., \(Y_{1}, Y_{2}, ... Y_{n}\), the sample average is calculated.</li>
+                <li>The value of the sample average, i.e., \(\overline{Y}\), is stored.</li>
+                <li>Step 1) to 3) is repeated \(10,000\) times resulting in \(10,000\) sample averages.</li>
+                <li>The distribution of \(\overline{Y}\) and the standardized \(\overline{Y}\), i.e., \(z_{\overline{Y}}\), are illustrated using histograms.</li>
+                <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the different outcomes of the samples the sample averages will vary across sample draws.</p>
+              </ol>
+
+            </div>
+
+        </div>
+
+      </div>
+    </div>
+    
+    <!-- .................................................. -->
+    <!-- Collections of audios -->
+    <div style="text-align: center; margin-top: 10px; display: none;">
+
+      <audio id="audioFigure01OverallId" controls>
+        <source src="./audios/audio_figure01_overall.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure01Slider01Id" controls>
+        <source src="./audios/audio_figure01_slider01.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure01Slider02Id" controls>
+        <source src="./audios/audio_figure01_slider02.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure01Slider03Id" controls>
+        <source src="./audios/audio_figure01_slider03.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+    </div>
+
+    <!-- include footer 01 -->
+    <div class="footer01Cl">
+      <hr>
+      <table style="width:100%">
+        <tr>
+          <td style="width: 25%; text-align: left; padding-left: 10px;">
+            <img src="RZ_UniHohenheim_Logo_4C_E_blau_EN.svg" height="100px"/>
+          </td>
+          <td style="width: 50%; text-align: center;">
+            <p style="font-size: 10pt; text-align: center;">This module is part of the <a href="https://www.uni-hohenheim.de/en/project-dellfi">DeLLFi</a> project of the University of Hohenheim and funded by the <br> <a href="https://stiftung-hochschullehre.de/">Foundation for Innovation in University Teaching</a></p>
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+              <img alt="Creative Commons License" style="border-width:0; padding-top: -20px;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+            </a> 
+          </td>
+          <td style="width: 25%; text-align: right; padding-right: 10px;">
+            <img src="Logo_Stiftung_Hochschullehre.svg" height="100px"/>
+          </td>
+        </tr>
+      </table>
+      <hr>
+    </div>
+
+    <!-- include footer 02 -->
+    <div class="footer02Cl">
+      <hr />
+      <p style="text-align: center; font-size: 20pt; font-weight: bold;">
+        <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1781360/index_ilias_html_xx.html">Back to <em>Startpage</em></a>
+      </p>
+      <hr />
+    </div>
+
+    <!-- include mathjax js via cdn -->
+    <script
+     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+
+    <!-- include bootstrap slider js via cdn --> 
+    <script 
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js">
+    </script>
+
+    <!-- include jstat js via cdn -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js">
+    </script>
+
+    <!-- adjust inputs -->
+    <script>
+
+      var par01Vec = [5, 10, 25, 50, 100]
+      var par02Vec = [-4.0, -3.5, -3.0, -2.5, -2.0]
+      var par03Vec = [2.0, 2.5, 3.0, 3.5, 4.0]
+    
+      var par01Ini = 2;
+      var par02Ini = 2;
+      var par03Ini = 2;
+    
+      var par01Str01 = "\\(n = ";
+      var par02Str01 = "\\(a = ";
+      var par03Str01 = "\\(b = ";
+    
+    </script>
+    
+    <!-- include my javascript -->
+    <script src="myScript.js"></script>
+    
+    <script src="par03Fig03InteractivationScript.js"></script>
+    
+    <script src="par03Fig03AnimationScript.js"></script>
+    
+  </body>
+</html>
