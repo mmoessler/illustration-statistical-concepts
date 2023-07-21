@@ -22,12 +22,12 @@
 body{
   font-family: "Helvetica", sans-serif; 
   font-size: 14pt;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 /* Override Bootstrap's paragraph font-weight */
 .container p {
-  font-weight: 600;
+  font-weight: 400;
 }
 
 /* hohenheim logo and chair */
