@@ -15,7 +15,7 @@
 
     <!-- logo -->
     <div class="logoCl header01Cl" style="text-align:center; padding-top: 20px; padding-bottom: 20px;" background-color="#eeeeee;">
-      <img src="RZ_UniHohenheim_Logo_1C_Weiss_EN.svg" height="300px"/>
+      <img src="RZ_UniHohenheim_Logo_1C_Weiss_EN.svg" height="250px"/>
     </div>
 
   </head>
@@ -24,10 +24,10 @@
     <div class="container mt-5">
       <div class="row">
 
-          <div class="jumbotron" id="topJumb">
+          <div class="jumbotron topJumbCl" style="margin-top: 50px; padding: 25px 50px 25px 50px;">
             
-            <p style='font-size: 28pt;'>Properties of the Sample Average</p>
-            <p style='font-size: 18pt;'>(Bernoulli Distribution)</p> 
+            <p style='font-size: 28pt;'>Properties of the Sample Average as Estimator for the Mean</p>
+            <p style='font-size: 18pt;'>Bernoulli Distribution</p> 
       
           </div>
 
@@ -37,47 +37,59 @@
     <div class="container mt-5">
       <div class="row">
 
-        <div class="jumbotron">
+        <div class="jumbotron" style="padding: 25px 50px 25px 50px">
 
-          <p style="font-size: 18pt">Motivation</p>
+          <p style="font-size: 18pt">Topic of the module</p>
 
-          <p>Understand the effect of increasing the sample size \(n\) on the sampling distribution of the sample average as estimator for the mean.</p>
+          <div style="margin-left: 10pt;">
+          
+            <p>Understand the effect of increasing the sample size \(n\) on the sampling distribution of the sample average as estimator for the mean.</p>
+
+          </div>
 
           <hr>
 
-          <p style="font-size: 18pt">Statistical Model</p>
-        
-          <p>Suppose an i.i.d sequence of observations \(Y_{1}, Y_{2}, ..., Y_{n}\) is drawn from the Bernoulli distribution,</p>
-
-          $$
-          \begin{align}
-          Y_i &\sim \text{Bernoulli}\left(p\right),
-          \end{align}
-          $$
-
-          <p>where \(p\) is a parameters representing the probability of success of the Bernoulli distribution.</p>
+          <p style="font-size: 18pt">Data generating process (DGP)</p>
           
+            <div style="margin-left: 10pt;">
+
+            <p>Consider \(n\) observations are generated from the Bernoulli distribution,</p>
+
+            $$
+            \begin{align}
+            Y_i &\sim \text{Bernoulli}\left(p\right),
+            \end{align}
+            $$
+
+            <p>where \(p\) is a parameters representing the probability of success of the Bernoulli distribution.</p>
+          
+          </div>
+
           <hr>
 
-          <p style="font-size: 18pt">Estimator and Parameter of Interest</p>
+          <p style="font-size: 18pt">Estimator and parameter of interest</p>
           
-          <p>We are interested in the sampling properties of the sample average \(\overline{Y}\) given by,</p>
+          <div style="margin-left: 10pt;">
 
-          $$
-          \begin{align}
-          \overline{Y} = \frac{1}{N}\sum_{i=1}^{n} Y_{i},
-          \end{align}
-          $$            
+            <p>We are interested in the sampling properties of the sample average \(\overline{Y}\) given by,</p>
 
-          <p>as estimator for the mean \(\mu=\text{E}\left(Y_{i}\right)\) of the Bernoulli distribution given by,</p>
+            $$
+            \begin{align}
+            \overline{Y} = \frac{1}{N}\sum_{i=1}^{n} Y_{i},
+            \end{align}
+            $$            
 
-          $$
-          \begin{align}
-          \mu=p,
-          \end{align}
-          $$ 
+            <p>as estimator for the mean \(\mu=\text{E}\left(Y_{i}\right)\) of the Bernoulli distribution given by,</p>
 
-          <p>where \(p\) is the probability of success of the Bernoulli distribution.</p>
+            $$
+            \begin{align}
+            \mu=p,
+            \end{align}
+            $$ 
+
+            <p>where \(p\) is the probability of success of the Bernoulli distribution.</p>
+
+          </div>
 
         </div>
 
@@ -87,7 +99,7 @@
     <div class="container mt-5">
       <div class="row">
 
-          <div class="jumbotron">
+          <div class="jumbotron outerJumbCl" style="padding: 25px 50px 25px 50px">
             
             <p style="font-size: 18pt">Illustration</p>
               
@@ -97,7 +109,7 @@
               <div class="row">
 
                 <div class="col-sm-3">
-                  <div class="jumbotron innerJumb">
+                  <div class="jumbotron innerJumbCl">
 
                     <p style="font-size: 18pt; margin-top: 10px; text-align: center;">Parameters</p>
                     
@@ -125,7 +137,7 @@
                 </div>
                 
                 <div class="col-sm-9">
-                  <div class="jumbotron innerJumb">
+                  <div class="jumbotron innerJumbCl">
             
                     <div class="tab" style="text-align: center;">
                       <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N1Id', 'tabLinkL1N1Id', 'white')" id="tabLinkL1N1Id">Realizations</button>
@@ -219,7 +231,7 @@
     <div class="container mt-5">
       <div class="row">
 
-          <div class="jumbotron">
+          <div class="jumbotron" style="padding: 25px 50px 25px 50px">
             
             <p style="font-size: 18pt">More Details</p>
                     
