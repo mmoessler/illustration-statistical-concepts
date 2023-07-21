@@ -5,6 +5,13 @@ rm(list=ls())
 # set directory of figures
 fig.dir <- "./con-uni-dis-sam-ave/figures/"
 
+# set plot margins
+set_plt_mar <- function() {
+  par(mar = c(5.1, 4.1, 1, 2.1))
+  # bottom, left, top, right
+  # 5.1, 4.1, 4.1, 2.1
+}
+
 # set seed 
 set.seed(12345)
 
@@ -56,6 +63,8 @@ for (ii in 1:length(NN.vec)) {
       # plot no 01: histogram ----
       plt.nam <- paste(fig.dir, "figure_01_", ii, "_", jj, "_", kk, ".svg", sep = "")
       svg(plt.nam) 
+      
+      set_plt_mar()
       
       # construct histogram
       x <- hist(x = tmp.sim$Y.sim,
@@ -122,7 +131,9 @@ for (ii in 1:length(NN.vec)) {
       
       # plot no 02: histogram sample average (non-standardized) ----
       plt.nam <- paste(fig.dir, "figure_02_", ii, "_", jj, "_", kk, ".svg", sep = "")
-      svg(plt.nam) 
+      svg(plt.nam)
+      
+      set_plt_mar()
       
       # generate histogram of estimator
       x <- hist(x = tmp.sim$Y.bar,
@@ -197,6 +208,8 @@ for (ii in 1:length(NN.vec)) {
       plt.nam <- paste(fig.dir, "figure_03_", ii, "_", jj, "_", kk, ".svg", sep = "")
       svg(plt.nam) 
     
+      set_plt_mar()
+      
       # construct histogram
       x <- hist(x = tmp.sim$Y.bar.z,
                 freq = FALSE,
