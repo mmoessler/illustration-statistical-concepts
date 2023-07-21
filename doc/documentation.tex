@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 
 % Language setting
 % Replace `english' with e.g. `spanish' to change the document language
@@ -20,6 +20,7 @@
 \floatname{CodeSnippet}{Code Snippet}
 
 \usepackage{fancyvrb}
+\usepackage{setspace} % for doublespacing
 
 \title{Interactive Illustration of \\ the Sampling Properties of \\ Estimators}
 \author{Markus M\"o\ss ler}
@@ -32,11 +33,13 @@
 This is the documentation of the implementation of a learning module for an interactive illustration of the sampling properties of estimators
 \end{abstract}
 
-\section{Introduction}
+\doublespacing
+
+\section{Introduction}\label{SecInt}
 
 This repository contains the implementation of a learning module with interactive and animated illustrations of fundamental statistical concepts and properties.
 
-\section{Goal of the learning module (Why?)}
+\section{Goal of the learning module (Why?)}\label{SecWhy}
 
 % dgp and sampling distribution
 Understanding the concept and properties of sampling distributions of estimators is one of the most important concepts of statistical inference, i.e, of learning from data about the underlying data generating process (DGP) formalized in probabilistic (population) model of interest, and thus, a fundamental part of empirical studies in social science in general and econometrics in particular. 
@@ -63,9 +66,9 @@ Certainly, another way to achieve this is to provide the implementation of the s
 %
 However, this is often too big a hurdle, especially for undergraduate students. 
 
-\section{Subject of the learning module (What?)}
+\section{Subject of the learning module (What?)}\label{SecWha}
 
-\subsection{General}
+\subsection{General}\label{SecWhaGen}
 
 Subject of this learning module are the sampling properties of estimators for different data generating processes (DGPs). 
 %
@@ -79,21 +82,25 @@ Note, the interactive illustration of the sampling properties of the sample aver
 %
 Other subjects are to understand the effect of omitted variable bias (OVB) and heteroskedasticity on the sampling distribution of the OLS estimator in a simple linear regression model.
 
-\subsection{Univariate random variables and sample average}
+\subsection{Univariate random variables and sample average}\label{SecWha01}
 
-\subsubsection{Bernoulli distribution and sample average}
+\emph{Bernoulli distribution and sample average}
 
 % ber_dis_sam_ave
 
 This illustration shows the effect of changing the sample size $n$ and the probability of success $p$ of the Bernoulli distribution on the sampling distribution of the sample average as estimator for mean of the Bernoulli distribution.
 
-\subsubsection{Continuous uniform distribution and sample average}
+...
+
+\emph{Continuous uniform distribution and sample average}
 
 % con_und_dis_sam_ave
 
 This illustration shows the effect of changing the sample size $n$ and the lower bound $a$ and the upper bound $b$ of the continuous uniform distribution on the sampling distribution of the sample average as estimator for mean of the continuous uniform distribution.
 
-\subsection{Cross Section Linear Regression Model and Ordinary Least Squares}
+...
+
+\subsection{Linear regression model and ordinary least squares}\label{SecWha02}
 
 Illustration of the properties of the OLS estimator to estimate the slope coefficient $\beta_{1}$ of a linear regression model, i.e.,
 
@@ -101,13 +108,15 @@ Illustration of the properties of the OLS estimator to estimate the slope coeffi
 	Y_{i} = \beta_{0} + \beta_{1} X_{i} + u_{i}
 \end{align}
 
-\subsubsection{Sampling distribution and sample size}
+\emph{Sampling distribution and sample size}
 
 % cs_lin_reg_ols_01
 
 This illustration shows the effect of increasing the sample size $n$ on the sampling distribution of the OLS estimator for the slope coefficient of a simple linear regression model.
 
-\subsubsection{Sample Size and parameterization of the DGP}
+...
+
+\emph{Sample Size and parameterization of the DGP}
 
 % cs_lin_reg_ols_02
 
@@ -121,60 +130,53 @@ This illustration shows the effect of changing the parameters of the DFP, i.e.,
 
 on the sampling distribution of the OLS estimator for the slope coefficient of a simple linear regression model.
 
-\subsubsection{Effect of Heteroskedasticity}
+...
+
+\emph{Effect of Heteroskedasticity}
 
 % cs_lin_reg_ols_03
 
-\subsubsection{Effect of Omitted Variable Bias}
+...
+
+\emph{Effect of Omitted Variable Bias}
 
 % cs_lin_reg_ols_04
 
+...
 
+\section{Method of the learning module (How?)}\label{SecHow}
 
+\subsection{General}\label{SecHowGen}
 
-
-\section{Method/implementation of the learning module (How?)}
-
-\subsection{General approach}
-
-For an interactive and immediate user experience it is useful to separate the simulation study and the interactive presentation of the results. 
+For an interactive and immediate user experience it is useful to separate the simulation study and the presentation of the results. 
 %
 This two-step procedure allows also a flexible implementation, i.e., the simulation studies can be conducted with any suitable software, e.g., \emph{R}, \emph{python}, etc. and the results can be presented interactively using basic web development languages, i.e., \emph{html}, \emph{css} and \emph{javascript}.
 
-\emph{Simulation study and illustration/reporting of the results:}
+\vspace{1em}
+\noindent\emph{Appealing, flexible, interactive and animated presentation using \emph{html}, \emph{css} and \emph{javascript}}
 
-\begin{itemize}
-	\item A realization of the DGP is simulated and the values of a given estimator is calculated.
-	\item This procedure is repeated $10,000$ times. 
-	\item The simulation results, i.e., the sampling distribution of the estimator, are illustrated using  barplots, scatterplots and/or histograms.
-	\item Other simulation results can be reported using tables.
-	\item The simulation study is performed for different specifications of the statistical model or for different estimators.
-	\item For each specification or estimator the results, e.g., figures and/or tables are saved in different \texttt{.svg} and/or \texttt{html} files.
-	\item The simulation study is performed using the programming language for statistical computing and graphics \href{https://www.r-project.org/}{\emph{R}}.	
-\end{itemize}
+%\emph{Interactive presentation of the simulation results:}
+%
+%\begin{itemize}
+%	\item The results for different specifications, e.g., figures and/or tables, are interactively embedded in a \texttt{.html} file and linked to a slider input.
+%	\item The effect of different specifications can be studied by changing the slider, i.e., the specification, and thus, the embedded results.
+%	\item The interactive integration of the illustrations into the \texttt{.html} file is based on javascript.
+%\end{itemize}
+%
+%\emph{Additional material, e.g., for explanation purposes:}
+%
+%\begin{itemize}
+%	\item Verbal text or mathematical formula inserted in the \texttt{.html} file directly or using ``collapsibles''.
+%	\item Interactive animation of changes in the slider inputs with audio explanations.
+%	\begin{itemize}
+	%		\item For each figure one explanation for the figure is added
+	%		\item For each slider and figure one animated explanation can be added
+	%	\end{itemize}	
+%	\item Any additional material, e.g., video explanations, can be added into the \texttt{html} file interactively or non-interactively.
+%\end{itemize}
 
-\emph{Interactive presentation of the simulation results:}
-
-\begin{itemize}
-	\item The results for different specifications, e.g., figures and/or tables, are interactively embedded in a \texttt{.html} file and linked to a slider input.
-	\item The effect of different specifications can be studied by changing the slider, i.e., the specification, and thus, the embedded results.
-	\item The interactive integration of the illustrations into the \texttt{.html} file is based on javascript.
-\end{itemize}
-
-\emph{Additional material, e.g., for explanation purposes:}
-
-\begin{itemize}
-	\item Verbal text or mathematical formula inserted in the \texttt{.html} file directly or using ``collapsibles''.
-	\item Interactive animation of changes in the slider inputs with audio explanations.
-	\begin{itemize}
-		\item For each figure one explanation for the figure is added
-		\item For each slider and figure one animated explanation can be added
-	\end{itemize}	
-	\item Any additional material, e.g., video explanations, can be added into the \texttt{html} file interactively or non-interactively.
-\end{itemize}
-
-\subsection{Flexible presentation using \emph{html}}
-
+While the setup and the implementation of the simulation or other studies depends on the topic of the learning module, the presentation of the results should be based on core web development tools. 
+%
 The content of each learning module is presented using \emph{html}, the most popular language to build web pages.\footnote{An introduction to the most important web page development languages can be found here: \href{https://www.w3schools.com/}{\texttt{https://www.w3schools.com/}}} 
 %
 This allows a very flexible presentation of the results. 
@@ -185,15 +187,191 @@ The interactive and animated feature of the learning module is based on \emph{ja
 %
 The \emph{bootstrap} framework with its grid system allows the development of responsive, mobile-first websites with an appealing design. 
 %
-This enables an appealing experience of the learning also on mobile devices.
+This enables an appealing experience of the learning also on mobile devices. 
 
+\vspace{1em}
+\noindent\emph{Structure of the \emph{html}, \emph{css} and \emph{javascript} files}
 
-
-\subsection{Interactive user experience using \emph{javascript}}
-
-The following explanations are based on the illustration of the properties of the sample average as estimator for the mean of a Bernoulli random variable, i.e., based on module \texttt{ber-dis-sam-ave}. 
+What follows in Section \ref{SecHowHtm} to \ref{SecHowHtm} is an explanation of the structure of the \emph{html}, \emph{css} and \emph{javascript} files.  
 %
-The values of the parameters can be changed using \emph{bootstrap-slider} inputs\footnote{See: \href{https://github.com/seiyria/bootstrap-slider}{\texttt{https://github.com/seiyria/bootstrap-slider}}}.
+The explanations are based on the illustration of the properties of the sample average as estimator for the mean of a Bernoulli random variable, i.e., based on module \texttt{ber-dis-sam-ave} which has two parameters (the sample size $n$ and the probability of success $p$) and three figures (the bar plot of number of ones and zero, the histogram of sample average and the histogram of the standardized sample average). 
+%
+Note, the implementation is flexible in the sense that it can be used for any learning module with two parameters and three figures. 
+
+\subsection{Structure of the file with the simulation study}\label{SecHowSim}
+
+%\vspace{1em}
+%\noindent\emph{Simulation study and illustration/reporting of the results}
+
+Depending on the subject of the leaning module the number of interactive parameters and the number of figures and/or tables for the illustration of the results are choosen. 
+%
+For the learning module \texttt{ber-dis-sam-ave} there are two interactive parameters, i,e, sample size $n$ and probability of success $p$ and three figures, i.e., the bar plot of number of ones and zero, the histogram of sample average and the histogram of the standardized sample average. 
+
+In this setup the variable and fixed inputs of the simulation study can be defined as in \emph{R} Code Snippet \ref{RCodSniSimSet}. 
+%
+\begin{CodeSnippet}[!hp]
+	\centering
+	\caption{\emph{R} code snippet simulation setup}
+	\normalsize
+	\vspace{0.25cm}
+	\begin{BVerbatim}
+		
+		# inputs (variable)
+		n.vec <- c(5, 10, 25, 50, 100)
+		p.vec <- c(0.2, 0.4, 0.6, 0.8)
+		
+		# inputs (fixed)
+		RR <- 10000
+		
+	\end{BVerbatim}
+	\label{RCodSniSimSet}
+\end{CodeSnippet}
+%
+The simulation study is based on a loop which runs over the variable inputs (here \texttt{n.vec} and \texttt{p.vec}). 
+%
+For each variable input combination \texttt{RR=10000} realizations of the DGP are simulated and \texttt{RR=10000} estimates are calculated. 
+%
+Based on the simulation results for \texttt{RR=10000} realizations the illustration of interest is stored as \texttt{figure\_01\_y\_z.svg}, where \texttt{0x} indicates the \texttt{0x}th figure, \texttt{y} indicates the \texttt{y}th index value of the first parameter and \texttt{z} indicates the \texttt{z}th index value of the second parameter. 
+%
+E.g. for \texttt{ii =  1} and \texttt{jj = 1} the results for the parameters $n=5$ and $p=0.2$ are stored in \texttt{figure\_01\_1\_1.svg} (see also \emph{R} Code Snippet \ref{RCodSniSimImp} below).%\footnote{The barplot only shows the number of zeros and ones of the last realization of the DGP, i.e. only one out of $10000$.} 
+%
+\begin{CodeSnippet}[!hp]
+	\centering
+	\caption{\emph{R} code snippet simulation and illustration implementation}
+	\scriptsize
+	\vspace{0.25cm}
+	\begin{BVerbatim}
+		
+		# simulation/illustration
+		
+		for (ii in 1:length(n.vec)) {
+			
+			for (jj in 1:length(p.vec)) {
+				
+				NN <- n.vec[ii]
+				p <- p.vec[jj]
+				
+				# simulation
+				tmp.sim <- Y_bar_ber_sim_fun(RR = RR, NN = NN, p = p)
+								
+				# plot no 01
+				plt.nam <- paste(fig.dir, "figure_01_", ii, "_", jj, ".svg", sep = "")
+				svg(plt.nam) 
+				
+				...
+				
+				dev.off()		
+				
+				...
+				
+			}
+			
+		}
+		
+	\end{BVerbatim}
+	\label{RCodSniSimImp}
+\end{CodeSnippet}
+%
+Note, for the integration into the \emph{html} file and the animation using \emph{javascirpit} file later the naming of the figure and/or tables is important (see Section \ref{SecHowHtm}).
+
+%A realization of the DGP is simulated and the values of a given estimator is calculated. 
+%%
+%This procedure is repeated $10,000$ times. 
+%%
+%The simulation results, i.e., the sampling distribution of the estimator, are illustrated using barplots, scatterplots and/or histograms. 
+%%
+%Other simulation results can be reported using tables. 
+%%
+%The simulation study is performed for different specifications of the DGP and/or for different estimators. 
+%%
+%For each DGP or estimator the results, e.g., figures and/or tables are saved in different \texttt{.svg} and/or \texttt{html} files. 
+%%
+%Important, the figures and/or tables should follow a certain naming rule, e.g., \texttt{figure\_0x\_y\_z.svg}, where \texttt{0x} indicates the \texttt{0x}th figure, \texttt{y} indicates the \texttt{y}th index value of the first parameter and \texttt{z} indicates the \texttt{z}th index value of the second parameter. For clarity all figures and/or tables are stored in a subfolder, e.g., \text{./figures}. The naming of the figures and/or tables with the index of the parameter is important for the presentation of the figures and/or tables later. 
+%%
+%The simulation study is performed using the programming language for statistical computing and graphics \href{https://www.r-project.org/}{\emph{R}}. 
+%
+%Note that depending on the topic of the learning module, different setups and implementations of the simulation or other studies may be appropriate. 
+
+\subsection{Structure of the \emph{html} file}\label{SecHowHtm}
+
+\vspace{1em}
+\noindent\emph{Integrate the illustrations}
+
+The illustrations are integrated using \emph{img} tags. 
+%
+The \emph{src} attributes of the \emph{img} tags point to particular figures, i.e., the illustration of particular simulation results, based on a certain naming convention. 
+%
+The \emph{id} attributes of the \emph{img} tags are also based on a certain naming convention and are used 
+to change the figures, i.e, the illustration of particular simulation results using \emph{javascript}. 
+to change the source link of the \emph{src} attribute. 
+
+The \emph{html} Code Snippet \ref{HtmlCodSniIntFig01} below shows the integration of figure 1, i.e., the bar plot of zeros and ones of the module \texttt{ber-dis-sam-ave}, for the parameterization $n=25$ and $p=0.4$, i.e., figure \texttt{figure\_01\_3\_2.svg}. 
+%
+\begin{CodeSnippet}[!hp]
+	\centering
+	\caption{\emph{Html} code snippet for integration of figure 1}
+	\tiny
+	\vspace{0.25cm}
+	\begin{BVerbatim}
+		
+		<img src="./figures/figure_01_3_2.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
+		
+	\end{BVerbatim}
+	\label{HtmlCodSniIntFig01}
+\end{CodeSnippet}
+%
+The \emph{id} attribute \texttt{imageL1N1Id} will be used in the \emph{javascript} file to change the source link of the \emph{src} attribute. 
+%
+The other figures are integrated accordingly, e.g. see \emph{html} Code Snippet \ref{HtmlCodSniImaIntFig02} below for figure 2. 
+%  
+\begin{CodeSnippet}[!hp]
+	\centering
+	\caption{\emph{Html} code snippet for integration of figure 2}
+	\tiny
+	\vspace{0.25cm}
+	\begin{BVerbatim}
+		
+		<img src="./figures/figure_02_3_2.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
+		
+	\end{BVerbatim}
+	\label{HtmlCodSniImaIntFig02}
+\end{CodeSnippet}
+
+\vspace{1em}
+\noindent\emph{Change parameterization}
+
+Parameterization can be changed using an \emph{input} tag
+
+Slider are integrated using an \emph{input} tag % I think this works also witout bootstrap-slider...
+
+A \emph{bootstrap-slider} input\footnote{See: \href{https://github.com/seiyria/bootstrap-slider}{\texttt{https://github.com/seiyria/bootstrap-slider}}} for each interactive parameter is added to change the \emph{src} attribute of each \emph{img} tag, i.e., the figure shown in the \emph{html} file. 
+%
+\begin{CodeSnippet}[!hp]
+	\centering
+	\caption{\emph{Html} code snippet for slider 1}
+	\tiny
+	\vspace{0.25cm}
+	\begin{BVerbatim}
+		
+		<p style='font-size: 12pt; text-align: center;'>Sample size \(n\)</p><p style='font-size: 12pt; text-align: center' id="sliderValue01Id"></p>
+		<input id="slider01Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+		
+	\end{BVerbatim}
+	\label{HtmlCodSniSli01}
+\end{CodeSnippet}
+%
+The \emph{id} attribute \texttt{imageL1N1Id} will be used in the \emph{javascript} file to change the source link of the \emph{src} attribute. 
+
+
+For each figure and parameter a \emph{audio} file with an explanation of the figure and the simulation results can be added
+
+Other content such as explanations as plain text or formula or as audio files can be added and can be manipulated, e.g. made visible/invisible inside tabs or collapsibles using \emph{javascript}. 
+
+
+
+\subsection{Structure of the \emph{javascript} file}\label{SecHowJs}
+
+The values of the parameters can be changed using \emph{bootstrap-slider} inputs\footnote{See: \href{https://github.com/seiyria/bootstrap-slider}{\texttt{https://github.com/seiyria/bootstrap-slider}}} and the \emph{javascript} \texttt{par02Fig03Interactivation.js}. 
 %
 For example for the input of the sample size the following \emph{html} code snippet is used. 
 
