@@ -21,6 +21,9 @@ for (i = 0; i < coll.length; i++) {
 // handling of tabs      
 // see: https://www.w3schools.com/howto/howto_js_tabs.asp
 
+var activeTabId; // define as global variable
+activeTabId = "tabLinkL1N1Id";
+
 // open specific tab
 function openSpecificTab(tabContentId, tabLinkId, color) {
 
@@ -40,6 +43,8 @@ function openSpecificTab(tabContentId, tabLinkId, color) {
 
   // show the specific tab content
   document.getElementById(tabContentId).style.display = "block";
+  // store the ID of the currently active tab
+  activeTabId = tabContentId;
 
   // add the specific color to the button used to open the tab content
   document.getElementById(tabLinkId).style.backgroundColor = color;
