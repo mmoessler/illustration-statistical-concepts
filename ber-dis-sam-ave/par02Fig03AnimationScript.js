@@ -21,14 +21,33 @@ function sliderLoop(loopSliderValue01, loopSliderValue02) {
 };
 
 // explanation button
-explainButto01Click = function(audioId) {
-  var audio = document.getElementById(audioId);
+explainButto01Click = function() {
+
+  if (activeTabId == "tabContentL1N1Id") {
+    var audio = document.getElementById("audioFigure01OverallId");
+  } else if (activeTabId == "tabContentL1N2Id") {
+    var audio = document.getElementById("audioFigure02OverallId");
+  } else if (activeTabId == "tabContentL1N3Id") {
+    var audio = document.getElementById("audioFigure03OverallId");
+  } else {
+    var audio = document.getElementById("audioErrorId");
+  }
   audio.play();
+  
 }
 
 // animate silder 1 out of 2
-animateButto01Click = function(org, start, stop, audioId) {
-  var audio = document.getElementById(audioId);
+animateButto01Click = function(org, start, stop) {
+
+  if (activeTabId == "tabContentL1N1Id") {
+    var audio = document.getElementById("audioFigure01Slider01Id");
+  } else if (activeTabId == "tabContentL1N2Id") {
+    var audio = document.getElementById("audioFigure02Slider01Id");
+  } else if (activeTabId == "tabContentL1N3Id") {
+    var audio = document.getElementById("audioFigure03Slider01Id");
+  } else {
+    var audio = document.getElementById("audioErrorId");
+  }
   audio.play();
   var ind = start;
   var loopSliderValue02 = slider02.getValue();
@@ -50,8 +69,17 @@ animateButto01Click = function(org, start, stop, audioId) {
 }
 
 // animate silder 2 out of 2
-animateButto02Click = function(org, start, stop, audioId) {    
-  var audio = document.getElementById(audioId);
+animateButto02Click = function(org, start, stop) {
+
+  if (activeTabId == "tabContentL1N1Id") {
+    var audio = document.getElementById("audioFigure01Slider02Id");
+  } else if (activeTabId == "tabContentL1N2Id") {
+    var audio = document.getElementById("audioFigure02Slider02Id");
+  } else if (activeTabId == "tabContentL1N3Id") {
+    var audio = document.getElementById("audioFigure03Slider02Id");
+  } else {
+    var audio = document.getElementById("audioErrorId");
+  }
   audio.play();
   var ind = start;
   var loopSliderValue01 = slider01.getValue();
