@@ -1,8 +1,0 @@
-
-Figure 1: Scatterplot
-
-Overall:
--> The figure shows the observations of X and Y and the fitted regression line for one simulation.
--> So there are 25 dots because we have a sample of size 25 and each dot reprsents one observation.
--> The fitted regression line is fitted based on these 25 dots.
--> The red shaded area shows the range of all fitted regresion lines across all simulations.
