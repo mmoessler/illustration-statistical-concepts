@@ -1,6 +1,6 @@
 
 /* include/exclude UHO logo */
-.header01Cl{
+.header01Cl {
   display: block;
 }
 
@@ -9,13 +9,45 @@
   display: block;
 }
 
-/* include/exclude ILIAS link */
-.footer02Cl {
+/* include/exclude link to github start */
+.footerGihubCl {
+  display: block;
+}
+
+/* include/exclude link to ilias start */
+.footerIliasCl {
   display: none;
 }
 
-body{
-  font-family: Helvetica;
+/* include/exclude access to github */
+.accessIliasCl {
+  display: block;
+}
+
+/* include/exclude access to ilias */
+.accessIliasCl {
+  display: none;
+}
+
+body {
+  font-family: "Helvetica", sans-serif; 
+  font-size: 14pt;
+  font-weight: 400;
+}
+
+/* Override Bootstrap's paragraph font-weight */
+.container p {
+  font-weight: 400;
+  font-size: 14pt;
+}
+
+.container ul {
+  font-weight: 400;
+  font-size: 14pt;
+}
+
+.container ol {
+  font-weight: 400;
   font-size: 14pt;
 }
 
@@ -108,11 +140,6 @@ body{
   width:100%; 
 }
 
-/* margin of jumbotron id top */
-div#topJumb.jumbotron{
-  margin-top:50px; 
-}
-
-.innerJumb{
+.innerJumbCl {
   background-color: #ffffff;
 }
