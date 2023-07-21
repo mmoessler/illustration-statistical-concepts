@@ -1,20 +1,21 @@
-<html>
+<!doctype html>
+<html lang="eng">
   <head>
 
-    <title>Linear Regression - OLS - Sample Distribution</title>
+    <title>Linear Regression - OLS - Sampling Distribution</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
 
-    <!-- include my style sheet -->
+    <!-- my style sheet -->
     <link rel="stylesheet" href="mystyle.css">
 
-    <!-- hohenheim logo and chair -->
-    <div class="logoCl iliasExcCl" style="text-align:center;" background-color="#eeeeee;">
-      <br />
-      <img src="Uni-Hohenheim-Logo-Weiss-EN.png" width="727" height="188" />
-      <br />
-        <p> Econometrics and Statistics (520K) </p>
+    <!-- logo -->
+    <div class="logoCl header01Cl" style="text-align:center; padding-top: 20px; padding-bottom: 20px;" background-color="#eeeeee;">
+      <img src="RZ_UniHohenheim_Logo_1C_Weiss_EN.svg" height="250px"/>
     </div>
 
   </head>
@@ -23,7 +24,7 @@
     <div class="container mt-5">
       <div class="row">
 
-          <div class="jumbotron" id="topJumb">
+        <div class="jumbotron topJumbCl" style="margin-top: 50px; padding: 25px 50px 25px 50px;">
             
             <p style="font-size: 28pt;">Linear Regression Model and the OLS Estimator</p>
             <p style="font-size: 18pt;">Effect of the Sample Size</p> 
@@ -36,15 +37,20 @@
     <div class="container mt-5">
       <div class="row">
 
-        <div class="jumbotron">
+        <div class="jumbotron" style="padding: 25px 50px 25px 50px">
 
           <p style="font-size: 18pt">Topic of the module</p>
 
           <div style="margin-left: 10pt;">
-          <p>Understand the procedure to simulate the sampling distribution of the OLS estimator for the slope parameter of a linear regression model.</p>
-          <p>A realization of the DGP (see below) is simulated and the value for the estimator (see below), i.e. an estimate, is calculated.</p>
-          <p>This exercise is repated \(10,\!000\) times resulting in \(10,\!000\) values for the estimators, i.e., \(10,\!000\) estimates. The distribution of these \(10,\!000\) estimates is the sample distribution of the estimator.</p>
-          <p>Based on the simulation understand the effect of increasing the sample size \(n\) on the sample distribution of the OLS estimator.</p>
+
+            <p>Understand the procedure to simulate the sampling distribution of the OLS estimator for the slope parameter of a linear regression model.</p>
+            
+            <p>A realization of the DGP (see below) is simulated and the value for the estimator (see below), i.e. an estimate, is calculated.</p>
+            
+            <p>This exercise is repeated \(10,\!000\) times resulting in \(10,\!000\) values for the estimators, i.e., \(10,\!000\) estimates. The distribution of these \(10,\!000\) estimates is the sampling distribution of the estimator.</p>
+            
+            <p>Based on the simulation understand the effect of increasing the sample size \(n\) on the sampling distribution of the OLS estimator.</p>
+          
           </div>
 
           <hr>
@@ -53,25 +59,25 @@
         
           <div style="margin-left: 10pt;">
 
-          <p>Consider \(n\) observations are generated from the simple regression model,</p>
+            <p>Consider \(n\) observations are generated from the simple regression model,</p>
 
-          $$
-          \begin{align}
-          Y_i = \beta_{0} + \beta_{1} X_{i} + u_{i},
-          \end{align}
-          $$
+            $$
+            \begin{align}
+            Y_i = \beta_{0} + \beta_{1} X_{i} + u_{i},
+            \end{align}
+            $$
 
-          <p>where \(\beta_{0}=0\) is the intercept and \(\beta_{1}=1\) is the slope parameter.</p>
+            <p>where \(\beta_{0}=0\) is the intercept and \(\beta_{1}=1\) is the slope parameter.</p>
 
-          <p>Furthermore, \(X_{i}\) and \(u_{i}\) are i.i.d. normally distributed, i.e.,</p>
+            <p>Furthermore, \(X_{i}\) and \(u_{i}\) are i.i.d. normally distributed, i.e.,</p>
 
-          $$
-          \begin{align}
-          X_{i} \sim N\left(0, \sigma_{X}^{2}\right), \;\;\;\;\; u_{i} \sim N\left(0, \sigma_{u}^{2}\right),
-          \end{align}
-          $$
+            $$
+            \begin{align}
+            X_{i} \sim N\left(0, \sigma_{X}^{2}\right), \;\;\;\;\; u_{i} \sim N\left(0, \sigma_{u}^{2}\right),
+            \end{align}
+            $$
 
-          <p>where \(\sigma_{X}=5\) and \(\sigma_{u}=5\) is the standard deviation of \(X_{i}\) and \(u_{i}\), respectively.</p>
+            <p>where \(\sigma_{X}=5\) and \(\sigma_{u}=5\) is the standard deviation of \(X_{i}\) and \(u_{i}\), respectively.</p>
               
           </div>
 
@@ -81,15 +87,15 @@
           
           <div style="margin-left: 10pt;">
           
-          <p>We are interested in the sample properties of the OLS estimator \(\widehat{\beta}_{1}\) given by,</p>
+            <p>We are interested in the sampling properties of the OLS estimator \(\widehat{\beta}_{1}\) given by,</p>
 
-          $$
-          \begin{align}
-          \widehat{\beta}_{1} = \frac{\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)\left(Y_{i} - \overline{Y}\right)}{\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}},
-          \end{align}
-          $$  
+            $$
+            \begin{align}
+            \widehat{\beta}_{1} = \frac{\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)\left(Y_{i} - \overline{Y}\right)}{\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}},
+            \end{align}
+            $$  
 
-          <p>as estimator for the slope parameter \(\beta_{1}\) of the regression model above.</p>
+            <p>as estimator for the slope parameter \(\beta_{1}\) of the regression model above.</p>
 
           </div>
 
@@ -101,33 +107,41 @@
     <div class="container mt-5">
       <div class="row">
 
-          <div class="jumbotron">
+        <div class="jumbotron outerJumbCl" style="padding: 25px 50px 25px 50px">
             
             <p style="font-size: 18pt">Illustration</p>
             
             <div style="margin-left: 10pt;">
             
-            <p>Change the parameters and see the effect on the properties of the OLS estimator \(\widehat{\beta}_{1}\) as estimator for \(\beta_{1}\).</p>
+              <p>Change the parameters and see the effect on the properties of the OLS estimator \(\widehat{\beta}_{1}\) as estimator for \(\beta_{1}\).</p>
       
             </div>
 
             <div class="container mt-5" style="margin-top: 50px;">
               <div class="row">
 
-                <div class="col-sm-3" style="margin-top: 70px;">
-                  <div class="jumbotron innerJumb">
+                <div class="col-sm-3" style="margin-top: 90px;">
+                  <div class="jumbotron innerJumbCl" style="padding: 25px 50px 25px 50px">
 
-                    <p style="font-size: 14pt; margin-top:-25px; text-align: center">Parameters</p>
+                    <p style="font-size: 14pt; text-align: center;">Parameters</p>
 
                     <div style="margin-top: 50px;">
                       
                       <hr>
 
-                      <p style="font-size: 12pt; text-align: center">Realization DGP</p><p style="font-size: 12pt; text-align: center" id="sliderValue01Id"></p>
+                      <p style="font-size: 12pt; text-align: center;">Realization DGP \(r\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue01Id"></p>
                       <input id="slider01Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
-                      
-                      <p style="font-size: 12pt; text-align: center; margin-top: 10px;">Sample Size</p><p style="font-size: 12pt; text-align: center" id="sliderValue02Id"></p>
+                      <div style="font-size: 12pt; text-align: center;">
+                        <button class="animateButtonCl" onclick="animateButto01Click(org = 2, start = 0, stop = 4)">Animate \(r\)</button>
+                      </div>
+
+                      <br>
+
+                      <p style="font-size: 12pt; text-align: center;">Sample size \(n\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue02Id"></p>
                       <input id="slider02Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <div style="font-size: 12pt; text-align: center;">
+                        <button class="animateButtonCl" onclick="animateButto02Click(org = 2, start = 0, stop = 4)">Animate \(n\)</button>
+                      </div>
                       
                     </div>
 
@@ -135,9 +149,9 @@
                 </div>
                 
                 <div class="col-sm-9">
-                  <div class="jumbotron innerJumb">
+                  <div class="jumbotron innerJumbCl" style="padding: 15px 50px 25px 50px">
             
-                    <div class="tab" style="text-align: center; margin-top: -20px;">
+                    <div class="tab" style="text-align: center;">
                       <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N1Id', 'tabLinkL1N1Id', 'white')" id="tabLinkL1N1Id">Realizations</button>
                       <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N2Id', 'tabLinkL1N2Id', 'white')" id="tabLinkL1N2Id">Residuals</button>
                       <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N3Id', 'tabLinkL1N3Id', 'white')" id="tabLinkL1N3Id">Estimates</button>
@@ -148,19 +162,19 @@
 
                     <div id="tabContentL1N1Id" class="tabContentL1Cl">
 
-                      <p style="font-size: 14pt; text-align: center; margin-bottom: 0;">Scatter plot (observations)</p>
-                      
-                      <img src="./figures/figure_01_3_3.svg" alt="" id="imageL1N1Id" style="display: block; margin: 0 auto; max-width: 80%;">
+                      <table style="width:100%; margin-bottom: 10px;">
+                        <tr>
+                          <td style="width: 10%"></td>
+                          <td style="width: 80%; font-size: 14pt; text-align: left;">Scatter plot (realizations)</td>
+                          <td style="width: 10%; font-size: 14pt; text-align: right;">
+                            <button class="explainButtonCl" onclick="explainButto01Click()">Explain</button>
+                          </td>
+                        </tr>
+                      </table>
 
-                      <div class="tab" style="text-align: center;">
-                        <button class="explainButtonCl" onclick="explainButto01Click(audioId = 'audioFigure01OverallId')" id="explainButtonL1N1Id">Explain <br> Figure</button>
-                        &nbsp;&nbsp;&nbsp;
-                        <button class="animateButtonCl" onclick="animateButto01Click(org = 2, start = 0, stop = 4, audioId = 'audioFigure01Slider01Id')" id="animateButtonL1N1Id">Animate <br> DGP Realization</button>
-                        &nbsp;&nbsp;&nbsp;
-                        <button class="animateButtonCl" onclick="animateButto02Click(org = 2, start = 0, stop = 4, audioId = 'audioFigure01Slider02Id')" id="animateButtonL1N2Id">Animate <br> Sample Size</button>
-                      </div>
-
-                      <br>
+                      <div style="text-align: center;">
+                        <img src="./figures/figure_01_1_1.svg" alt="" id="imageL1N1Id" style="max-width: 75%;">
+                      </div>  
 
                       <p>The red fitted regression line is based on the regression of,</p>
 
@@ -176,9 +190,19 @@
 
                     <div id="tabContentL1N2Id" class="tabContentL1Cl">
 
-                      <p style="font-size: 14pt; text-align: center; margin-bottom: 0;">Scatter plot (fitted residuals)</p>
+                      <table style="width:100%; margin-bottom: 10px;">
+                        <tr>
+                          <td style="width: 10%"></td>
+                          <td style="width: 80%; font-size: 14pt; text-align: left;">Scatter plot (fitted residuals)</td>
+                          <td style="width: 10%; font-size: 14pt; text-align: right;">
+                            <button class="explainButtonCl" onclick="explainButto01Click()">Explain</button>
+                          </td>
+                        </tr>
+                      </table>
 
-                      <img src="./figures/figure_02_3_3.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
+                      <div style="text-align: center;">
+                        <img src="./figures/figure_02_1_1.svg" alt="" id="imageL1N2Id" style="max-width: 75%;">
+                      </div>
 
                       <p>The fitted unobserved residuals are</p>
 
@@ -194,19 +218,19 @@
 
                     <div id="tabContentL1N3Id" class="tabContentL1Cl">
 
-                      <p style='font-size: 14pt; text-align: center; margin-bottom: 0;'>Histogram of the OLS estimates \(\widehat{\beta}_{1}\)</p>
-                      
-                      <img src="./figures/figure_03_3_3.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
+                      <table style="width:100%; margin-bottom: 10px;">
+                        <tr>
+                          <td style="width: 10%"></td>
+                          <td style="width: 80%; font-size: 14pt; text-align: left;">Histogram of the OLS estimates \(\widehat{\beta}_{1}\)</td>
+                          <td style="width: 10%; font-size: 14pt; text-align: right;">
+                            <button class="explainButtonCl" onclick="explainButto01Click()">Explain</button>
+                          </td>
+                        </tr>
+                      </table>
 
-                      <div class="tab" style="text-align: center;">
-                        <button class="explainButtonCl" onclick="explainButto01Click(audioId = 'audioFigure03OverallId')" id="explainButtonL1N1Id">Explain <br> Figure</button>
-                        &nbsp;&nbsp;&nbsp;
-                        <button class="animateButtonCl" onclick="animateButto01Click(org = 2, start = 0, stop = 4, audioId = 'audioFigure03Slider01Id')" id="animateButtonL1N1Id">Animate <br> DGP Realization</button>
-                        &nbsp;&nbsp;&nbsp;
-                        <button class="animateButtonCl" onclick="animateButto02Click(org = 2, start = 0, stop = 4, audioId = 'audioFigure03Slider02Id')" id="animateButtonL1N2Id">Animate <br> Sample Size</button>
+                      <div style="text-align: center;">
+                        <img src="./figures/figure_03_1_1.svg" alt="" id="imageL1N3Id" style="max-width: 75%;">
                       </div>
-
-                      <br>
 
                       <span style="font-size: 16pt; text-decoration: underline;">Consistency</span><span style="font-size: 16pt; text-decoration: none;">:</span>
 
@@ -222,19 +246,19 @@
 
                     <div id="tabContentL1N4Id" class="tabContentL1Cl">
 
-                      <p style='font-size: 14pt; text-align: center; margin-bottom: 0;'>Histogram of the standardized OLS estimates \(z_{\widehat{\beta}_{1}}\)</p>
+                      <table style="width:100%; margin-bottom: 10px;">
+                        <tr>
+                          <td style="width: 10%"></td>
+                          <td style="width: 80%; font-size: 14pt; text-align: left;">Histogram of the standardized OLS estimates \(z_{\widehat{\beta}_{1}}\)</td>
+                          <td style="width: 10%; font-size: 14pt; text-align: right;">
+                            <button class="explainButtonCl" onclick="explainButto01Click()">Explain</button>
+                          </td>
+                        </tr>
+                      </table>
 
-                      <img src="./figures/figure_04_3_3.svg" alt="" id="imageL1N4Id" style="text-align: center; max-width: 100%;">
-
-                      <div class="tab" style="text-align: center;">
-                        <button class="explainButtonCl" onclick="explainButto01Click(audioId = 'audioFigure04OverallId')" id="explainButtonL1N1Id">Explain <br> Figure</button>
-                        &nbsp;&nbsp;&nbsp;
-                        <button class="animateButtonCl" onclick="animateButto01Click(org = 2, start = 0, stop = 4, audioId = 'audioFigure04Slider01Id')" id="animateButtonL1N1Id">Animate <br> DGP Realization</button>
-                        &nbsp;&nbsp;&nbsp;
-                        <button class="animateButtonCl" onclick="animateButto02Click(org = 2, start = 0, stop = 4, audioId = 'audioFigure04Slider02Id')" id="animateButtonL1N2Id">Animate <br> Sample Size</button>
+                      <div style="text-align: center;">
+                        <img src="./figures/figure_04_1_1.svg" alt="" id="imageL1N4Id" style="max-width: 75%;">
                       </div>
-
-                      <br>
                       
                       <span style="font-size: 16pt; text-decoration: underline;">Asymptotic Normality</span><span style="font-size: 16pt; text-decoration: none;">:</span>
 
@@ -264,7 +288,7 @@
     <div class="container mt-5">
       <div class="row">
 
-        <div class="jumbotron">
+        <div class="jumbotron" style="padding: 25px 50px 25px 50px">
             
             <p style="font-size: 18pt">More Details</p>
 
@@ -282,7 +306,6 @@
                 <li>The values of the OLS estimate \(\widehat{\beta}_{1}\) and the standardized OLS estimate \(z_{\widehat{\beta}_{1}}\) are stored.</li>
                 <li>Step 1 to 3 is repeated \(10,000\) times resulting in \(10,\!000\) OLS and standardized OLS estimates.</li>
                 <li>The distribution of the OLS and standardized estimates are illustrated using histograms.</li>
-                <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the different outcomes of the samples the OLS estimates will vary across sample draws.</p>
               </ol>
 
             </div>
@@ -342,6 +365,21 @@
         Your browser does not support the audio element.
       </audio>
 
+      <audio id="audioFigure02OverallId" controls>
+        <source src="./audios/audio_figure02_overall.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure02Slider01Id" controls>
+        <source src="./audios/audio_figure02_slider01.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure02Slider02Id" controls>
+        <source src="./audios/audio_figure02_slider02.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
       <audio id="audioFigure03OverallId" controls>
         <source src="./audios/audio_figure03_overall.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -374,21 +412,53 @@
 
     </div>
 
-    <div class="iliasExcCl">
-      <hr />
-      <p style="text-align: center; font-size: 20pt; font-weight: bold;">
-        <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1781360/index_ilias_html_xx.html">Back to <em>Startpage</em></a>
-      </p>
-      <hr />
+    <!-- include/exculde ilias footer -->
+    <div class="container mt-5">
+      <div class="row">
+        <p style="text-align: center; font-size: 20pt; font-weight: bold;" class="footerIliasCl">
+          <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1781360/index_ilias.html"><em>Back to Startpage</em></a>
+        </p>
+      </div>
     </div>
 
-    <!-- include mathjax js via cdn
-    <script type="text/javascript" id="MathJax-script" async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-    </script>
-     -->
+    <!-- include/exculde github footer -->
+    <div class="container mt-5">
+      <div class="row">
+        <p style="text-align: center; font-size: 20pt; font-weight: bold;" class="footerGihubCl">
+          <a href="https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/index.html"><em>Back to Startpage</em></a>
+        </p>
+      </div>
+    </div>
+
+    <!-- footer logos -->
+    <div class="container mt-5">
+      <div class="row">
+
+        <hr>
+        <table style="width:100%">
+          <tr>
+            <td style="width: 25%; text-align: left; padding-left: 10%;">
+              <img src="RZ_UniHohenheim_Logo_4C_E_blau_EN.svg" height="10%"/>
+            </td>
+            <td style="width: 50%; text-align: center;">
+              <p style="font-size: 75%; text-align: center;">This module is part of the <a href="https://www.uni-hohenheim.de/en/project-dellfi">DeLLFi</a> project of the University of Hohenheim and funded by the <br> <a href="https://stiftung-hochschullehre.de/">Foundation for Innovation in University Teaching</a></p>
+              <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+                <img alt="Creative Commons License" style="border-width:0; padding-top: -20px;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" height="10%"/>
+              </a> 
+            </td>
+            <td style="width: 25%; text-align: right; padding-right: 10%;">
+              <img src="Logo_Stiftung_Hochschullehre.svg" height="10%"/>
+            </td>
+          </tr>
+        </table>
+        <hr>      
+
+      </div>
+    </div>
+
+    <!-- include mathjax js via cdn -->
     <script
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
     </script>
 
     <!-- include bootstrap slider js via cdn --> 
@@ -401,8 +471,26 @@
       src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js">
     </script>
 
+  <!-- adjust inputs -->
+  <script>
+
+    var par01Vec = [1, 2, 3, 4, 5];
+    var par02Vec = [5, 10, 25, 50, 100];
+
+    var par01Ini = 2;
+    var par02Ini = 2;
+
+    var par01Str01 = "\\(r = ";
+    var par02Str01 = "\\(n = ";
+
+  </script>
+
     <!-- include my javascript -->
     <script src="myScript.js"></script>
+
+    <script src="par02Fig04InteractivationScript.js"></script>
+
+    <script src="par02Fig04AnimationScript.js"></script>
 
   </body>
 </html>
