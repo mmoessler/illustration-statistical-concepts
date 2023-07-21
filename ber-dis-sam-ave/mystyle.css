@@ -119,11 +119,6 @@ body{
   width:100%; 
 }
 
-/* margin of jumbotron id top */
-div#topJumb.jumbotron{
-  margin-top:50px; 
-}
-
-.innerJumb{
+.innerJumbCl {
   background-color: #ffffff;
 }
