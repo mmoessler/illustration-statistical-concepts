@@ -10,18 +10,13 @@ function sliderLoop(loopSliderValue01, loopSliderValue02) {
   document.getElementById("imageL1N3Id").setAttribute("src", "./figures/figure_03_" + sliderValue01 + "_" + sliderValue02 + ".svg");
 
   document.getElementById("sliderValue01Id").innerHTML = par01Str01 + par01Vec[slider01.getValue()] + "\\)";
-  var element = document.getElementById("sliderValue01Id");
-  MathJax.typeset([element]);
+  MathJax.typeset([element = document.getElementById("sliderValue01Id")]);
 
   document.getElementById("sliderValue02Id").innerHTML = par02Str01 + par02Vec[slider02.getValue()] + "\\)";
-  var element = document.getElementById("sliderValue02Id");
-  MathJax.typeset([element]);
+  MathJax.typeset([element = document.getElementById("sliderValue02Id")]);
 
-  var slider = document.getElementById("slider01Id");
-  slider.value = sliderValue01;
-
-  var slider = document.getElementById("slider02Id");
-  slider.value = sliderValue02;
+  document.getElementById("slider01Id").value = sliderValue01;
+  document.getElementById("slider02Id").value = sliderValue02;
 
 };
 
