@@ -5,18 +5,18 @@ function sliderLoop(loopSliderValue01, loopSliderValue02) {
   var sliderValue01 = loopSliderValue01 + 1;
   var sliderValue02 = loopSliderValue02 + 1;
 
-  document.getElementById("imageL1N1Id").setAttribute("src", "./figures/figure_01_" + sliderValue01 + "_" + sliderValue02 + ".svg");
-  document.getElementById("imageL1N2Id").setAttribute("src", "./figures/figure_02_" + sliderValue01 + "_" + sliderValue02 + ".svg");
-  document.getElementById("imageL1N3Id").setAttribute("src", "./figures/figure_03_" + sliderValue01 + "_" + sliderValue02 + ".svg");
+  document.getElementById("image1Id").setAttribute("src", "./figures/figure_01_" + sliderValue01 + "_" + sliderValue02 + ".svg");
+  document.getElementById("image2Id").setAttribute("src", "./figures/figure_02_" + sliderValue01 + "_" + sliderValue02 + ".svg");
+  document.getElementById("image3Id").setAttribute("src", "./figures/figure_03_" + sliderValue01 + "_" + sliderValue02 + ".svg");
 
-  document.getElementById("sliderValue01Id").innerHTML = par01Str01 + par01Vec[slider01.getValue()] + "\\)";
-  MathJax.typeset([element = document.getElementById("sliderValue01Id")]);
+  document.getElementById("sliderValue1Id").innerHTML = par01Str01 + par01Vec[slider01.getValue()] + "\\)";
+  MathJax.typeset([element = document.getElementById("sliderValue1Id")]);
 
-  document.getElementById("sliderValue02Id").innerHTML = par02Str01 + par02Vec[slider02.getValue()] + "\\)";
-  MathJax.typeset([element = document.getElementById("sliderValue02Id")]);
+  document.getElementById("sliderValue2Id").innerHTML = par02Str01 + par02Vec[slider02.getValue()] + "\\)";
+  MathJax.typeset([element = document.getElementById("sliderValue2Id")]);
 
-  document.getElementById("slider01Id").value = sliderValue01;
-  document.getElementById("slider02Id").value = sliderValue02;
+  document.getElementById("slider1Id").value = sliderValue01;
+  document.getElementById("slider2Id").value = sliderValue02;
 
 };
 
@@ -40,11 +40,11 @@ explainButton01Click = function() {
 animateButton01Click = function(org, start, stop) {
 
   if (activeTabId == "tabContentL1N1Id") {
-    var audio = document.getElementById("audioFigure01Slider01Id");
+    var audio = document.getElementById("audioFigure01Slider1Id");
   } else if (activeTabId == "tabContentL1N2Id") {
-    var audio = document.getElementById("audioFigure02Slider01Id");
+    var audio = document.getElementById("audioFigure02Slider1Id");
   } else if (activeTabId == "tabContentL1N3Id") {
-    var audio = document.getElementById("audioFigure03Slider01Id");
+    var audio = document.getElementById("audioFigure03Slider1Id");
   } else {
     var audio = document.getElementById("audioErrorId");
   }
@@ -72,11 +72,11 @@ animateButton01Click = function(org, start, stop) {
 animateButton02Click = function(org, start, stop) {
 
   if (activeTabId == "tabContentL1N1Id") {
-    var audio = document.getElementById("audioFigure01Slider02Id");
+    var audio = document.getElementById("audioFigure01Slider2Id");
   } else if (activeTabId == "tabContentL1N2Id") {
-    var audio = document.getElementById("audioFigure02Slider02Id");
+    var audio = document.getElementById("audioFigure02Slider2Id");
   } else if (activeTabId == "tabContentL1N3Id") {
-    var audio = document.getElementById("audioFigure03Slider02Id");
+    var audio = document.getElementById("audioFigure03Slider2Id");
   } else {
     var audio = document.getElementById("audioErrorId");
   }
