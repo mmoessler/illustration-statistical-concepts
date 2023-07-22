@@ -1,20 +1,18 @@
-<html>
+<!doctype html>
+<html lang="eng">
   <head>
 
-    <title>OLS: Case 03</title>
+    <title>Linear Regression - OLS - Heteroskedasticity</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
 
-    <!-- include my style sheet -->
+    <!-- my style sheet -->
     <link rel="stylesheet" href="mystyle.css">
 
-    <!-- hohenheim logo and chair -->
-    <div class="logoCl iliasExcCl" style="text-align:center;" background-color="#eeeeee;">
-      <br />
-      <img src="Uni-Hohenheim-Logo-Weiss-EN.png" width="727" height="188" />
-      <br />
-        <p> Econometrics and Statistics (520K) </p>
+    <!-- logo -->
+    <div class="logoCl header01Cl" style="text-align:center; padding-top: 20px; padding-bottom: 20px;" background-color="#eeeeee;">
+      <img src="RZ_UniHohenheim_Logo_1C_Weiss_EN.svg" height="250px"/>
     </div>
 
   </head>
@@ -23,9 +21,9 @@
     <div class="container mt-5">
       <div class="row">
 
-          <div class="jumbotron" id="topJumb">
+        <div class="jumbotron topJumbCl" style="margin-top: 50px; padding: 25px 50px 25px 50px;">
             
-            <p style='font-size: 28pt;'>Properties of the OLS Estimator</p>
+          <p style='font-size: 28pt;'>Linear Regression Model and the OLS Estimator</p>
             <p style='font-size: 18pt; margin-top: -10px;'>Effect of Heteroskedasticity</p> 
       
           </div>
@@ -37,98 +35,94 @@
     <div class="container mt-5">
       <div class="row">
 
-        <div class="jumbotron">
+        <div class="jumbotron" style="padding: 25px 50px 25px 50px">
 
-          <p style="font-size: 18pt">Motivation</p>
+          <p style="font-size: 18pt">Topic of the module</p>
 
-          <p>Understand the effect of heteroskedasticity on the sampling distribution of the OLS estimator.</p>
-
-          <hr>
-
-          <p style="font-size: 18pt">Statistical Model</p>
-        
-          <p>Consider the linear regression model,</p>
-
-          $$
-          \begin{align}
-          Y_i = \beta_{0} + \beta_{1} X_{i} + u_{i},
-          \end{align}
-          $$
-
-          <p>where \(\beta_{0}=1\) is the intercept and \(\beta_{1}\) is the slope parameter.</p>
-
-          <p>Furthermore, suppose \(X_{i}\) and \(u_{i}\) are independently normally distributed, i.e.,</p>
-
-          $$
-          \begin{align}
-          X_{i} \sim N\left(0, \sigma_{X}^{2}\right), \;\;\;\;\; u_{i} \sim N\left(0, \sigma_{ui}^{2}\right),
-          \end{align}
-          $$
-
-          <p>where \(\sigma_{X}^{2}\) and \(\sigma_{ui}^{2}\) is the variance of \(X_{i}\) and \(u_{i}\).
-
-          <!--
-          <hr>
-
-          <p style="font-size: 18pt">Estimator and Parameter of Interest</p>
+          <div style="margin-left: 10pt;">
           
-          <p>We are interested in the sampling properties of the OLS estimator \(\widehat{\beta}_{1}\) given by,</p>
-
-          $$
-          \begin{align}
-          \widehat{\beta}_{1} = \frac{\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)\left(Y_{i} - \overline{Y}\right)}{\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}},
-          \end{align}
-          $$  
-
-          as estimator for the slope parameter \(\beta_{1}\) of the regression model above.
-          -->
+            <p>Understand the effect of heteroskedasticity on the sampling distribution of the OLS estimator.</p>
+          
+          </div>          
 
           <hr>
 
-          <p style="font-size: 18pt">Effects of heteroskedasticity</p>
-
-          <p>Heteroskedasticity occurs when \(\sigma_{ui}^{2}\) is not constant but a function of \(X_{i}\), e.g.,</p>
-
-          $$
-          \begin{align}
-          \sigma_{ui}^{2} = \text{exp}\left(\gamma_{0} + \gamma_{1} X_{i}\right),
-          \end{align}
-          $$
-
-          <p>where \(\gamma_{0}=0\) and \(\gamma_{1}\) are parameters which determine the shape of the heteroskedasticity.</p>
-
-          <p>Thus, for positive/negative values of \(\gamma_{1}\) the variance of \(u_{i}\) is positively/negatively related with the value of \(X_{i}\).</p>
-
-          <p>Heteroskedasticity effects the standard error of the OLS estimator \(\widehat{\beta}_{1}\) and thus the construction of the standardized OLS estimator \(z_{\widehat{\beta}_{1}}\).</p>
-
-          <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">More Details</span> </button>
-          <div class="collContentCl">
-
-            <p style="margin-top: 10px;">
-              For the construction of the standardized OLS estimator \(z_{\widehat{\beta}_{1}}\), the variance of \(\widehat{\beta}_{1}\), i.e., \(\sigma_{\widehat{\beta}_{1}}^{2}\), has to be estimated.
-            </p>
-            
-            <p>The variance of \(\widehat{\beta}_1\), i.e., \(\sigma_{\widehat{\beta}_{1}}^{2}\), can be robustly estimated by,</p>
-            
-            $$
-            \begin{align}
-            \widehat{\sigma}_{\widehat{\beta}_{1}}^{2} = \frac{1}{n} \times \frac{\frac{1}{n-2}\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}\widehat{u}_{i}^{2}}{\left[\frac{1}{n}\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}\right]^{2}},
-            \end{align}
-            $$
-
-            <p>where \(\widehat{u}_{i}\) are the residuals of the estimate regression line.</p>
-
-            <p>Note, the estimator for \(\sigma_{\widehat{\beta}_{1}}^{2}\) above is robust w.r.t. to heteroskedasticity, i.e., it does not rely on the assumption of homoskedasticity.</p>
-
-            <p>Instead, some statistic software report estimates \(\sigma_{\widehat{\beta}_{1}}^{2}\), based on the assumption of homoskedasticity.</p>
-            
-            <p>The so called homoskedaticity-only estimator of \(\sigma_{\widehat{\beta}_{1}}^{2}\), is given by,</p>
+          <p style="font-size: 18pt">Data generating process (DGP)</p>
+        
+          <div style="margin-left: 10pt;">
+                    
+            <p>Consider \(n\) observations are generated from the simple regression model,</p>
 
             $$
             \begin{align}
-            \widetilde{\sigma}_{\widehat{\beta}_{1}}^{2} = \frac{\frac{1}{n-2}\sum_{i=1}^{n}\widehat{u}_{i}^{2}}{\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}}.
+            Y_i = \beta_{0} + \beta_{1} X_{i} + u_{i},
             \end{align}
             $$
+
+            <p>where \(\beta_{0}=1\) is the intercept and \(\beta_{1}\) is the slope parameter.</p>
+
+            <p>Furthermore, suppose \(X_{i}\) and \(u_{i}\) are independently normally distributed, i.e.,</p>
+
+            $$
+            \begin{align}
+            X_{i} \sim N\left(0, \sigma_{X}^{2}\right), \;\;\;\;\; u_{i} \sim N\left(0, \sigma_{ui}^{2}\right),
+            \end{align}
+            $$
+
+            <p>where \(\sigma_{X}^{2}\) and \(\sigma_{ui}^{2}\) is the variance of \(X_{i}\) and \(u_{i}\).</p>
+
+          </div>
+
+          <hr>
+
+          <p style="text-decoration: underline;">Conditions for and Effects of heteroskedasticity</p>
+
+          <div style="margin-left: 10pt;">
+          
+            <p>Heteroskedasticity occurs when \(\sigma_{ui}^{2}\) is not constant but a function of \(X_{i}\), e.g.,</p>
+
+            $$
+            \begin{align}
+            \sigma_{ui}^{2} = \text{exp}\left(\gamma_{0} + \gamma_{1} X_{i}\right),
+            \end{align}
+            $$
+
+            <p>which is also known as multiplicative heteroskedasticity and where \(\gamma_{0}=0\) and \(\gamma_{1}\) are parameters which determine the shape of the heteroskedasticity.</p>
+
+            <p>Thus, for positive/negative values of \(\gamma_{1}\) the variance of \(u_{i}\) is positively/negatively related with the value of \(X_{i}\).</p>
+
+            <p>Heteroskedasticity effects the standard error of the OLS estimator \(\widehat{\beta}_{1}\) and thus the construction of the standardized OLS estimator \(z_{\widehat{\beta}_{1}}\).</p>
+
+            <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">More Details</span> </button>
+            <div class="collContentCl">
+
+              <p style="margin-top: 10px;">
+                For the construction of the standardized OLS estimator \(z_{\widehat{\beta}_{1}}\), the variance of \(\widehat{\beta}_{1}\), i.e., \(\sigma_{\widehat{\beta}_{1}}^{2}\), has to be estimated.
+              </p>
+              
+              <p>The variance of \(\widehat{\beta}_1\), i.e., \(\sigma_{\widehat{\beta}_{1}}^{2}\), can be robustly estimated by,</p>
+              
+              $$
+              \begin{align}
+              \widehat{\sigma}_{\widehat{\beta}_{1}}^{2} = \frac{1}{n} \times \frac{\frac{1}{n-2}\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}\widehat{u}_{i}^{2}}{\left[\frac{1}{n}\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}\right]^{2}},
+              \end{align}
+              $$
+
+              <p>where \(\widehat{u}_{i}\) are the residuals of the estimate regression line.</p>
+
+              <p>Note, the estimator for \(\sigma_{\widehat{\beta}_{1}}^{2}\) above is robust w.r.t. to heteroskedasticity, i.e., it does not rely on the assumption of homoskedasticity.</p>
+
+              <p>Instead, some statistic software report estimates \(\sigma_{\widehat{\beta}_{1}}^{2}\), based on the assumption of homoskedasticity.</p>
+              
+              <p>The so called homoskedaticity-only estimator of \(\sigma_{\widehat{\beta}_{1}}^{2}\), is given by,</p>
+
+              $$
+              \begin{align}
+              \widetilde{\sigma}_{\widehat{\beta}_{1}}^{2} = \frac{\frac{1}{n-2}\sum_{i=1}^{n}\widehat{u}_{i}^{2}}{\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}}.
+              \end{align}
+              $$
+
+            </div>
 
           </div>
 
@@ -140,35 +134,57 @@
     <div class="container mt-5">
       <div class="row">
 
-          <div class="jumbotron">
+        <div class="jumbotron outerJumbCl" style="padding: 25px 50px 25px 50px">
             
             <p style="font-size: 18pt">Illustration</p>
-              
-            <p>Change the parameters and see the effect on the properties of the OLS estimator \(\widehat{\beta}_{1}\) as estimator for \(\beta_{1}\).</p>
-              
+
+            <div style="margin-left: 10pt;">
+            
+              <p>Change the parameters and see the effect on the properties of the OLS estimator \(\widehat{\beta}_{1}\) as estimator for \(\beta_{1}\).</p>
+      
+            </div>
+            
             <div class="container mt-5" style="margin-top: 50px;">
               <div class="row">
 
-                <div class="col-sm-3">
-                  <div class="jumbotron innerJumb">
+                <div class="col-sm-3" style="margin-top: 90px;">
+                  <div class="jumbotron innerJumbCl" style="padding: 25px 50px 25px 50px">
 
-                    <p style="font-size: 18pt; margin-top: 10px; text-align: center;">Parameters</p>
+                    <p style="font-size: 14pt; text-align: center;">Parameters</p>
                     
                     <div style='margin-top: 50px;'>
 
                       <hr>
 
-                      <p style='font-size: 12pt; text-align: center'>Sample size</p><p style='font-size: 12pt; text-align: center' id="ex601Val"></p>
-                      <input id="ex601" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <p style="font-size: 12pt; text-align: center;">Sample Size \(n\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue1Id"></p>
+                      <input id="slider1Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <div style="font-size: 12pt; text-align: center;">
+                        <button class="animateButtonCl" onclick="animateButton01Click(org = 2, start = 0, stop = 4)">Animate \(n\)</button>
+                      </div>
 
-                      <p style='font-size: 12pt; text-align: center'>Variance of \(X_{i}\)</p><p style='font-size: 12pt; text-align: center' id="ex602Val"></p>
-                      <input id="ex602" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="1"/>
+                      <hr>
 
-                      <p style='font-size: 12pt; text-align: center'>Variance of \(u_{i}\)</p><p style='font-size: 12pt; text-align: center' id="ex603Val"></p>
-                      <input id="ex603" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="1"/>
+                      <p style="font-size: 12pt; text-align: center;">Variance of \(u_{i}\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue2Id"></p>
+                      <input id="slider2Id" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="1"/>
+                      <div style="font-size: 12pt; text-align: center;">
+                        <button class="animateButtonCl" onclick="animateButton02Click(org = 1, start = 0, stop = 2)">Animate \(\\\sigma_{u}^{2}\)</button>
+                      </div>                      
+                    
+                      <hr>
 
-                      <p style='font-size: 12pt; text-align: center'>heteroskedasticity</p><p style='font-size: 12pt; text-align: center' id="ex604Val"></p>
-                      <input id="ex604" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <p style="font-size: 12pt; text-align: center;">Variance of \(X_{i}\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue3Id"></p>
+                      <input id="slider3Id" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="1"/>
+                      <div style="font-size: 12pt; text-align: center;">
+                        <button class="animateButtonCl" onclick="animateButton03Click(org = 1, start = 0, stop = 2)">Animate \(\\\sigma_{X}^{2}\)</button>
+                      </div>
+
+                      <hr>
+
+                      <p style="font-size: 12pt; text-align: center;">Heteroskedasticity</p><p style="font-size: 12pt; text-align: center" id="sliderValue4Id"></p>
+                      <input id="slider4Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <div style="font-size: 12pt; text-align: center;">
+                        <button class="animateButtonCl" onclick="animateButton04Click(org = 2, start = 0, stop = 4)">Animate \(g_{1}\)</button>
+                      </div>
 
                     </div>
 
@@ -176,23 +192,32 @@
                 </div>
                 
                 <div class="col-sm-9">
-                  <div class="jumbotron innerJumb">
+                  <div class="jumbotron innerJumbCl" style="padding: 15px 50px 25px 50px">
             
                     <div class="tab" style="text-align: center;">
-                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N1Id', 'tabLinkL1N1Id', 'white')" id="tabLinkL1N1Id">Sample Draw</button>
+                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N1Id', 'tabLinkL1N1Id', 'white')" id="tabLinkL1N1Id">Realizations</button>
                       <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N2Id', 'tabLinkL1N2Id', 'white')" id="tabLinkL1N2Id">Residuals</button>
-                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N3Id', 'tabLinkL1N3Id', 'white')" id="tabLinkL1N3Id">Consistency</button>
-                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N4Id', 'tabLinkL1N4Id', 'white')" id="tabLinkL1N4Id">Asymptotic Normality</button>
+                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N3Id', 'tabLinkL1N3Id', 'white')" id="tabLinkL1N3Id">Estimates</button>
+                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N4Id', 'tabLinkL1N4Id', 'white')" id="tabLinkL1N4Id">Std. Estimates</button>
                     </div>
 
                     <br>
-                    <hr>
 
                     <div id="tabContentL1N1Id" class="tabContentL1Cl">
 
-                      <p style="font-size: 16pt">Scatter plot (observations)</p>              
+                      <table style="width:100%; margin-bottom: 10px;">
+                        <tr>
+                          <td style="width: 10%"></td>
+                          <td style="width: 80%; font-size: 14pt; text-align: left;">Scatter plot (realizations)</td>
+                          <td style="width: 10%; font-size: 14pt; text-align: right;">
+                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                          </td>
+                        </tr>
+                      </table>
 
-                      <img src="./figures/figure_01_3_2_2_3.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
+                      <div style="text-align: center;">
+                        <img src="./figures/figure_01_1_1_1_1.svg" alt="" id="image1Id" style="max-width: 75%;">
+                      </div> 
 
                       <p>The red fitted regression line is based on the regression of,</p>
 
@@ -208,9 +233,19 @@
 
                     <div id="tabContentL1N2Id" class="tabContentL1Cl">
 
-                      <p style="font-size: 16pt">Scatter plot (fitted residuals)</p>              
+                      <table style="width:100%; margin-bottom: 10px;">
+                        <tr>
+                          <td style="width: 10%"></td>
+                          <td style="width: 80%; font-size: 14pt; text-align: left;">Scatter plot (fitted residuals)</td>
+                          <td style="width: 10%; font-size: 14pt; text-align: right;">
+                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                          </td>
+                        </tr>
+                      </table>
 
-                      <img src="./figures/figure_02_3_2_2_3.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
+                      <div style="text-align: center;">
+                        <img src="./figures/figure_02_1_1_1_1.svg" alt="" id="image2Id" style="max-width: 75%;">
+                      </div> 
 
                       <p>The fitted unobserved residuals are constructed as,</p>
 
@@ -226,11 +261,21 @@
 
                     <div id="tabContentL1N3Id" class="tabContentL1Cl">
 
-                      <p style='font-size: 16pt;'>Histogram of the sample average \(\widehat{\beta}_{1}\)</p>
+                      <table style="width:100%; margin-bottom: 10px;">
+                        <tr>
+                          <td style="width: 10%"></td>
+                          <td style="width: 80%; font-size: 14pt; text-align: left;">Histogram of the OLS estimates \(\widehat{\beta}_{1}\)</td>
+                          <td style="width: 10%; font-size: 14pt; text-align: right;">
+                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                          </td>
+                        </tr>
+                      </table>
 
-                      <img src="./figures/figure_03_3_2_2_3.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
+                      <div style="text-align: center;">
+                        <img src="./figures/figure_03_1_1_1_1.svg" alt="" id="image3Id" style="max-width: 75%;">
+                      </div>
 
-                      <br><br>
+                      <span style="font-size: 16pt; text-decoration: underline;">Consistency</span><span style="font-size: 16pt; text-decoration: none;">:</span>
 
                       <p>As the sample size \(N\) grows the OLS estimator \(\widehat{\beta}_{1}\) gets closer to \(\beta\), i.e.,</p>
 
@@ -244,11 +289,21 @@
 
                     <div id="tabContentL1N4Id" class="tabContentL1Cl">
 
-                      <p style='font-size: 16pt;'>Histogram of the standardized OLS estimator \(z_{\widehat{\beta}_{1}}\)</p>
+                      <table style="width:100%; margin-bottom: 10px;">
+                        <tr>
+                          <td style="width: 10%"></td>
+                          <td style="width: 80%; font-size: 14pt; text-align: left;">Histogram of the standardized OLS estimates \(z_{\widehat{\beta}_{1}}\)</td>
+                          <td style="width: 10%; font-size: 14pt; text-align: right;">
+                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                          </td>
+                        </tr>
+                      </table>
 
-                      <img src="./figures/figure_04_3_2_2_3.svg" alt="" id="imageL1N4Id" style="text-align: center; max-width: 100%;">
+                      <div style="text-align: center;">
+                        <img src="./figures/figure_04_1_1.svg" alt="" id="image4Id" style="max-width: 75%;">
+                      </div>
 
-                      <br><br>
+                      <span style="font-size: 16pt; text-decoration: underline;">Asymptotic Normality</span><span style="font-size: 16pt; text-decoration: none;">:</span>
 
                       <p>In the case of heteroskedasticity,</p>
 
@@ -293,14 +348,17 @@
             <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Simulation Exercise (details)</span> </button>
             <div class="collContentCl">
 
-              <ol style="margin-top: 10px;">
-                <li>A i.i.d. sample of size \(n\), i.e., a sequence of observations \(X_{1}, X_{2}, ..., X_{n}\) and \(u_{1}, u_{2}, ..., u_{n}\), are drawn from the distribution of \(X_{i}\) and \(u_{i}\) specified above.</li>
-                <li>Based on the sequence of observations \(X_{1}, X_{2}, ..., X_{n}\) and \(u_{1}, u_{2}, ..., u_{n}\) a sequence of observations \(Y_{1}, Y_{2}, ..., Y_{n}\)  is constructed based on the regression model above.</li>
-                <li>Based on the sequence of observations \(Y_{1}, Y_{2}, ... Y_{N}\) and \(X_{1}, X_{2}, ..., X_{n}\), the intercept \(\beta_{0}\) and the slop parameter \(\beta_{1}\) is estimated using OLS.</li>
-                <li>The value of the estimate for the slope parameter, i.e., \(\widehat{\beta}_{1}\), is stored.</li>
-                <li>Step 1) to 4) is repeated \(10,000\) times resulting in \(1000\) OLS estimates for the slope parameter, i.e., \(\widehat{\beta}_{1}\).</li>
-                <li>The distribution of \(\widehat{\beta}_{1}\) and the standardized \(\widehat{\beta}_{1}\), i.e., \(z_{\widehat{\beta}_{1}}\), are illustrated using histograms.</li>
-                <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the different outcomes of the samples the OLS estimates will vary across sample draws.</p>
+              <ol type="1" style="margin-top: 10px;">
+                <li>A realization of the DGP specificied above is simulated:
+                <ol type="I">
+                  <li>A i.i.d. sequence of realizations \(X_{1}, X_{2}, ..., X_{n}\) and \(u_{1}, u_{2}, ..., u_{n}\) are drawn from the distribution of \(X_{i}\) and \(u_{i}\) above.</li>
+                  <li>Based on the sequence of observations \(X_{1}, X_{2}, ..., X_{n}\) and \(u_{1}, u_{2}, ..., u_{n}\) a sequence of observations \(Y_{1}, Y_{2}, ..., Y_{n}\) is constructed based on the regression model above.</li>                  
+                </ol>
+                </li>
+                <li>Based on the sequence of observations \(Y_{1}, Y_{2}, ... Y_{n}\) and \(X_{1}, X_{2}, ..., X_{n}\), the OLS estimates and standardized OLS estimates for the intercept \(\beta_{0}\) and slope parameter \(\beta_{1}\) are calcluated.</li>  
+                <li>The values of the OLS estimate \(\widehat{\beta}_{1}\) and the standardized OLS estimate \(z_{\widehat{\beta}_{1}}\) are stored.</li>
+                <li>Step 1 to 3 is repeated \(10,000\) times resulting in \(10,\!000\) OLS and standardized OLS estimates.</li>
+                <li>The distribution of the OLS and standardized estimates are illustrated using histograms.</li>
               </ol>
 
             </div>
@@ -310,21 +368,159 @@
       </div>
     </div>
     
-    <div class="iliasExcCl">
-      <hr />
-      <p style="text-align: center; font-size: 20pt; font-weight: bold;">
-        <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1781360/index_ilias_html_xx.html">Back to <em>Startpage</em></a>
-      </p>
-      <hr />
+    <!-- .................................................. -->
+    <!-- Collections of audios -->
+    <div style="text-align: center; margin-top: 10px; display: none;">
+
+      <audio id="audioFigure01OverallId" controls>
+        <source src="./audios/audio_figure01_overall.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure01Slider1Id" controls>
+        <source src="./audios/audio_figure01_slider01.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure01Slider2Id" controls>
+        <source src="./audios/audio_figure01_slider02.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure01Slider3Id" controls>
+        <source src="./audios/audio_figure01_slider03.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure01Slider4Id" controls>
+        <source src="./audios/audio_figure01_slider04.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure02OverallId" controls>
+        <source src="./audios/audio_figure02_overall.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure02Slider1Id" controls>
+        <source src="./audios/audio_figure02_slider01.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure02Slider2Id" controls>
+        <source src="./audios/audio_figure02_slider02.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure02Slider3Id" controls>
+        <source src="./audios/audio_figure02_slider03.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure02Slider4Id" controls>
+        <source src="./audios/audio_figure02_slider04.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure03OverallId" controls>
+        <source src="./audios/audio_figure03_overall.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure03Slider1Id" controls>
+        <source src="./audios/audio_figure03_slider01.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure03Slider2Id" controls>
+        <source src="./audios/audio_figure03_slider02.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure03Slider3Id" controls>
+        <source src="./audios/audio_figure03_slider03.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure03Slider4Id" controls>
+        <source src="./audios/audio_figure03_slider04.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure04OverallId" controls>
+        <source src="./audios/audio_figure04_overall.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure04Slider1Id" controls>
+        <source src="./audios/audio_figure04_slider01.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure04Slider2Id" controls>
+        <source src="./audios/audio_figure04_slider02.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure04Slider3Id" controls>
+        <source src="./audios/audio_figure04_slider03.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure04Slider4Id" controls>
+        <source src="./audios/audio_figure04_slider04.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
     </div>
 
-    <!-- include mathjax js via cdn
-    <script type="text/javascript" id="MathJax-script" async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-    </script>
-    -->
+    <!-- include/exculde ilias footer -->
+    <div class="container mt-5">
+      <div class="row">
+        <p style="text-align: center; font-size: 20pt; font-weight: bold;" class="footerIliasCl">
+          <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1781360/index_ilias.html"><em>Back to Startpage</em></a>
+        </p>
+      </div>
+    </div>
+
+    <!-- include/exculde github footer -->
+    <div class="container mt-5">
+      <div class="row">
+        <p style="text-align: center; font-size: 20pt; font-weight: bold;" class="footerGihubCl">
+          <a href="https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/index.html"><em>Back to Startpage</em></a>
+        </p>
+      </div>
+    </div>
+
+    <!-- footer logos -->
+    <div class="container mt-5">
+      <div class="row">
+
+        <hr>
+        <table style="width:100%">
+          <tr>
+            <td style="width: 25%; text-align: left; padding-left: 10%;">
+              <img src="RZ_UniHohenheim_Logo_4C_E_blau_EN.svg" height="10%"/>
+            </td>
+            <td style="width: 50%; text-align: center;">
+              <p style="font-size: 75%; text-align: center;">This module is part of the <a href="https://www.uni-hohenheim.de/en/project-dellfi">DeLLFi</a> project of the University of Hohenheim and funded by the <br> <a href="https://stiftung-hochschullehre.de/">Foundation for Innovation in University Teaching</a></p>
+              <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+                <img alt="Creative Commons License" style="border-width:0; padding-top: -20px;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" height="10%"/>
+              </a> 
+            </td>
+            <td style="width: 25%; text-align: right; padding-right: 10%;">
+              <img src="Logo_Stiftung_Hochschullehre.svg" height="10%"/>
+            </td>
+          </tr>
+        </table>
+        <hr>      
+
+      </div>
+    </div>
+
+    <!-- include mathjax js via cdn -->
     <script
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
     </script>
 
     <!-- include bootstrap slider js via cdn --> 
@@ -337,8 +533,32 @@
       src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js">
     </script>
 
+    <!-- adjust inputs -->
+    <script>
+
+      var par01Vec = [5, 10, 25, 50, 100];
+      var par02Vec = [1, 5, 10];
+      var par03Vec = [1, 5, 10];
+      var par04Vec = [-0.2, -0.1, 0, 0.1, 0.2];
+
+      var par01Ini = 2;
+      var par02Ini = 1;
+      var par03Ini = 1;
+      var par04Ini = 2;
+
+      var par01Str01 = "\\(n = ";
+      var par02Str01 = "\\(\\sigma_{u}^{2} = ";
+      var par03Str01 = "\\(\\sigma_{X}^{2} = ";
+      var par04Str01 = "\\(g_{1} = ";
+
+    </script>
+
     <!-- include my javascript -->
     <script src="myScript.js"></script>
+
+    <script src="par04Fig04InteractivationScript.js"></script>
+
+    <script src="par04Fig04AnimationScript.js"></script>
 
   </body>
 </html>
