@@ -1,20 +1,21 @@
-<html>
+<!doctype html>
+<html lang="eng">
   <head>
 
     <title>Linear Regression - OLS - Omitted Variable Bias</title>
 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
 
-    <!-- include my style sheet -->
+    <!-- my style sheet -->
     <link rel="stylesheet" href="mystyle.css">
 
-    <!-- hohenheim logo and chair -->
-    <div class="logoCl iliasExcCl" style="text-align:center;" background-color="#eeeeee;">
-      <br />
-      <img src="Uni-Hohenheim-Logo-Weiss-EN.png" width="727" height="188" />
-      <br />
-        <p> Econometrics and Statistics (520K) </p>
+    <!-- logo -->
+    <div class="logoCl header01Cl" style="text-align:center; padding-top: 20px; padding-bottom: 20px;" background-color="#eeeeee;">
+      <img src="RZ_UniHohenheim_Logo_1C_Weiss_EN.svg" height="250px"/>
     </div>
 
   </head>
@@ -23,10 +24,10 @@
     <div class="container mt-5">
       <div class="row">
 
-          <div class="jumbotron" id="topJumb">
+        <div class="jumbotron topJumbCl" style="margin-top: 50px; padding: 25px 50px 25px 50px;">
             
             <p style='font-size: 28pt;'>Properties of the OLS Estimator</p>
-            <p style='font-size: 18pt; margin-top: -10px;'>Effect of Omitted Variable Bias (OVB)</p> 
+            <p style='font-size: 18pt;'>Effect of Omitted Variable Bias (OVB)</p> 
       
           </div>
 
@@ -36,35 +37,45 @@
     <div class="container mt-5">
       <div class="row">
 
-        <div class="jumbotron">
+        <div class="jumbotron" style="padding: 25px 50px 25px 50px">
 
-          <p style="font-size: 18pt">Motivation</p>
+          <p style="font-size: 18pt">Topic of the module</p>
 
-          <p>Understand the effect of omitted variable bias (OVB) on the sampling distribution of the OLS estimator.</p>
+          <div style="margin-left: 10pt;">
+          
+            <p>Understand the effect of omitted variable bias (OVB) on the sampling distribution of the OLS estimator.</p>
+
+          </div>
 
           <hr>
 
-          <p style="font-size: 18pt">Observable and Unobservable Statistical Model</p>
+          <p style="font-size: 18pt">Data generating process (DGP)</p>
+          
+          <p style="text-decoration: underline;">Observable and Unobservable Statistical Model</p>          
         
-          <p>Suppose we are interested in the relationship between the variable \(Y\) and \(X_{1}\).</p>
+          <div style="margin-left: 10pt;">
+          
+            <p>Suppose we are interested in the relationship between the variable \(Y\) and \(X_{1}\).</p>
 
-          <p>However, suppose the variable \(Y\) is determined by an additional unobservable variable \(X_{2}\).</p>
+            <p>However, suppose the variable \(Y\) is determined by an additional unobservable variable \(X_{2}\).</p>
 
-          <p>To estimate the relationship between \(Y\) and \(X_{1}\) we estimate the following observable linear regression model,</p>
+            <p>To estimate the relationship between \(Y\) and \(X_{1}\) we estimate the following observable linear regression model,</p>
 
-          $$
-          \begin{align}
-          Y_i = \widetilde{\beta}_{0} + \widetilde{\beta}_{1} X_{i} + \widetilde{u}_{i}.
-          \end{align}
-          $$
+            $$
+            \begin{align}
+            Y_i = \widetilde{\beta}_{0} + \widetilde{\beta}_{1} X_{i} + \widetilde{u}_{i}.
+            \end{align}
+            $$
 
-          <p>However, the unobservable relationship is given by,</p>
+            <p>However, the unobservable relationship is given by,</p>
 
-          $$
-          \begin{align}
-          Y_{i} = \beta_{0} + \beta_{1} X_{1i} + \beta_{2} X_{2i} + u_{i}.
-          \end{align}
-          $$
+            $$
+            \begin{align}
+            Y_{i} = \beta_{0} + \beta_{1} X_{1i} + \beta_{2} X_{2i} + u_{i}.
+            \end{align}
+            $$
+
+          </div>
 
           <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">More Details</span> </button>
           <div class="collContentCl">
@@ -100,24 +111,28 @@
 
           <hr>
 
-          <p style="font-size: 18pt">Conditions for and Effects of Omitted Variable Bias</p>
+          <p style="text-decoration: underline;">Conditions for and Effects of Omitted Variable Bias</p>          
 
-          <p>Omitted variable bias (OVB) occurs when the following two conditions are true:</p>
-
-          <ol>
-            <li>\(X\) is correlated with the omitted variable.</li>
-            <li>The omitted variable is a determinant of the dependent variable, \(Y\).</li>
-          </ol>
+          <div style="margin-left: 10pt;">
           
-          <p>The effect of omitted variable bias (OVB) can be quantified as,</p>
+            <p>Omitted variable bias (OVB) occurs when the following two conditions are true:</p>
 
-          $$
-          \begin{align}
-          \widehat{\beta}_{1} &\overset{p}{\rightarrow} \beta_{1} + \beta_{2} \rho_{X_{1}X_{2}} \frac{\sigma_{X_{2}}}{\sigma_{X_{1}}}.
-          \end{align}
-          $$
+            <ol>
+              <li>\(X\) is correlated with the omitted variable.</li>
+              <li>The omitted variable is a determinant of the dependent variable, \(Y\).</li>
+            </ol>
+            
+            <p>The effect of omitted variable bias (OVB) can be quantified as,</p>
 
-          <p style="font-style: italic;">Check the details about the effects of OVB below.</p>
+            $$
+            \begin{align}
+            \widehat{\beta}_{1} &\overset{p}{\rightarrow} \beta_{1} + \beta_{2} \rho_{X_{1}X_{2}} \frac{\sigma_{X_{2}}}{\sigma_{X_{1}}}.
+            \end{align}
+            $$
+
+            <p style="font-style: italic;">Check the details about the effects of OVB below.</p>
+
+          </div>
 
         </div>
 
@@ -127,35 +142,77 @@
     <div class="container mt-5">
       <div class="row">
 
-          <div class="jumbotron">
+        <div class="jumbotron outerJumbCl" style="padding: 25px 50px 25px 50px">
             
             <p style="font-size: 18pt">Illustration</p>
-              
-            <p>Change the parameters and see the effect on the properties of the OLS estimator \(\widehat{\beta}_{1}\) as estimator for \(\beta_{1}\).</p>
+                    
+            <div style="margin-left: 10pt;">
+            
+              <p>Change the parameters and see the effect on the properties of the OLS estimator \(\widehat{\beta}_{1}\) as estimator for \(\beta_{1}\).</p>
       
+            </div>
+
             <div class="container mt-5" style="margin-top: 50px;">
               <div class="row">
 
-                <div class="col-sm-3">
-                  <div class="jumbotron innerJumb">
+                <div class="col-sm-3" style="margin-top: 90px;">
+                  <div class="jumbotron innerJumbCl" style="padding: 25px 50px 25px 50px">
 
-                    <p style="font-size: 18pt; margin-top: 10px; text-align: center;">Parameters</p>
-                    
-                    <div style='margin-top: 50px;'>
+                    <p style="font-size: 14pt; text-align: center;">Parameters</p>
+
+                    <div style="margin-top: 50px;">
 
                       <hr>
 
+                      <p style="font-size: 12pt; text-align: center;">Sample Size \(n\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue1Id"></p>
+                      <input id="slider1Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <div style="font-size: 12pt; text-align: center;">
+                        <button class="animateButtonCl" onclick="animateButton01Click(org = 2, start = 0, stop = 4)">Animate \(n\)</button>
+                      </div>
+
+                      <!--
                       <p style='font-size: 12pt; text-align: center'>Sample size</p><p style='font-size: 12pt; text-align: center' id="ex601Val"></p>
                       <input id="ex601" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      -->
 
+                      <hr>
+
+                      <p style="font-size: 12pt; text-align: center;">Effect of \(X_{1}\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue2Id"></p>
+                      <input id="slider2Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <div style="font-size: 12pt; text-align: center;">
+                        <button class="animateButtonCl" onclick="animateButton01Click(org = 2, start = 0, stop = 4)">Animate \(\\\beta_{1}\)</button>
+                      </div>
+
+                      <!--
                       <p style='font-size: 12pt; text-align: center'>Effect of \(X_{1}\)</p><p style='font-size: 12pt; text-align: center' id="ex602Val"></p>
                       <input id="ex602" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      -->
 
+                      <hr>
+
+                      <p style="font-size: 12pt; text-align: center;">Effect of \(X_{2}\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue3Id"></p>
+                      <input id="slider3Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <div style="font-size: 12pt; text-align: center;">
+                        <button class="animateButtonCl" onclick="animateButton01Click(org = 2, start = 0, stop = 4)">Animate \(\\\beta_{2}\)</button>
+                      </div>
+
+                      <!--
                       <p style='font-size: 12pt; text-align: center'>Effect of \(X_{2}\)</p><p style='font-size: 12pt; text-align: center' id="ex603Val"></p>
                       <input id="ex603" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      -->
 
+                      <hr>
+
+                      <p style="font-size: 12pt; text-align: center;">Correlation \(X_{1} \\\& X_{2}\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue4Id"></p>
+                      <input id="slider4Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <div style="font-size: 12pt; text-align: center;">
+                        <button class="animateButtonCl" onclick="animateButton01Click(org = 2, start = 0, stop = 4)">Animate \(\\\rho_{X_{1}X_{2}}\)</button>
+                      </div>
+
+                      <!--
                       <p style='font-size: 12pt; text-align: center'>Correlation of \(X_{1}\) & \(X_{2}\)</p><p style='font-size: 12pt; text-align: center' id="ex604Val"></p>
                       <input id="ex604" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      -->
 
                     </div>
 
@@ -163,13 +220,13 @@
                 </div>
                 
                 <div class="col-sm-9">
-                  <div class="jumbotron innerJumb">
+                  <div class="jumbotron innerJumbCl" style="padding: 15px 50px 25px 50px">
             
                     <div class="tab" style="text-align: center;">
-                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N1Id', 'tabLinkL1N1Id', 'white')" id="tabLinkL1N1Id">Sample Draw</button>
+                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N1Id', 'tabLinkL1N1Id', 'white')" id="tabLinkL1N1Id">Realizations</button>
                       <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N2Id', 'tabLinkL1N2Id', 'white')" id="tabLinkL1N2Id">Residuals</button>
-                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N3Id', 'tabLinkL1N3Id', 'white')" id="tabLinkL1N3Id">Consistency</button>
-                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N4Id', 'tabLinkL1N4Id', 'white')" id="tabLinkL1N4Id">Asymptotic Normality</button>
+                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N3Id', 'tabLinkL1N3Id', 'white')" id="tabLinkL1N3Id">Estimates</button>
+                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N4Id', 'tabLinkL1N4Id', 'white')" id="tabLinkL1N4Id">Std. Estimates</button>
                     </div>
 
                     <br>
@@ -177,11 +234,19 @@
 
                     <div id="tabContentL1N1Id" class="tabContentL1Cl">
 
-                      <p style="font-size: 16pt">Scatter plot (observed and adjusted observations)</p>
-                      
-                      <img src="./figures/figure_01_3_3_3_3.svg" alt="" id="imageL1N1Id" style="text-align: center; max-width: 100%;">
+                      <table style="width:100%; margin-bottom: 10px;">
+                        <tr>
+                          <td style="width: 10%"></td>
+                          <td style="width: 80%; font-size: 14pt; text-align: left;">Scatter plot (observed and adjusted realizations)</td>
+                          <td style="width: 10%; font-size: 14pt; text-align: right;">
+                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                          </td>
+                        </tr>
+                      </table>
 
-                      <br><br>
+                      <div style="text-align: center;">
+                        <img src="./figures/figure_01_1_1_1_1.svg" alt="" id="image1Id" style="max-width: 75%;">
+                      </div>  
 
                       <p>The green fitted regression line is based on the regression of,</p>
 
@@ -209,9 +274,19 @@
 
                     <div id="tabContentL1N2Id" class="tabContentL1Cl">
 
-                      <p style="font-size: 16pt">Scatter plot (fitted unobserved residuals)</p>
-                      
-                      <img src="./figures/figure_02_3_3_3_3.svg" alt="" id="imageL1N2Id" style="text-align: center; max-width: 100%;">
+                      <table style="width:100%; margin-bottom: 10px;">
+                        <tr>
+                          <td style="width: 10%"></td>
+                          <td style="width: 80%; font-size: 14pt; text-align: left;">Scatter plot (fitted residuals)</td>
+                          <td style="width: 10%; font-size: 14pt; text-align: right;">
+                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                          </td>
+                        </tr>
+                      </table>
+
+                      <div style="text-align: center;">
+                        <img src="./figures/figure_02_1_1_1_1.svg" alt="" id="image2Id" style="max-width: 75%;">
+                      </div>
 
                       <p>The fitted unobserved residuals are constructed as,</p>
             
@@ -235,11 +310,21 @@
 
                     <div id="tabContentL1N3Id" class="tabContentL1Cl">
 
-                      <p style='font-size: 16pt;'>Histogram of the sample average \(\widehat{\beta}_{1}\)</p>
+                      <table style="width:100%; margin-bottom: 10px;">
+                        <tr>
+                          <td style="width: 10%"></td>
+                          <td style="width: 80%; font-size: 14pt; text-align: left;">Histogram of the OLS estimates \(\widehat{\beta}_{1}\)</td>
+                          <td style="width: 10%; font-size: 14pt; text-align: right;">
+                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                          </td>
+                        </tr>
+                      </table>
 
-                      <img src="./figures/figure_03_3_3_3_3.svg" alt="" id="imageL1N3Id" style="text-align: center; max-width: 100%;">
+                      <div style="text-align: center;">
+                        <img src="./figures/figure_03_1_1_1_1.svg" alt="" id="image3Id" style="max-width: 75%;">
+                      </div>
 
-                      <br><br>
+                      <span style="font-size: 16pt; text-decoration: underline;">Consistency</span><span style="font-size: 16pt; text-decoration: none;">:</span>
 
                       <p>As the sample size \(N\) grows the OLS estimator \(\widehat{\beta}_{1}\) gets closer to,</p>
 
@@ -251,11 +336,21 @@
 
                     <div id="tabContentL1N4Id" class="tabContentL1Cl">
 
-                      <p style='font-size: 16pt;'>Histogram of the standardized OLS estimator \(z_{\widehat{\beta}_{1}}\)</p>
+                      <table style="width:100%; margin-bottom: 10px;">
+                        <tr>
+                          <td style="width: 10%"></td>
+                          <td style="width: 80%; font-size: 14pt; text-align: left;">Histogram of the standardized OLS estimates \(z_{\widehat{\beta}_{1}}\)</td>
+                          <td style="width: 10%; font-size: 14pt; text-align: right;">
+                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                          </td>
+                        </tr>
+                      </table>
 
-                      <img src="./figures/figure_04_3_3_3_3.svg" alt="" id="imageL1N4Id" style="text-align: center; max-width: 100%;">
-
-                      <br><br>
+                      <div style="text-align: center;">
+                        <img src="./figures/figure_04_1_1_1_1.svg" alt="" id="image4Id" style="max-width: 75%;">
+                      </div>
+                      
+                      <span style="font-size: 16pt; text-decoration: underline;">Asymptotic Normality</span><span style="font-size: 16pt; text-decoration: none;">:</span>
 
                       <p>In the case of omitted variable bias (OVB), i.e., if \(\beta_{2} \neq 0\) and \(\rho_{X_{1}X_{2}} \neq 0\),</p>
 
@@ -283,7 +378,7 @@
     <div class="container mt-5">
       <div class="row">
 
-          <div class="jumbotron">
+        <div class="jumbotron" style="padding: 25px 50px 25px 50px">
             
             <p style="font-size: 18pt">More Details</p>
 
@@ -345,8 +440,9 @@
             <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Simulation Exercise (details)</span> </button>
             <div class="collContentCl">
 
+              <!--
               <ol style="margin-top: 10px;">
-                <li>A i.i.d. sample of size \(n\), i.e., a sequence of observations \(X_{11}, X_{12}, ..., X_{1n}\) and \(X_{21}, X_{22}, ..., X_{2n}\) are drawn from a multivariate normal distribution with a given correlation structure \(\rho_{X_{1}X_{2}}\) specified above.
+                <li>A i.i.d. sample of size \(n\), i.e., a sequence of observations \(X_{11}, X_{12}, ..., X_{1n}\) and \(X_{21}, X_{22}, ..., X_{2n}\) are drawn from a multivariate normal distribution with a given correlation structure \(\rho_{X_{1}X_{2}}\) specified above.</li>
                 <li>In addition a i.i.d. sample of size \(n\), i.e., a sequence of observations \(u_{1}, u_{2}, ..., u_{n}\), are drawn from the distribution of \(u_{i}\) specified above.</li>
                 <li>Based on the sequence of observations \(X_{11}, X_{12}, ..., X_{1n}\), \(X_{21}, X_{22}, ..., X_{2n}\) and \(u_{1}, u_{2}, ..., u_{n}\) a sequence of observations \(Y_{1}, Y_{2}, ..., Y_{n}\) is constructed based on the unobserved regression model above.</li>
                 <li>Based on the sequence of observations \(Y_{1}, Y_{2}, ... Y_{N}\) and \(X_{11}, X_{12}, ..., X_{1n}\), the intercept \(\beta_{0}\) and the slop parameter \(\beta_{1}\) of the observed regression model is estimated using OLS.</li>
@@ -354,6 +450,21 @@
                 <li>Step 1) to 5) is repeated \(10,000\) times resulting in \(1000\) OLS estimates for the slope parameter, i.e., \(\widehat{\beta}_{1}\).</li>
                 <li>The distribution of \(\widehat{\beta}_{1}\) and the standardized \(\widehat{\beta}_{1}\), i.e., \(z_{\widehat{\beta}_{1}}\), are illustrated using histograms.</li>
                 <p style="margin-left: 3px; font-size: 14pt;">Remember, due to the different outcomes of the samples the OLS estimates will vary across sample draws.</p>
+              </ol>
+              -->
+
+              <ol type="1" style="margin-top: 10px;">
+                <li>A realization of the DGP specificied above is simulated:
+                <ol type="I">
+                  <li>A i.i.d. sequence of realizations \(X_{11}, X_{12}, ..., X_{1n}\) and \(X_{21}, X_{22}, ..., X_{2n}\) are drawn from a multivariate normal distribution with a given correlation structure \(\rho_{X_{1}X_{2}}\) specified above.</li>
+                  <li>In addition a i.i.d. sequence of realizations \(u_{1}, u_{2}, ..., u_{n}\), are drawn from the distribution of \(u_{i}\) specified above.</li>
+                  <li>Based on the sequence of observations \(X_{11}, X_{12}, ..., X_{1n}\), \(X_{21}, X_{22}, ..., X_{2n}\) and \(u_{1}, u_{2}, ..., u_{n}\) a sequence of observations \(Y_{1}, Y_{2}, ..., Y_{n}\) is constructed based on the unobserved regression model above.</li>                  
+                </ol>
+                </li>
+                <li>Based on the sequence of observations \(Y_{1}, Y_{2}, ... Y_{n}\) and \(X_{11}, X_{12}, ..., X_{1n}\), the OLS estimates and standardized OLS estimates for the intercept and slope parameter of the observed regression model are calcluated.</li>  
+                <li>The values of the OLS estimate \(\widehat{\beta}_{1}\) and the standardized OLS estimate \(z_{\widehat{\beta}_{1}}\) are stored.</li>
+                <li>Step 1 to 3 is repeated \(10,000\) times resulting in \(10,\!000\) OLS and standardized OLS estimates.</li>
+                <li>The distribution of the OLS and standardized estimates are illustrated using histograms.</li>
               </ol>
 
             </div>
@@ -363,19 +474,157 @@
       </div>
     </div>
     
-    <div class="iliasExcCl">
-      <hr />
-      <p style="text-align: center; font-size: 20pt; font-weight: bold;">
-        <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1781360/index_ilias_html_xx.html">Back to <em>Startpage</em></a>
-      </p>
-      <hr />
+    <!-- .................................................. -->
+    <!-- Collections of audios -->
+    <div style="text-align: center; margin-top: 10px; display: none;">
+
+      <audio id="audioFigure01OverallId" controls>
+        <source src="./audios/audio_figure01_overall.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure01Slider1Id" controls>
+        <source src="./audios/audio_figure01_slider01.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure01Slider2Id" controls>
+        <source src="./audios/audio_figure01_slider02.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure01Slider3Id" controls>
+        <source src="./audios/audio_figure01_slider03.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure01Slider4Id" controls>
+        <source src="./audios/audio_figure01_slider04.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure02OverallId" controls>
+        <source src="./audios/audio_figure02_overall.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure02Slider1Id" controls>
+        <source src="./audios/audio_figure02_slider01.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure02Slider2Id" controls>
+        <source src="./audios/audio_figure02_slider02.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure02Slider3Id" controls>
+        <source src="./audios/audio_figure02_slider03.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure02Slider4Id" controls>
+        <source src="./audios/audio_figure02_slider04.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure03OverallId" controls>
+        <source src="./audios/audio_figure03_overall.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure03Slider1Id" controls>
+        <source src="./audios/audio_figure03_slider01.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure03Slider2Id" controls>
+        <source src="./audios/audio_figure03_slider02.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure03Slider3Id" controls>
+        <source src="./audios/audio_figure03_slider03.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure03Slider4Id" controls>
+        <source src="./audios/audio_figure03_slider04.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure04OverallId" controls>
+        <source src="./audios/audio_figure04_overall.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure04Slider1Id" controls>
+        <source src="./audios/audio_figure04_slider01.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure04Slider2Id" controls>
+        <source src="./audios/audio_figure04_slider02.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure04Slider3Id" controls>
+        <source src="./audios/audio_figure04_slider03.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioFigure04Slider4Id" controls>
+        <source src="./audios/audio_figure04_slider04.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
     </div>
 
-    <!-- include mathjax js via cdn
-    <script type="text/javascript" id="MathJax-script" async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-    </script>
-    -->
+    <!-- include/exculde ilias footer -->
+    <div class="container mt-5">
+      <div class="row">
+        <p style="text-align: center; font-size: 20pt; font-weight: bold;" class="footerIliasCl">
+          <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1781360/index_ilias.html"><em>Back to Startpage</em></a>
+        </p>
+      </div>
+    </div>
+
+    <!-- include/exculde github footer -->
+    <div class="container mt-5">
+      <div class="row">
+        <p style="text-align: center; font-size: 20pt; font-weight: bold;" class="footerGihubCl">
+          <a href="https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/index.html"><em>Back to Startpage</em></a>
+        </p>
+      </div>
+    </div>
+
+    <!-- footer logos -->
+    <div class="container mt-5">
+      <div class="row">
+
+        <hr>
+        <table style="width:100%">
+          <tr>
+            <td style="width: 25%; text-align: left; padding-left: 10%;">
+              <img src="RZ_UniHohenheim_Logo_4C_E_blau_EN.svg" height="10%"/>
+            </td>
+            <td style="width: 50%; text-align: center;">
+              <p style="font-size: 75%; text-align: center;">This module is part of the <a href="https://www.uni-hohenheim.de/en/project-dellfi">DeLLFi</a> project of the University of Hohenheim and funded by the <br> <a href="https://stiftung-hochschullehre.de/">Foundation for Innovation in University Teaching</a></p>
+              <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+                <img alt="Creative Commons License" style="border-width:0; padding-top: -20px;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" height="10%"/>
+              </a> 
+            </td>
+            <td style="width: 25%; text-align: right; padding-right: 10%;">
+              <img src="Logo_Stiftung_Hochschullehre.svg" height="10%"/>
+            </td>
+          </tr>
+        </table>
+        <hr>      
+
+      </div>
+    </div>
+
+    <!-- include mathjax js via cdn -->
     <script
      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
     </script>
@@ -390,8 +639,32 @@
       src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js">
     </script>
 
+    <!-- adjust inputs -->
+    <script>
+
+      var par01Vec = [5, 10, 25, 50, 100];
+      var par02Vec = [-2, -1, 0, 1, 2];
+      var par03Vec = [-2, -1, 0, 1, 2];
+      var par04Vec = [-0.9, -0.5, 0, 0.5, 0.9];
+
+      var par01Ini = 2;
+      var par02Ini = 2;
+      var par03Ini = 2;
+      var par04Ini = 2;
+
+      var par01Str01 = "\\(n = ";
+      var par02Str01 = "\\(\\beta_{1} = ";
+      var par03Str01 = "\\(\\beta_{2} = ";
+      var par04Str01 = "\\(\\rho_{X_{1}X_{2}} = ";
+
+    </script>
+
     <!-- include my javascript -->
     <script src="myScript.js"></script>
+
+    <script src="par04Fig04InteractivationScript.js"></script>
+
+    <script src="par04Fig04AnimationScript.js"></script>
 
   </body>
 </html>

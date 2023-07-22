@@ -1,9 +1,53 @@
-.iliasExcCl{
+
+/* include/exclude UHO logo */
+.header01Cl {
+  display: block;
+}
+
+/* include/exclude UHO / Stiftung logo */
+.footer01Cl {
+  display: block;
+}
+
+/* include/exclude link to github start */
+.footerGihubCl {
+  display: block;
+}
+
+/* include/exclude link to ilias start */
+.footerIliasCl {
   display: none;
 }
 
-body{
-  font-family: Helvetica;
+/* include/exclude access to github */
+.accessIliasCl {
+  display: block;
+}
+
+/* include/exclude access to ilias */
+.accessIliasCl {
+  display: none;
+}
+
+body {
+  font-family: "Helvetica", sans-serif; 
+  font-size: 14pt;
+  font-weight: 400;
+}
+
+/* Override Bootstrap's paragraph font-weight */
+.container p {
+  font-weight: 400;
+  font-size: 14pt;
+}
+
+.container ul {
+  font-weight: 400;
+  font-size: 14pt;
+}
+
+.container ol {
+  font-weight: 400;
   font-size: 14pt;
 }
 
@@ -36,7 +80,6 @@ body{
 /* collapsible content */
 .collContentCl {
   display: none;
-  /* background-color: #EAECEE; */
   background-color: #ffffff;
   padding-top: 5px;
   padding-right: 10px;
@@ -66,20 +109,37 @@ body{
   background-color: #ccc;
 }
 
-/* sample value - set it as you like*/
-.slider.slider-horizontal{
+/* buttons used to animate the parameters */
+.animateButtonCl {
+  display: inline-table;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px 4px 1px 4px;
+  background-color: #f1f1f1;
+}
+
+.animateButtonCl:hover {
+  background-color: #ddd;
+}
+
+/* buttons that are used to explain the figures */
+.explainButtonCl {
+  display: inline-table;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px 4px 1px 4px;
+  background-color: #f1f1f1;
+}
+
+.explainButtonCl:hover {
+  background-color: #ddd;
+}
+
+/* horizontal width of slider */
+.slider.slider-horizontal {
   width:100%; 
 }
 
-/* margin of jumbotron id topJumb */
-div#topJumb.jumbotron{
-  margin-top:50px; 
-}
-
-.innerJumb{
+.innerJumbCl {
   background-color: #ffffff;
-}
-
-ol {
-  font-size: 16pt;
 }
