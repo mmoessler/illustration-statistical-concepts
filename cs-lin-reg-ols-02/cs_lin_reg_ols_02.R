@@ -5,6 +5,13 @@ rm(list=ls())
 # set directory of figures
 fig.dir <- "./cs-lin-reg-ols-02/figures/"
 
+# set plot margins
+set_plt_mar <- function() {
+  par(mar = c(5.1, 4.1, 1, 2.1))
+  # bottom, left, top, right
+  # 5.1, 4.1, 4.1, 2.1
+}
+
 # set seed 
 set.seed(12345)
 
@@ -240,7 +247,9 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     
                     # plot no 01: scatterplot obsevations ----
                     plt.nam <- paste(fig.dir, "figure_01_", ii, "_", jj, "_", kk, "_", ll, ".svg", sep = "")
-                    svg(plt.nam) 
+                    svg(plt.nam)
+                    
+                    set_plt_mar()
                     
                     plot.new()
                     plot.window(xlim = c(-100, 100), ylim = c(-100, 100), log = "")
@@ -289,7 +298,9 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     
                     # plot no 02: scatterplot fitted residuals ----
                     plt.nam <- paste(fig.dir, "figure_02_", ii, "_", jj, "_", kk, "_", ll, ".svg", sep = "")
-                    svg(plt.nam) 
+                    svg(plt.nam)
+                    
+                    set_plt_mar()
                     
                     plot.new()
                     plot.window(xlim = c(-100, 100), ylim = c(-100, 100), log = "")
@@ -310,7 +321,9 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     
                     # plot no 03: histogram estimator (non-standardized ----
                     plt.nam <- paste(fig.dir, "figure_03_", ii, "_", jj, "_", kk, "_", ll, ".svg", sep = "")
-                    svg(plt.nam) 
+                    svg(plt.nam)
+                    
+                    set_plt_mar()
                     
                     x <- hist(x = tmp.sim$b1h,
                               freq = FALSE,
@@ -345,6 +358,8 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     # plot no 04 histogram estimator (standardized) ----
                     plt.nam <- paste(fig.dir, "figure_04_", ii, "_", jj, "_", kk, "_", ll, ".svg", sep = "")
                     svg(plt.nam)
+                    
+                    set_plt_mar()
                     
                     # generate histogram of estimator
                     h1 <- hist(x = tmp.sim$b1h.z, freq = FALSE)
