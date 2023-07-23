@@ -8,7 +8,7 @@
 
 #### Bernoulli distribution and sample average
 
-This illustration shows the effect of changing the sample size $n$ and the probability of success $p$ of the Bernoulli distribution on the sampling distribution of the sample average as estimator for mean of the Bernoulli distribution.
+This illustration shows the effect of changing (1) the sample size $n$ and (2) the probability of success $p$ of the Bernoulli distribution on the sampling distribution of the sample average as estimator for mean of the Bernoulli distribution.
 
 ```
 
@@ -18,7 +18,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/ber-dis
 
 #### Continuous uniform distribution and sample average
 
-This illustration shows the effect of changing the sample size $n$ and the lower bound $a$ and the upper bound $b$ of the continuous uniform distribution on the sampling distribution of the sample average as estimator for mean of the continuous uniform distribution.
+This illustration shows the effect of changing (1) the sample size $n$, (2) the lower bound $a$ and (3) the upper bound $b$ of the continuous uniform distribution on the sampling distribution of the sample average as estimator for mean of the continuous uniform distribution.
 
 ```
 
@@ -38,7 +38,7 @@ $$
 
 #### Sampling distribution and sample size
 
-This illustration shows the effect of increasing the sample size $n$ on the sampling distribution of the OLS estimator for the slope coefficient of a simple linear regression model.
+This illustration shows the effect of (1) different realizations of the DGP $r$ and (2) changing the sample size $n$ on the sampling distribution of the OLS estimator for the slope coefficient of a simple linear regression model.
 
 ```
 
@@ -48,13 +48,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/cs-lin-
 
 #### Sample size and parameterization of the DGP
 
-This illustration shows the effect of changing the parameters of the DFP, i.e.,  
-
-1. changing the sample size $n$,
-2. changing the variance of $u_{i}$, i.e., $\sigma_{u_{i}}^{2}$, and,
-3. changing the variance of $X_{i}$, i.e., $\sigma_{X}^{2}$, 
-
-on the sampling distribution of the OLS estimator for the slope coefficient of a simple linear regression model.
+This illustration shows the effect of changing the parameters of the DGP, i.e., (1) changing the sample size $n$, (2) changing the slope coefficient $\beta_{1}$, (3) changing the variance of $u_{i}$, i.e., $\sigma_{u_{i}}^{2}$, and (4) changing the variance of $X_{i}$, i.e., $\sigma_{X}^{2}$, on the sampling distribution of the OLS estimator for the slope coefficient of a simple linear regression model.
 
 ```
 
