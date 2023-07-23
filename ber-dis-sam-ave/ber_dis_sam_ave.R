@@ -75,7 +75,7 @@ for (ii in 1:length(n.vec)) {
             names.arg = c("0","1"), add = TRUE)
     
     rect(xleft = 0.25, ybottom = 82.5, xright = 0.75, ytop = 97.5, col = "white")
-    
+
     text(x = 0.5, y = 93,
          bquote(bar(Y) ~" " == .(format(round(summary(lm.tmp)$coefficients[1,1], 3), nsmall = 3))),
          cex = 1.25)
@@ -120,20 +120,24 @@ for (ii in 1:length(n.vec)) {
     rect(x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-(nbx+1)], 0, x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-1L], x$density[which(x$counts > 0)],
          col = "grey")
     
-    # add line for mean population parameter
-    abline(v = p, lty = 2, col = "red", lwd = 2)
+    # add line for population mean
+    abline(v = p, lty = 2, col = "darkgreen", lwd = 2)
     
-    # legend
-    legend("topright",
-           legend = c(expression("Value of "*italic("p"))),
-           lty = 2,
-           lwd = 1,
-           col = "red",
+    # add line for particular estimate
+    abline(v = tmp.sim$Y.bar[[RR]], lty = 2, col = "red", lwd = 2)
+    
+    # add legend
+    legend("topleft",
+           legend = c(as.expression(bquote(bar(Y) ~" " == .(format(round(tmp.sim$Y.bar[[RR]], 3), nsmall = 3)) ~ " ")),
+                      as.expression(bquote(p ~" " == .(format(round(p, 3), nsmall = 3))))),
+           lty = c(2, 2),
+           lwd = c(1, 1),
+           col = c("red", "darkgreen"),
            inset = 0.05)
-      
+    
     dev.off()
     
-    # plot no 03 histogram estimator (standardized) ----
+    # plot no 03: histogram estimator (standardized) ----
     plt.nam <- paste(fig.dir, "figure_03_", ii, "_", jj, ".svg", sep = "")
     svg(plt.nam) 
     
@@ -170,6 +174,9 @@ for (ii in 1:length(n.vec)) {
     rect(x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-(nbx+1)], 0, x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-1L], x$density[which(x$counts > 0)],
          col = "grey")
     
+    # add line for particular estimate
+    abline(v = tmp.sim$Y.bar.z[[RR]], lty = 2, col = "red", lwd = 2)
+    
     # add standard normal density curve
     curve(dnorm(x, mean = 0, sd = 1), -6, 6,
           xlim = c(-3,3), 
@@ -179,14 +186,15 @@ for (ii in 1:length(n.vec)) {
           xlab = "", 
           ylab = "",
           add = TRUE,
-          col = "red")
+          col = "darkgreen")
     
-    # legend
+    # add legend
     legend("topright",
-           legend = c(expression("pdf of "*italic("N")*"(0,1)")),
+           legend = c(bquote(z[bar(Y)] == .(format(round(tmp.sim$Y.bar.z[[RR]], 3), nsmall = 3)) ~ " "),
+                      expression("pdf of "*italic("N")*"(0,1)")),
            lty = 2,
            lwd = 1,
-           col = "red",
+           col = c("red", "darkgreen"),
            inset = 0.05)
       
     dev.off()
