@@ -57,7 +57,9 @@ for (ii in 1:length(NN.vec)) {
       # simulation
       tmp.sim <- Y_bar_uni_sim_fun(RR = RR, NN = NN, a = a, b = b)
       
-      # construct sample mean
+      # construct population mean
+      mu <- 1/2 * (a + b)
+      # construct sample mean (last realization)
       lm.tmp <- lm(tmp.sim$Y.sim ~ 1)
       
       # plot no 01: histogram ----
@@ -93,7 +95,7 @@ for (ii in 1:length(NN.vec)) {
            col = "grey")
       
       # add vertical line for mean
-      abline(v = 1/2 * (a + b), lty = 2, col = "red", lwd = 2)
+      abline(v = mu, lty = 2, col = "red", lwd = 2)
       
       # legend
       legend("topright",
@@ -161,46 +163,28 @@ for (ii in 1:length(NN.vec)) {
       rect(x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-(nbx+1)], 0, x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-1L], x$density[which(x$counts > 0)],
            col = "grey")
       
-      # add line for mean population parameter
-      abline(v = 1/2 * (a + b), lty = 2, col = "red", lwd = 2)
+      # add line for population mean
+      abline(v = 1/2 * (a + b), lty = 2, col = "darkgreen", lwd = 2)
       
-      # # # legend
-      # # legend("topright",
-      # #        legend = c(expression(mu==frac(1,2)~~(a + b))),
-      # #        lty = 2,
-      # #        lwd = 1,
-      # #        col = "red",
-      # #        inset = 0.05)
-      # 
+      # add line for particular estimate
+      abline(v = tmp.sim$Y.bar[[RR]], lty = 2, col = "red", lwd = 2)
+      
+      # add legend
+      legend("topleft",
+             legend = c(as.expression(bquote(bar(Y) ~" " == .(format(round(tmp.sim$Y.bar[[RR]], 3), nsmall = 3)) ~ " ")),
+                        as.expression(bquote(mu ~" " == .(format(round(mu, 3), nsmall = 3))))),
+             lty = c(2, 2),
+             lwd = c(1, 1),
+             col = c("red", "darkgreen"),
+             inset = 0.05)
+      
       # # legend
-      # leg <- legend("topright",
-      #               legend = c(expression(mu==frac(1,2)~~(a + b))),
-      #               lty = 2,
-      #               lwd = 1,
-      #               col = "red",
-      #               inset = 0.05,
-      #               plot = FALSE)
-      # 
-      # # adjust as desired
-      # leftx <- leg$rect$left
-      # rightx <- (leg$rect$left + leg$rect$w * 1.0) * 1
-      # topy <- leg$rect$top
-      # bottomy <- (leg$rect$top - leg$rect$h * 1.2) * 1
-      # 
-      # legend(x = c(leftx, rightx), y = c(topy, bottomy),
-      #        legend = c(expression(mu==frac(1,2)~~(a + b))),
+      # legend("topright",
+      #        legend = c(expression("Value of "*mu)),
       #        lty = 2,
       #        lwd = 1,
       #        col = "red",
       #        inset = 0.05)
-      
-      # legend
-      legend("topright",
-             legend = c(expression("Value of "*mu)),
-             lty = 2,
-             lwd = 1,
-             col = "red",
-             inset = 0.05)
       
       dev.off()
       
@@ -235,6 +219,9 @@ for (ii in 1:length(NN.vec)) {
       nB <- length(x$breaks)
       rect(x$breaks[-nB], 0, x$breaks[-1L], x$density, col = scales::alpha("grey", 0.25))
       
+      # add line for particular standardized estimate
+      abline(v = tmp.sim$Y.bar.z[[RR]], lty = 2, col = "red", lwd = 2)
+      
       # add standard normal density curve
       curve(dnorm(x, mean = 0, sd = 1), -6, 6,
             xlim = c(-3,3), 
@@ -244,14 +231,23 @@ for (ii in 1:length(NN.vec)) {
             xlab = "", 
             ylab = "",
             add = TRUE,
-            col = "red")
+            col = "darkgreen")
       
-      # legend
+      # # legend
+      # legend("topright",
+      #        legend = c(expression("pdf of "*italic("N")*"(0,1)")),
+      #        lty = 2,
+      #        lwd = 1,
+      #        col = "red",
+      #        inset = 0.05)
+      
+      # add legend
       legend("topright",
-             legend = c(expression("pdf of "*italic("N")*"(0,1)")),
+             legend = c(bquote(z[bar(Y)] == .(format(round(tmp.sim$Y.bar.z[[RR]], 3), nsmall = 3)) ~ " "),
+                        expression("pdf of "*italic("N")*"(0,1)")),
              lty = 2,
              lwd = 1,
-             col = "red",
+             col = c("red", "darkgreen"),
              inset = 0.05)
       
       dev.off()

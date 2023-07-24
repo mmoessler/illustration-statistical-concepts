@@ -54,9 +54,11 @@ for (ii in 1:length(n.vec)) {
     # simulation
     tmp.sim <- Y_bar_ber_sim_fun(RR = RR, NN = NN, p = p)
     
-    # construct sample mean
+    # construct population mean
+    mu <- p
+    # construct sample mean (last realization)
     lm.tmp <- lm(tmp.sim$Y.sim ~ 1)
-    
+
     # plot no 01: barplot ----
     plt.nam <- paste(fig.dir, "figure_01_", ii, "_", jj, ".svg", sep = "")
     svg(plt.nam) 
@@ -129,7 +131,7 @@ for (ii in 1:length(n.vec)) {
     # add legend
     legend("topleft",
            legend = c(as.expression(bquote(bar(Y) ~" " == .(format(round(tmp.sim$Y.bar[[RR]], 3), nsmall = 3)) ~ " ")),
-                      as.expression(bquote(p ~" " == .(format(round(p, 3), nsmall = 3))))),
+                      as.expression(bquote(p ~" " == .(format(round(mu, 3), nsmall = 3))))),
            lty = c(2, 2),
            lwd = c(1, 1),
            col = c("red", "darkgreen"),
@@ -174,7 +176,7 @@ for (ii in 1:length(n.vec)) {
     rect(x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-(nbx+1)], 0, x$breaks[c(which(x$counts > 0), which(x$counts > 0)[nbx] + 1)][-1L], x$density[which(x$counts > 0)],
          col = "grey")
     
-    # add line for particular estimate
+    # add line for particular standardized estimate
     abline(v = tmp.sim$Y.bar.z[[RR]], lty = 2, col = "red", lwd = 2)
     
     # add standard normal density curve
