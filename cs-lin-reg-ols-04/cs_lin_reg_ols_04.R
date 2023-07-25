@@ -431,14 +431,14 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                           xlab = "", 
                           ylab = "",
                           add = TRUE,
-                          col = "red")
+                          col = "darkgreen")
 
                     # add legend no 03
                     legend("topright",
                            legend = c(expression("pdf of "*italic("N")*"(0,1)")),
                            lty = 2,
                            lwd = 1,
-                           col = "red",
+                           col = "darkgreen",
                            inset = 0.05)
                     
                     dev.off()
