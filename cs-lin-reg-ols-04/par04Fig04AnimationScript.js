@@ -53,17 +53,24 @@ explainButton01Click = function() {
 animateButton01Click = function(org, start, stop) {
 
   if (activeTabId == "tabContentL1N1Id") {
-    var audio = document.getElementById("audioFigure01Slider1Id");
+    var text = document.getElementById("audioTextFigure01Slider1Id").textContent;
+    var show = document.getElementById("audioShowTextFigure01OverallId");
   } else if (activeTabId == "tabContentL1N2Id") {
-    var audio = document.getElementById("audioFigure02Slider1Id");
+    var text = document.getElementById("audioTextFigure02Slider1Id").textContent;
+    var show = document.getElementById("audioShowTextFigure02OverallId");
   } else if (activeTabId == "tabContentL1N3Id") {
-    var audio = document.getElementById("audioFigure03Slider1Id");
+    var text = document.getElementById("audioTextFigure03Slider1Id").textContent;
+    var show = document.getElementById("audioShowTextFigure03OverallId");
   } else if (activeTabId == "tabContentL1N4Id") {
-    var audio = document.getElementById("audioFigure04Slider1Id");
+    var text = document.getElementById("audioTextFigure04Slider1Id").textContent;
+    var show = document.getElementById("audioShowTextFigure04OverallId");
   } else {
-    var audio = document.getElementById("audioErrorId");
+    var text = document.getElementById("audioTextNoText").textContent;
   }
-  audio.play();
+  var speech = new SpeechSynthesisUtterance(text);
+  speechSynthesis.speak(speech);
+  show.textContent = text;
+  show.style.display = "block";
   var ind = start;
   var loopSliderValue02 = slider02.getValue();
   var loopSliderValue03 = slider03.getValue();
@@ -72,16 +79,19 @@ animateButton01Click = function(org, start, stop) {
     var loopSliderValue01 = ind;
     slider01.setValue(ind);
     sliderLoop(loopSliderValue01, loopSliderValue02, loopSliderValue03, loopSliderValue04);
-    ind++;
+    ind++;    
     if (ind > stop) {
       var innerInterval = setInterval(function() {
         slider01.setValue(ind);
         slider01.setValue(org);
         sliderLoop(org, loopSliderValue02, loopSliderValue03, loopSliderValue04);
         clearInterval(innerInterval);
+        setTimeout(function() {
+          show.style.display = "none";
+        }, 3000);
       }, 1000);
-      clearInterval(outerInterval);
-    }
+      clearInterval(outerInterval);      
+    }    
   }, 1000);
 }
 
