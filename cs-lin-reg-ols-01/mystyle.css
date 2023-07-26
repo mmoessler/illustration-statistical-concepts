@@ -143,3 +143,8 @@ body {
 .innerJumbCl {
   background-color: #ffffff;
 }
+
+.container .jumbotron .audioShowTextCl {
+  background-color: #eee;
+  padding: 5px 5px 5px 5px;
+}
