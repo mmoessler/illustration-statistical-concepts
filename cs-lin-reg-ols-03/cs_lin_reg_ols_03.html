@@ -31,7 +31,6 @@
       </div>
     </div>
 
-
     <div class="container mt-5">
       <div class="row">
 
@@ -162,26 +161,22 @@
                         <button class="animateButtonCl" onclick="animateButton01Click(org = 2, start = 0, stop = 4)">Animate \(n\)</button>
                       </div>
 
-                      <div style="display: none;">
-
-                        <hr>
-
-                        <p style="font-size: 12pt; text-align: center;">Variance of \(u_{i}\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue2Id"></p>
-                        <input id="slider2Id" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="0"/>
-                        <div style="font-size: 12pt; text-align: center;">
-                          <button class="animateButtonCl" onclick="animateButton02Click(org = 1, start = 0, stop = 2)">Animate \(\\\sigma_{u}^{2}\)</button>
-                        </div>                      
-  
-                      </div>
-                    
                       <hr>
 
-                      <p style="font-size: 12pt; text-align: center;">Variance of \(X_{i}\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue3Id"></p>
-                      <input id="slider3Id" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="1"/>
+                      <p style="font-size: 12pt; text-align: center;">Variance of \(X_{i}\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue2Id"></p>
+                      <input id="slider2Id" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="1"/>
                       <div style="font-size: 12pt; text-align: center;">
-                        <button class="animateButtonCl" onclick="animateButton03Click(org = 1, start = 0, stop = 2)">Animate \(\\\sigma_{X}^{2}\)</button>
+                        <button class="animateButtonCl" onclick="animateButton02Click(org = 1, start = 0, stop = 2)">Animate \(\\\sigma_{X}^{2}\)</button>
                       </div>
 
+                      <hr>
+
+                      <p style="font-size: 12pt; text-align: center;">Variance of \(u_{i}\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue3Id"></p>
+                      <input id="slider3Id" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="0"/>
+                      <div style="font-size: 12pt; text-align: center;">
+                        <button class="animateButtonCl" onclick="animateButton03Click(org = 1, start = 0, stop = 2)">Animate \(\\\gamma_{0}\)</button>
+                      </div>                      
+                  
                       <hr>
 
                       <p style="font-size: 12pt; text-align: center;">Heteroskedasticity</p><p style="font-size: 12pt; text-align: center" id="sliderValue4Id"></p>
@@ -223,6 +218,8 @@
                         <img src="./figures/figure_01_1_1_1_1.svg" alt="" id="image1Id" style="max-width: 75%;">
                       </div> 
 
+                      <p id="audioShowTextFigure01Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center;"></p>
+
                       <p>The red fitted regression line is based on the regression of,</p>
 
                       $$
@@ -249,7 +246,9 @@
 
                       <div style="text-align: center;">
                         <img src="./figures/figure_02_1_1_1_1.svg" alt="" id="image2Id" style="max-width: 75%;">
-                      </div> 
+                      </div>
+
+                      <p id="audioShowTextFigure02Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center;"></p>
 
                       <p>The fitted unobserved residuals are constructed as,</p>
 
@@ -279,6 +278,8 @@
                         <img src="./figures/figure_03_1_1_1_1.svg" alt="" id="image3Id" style="max-width: 75%;">
                       </div>
 
+                      <p id="audioShowTextFigure03Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center;"></p>
+
                       <span style="font-size: 16pt; text-decoration: underline;">Consistency</span><span style="font-size: 16pt; text-decoration: none;">:</span>
 
                       <p>As the sample size \(N\) grows the OLS estimator \(\widehat{\beta}_{1}\) gets closer to \(\beta\), i.e.,</p>
@@ -306,6 +307,8 @@
                       <div style="text-align: center;">
                         <img src="./figures/figure_04_1_1.svg" alt="" id="image4Id" style="max-width: 75%;">
                       </div>
+
+                      <p id="audioShowTextFigure04Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center;"></p>
 
                       <span style="font-size: 16pt; text-decoration: underline;">Asymptotic Normality</span><span style="font-size: 16pt; text-decoration: none;">:</span>
 
@@ -373,108 +376,117 @@
     </div>
     
     <!-- .................................................. -->
-    <!-- Collections of audios -->
-    <div style="text-align: center; margin-top: 10px; display: none;">
+    <!-- Collections of audio text -->
+    <div style="display: none;">
 
-      <audio id="audioFigure01OverallId" controls>
-        <source src="./audios/audio_figure01_overall.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <!-- .................................................. -->
+      <!-- default text -->
+      <div id="audioTextNoText" class="audioTextCl">
+        There is no explanation yet.
+      </div>
 
-      <audio id="audioFigure01Slider1Id" controls>
-        <source src="./audios/audio_figure01_slider01.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <!-- .................................................. -->
+      <!-- figure 1 -->
+      <div id="audioTextFigure01OverallId" class="audioTextCl">
+        <span>The figure shows:<br></span>
+        <span>The scatter plot of the values of x and y and the corresponding fitted regression line estimated by OLS for one particular realization of the underlying DGP.<br></span>
+        <span>The red shaded area illustrates the range of all fitted regression lines estimated by OLS across all realizations for the underlying DGP.</span>
+      </div>
 
-      <audio id="audioFigure01Slider2Id" controls>
-        <source src="./audios/audio_figure01_slider02.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure01Slider1Id" class="audioTextCl">
+        <span>Increasing the sample size decreases the range of the different fitted regression lines estimated by OLS across different realizations of the underlying DGP illustrated by the red shaded area.</span>
+      </div>
 
-      <audio id="audioFigure01Slider3Id" controls>
-        <source src="./audios/audio_figure01_slider03.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure01Slider2Id" class="audioTextCl">        
+        <span>There is no explanation yet!</span>
+      </div>
 
-      <audio id="audioFigure01Slider4Id" controls>
-        <source src="./audios/audio_figure01_slider04.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure01Slider3Id" class="audioTextCl">
+        <span>There is no explanation yet!</span>
+      </div>
 
-      <audio id="audioFigure02OverallId" controls>
-        <source src="./audios/audio_figure02_overall.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure01Slider4Id" class="audioTextCl">
+        <span>There is no explanation yet!</span>
+      </div>
 
-      <audio id="audioFigure02Slider1Id" controls>
-        <source src="./audios/audio_figure02_slider01.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <!-- .................................................. -->
+      <!-- figure 2 -->
+      <div id="audioTextFigure02OverallId" class="audioTextCl">
+        <span>The figure shows:<br></span>
+        <span>The scatter plot of the value of x and the fitted residuals of a simple linear regression model estimated by OLS.<br></span>
+        <span>Note, since the estimated parameters includes an intercept and a slope coefficient, the fitted residuals have a mean equal to zero and are uncorrelated with x by construction of the OLS estimator.</span>
+      </div>
 
-      <audio id="audioFigure02Slider2Id" controls>
-        <source src="./audios/audio_figure02_slider02.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure02Slider1Id" class="audioTextCl">
+        Increasing the sample size increases the number of fitted residuals estimated by OLS.
+      </div>
 
-      <audio id="audioFigure02Slider3Id" controls>
-        <source src="./audios/audio_figure02_slider03.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure02Slider2Id" class="audioTextCl">
+        <span>There is no explanation yet!</span>
+      </div>
 
-      <audio id="audioFigure02Slider4Id" controls>
-        <source src="./audios/audio_figure02_slider04.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure02Slider3Id" class="audioTextCl">
+        <span>There is no explanation yet!</span>
+      </div>
 
-      <audio id="audioFigure03OverallId" controls>
-        <source src="./audios/audio_figure03_overall.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure02Slider4Id" class="audioTextCl">
+        <span>There is no explanation yet!</span>
+      </div>
 
-      <audio id="audioFigure03Slider1Id" controls>
-        <source src="./audios/audio_figure03_slider01.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <!-- .................................................. -->
+      <!-- figure 3 -->
+      <div id="audioTextFigure03OverallId" class="audioTextCl">
+        BlaBlaBla
+      </div>
 
-      <audio id="audioFigure03Slider2Id" controls>
-        <source src="./audios/audio_figure03_slider02.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure03Slider1Id" class="audioTextCl">
+        <span>The figure shows:<br></span>
+        <span>The histogram of the estimated slope coefficient across all realizations of the underlying DGP.<br></span>
+        <span>The red vertical dashed line represents the estimated slope coefficient for one particular realization of the underlying DGP.<br></span>
+        <span>The green vertical dashed line represents the slope coefficient of the underlying DGP.</span>
+      </div>
 
-      <audio id="audioFigure03Slider3Id" controls>
-        <source src="./audios/audio_figure03_slider03.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure03Slider2Id" class="audioTextCl">
+        <span>There is no explanation yet!</span>
+      </div>
 
-      <audio id="audioFigure03Slider4Id" controls>
-        <source src="./audios/audio_figure03_slider04.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure03Slider3Id" class="audioTextCl">
+        <span>There is no explanation yet!</span>
+      </div>
 
-      <audio id="audioFigure04OverallId" controls>
-        <source src="./audios/audio_figure04_overall.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure04Slider3Id" class="audioTextCl">
+        <span>There is no explanation yet!</span>
+      </div>
 
-      <audio id="audioFigure04Slider1Id" controls>
-        <source src="./audios/audio_figure04_slider01.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <!-- .................................................. -->
+      <!-- figure 4 -->
+      <div id="audioTextFigure04OverallId" class="audioTextCl">
+        <span>The figure shows:<br></span>
+        <span>The histogram of the standardized estimated slope coefficient across all realizations of the DGP.<br></span>
+        <span>For the standardization with subtract the slope coefficient and divide by an estimate of the variance of the estimated slope coefficient.<br></span>
+        <span>The red vertical dashed line represents the standardized estimated slope coefficient for one particular realization of the DGP.<br></span>
+        <span>The green vertical dashed curve represents the pdf of the standard normal distribution.<br></span>
+        <span>Note, the estimate for the variance of the estimated slope coefficient is explained below and is a function of the sample size, the variance of u, the variance of x, and the covariance of u and x.</span>
+      </div>
 
-      <audio id="audioFigure04Slider2Id" controls>
-        <source src="./audios/audio_figure04_slider02.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure04Slider1Id" class="audioTextCl">
+        <span>By increasing the sample size the sampling distribution of the standardized estimated slope coefficient gets closer to the standard normal distribution which pdf is illustrated by the green dashed curve.<br></span>
+        <span>This is the result of central limit theorem.<br></span>
+        <span>Note, the sampling distribution of the standardized estimate is stable across the sample size.</span>
+        <span>Thus, for large n the standardized estimate can be used to conduct hypothesis tests.</span>
+      </div>
 
-      <audio id="audioFigure04Slider3Id" controls>
-        <source src="./audios/audio_figure04_slider03.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure04Slider2Id" class="audioTextCl">
+        <span>There is no explanation yet!</span>
+      </div>
 
-      <audio id="audioFigure04Slider4Id" controls>
-        <source src="./audios/audio_figure04_slider04.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure04Slider3Id" class="audioTextCl">
+        <span>There is no explanation yet!</span>
+      </div>
+
+      <div id="audioTextFigure04Slider4Id" class="audioTextCl">
+        <span>There is no explanation yet!</span>
+      </div>
 
     </div>
 
