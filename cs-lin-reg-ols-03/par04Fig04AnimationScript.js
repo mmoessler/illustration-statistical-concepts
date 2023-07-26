@@ -93,7 +93,7 @@ explainButton01Click = function() {
   
 }
 
-// animate silder 1 out of 4
+// animate slider 1 out of 4
 animateButton01Click = function(org, start, stop) {
 
   if (activeTabId == "tabContentL1N1Id") {
@@ -175,7 +175,7 @@ animateButton01Click = function(org, start, stop) {
   }, 1000);
 }
 
-// animate silder 2 out of 4
+// animate slider 2 out of 4
 animateButton02Click = function(org, start, stop) {   
 
   if (activeTabId == "tabContentL1N1Id") {
@@ -257,7 +257,7 @@ animateButton02Click = function(org, start, stop) {
   }, 1000);
 }
 
-// animate silder 3 out of 4
+// animate slider 3 out of 4
 animateButton03Click = function(org, start, stop) {   
 
   if (activeTabId == "tabContentL1N1Id") {
@@ -339,7 +339,7 @@ animateButton03Click = function(org, start, stop) {
   }, 1000);
 }
 
-// animate silder 4 out of 4
+// animate slider 4 out of 4
 animateButton04Click = function(org, start, stop) { 
 
   if (activeTabId == "tabContentL1N1Id") {

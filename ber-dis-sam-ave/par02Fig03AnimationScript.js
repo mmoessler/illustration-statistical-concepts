@@ -79,7 +79,7 @@ explainButton01Click = function() {
   
 }
 
-// animate silder 1 out of 2
+// animate slider 1 out of 2
 animateButton01Click = function(org, start, stop) {
 
   if (activeTabId == "tabContentL1N1Id") {
@@ -156,7 +156,7 @@ animateButton01Click = function(org, start, stop) {
   }, 1000);
 }
 
-// animate silder 2 out of 2
+// animate slider 2 out of 2
 animateButton02Click = function(org, start, stop) {   
 
   if (activeTabId == "tabContentL1N1Id") {
