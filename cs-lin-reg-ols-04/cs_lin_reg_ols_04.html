@@ -227,7 +227,7 @@
                         <img src="./figures/figure_01_1_1_1_1.svg" alt="" id="image1Id" style="max-width: 75%;">
                       </div>  
 
-                      <p id="audioShowTextFigure01OverallId" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center;"></p>
+                      <p id="audioShowTextFigure01Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center;"></p>
 
                       <p>The green fitted regression line is based on the regression of,</p>
 
@@ -269,7 +269,7 @@
                         <img src="./figures/figure_02_1_1_1_1.svg" alt="" id="image2Id" style="max-width: 75%;">
                       </div>
 
-                      <p id="audioShowTextFigure02OverallId" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center;"></p>
+                      <p id="audioShowTextFigure02Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center;"></p>
 
                       <p>The fitted unobserved residuals are constructed as,</p>
             
@@ -307,7 +307,7 @@
                         <img src="./figures/figure_03_1_1_1_1.svg" alt="" id="image3Id" style="max-width: 75%;">
                       </div>
 
-                      <p id="audioShowTextFigure03OverallId" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center;"></p>
+                      <p id="audioShowTextFigure03Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center;"></p>
 
                       <span style="font-size: 16pt; text-decoration: underline;">Consistency</span><span style="font-size: 16pt; text-decoration: none;">:</span>
 
@@ -335,7 +335,7 @@
                         <img src="./figures/figure_04_1_1_1_1.svg" alt="" id="image4Id" style="max-width: 75%;">
                       </div>
                       
-                      <p id="audioShowTextFigure04OverallId" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center;"></p>
+                      <p id="audioShowTextFigure04Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center;"></p>
 
                       <span style="font-size: 16pt; text-decoration: underline;">Asymptotic Normality</span><span style="font-size: 16pt; text-decoration: none;">:</span>
 
@@ -465,93 +465,148 @@
     <!-- Collections of audio text -->
     <div style="display: none;">
 
+      <!-- .................................................. -->
       <!-- default text -->
       <div id="audioTextNoText" class="audioTextCl">
         There is no explanation yet.
       </div>
 
+      <!-- .................................................. -->
       <!-- figure 1 -->
       <div id="audioTextFigure01OverallId" class="audioTextCl">
-        There is no explanation yet.
+        <span>The figure shows: <br></span>
+        <!-- <span class="audioTextSilentCl"> (1) </span> -->        
+        <span>The scatter plot of the values of the observed variables y and x one and the corresponding fitted regression line in red for one particular realization of the underlying DGP. <br></span>
+        <span>The scatter plot of the observed variable y and x one adjusted for the effects of the unobserved variable x two and the corresponding fitted regression line in green for one particular realization of the underlying DGP. <br></span>
+        <span>The red and green shaded area illustrates the range of all fitted regression lines estimated by OLS across all realizations for the underlying DGP. <br></span>
+        <span>Note, the green fitted regression line is the correct or unbiased relationship between y and x whereas the red fitted regression line is potentially biased due to the omission of the unobserved variable x two.</span>
       </div>
 
       <div id="audioTextFigure01Slider1Id" class="audioTextCl">
-        The figure shows the scatter plot of the values of the observed variables y and x one and the corresponding fitted regression line in red and the scatter plot of the observed variable y and x one adjusted for the effects of the unobserved variable x two and the corresponding fitted regression line in green for one particular realization of the underlying DGP.
+        <span>Increasing the sample size decreases the range of the different fitted regression lines across different realizations of the underlying DGP illustrated by the red and green shaded area.</span>
       </div>
 
-      <div id="audioTextFigure01Slider2Id" class="audioTextCl">
-        There is no explanation yet.
+      <div id="audioTextFigure01Slider2Id" class="audioTextCl">        
+        <span>Changing the slope coefficient of x one of the underlying DGP rotates the fitted regression lines.</span>
       </div>
 
       <div id="audioTextFigure01Slider3Id" class="audioTextCl">
-        There is no explanation yet.
+        <span>As long as the correlation between x one and x two is zero changing the slope coefficient of x two away from zero only increases the range of the different fitted regression lines of the observed variables y and x one across different realization of the underlying DGP illustrated by the red shaded area. <br></span>
+        <!-- <span>Note here, the red shaded area still includes the green shaded area, i.e., the range of the different fitted regression lines using the observed variables y and x one adjusted for the effect of the unobserved variable x two across different realization of the underlying DGP. <br></span> -->
+        <span>This is the result of including a variable relevant for the determination of y but unrelated to the variable of interest. <br></span>
+        <span>This increases the fitting of your regression model but it is not necessary for causal inference with respect to your variable of interest. <br></span>
+        <span>However, in the case the correlation between x one and x two is not zero changing the slope coefficient of x two away from zero rotates the fitted regression lines of the observed variables y and x one while the fitted regression lines of the unobserved variables y and x one adjusted for the effect of the unobserved variable x two is not affected. <br></span>
+        <span>Note, in this case the red shaded area no longer includes the green shaded area, i.e., the regression of the observed variables y on x one is biased.</span>
       </div>
 
-      <div id="audioTextFigure01Slider4Id" class="audioTextCl">
-        There is no explanation yet.
+      <div id="audioTextFigure01Slider4Id" class="audioTextCl">        
+        <span>As long as the slope coefficient of x two is zero changing the correlation between x one and x two away from zero does not affect the range of the different fitted regression lines of the observe variables y and x one across different realization of the underlying DGP illustrated by the red shaded area. <br></span>
+        <!-- <span>Instead, it increases the range of the different fitted regression lines using the observed variables y and x one adjusted for the effect of the unobserved variable x two across different realization of the underlying DGP. <br></span> -->
+        <span>This is the case of including an irrelevant variable in your regression. This increases only the variance of your estimate of the variable of interest. <br></span>
+        <span>However, in the case the slope coefficient of x two is not zero changing the correlation between x one and x two away from zero rotates the fitted regression lines of the observed variables y and x one while the fitted regression lines of the observed variables y and x one adjusted for the effect of the unobserved variable x two is not affected. <br></span>
+        <span>Note, in this case the red shaded area no longer includes the green shaded area, i.e., the regression of the observed variables y on x one is biased.</span>
       </div>
 
+      <!-- .................................................. -->
       <!-- figure 2 -->
       <div id="audioTextFigure02OverallId" class="audioTextCl">
-        There is no explanation yet.
+        <span>The figure shows: <br></span>
+        <span>The scatter plot of the observed values of x one and the fitted residuals of the estimated regression model of the unobserved variables y and x one adjusted for the effect of the unobserved variable x two. <br></span>
+        <span>The corresponding fitted regression line of a particular realization of the DGP is illustrated by green dashed line. </span>
+        <span>The green shaded are illustrates the different fitted regression lines across different realizations of the underlying DGP. <br></span>
+        <span>Note, the correlation between the observed variable x one and the estimated residual from the regression model are zero by construction of the OLS estimator.</span>
+        <span>However, this must still be true after controlling or adjusting y and x one for all potentially unobserved variables. <br></span>
+        <span>Note, this condition cannot be checked using observed variables but we can simulate it here using the simulated observed variable x one and the simulated unobserved variable x two.</span>
       </div>
 
       <div id="audioTextFigure02Slider1Id" class="audioTextCl">
-        There is no explanation yet.
+        <span>Increasing the sample size increases the number of fitted residuals estimated by OLS.</span>
       </div>
 
       <div id="audioTextFigure02Slider2Id" class="audioTextCl">
-        There is no explanation yet.
+        <span>Changing the slope coefficient does not change the relationship between the fitted residuals and x one.</span>
       </div>
 
       <div id="audioTextFigure02Slider3Id" class="audioTextCl">
-        There is no explanation yet.
+        <span>As long as the correlation between x one and x two is zero changing the slope coefficient of x two away from zero only increases the range of the different fitted regression lines using the fitted residuals of the estimated observed regression relationship across different realization of the underlying DGP illustrated by the green shaded area.<br></span>
+        <span>Note here, the range of the fitted regression lines spreads around the zero line symmetrically and they converges to the zero line as the sample size increases.</span>
+        <span>Thus, for large number of observations the condition that the residuals u and the explanatory variable x one are uncorrelated is true.<br></span>
+        <span>However, in the case the correlation between x one and x two is not zero changing the slope coefficient of x two away from zero rotates the fitted regression lines using the fitted residuals of the estimated observed regression relationship.<br></span>
+        <span>Note here, the range of the fitted regression lines no longer spreads around the zero line symmetrically and they no longer converges to the zero line as the sample size increases.</span>
+        <span>Thus, the condition that the residuals u and the explanatory variable x one are uncorrelated is violated.</span>
       </div>
 
       <div id="audioTextFigure02Slider4Id" class="audioTextCl">
-        There is no explanation yet.
+        <span>As long as the slope coefficient of x two is zero changing the correlation between x one and x two away from zero does not affect the fitted residuals of the estimated observed regression relationship.</span>
+        <span>Thus, the condition that the residuals u and the explanatory variable x one are uncorrelated is true.<br></span>
+        <span>However, in the case the slope coefficient of x two is not zero changing the correlation between x one and x two away from zero rotates the fitted regression lines using the fitted residuals of the estimated observed regression relationship.</span>
+        <span>Note here, the range of the fitted regression lines no longer spreads around the zero line symmetrically and they no longer converges to the zero line as the sample size increases.</span>
+        <span>Thus, the condition that the residuals u and the explanatory variable x one are uncorrelated is violated.</span>
       </div>
 
+      <!-- .................................................. -->
       <!-- figure 3 -->
       <div id="audioTextFigure03OverallId" class="audioTextCl">
-        There is no explanation yet.
+        <span>The figure shows:<br></span>
+        <span>The histogram of the estimated slope coefficient across all realizations of the underlying DGP.<br></span>
+        <span>The red vertical dashed line represents the estimated slope coefficient of regressing the observed variables y on x one for one particular realization of the underlying DGP.<br></span>
+        <span>The green vertical dashed line represents the slope coefficient of the underlying DGP, i.e., the the slope coefficient of regressing the observed variables y on x one adjusted for x two.</span>
       </div>
 
       <div id="audioTextFigure03Slider1Id" class="audioTextCl">
-        There is no explanation yet.
+        <span>By increasing the sample size the estimated slope coefficients concentrate more around the slope coefficient of the underlying DGP.<br></span>
+        <span>This is the result of law of large numbers.</span>
       </div>
 
       <div id="audioTextFigure03Slider2Id" class="audioTextCl">
-        There is no explanation yet.
+        <span>Changing the slope coefficient of x one of the underlying DGP shifts the histogram of the estimated slope coefficient.</span>
       </div>
 
       <div id="audioTextFigure03Slider3Id" class="audioTextCl">
-        There is no explanation yet.
+        <span>As long as the correlation between x one and x two is zero changing the slope coefficient of x two away from zero only increases the range of OLS estimates for the slope coefficient of x one.<br></span>
+        <span>However, in the case the correlation between x one and x two is not zero changing the slope coefficient of x two away from zero shifts the histogram of the OLS estimates for the slope coefficients of the observed relationship away from the green vertical dashed line.<br></span>
+        <span>Thus, the OLS estimator for the slope coefficient based on the observed variables y and x one is biased and inconsistent.</span>
       </div>
 
       <div id="audioTextFigure03Slider4Id" class="audioTextCl">
-        There is no explanation yet.
+        <span>As long as the slope coefficient of x two is zero changing the correlation between x one and x two away from zero does not affect range of OLS estimates for the slope coefficient of x one.<br></span>
+        <span>However, in the case the slope coefficient of x two is not zero changing the correlation between x one and x two away from zero shifts the histogram of the OLS estimates for the slope coefficients of the observed relationship away from the green vertical dashed line.<br></span>
+        <span>Thus, the OLS estimator for the slope coefficient based on the observed variables y and x one is biased and inconsistent.</span>
       </div>
 
+      <!-- .................................................. -->
       <!-- figure 4 -->
       <div id="audioTextFigure04OverallId" class="audioTextCl">
-        There is no explanation yet.
+        <span>The figure shows:<br></span>
+        <span>The histogram of the standardized estimated slope coefficient across all realizations of the DGP.<br></span>
+        <span>For the standardization we subtract the slope coefficient of the variable x one and divide by an estimate of the variance of the estimated slope coefficient.<br></span>
+        <span>The red vertical dashed line represents the standardized estimated slope coefficient of regressing the observed variables y on x one for one particular realization of the underlying DGP.<br></span>
+        <span>The green vertical dashed line represents the standardized estimated slope coefficient of regressing the observed variables y on x one adjusted for the unobserve variable x two for one particular realization of the underlying DGP.<br></span>
+        <span>The green dashed curve represents the pdf of the standard normal distribution.</span>
       </div>
 
       <div id="audioTextFigure04Slider1Id" class="audioTextCl">
-        There is no explanation yet.
+        <span>In the case the effect of x two or the correlation between x one and x two is zero the sampling distribution of the standardized estimated slope coefficient of regressing the observed variables y on x one gets closer to the standard normal distribution which pdf is illustrated by the green dashed curve for increasing sample sizes.<br></span>
+        <span>However, in the case the effect of x two and the correlation between x one and x two are different from zero the standardized estimated slope coefficient shifts further away from the standard normal distribution for increasing sample size.<br></span>
+        <span>The latter case illustrates the effect of omitted variable bias on the sampling distribution of the standardized estimated slope coefficient.</span>
       </div>
 
       <div id="audioTextFigure04Slider2Id" class="audioTextCl">
-        There is no explanation yet.
+        <span>In the case the effect of x two or the correlation between x one and x two is zero the sampling distribution of the standardized estimated slope coefficient of regressing the observed variables y on x one is not affected by the effect of x one on y.<br></span>
+        <span>However, in the case the effect of x two and the correlation between x one and x two are different from zero the standardized estimated slope coefficient is shifted away from the standard normal distribution for increasing sample size.<br></span>
+        <span>The latter case illustrates the effect of omitted variable bias on the sampling distribution of the standardized estimated slope coefficient.</span>
       </div>
 
       <div id="audioTextFigure04Slider3Id" class="audioTextCl">
-        There is no explanation yet.
+        <span>As long as the correlation between x one and x two is zero changing the slope coefficient of x two away from zero does not affect the sampling distribution of the standardized estimated slope coefficient of the relationship between the observed variables y and x one.<br></span>
+        <span>However, in the case the correlation between x one and x two is not zero changing the slope coefficient of x two away from zero shifts the histogram of the standardized OLS estimates for the slope coefficients of the observed relationship away from the standard normal distribution.<br></span>
+        <span>The latter case illustrates the effect of omitted variable bias on the sampling distribution of the standardized estimated slope coefficient.</span>
       </div>
 
       <div id="audioTextFigure04Slider4Id" class="audioTextCl">
-        There is no explanation yet.
+        <span>As long as the slope coefficient of x two is zero changing the correlation between x one and x two away from zero does not affect the sampling distribution of the standardized estimated slope coefficient of the relationship between the observed variables y and x one.<br></span>
+        <span>However, in the case the correlation between x one and x two is not zero changing the correlation between x one and x two away from zero shifts the histogram of the standardized OLS estimates for the slope coefficients of the observed relationship away from the standard normal distribution.<br></span>
+        <span>The latter case illustrates the effect of omitted variable bias on the sampling distribution of the standardized estimated slope coefficient.</span>
       </div>
 
     </div>
