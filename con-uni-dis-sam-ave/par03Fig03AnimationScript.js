@@ -1,5 +1,5 @@
 
-// loop over 3 slider and 2 figures
+// loop over 3 slider and 3 figures
 function sliderLoop(loopSliderValue01, loopSliderValue02, loopSliderValue03) {
 
   var sliderValue01 = loopSliderValue01 + 1;
@@ -29,31 +29,119 @@ function sliderLoop(loopSliderValue01, loopSliderValue02, loopSliderValue03) {
 explainButton01Click = function() {
 
   if (activeTabId == "tabContentL1N1Id") {
-    var audio = document.getElementById("audioFigure01OverallId");
+    var audioTextDiv = document.getElementById("audioTextFigure01OverallId");
+    var audioShowPar = document.getElementById("audioShowTextFigure01Id");
   } else if (activeTabId == "tabContentL1N2Id") {
-    var audio = document.getElementById("audioFigure02OverallId");
+    var audioTextDiv = document.getElementById("audioTextFigure02OverallId");
+    var audioShowPar = document.getElementById("audioShowTextFigure02Id");
   } else if (activeTabId == "tabContentL1N3Id") {
-    var audio = document.getElementById("audioFigure03OverallId");
+    var audioTextDiv = document.getElementById("audioTextFigure03OverallId");
+    var audioShowPar = document.getElementById("audioShowTextFigure03Id");
   } else {
-    var audio = document.getElementById("audioErrorId");
+    var audioTextDiv = document.getElementById("audioTextNoText");
   }
-  audio.play();
+  
+  audioShowPar.innerHTML = audioTextDiv.innerHTML;
+  audioShowPar.style.display = "block";
+
+  var silentSpan = "audioTextSilentCl"; 
+  var audioTextSpa = audioTextDiv.getElementsByTagName("span");
+
+  var index = 0;
+
+  // function to read out each <span> with a delay in between
+  function readSpans() {
+
+    if (index < audioTextSpa.length) {
+
+      var span = audioTextSpa[index];
+      var speech = new SpeechSynthesisUtterance("whatever");
+
+      if (!span.classList.contains(silentSpan)) {
+
+        var spanText = span.textContent;
+        var speech = new SpeechSynthesisUtterance(spanText);
+        speechSynthesis.speak(speech);
+
+        speech.onend = function() {
+          setTimeout(function() {
+            index++;
+            readSpans();
+          }, 1000);
+        };
+        
+      } else {
+        index++;
+        readSpans();
+      }
+    } else {      
+      audioShowPar.style.display = "none";
+    }
+  }
+
+  // start reading out the spans
+  readSpans();
   
 }
 
-// animate silder 1 out of 3
+// animate slider 1 out of 3
 animateButton01Click = function(org, start, stop) {
 
   if (activeTabId == "tabContentL1N1Id") {
-    var audio = document.getElementById("audioFigure01Slider1Id");
+    var audioTextDiv = document.getElementById("audioTextFigure01Slider1Id");
+    var audioShowPar = document.getElementById("audioShowTextFigure01Id");
   } else if (activeTabId == "tabContentL1N2Id") {
-    var audio = document.getElementById("audioFigure02Slider1Id");
+    var audioTextDiv = document.getElementById("audioTextFigure02Slider1Id");
+    var audioShowPar = document.getElementById("audioShowTextFigure02Id");
   } else if (activeTabId == "tabContentL1N3Id") {
-    var audio = document.getElementById("audioFigure03Slider1Id");
+    var audioTextDiv = document.getElementById("audioTextFigure03Slider1Id");
+    var audioShowPar = document.getElementById("audioShowTextFigure03Id");
   } else {
-    var audio = document.getElementById("audioErrorId");
+    var audioTextDiv = document.getElementById("audioTextNoText");
   }
-  audio.play();
+
+  audioShowPar.innerHTML = audioTextDiv.innerHTML;
+  audioShowPar.style.display = "block";
+
+  var silentSpan = "audioTextSilentCl"; 
+  var audioTextSpa = audioTextDiv.getElementsByTagName("span");
+
+  var index = 0;
+
+  // function to read out each <span> with a delay in between
+  function readSpans() {
+
+    if (index < audioTextSpa.length) {
+
+      var span = audioTextSpa[index];
+      var speech = new SpeechSynthesisUtterance("whatever");
+
+      if (!span.classList.contains(silentSpan)) {
+
+        var spanText = span.textContent;
+        var speech = new SpeechSynthesisUtterance(spanText);
+        speechSynthesis.speak(speech);
+
+        speech.onend = function() {
+          setTimeout(function() {
+            index++;
+            readSpans();
+          }, 1000);
+        };
+        
+      } else {
+        index++;
+        readSpans();
+      }
+    } else {      
+      audioShowPar.style.display = "none";
+    }
+  }
+
+  // start reading out the spans
+  readSpans();
+  
+  // iteration over sliders
   var ind = start;
   var loopSliderValue02 = slider02.getValue();
   var loopSliderValue03 = slider03.getValue();
@@ -61,7 +149,7 @@ animateButton01Click = function(org, start, stop) {
     var loopSliderValue01 = ind;
     slider01.setValue(ind);
     sliderLoop(loopSliderValue01, loopSliderValue02, loopSliderValue03);
-    ind++;
+    ind++;    
     if (ind > stop) {
       var innerInterval = setInterval(function() {
         slider01.setValue(ind);
@@ -69,24 +157,69 @@ animateButton01Click = function(org, start, stop) {
         sliderLoop(org, loopSliderValue02, loopSliderValue03);
         clearInterval(innerInterval);
       }, 1000);
-      clearInterval(outerInterval);
-    }
+      clearInterval(outerInterval);      
+    }    
   }, 1000);
 }
 
-// animate silder 2 out of 3
-animateButton02Click = function(org, start, stop) {
+// animate slider 2 out of 3
+animateButton02Click = function(org, start, stop) {   
 
   if (activeTabId == "tabContentL1N1Id") {
-    var audio = document.getElementById("audioFigure01Slider2Id");
+    var audioTextDiv = document.getElementById("audioTextFigure01Slider2Id");
+    var audioShowPar = document.getElementById("audioShowTextFigure01Id");
   } else if (activeTabId == "tabContentL1N2Id") {
-    var audio = document.getElementById("audioFigure02Slider2Id");
+    var audioTextDiv = document.getElementById("audioTextFigure02Slider2Id");
+    var audioShowPar = document.getElementById("audioShowTextFigure02Id");
   } else if (activeTabId == "tabContentL1N3Id") {
-    var audio = document.getElementById("audioFigure03Slider2Id");
+    var audioTextDiv = document.getElementById("audioTextFigure03Slider2Id");
+    var audioShowPar = document.getElementById("audioShowTextFigure03Id");
   } else {
-    var audio = document.getElementById("audioErrorId");
+    var audioTextDiv = document.getElementById("audioTextNoText");
   }
-  audio.play();
+
+  audioShowPar.innerHTML = audioTextDiv.innerHTML;
+  audioShowPar.style.display = "block";
+
+  var silentSpan = "audioTextSilentCl"; 
+  var audioTextSpa = audioTextDiv.getElementsByTagName("span");
+
+  var index = 0;
+
+  // function to read out each <span> with a delay in between
+  function readSpans() {
+
+    if (index < audioTextSpa.length) {
+
+      var span = audioTextSpa[index];
+      var speech = new SpeechSynthesisUtterance("whatever");
+
+      if (!span.classList.contains(silentSpan)) {
+
+        var spanText = span.textContent;
+        var speech = new SpeechSynthesisUtterance(spanText);
+        speechSynthesis.speak(speech);
+
+        speech.onend = function() {
+          setTimeout(function() {
+            index++;
+            readSpans();
+          }, 1000);
+        };
+        
+      } else {
+        index++;
+        readSpans();
+      }
+    } else {      
+      audioShowPar.style.display = "none";
+    }
+  }
+
+  // start reading out the spans
+  readSpans();
+  
+  // iteration over sliders
   var ind = start;
   var loopSliderValue01 = slider01.getValue();
   var loopSliderValue03 = slider03.getValue();
@@ -107,19 +240,64 @@ animateButton02Click = function(org, start, stop) {
   }, 1000);
 }
 
-// animate silder 3 out of 3
+// animate slider 3 out of 3
 animateButton03Click = function(org, start, stop) {   
-  
+
   if (activeTabId == "tabContentL1N1Id") {
-    var audio = document.getElementById("audioFigure01Slider3Id");
+    var audioTextDiv = document.getElementById("audioTextFigure01Slider3Id");
+    var audioShowPar = document.getElementById("audioShowTextFigure01Id");
   } else if (activeTabId == "tabContentL1N2Id") {
-    var audio = document.getElementById("audioFigure02Slider3Id");
+    var audioTextDiv = document.getElementById("audioTextFigure02Slider3Id");
+    var audioShowPar = document.getElementById("audioShowTextFigure02Id");
   } else if (activeTabId == "tabContentL1N3Id") {
-    var audio = document.getElementById("audioFigure03Slider3Id");
+    var audioTextDiv = document.getElementById("audioTextFigure03Slider3Id");
+    var audioShowPar = document.getElementById("audioShowTextFigure03Id");
   } else {
-    var audio = document.getElementById("audioErrorId");
+    var audioTextDiv = document.getElementById("audioTextNoText");
   }
-  audio.play();  
+
+  audioShowPar.innerHTML = audioTextDiv.innerHTML;
+  audioShowPar.style.display = "block";
+
+  var silentSpan = "audioTextSilentCl"; 
+  var audioTextSpa = audioTextDiv.getElementsByTagName("span");
+
+  var index = 0;
+
+  // function to read out each <span> with a delay in between
+  function readSpans() {
+
+    if (index < audioTextSpa.length) {
+
+      var span = audioTextSpa[index];
+      var speech = new SpeechSynthesisUtterance("whatever");
+
+      if (!span.classList.contains(silentSpan)) {
+
+        var spanText = span.textContent;
+        var speech = new SpeechSynthesisUtterance(spanText);
+        speechSynthesis.speak(speech);
+
+        speech.onend = function() {
+          setTimeout(function() {
+            index++;
+            readSpans();
+          }, 1000);
+        };
+        
+      } else {
+        index++;
+        readSpans();
+      }
+    } else {      
+      audioShowPar.style.display = "none";
+    }
+  }
+
+  // start reading out the spans
+  readSpans();
+  
+  // iteration over sliders
   var ind = start;
   var loopSliderValue01 = slider01.getValue();
   var loopSliderValue02 = slider02.getValue();
