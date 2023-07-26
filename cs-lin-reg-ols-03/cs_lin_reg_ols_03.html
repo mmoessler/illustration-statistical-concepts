@@ -87,7 +87,7 @@
             \end{align}
             $$
 
-            <p>which is also known as multiplicative heteroskedasticity and where \(\gamma_{0}=0\) and \(\gamma_{1}\) are parameters which determine the shape of the heteroskedasticity.</p>
+            <p>which is also known as multiplicative heteroskedasticity and where \(\gamma_{0}\) and \(\gamma_{1}\) are parameters which determine the shape of the heteroskedasticity.</p>
 
             <p>Thus, for positive/negative values of \(\gamma_{1}\) the variance of \(u_{i}\) is positively/negatively related with the value of \(X_{i}\).</p>
 
@@ -162,13 +162,17 @@
                         <button class="animateButtonCl" onclick="animateButton01Click(org = 2, start = 0, stop = 4)">Animate \(n\)</button>
                       </div>
 
-                      <hr>
+                      <div style="display: none;">
 
-                      <p style="font-size: 12pt; text-align: center;">Variance of \(u_{i}\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue2Id"></p>
-                      <input id="slider2Id" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="1"/>
-                      <div style="font-size: 12pt; text-align: center;">
-                        <button class="animateButtonCl" onclick="animateButton02Click(org = 1, start = 0, stop = 2)">Animate \(\\\sigma_{u}^{2}\)</button>
-                      </div>                      
+                        <hr>
+
+                        <p style="font-size: 12pt; text-align: center;">Variance of \(u_{i}\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue2Id"></p>
+                        <input id="slider2Id" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="0"/>
+                        <div style="font-size: 12pt; text-align: center;">
+                          <button class="animateButtonCl" onclick="animateButton02Click(org = 1, start = 0, stop = 2)">Animate \(\\\sigma_{u}^{2}\)</button>
+                        </div>                      
+  
+                      </div>
                     
                       <hr>
 
@@ -183,7 +187,7 @@
                       <p style="font-size: 12pt; text-align: center;">Heteroskedasticity</p><p style="font-size: 12pt; text-align: center" id="sliderValue4Id"></p>
                       <input id="slider4Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
                       <div style="font-size: 12pt; text-align: center;">
-                        <button class="animateButtonCl" onclick="animateButton04Click(org = 2, start = 0, stop = 4)">Animate \(g_{1}\)</button>
+                        <button class="animateButtonCl" onclick="animateButton04Click(org = 2, start = 0, stop = 4)">Animate \(\\\gamma_{1}\)</button>
                       </div>
 
                     </div>
@@ -538,18 +542,18 @@
 
       var par01Vec = [5, 10, 25, 50, 100];
       var par02Vec = [1, 5, 10];
-      var par03Vec = [1, 5, 10];
+      var par03Vec = [-1, -0.5, 0, 0.5, 1];
       var par04Vec = [-0.2, -0.1, 0, 0.1, 0.2];
 
       var par01Ini = 2;
       var par02Ini = 1;
-      var par03Ini = 1;
+      var par03Ini = 2;
       var par04Ini = 2;
 
       var par01Str01 = "\\(n = ";
-      var par02Str01 = "\\(\\sigma_{u}^{2} = ";
-      var par03Str01 = "\\(\\sigma_{X}^{2} = ";
-      var par04Str01 = "\\(g_{1} = ";
+      var par02Str01 = "\\(\\sigma_{X}^{2} = ";
+      var par03Str01 = "\\(\\gamma_{0} = ";
+      var par04Str01 = "\\(\\gamma_{1} = ";
 
     </script>
 

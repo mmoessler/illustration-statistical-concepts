@@ -190,7 +190,7 @@ bet_hat_sim_fun_01 <- function(rr, nn,
 # inputs (variable)
 nn.vec <- c(5, 10, 25, 50, 100)
 x1.sd.vec <- c(1, 5, 10)
-u.sd.vec <- c(1, 5, 10)
+g0.vec <- c(-1, -0.5, 0, 0.5, 1)
 g1.vec <- c(-0.2, -0.1, 0, 0.1, 0.2)
 
 # inputs (fixed)
@@ -202,16 +202,16 @@ b2 <- 0
 x1.sd <- 10
 x2.sd <- 10
 z.sd <- 10
-u.sd <- 10
+u.sd <- 1 # fix at one vary g0
 rho.21 <- 0
 rho.z1 <- 0
-g0 <- 0
+g0 <- 1
 g1 <- 0
 
 # set up parallelization ----
 
 # grid for names
-tmp.grd <- expand.grid(seq(1,length(nn.vec)), seq(1,length(x1.sd.vec)), seq(1,length(u.sd.vec)), seq(1,length(g1.vec)), stringsAsFactors = FALSE)
+tmp.grd <- expand.grid(seq(1,length(nn.vec)), seq(1,length(x1.sd.vec)), seq(1,length(g0.vec)), seq(1,length(g1.vec)), stringsAsFactors = FALSE)
 
 library(parallel)
 library(doSNOW)
@@ -240,7 +240,7 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     
                     nn <- nn.vec[ii]
                     x1.sd <- x1.sd.vec[jj]
-                    u.sd <- u.sd.vec[kk]
+                    g0 <- g0.vec[kk]
                     g1 <- g1.vec[ll]
                     
                     # simulation
