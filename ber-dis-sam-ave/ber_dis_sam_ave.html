@@ -167,6 +167,8 @@
                         <img src="./figures/figure_01_1_1.svg" alt="" id="image1Id" style="max-width: 75%;">
                       </div>                      
 
+                      <p id="audioShowTextFigure01Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center;"></p>
+
                       <p>The bar chart shows the number of ones and zeros of one realization of the DGP.</p>
                       
                     </div>
@@ -186,6 +188,8 @@
                       <div style="text-align: center;">
                         <img src="./figures/figure_02_1_1.svg" alt="" id="image2Id" style="max-width: 75%;">
                       </div>
+
+                      <p id="audioShowTextFigure02Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center;"></p>
 
                       <span style="font-size: 16pt; text-decoration: underline;">Consistency</span><span style="font-size: 16pt; text-decoration: none;">:</span>
                       
@@ -214,6 +218,8 @@
                       <div style="text-align: center;">
                         <img src="./figures/figure_03_1_1.svg" alt="" id="image3Id" style="max-width: 75%;">
                       </div>
+
+                      <p id="audioShowTextFigure03Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center;"></p>
 
                       <span style="font-size: 16pt; text-decoration: underline;">Asymptotic Normality</span><span style="font-size: 16pt; text-decoration: none;">:</span>
 
@@ -294,58 +300,64 @@
     </div>
     
     <!-- .................................................. -->
-    <!-- Collections of audios -->
-    <div style="text-align: center; margin-top: 10px; display: none;">
+    <!-- Collections of audio text -->
+    <div style="display: none;">
 
-      <audio id="audioFigure01OverallId" controls>
-        <source src="./audios/audio_figure01_overall.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <!-- .................................................. -->
+      <!-- default text -->
+      <div id="audioTextNoText" class="audioTextCl">
+        There is no explanation yet.
+      </div>
 
-      <audio id="audioFigure01Slider1Id" controls>
-        <source src="./audios/audio_figure01_slider01.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <!-- .................................................. -->
+      <!-- figure 1 -->
+      <div id="audioTextFigure01OverallId" class="audioTextCl">
+        <span>The figure shows the barplot of the the number zeros and ones for one particular realization of the DGP.</span>
+      </div>
 
-      <audio id="audioFigure01Slider2Id" controls>
-        <source src="./audios/audio_figure01_slider02.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure01Slider1Id" class="audioTextCl">
+        <span>Increasing the sample size increases the number of zeros and ones for one particular realization of the DGP.</span>
+      </div>
 
-      <audio id="audioFigure02OverallId" controls>
-        <source src="./audios/audio_figure02_overall.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure01Slider2Id" class="audioTextCl">        
+        <span>Increasing the probability of success increases the number of ones for one particular realization of the DGP.</span>
+      </div>
 
-      <audio id="audioFigure02Slider1Id" controls>
-        <source src="./audios/audio_figure02_slider01.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <!-- .................................................. -->
+      <!-- figure 2 -->
+      <div id="audioTextFigure02OverallId" class="audioTextCl">
+        <span>The figure shows:<br></span>
+        <span>The histogram of all estimated sample averages for all realizations of the DGP.<br></span>
+        <span>The red vertical dashed line represents the sample average for one particular realization of the DGP.</span>
+        <span>The green vertical dashed line represents the mean, i.e., the probability of success, of the underlying DGP.</span>
+      </div>
 
-      <audio id="audioFigure02Slider2Id" controls>
-        <source src="./audios/audio_figure02_slider02.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure02Slider1Id" class="audioTextCl">
+        <span>By increasing the sample size the sample average concentrate more around the mean, i.e., the probability of success, used to generate the data.<br></span>
+        <span>This is the result of law of large numbers.</span>
+      </div>
 
-      <audio id="audioFigure03Slider1Id" controls>
-        <source src="./audios/audio_figure03_slider01.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure02Slider2Id" class="audioTextCl">
+        <span>Changing the probability of success, i.e., changing the mean of the underlying DGP, shifts the histogram.</span>
+      </div>
 
-      <audio id="audioFigure03OverallId" controls>
-        <source src="./audios/audio_figure03_overall.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <!-- .................................................. -->
+      <!-- figure 3 -->
+      <div id="audioTextFigure03OverallId" class="audioTextCl">
+        <span>The figure shows:<br></span>
+        <span>The histogram of all standardized sample averages for all realizations of the DGP.<br></span>
+        <span>The red vertical dashed line represents the standardized sample average for one particular realization of the DGP.</span>
+        <span>The green vertical dashed curve represents the pdf of the standard normal distribution.</span>
+      </div>
 
-      <audio id="audioFigure03Slider2Id" controls>
-        <source src="./audios/audio_figure03_slider02.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure03Slider1Id" class="audioTextCl">
+        <span>By increasing the sample size the sampling distribution of the standardized sample average gets closer to the standard normal distribution which pdf is illustrated by the green dashed curve.<br></span>
+        <span>This is the results of the central limit theorem.</span>
+      </div>
 
-      <audio id="audioErrorId" controls>
-        <source src="./audios/audio_error.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure03Slider2Id" class="audioTextCl">
+        <span>Changing the probability of success does not effect the results of the central limit theorem.</span>
+      </div>
 
     </div>
 
