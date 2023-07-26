@@ -196,6 +196,8 @@
                         <img src="./figures/figure_01_1_1_1_1.svg" alt="" id="image1Id" style="max-width: 75%;">
                       </div> 
 
+                      <p id="audioShowTextFigure01Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center;"></p>
+
                       <p>The red fitted regression line is based on the regression of,</p>
 
                       $$
@@ -223,6 +225,8 @@
                       <div style="text-align: center;">
                         <img src="./figures/figure_02_1_1_1_1.svg" alt="" id="image2Id" style="max-width: 75%;">
                       </div> 
+
+                      <p id="audioShowTextFigure02Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center;"></p>
 
                       <p>The fitted unobserved residuals are constructed as,</p>
 
@@ -252,6 +256,8 @@
                         <img src="./figures/figure_03_1_1_1_1.svg" alt="" id="image3Id" style="max-width: 75%;">
                       </div>
 
+                      <p id="audioShowTextFigure03Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center;"></p>
+
                       <span style="font-size: 16pt; text-decoration: underline;">Consistency</span><span style="font-size: 16pt; text-decoration: none;">:</span>
 
                       <p>As the sample size \(n\) grows the OLS estimator \(\widehat{\beta}_{1}\) gets closer to \(\beta_1\),</p>
@@ -271,7 +277,7 @@
                           <td style="width: 10%"></td>
                           <td style="width: 80%; font-size: 14pt; text-align: left;">Histogram of the standardized OLS estimates \(z_{\widehat{\beta}_{1}}\)</td>
                           <td style="width: 10%; font-size: 14pt; text-align: right;">
-                            <button class="explainButtonCl" onclick="explainButton02Click()">Explain</button>
+                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
                           </td>
                         </tr>
                       </table>
@@ -279,6 +285,8 @@
                       <div style="text-align: center;">
                         <img src="./figures/figure_04_1_1.svg" alt="" id="image4Id" style="max-width: 75%;">
                       </div>
+
+                      <p id="audioShowTextFigure04Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center;"></p>
 
                       <span style="font-size: 16pt; text-decoration: underline;">Asymptotic Normality</span><span style="font-size: 16pt; text-decoration: none;">:</span>
 
@@ -367,108 +375,132 @@
     </div>
     
     <!-- .................................................. -->
-    <!-- Collections of audios -->
-    <div style="text-align: center; margin-top: 10px; display: none;">
+    <!-- Collections of audio text -->
+    <div style="display: none;">
 
-      <audio id="audioFigure01OverallId" controls>
-        <source src="./audios/audio_figure01_overall.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <!-- .................................................. -->
+      <!-- default text -->
+      <div id="audioTextNoText" class="audioTextCl">
+        There is no explanation yet.
+      </div>
 
-      <audio id="audioFigure01Slider1Id" controls>
-        <source src="./audios/audio_figure01_slider01.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <!-- .................................................. -->
+      <!-- figure 1 -->
+      <div id="audioTextFigure01OverallId" class="audioTextCl">
+        <span>The figure shows:<br></span>
+        <span>The scatter plot of the values of x and y and the corresponding fitted regression line estimated by OLS for one particular realization of the underlying DGP.<br></span>
+        <span>The red shaded area illustrates the range of all fitted regression lines estimated by OLS across all realizations for the underlying DGP.</span>
+      </div>
 
-      <audio id="audioFigure01Slider2Id" controls>
-        <source src="./audios/audio_figure01_slider02.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure01Slider1Id" class="audioTextCl">
+        <span>Increasing the sample size decreases the range of the different fitted regression lines estimated by OLS across different realizations of the underlying DGP illustrated by the red shaded area.</span>
+      </div>
 
-      <audio id="audioFigure01Slider3Id" controls>
-        <source src="./audios/audio_figure01_slider03.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure01Slider2Id" class="audioTextCl">        
+        <span>Changing the slope coefficient of the underlying DGP rotates the fitted regression lines estimated by OLS.</span>
+      </div>
 
-      <audio id="audioFigure01Slider4Id" controls>
-        <source src="./audios/audio_figure01_slider04.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure01Slider3Id" class="audioTextCl">
+        <span>Increasing the variance of u of the underlying DGP increases the range of the different fitted regression lines estimated by OLS across different realization of the underlying DGP.<br></span>
+        <span>Thus, a high variance of the unobserved component u in the regression model of the underlying DGP increases the sampling uncertainty of the estimated effect of the variable x.</span>
+        <!-- What about signal to noise ratio? -->
+      </div>
 
-      <audio id="audioFigure02OverallId" controls>
-        <source src="./audios/audio_figure02_overall.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure01Slider4Id" class="audioTextCl">        
+        <span>Increasing the variance of x of the underlying DGP decreases the range of the different fitted regression lines estimated by OLS across different realization of the underlying DGP.<br></span>
+        <span>Thus, a high variance of the variable of interest x of the underlying DGP decreases the sampling uncertainty of the estimated effect of the variable x.</span>
+        <!-- What about signal to noise ratio? -->
+      </div>
 
-      <audio id="audioFigure02Slider1Id" controls>
-        <source src="./audios/audio_figure02_slider01.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <!-- .................................................. -->
+      <!-- figure 2 -->
+      <div id="audioTextFigure02OverallId" class="audioTextCl">
+        <span>The figure shows:<br></span>
+        <span>The scatter plot of the value of x and the fitted residuals of a simple linear regression model estimated by OLS.<br></span>
+        <span>Note, since the estimated parameters includes an intercept and a slope coefficient, the fitted residuals have a mean equal to zero and are uncorrelated with x by construction of the OLS estimator.</span>
+      </div>
 
-      <audio id="audioFigure02Slider2Id" controls>
-        <source src="./audios/audio_figure02_slider02.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure02Slider1Id" class="audioTextCl">
+        <span>Increasing the sample size increases the number of fitted residuals estimated by OLS.</span>
+      </div>
 
-      <audio id="audioFigure02Slider3Id" controls>
-        <source src="./audios/audio_figure02_slider03.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure02Slider2Id" class="audioTextCl">
+        <span>Changing the slope coefficient does not change the change the relationship between the fitted residuals and x.</span>
+      </div>
 
-      <audio id="audioFigure02Slider4Id" controls>
-        <source src="./audios/audio_figure02_slider04.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure02Slider3Id" class="audioTextCl">
+        <span>Increasing the variance of u of the underlying DGP increases the spread of the fitted residuals along the y-axis, i.e., the residuals get larger for all values of x.</span>
+      </div>
 
-      <audio id="audioFigure03OverallId" controls>
-        <source src="./audios/audio_figure03_overall.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure02Slider4Id" class="audioTextCl">
+        <span>Increasing the variance of x of the underlying DGP increases the spread of the fitted residuals along the y-axis.</span>
+      </div>
 
-      <audio id="audioFigure03Slider1Id" controls>
-        <source src="./audios/audio_figure03_slider01.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <!-- .................................................. -->
+      <!-- figure 3 -->
+      <div id="audioTextFigure03OverallId" class="audioTextCl">
+        <span>The figure shows:<br></span>
+        <span>The histogram of the estimated slope coefficient across all realizations of the underlying DGP.<br></span>
+        <span>The red vertical dashed line represents the estimated slope coefficient for one particular realization of the underlying DGP.</span>
+        <span>The green vertical dashed line represents the slope coefficient of the underlying DGP.</span>
+      </div>
 
-      <audio id="audioFigure03Slider2Id" controls>
-        <source src="./audios/audio_figure03_slider02.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure03Slider1Id" class="audioTextCl">
+        <span>By increasing the sample size the estimated slope coefficients concentrate more around the slope coefficient of the underlying DGP.<br></span>
+        <span>This is the result of law of large numbers.<br></span>
+        <span>Thus, to conduct hypothesis tests we need a sampling distribution which is stable across sample sizes. For this we have to standardize the estimate using the sample size.</span>
+      </div>
 
-      <audio id="audioFigure03Slider3Id" controls>
-        <source src="./audios/audio_figure03_slider03.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure03Slider2Id" class="audioTextCl">
+        <span>Changing the slope coefficient of the underlying DGP shifts the histogram of the estimated slope coefficient.<br></span>
+        <span>Thus, to conduct hypothesis tests that the slope coefficient is equal a particular hypothetical value we have to standardize the estimate using the particular hypothetical value.</span>
+      </div>
 
-      <audio id="audioFigure03Slider4Id" controls>
-        <source src="./audios/audio_figure03_slider04.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure03Slider3Id" class="audioTextCl">
+        <span>Increasing the variance of u of the underlying DGP increases the spread of the OLS estimates slope coefficient of the underlying DGP.<br></span>
+        <span>Thus, to conduct hypothesis tests we need a sampling distribution which is stable for different values of the variance of u of the underlying DGP. For this we have to standardize the estimate using the spread of u.</span>
+      </div>
 
-      <audio id="audioFigure04OverallId" controls>
-        <source src="./audios/audio_figure04_overall.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure03Slider4Id" class="audioTextCl">
+        <span>Increasing the variance of x of the underlying DGP decreases the spread of the OLS estimates slope coefficient of the underlying DGP.<br></span>
+        <span>Thus, to conduct hypothesis tests we need a sampling distribution which is stable for different values of the variance of x of the underlying DGP. For this we have to standardize the estimate using the spread of x.</span>
+      </div>
 
-      <audio id="audioFigure04Slider1Id" controls>
-        <source src="./audios/audio_figure04_slider01.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <!-- .................................................. -->
+      <!-- figure 4 -->
+      <div id="audioTextFigure04OverallId" class="audioTextCl">
+        <span>The figure shows:<br></span>
+        <span>The histogram of the standardized estimated slope coefficient across all realizations of the DGP.<br></span>
+        <span>For the standardization with subtract the slope coefficient and divide by an estimate of the variance of the estimated slope coefficient.<br></span>
+        <span>The red vertical dashed line represents the standardized estimated slope coefficient for one particular realization of the DGP.<br></span>
+        <span>The green vertical dashed curve represents the pdf of the standard normal distribution.<br></span>
+        <span>Note, the estimate for the variance of the estimated slope coefficient is explained below and is a function of the sample size, the variance of u, the variance of x, and the covariance of u and x.</span>
+      </div>
 
-      <audio id="audioFigure04Slider2Id" controls>
-        <source src="./audios/audio_figure04_slider02.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure04Slider1Id" class="audioTextCl">
+        <span>By increasing the sample size the sampling distribution of the standardized estimated slope coefficient gets closer to the standard normal distribution which pdf is illustrated by the green dashed curve.<br></span>
+        <span>This is the result of central limit theorem.<br></span>
+        <span>Note, the sampling distribution of the standardized estimate is stable across the sample size.<br></span>
+        <span>Thus, for large n the standardized estimate can be used to conduct hypothesis tests.</span>
+      </div>
 
-      <audio id="audioFigure04Slider3Id" controls>
-        <source src="./audios/audio_figure04_slider03.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure04Slider2Id" class="audioTextCl">
+        <span>Changing the slope coefficient of the underlying DGP does not affect the limiting distribution of the standardized estimated slope coefficient, i.e., for large n.<br></span>
+        <span>This is true since we subtract the slope coefficient of the underlying DGP for the standardization.<br></span>
+        <span>Thus, for large n the standardized estimate can be used to conduct hypothesis tests.</span>
+      </div>
 
-      <audio id="audioFigure04Slider4Id" controls>
-        <source src="./audios/audio_figure04_slider04.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioTextFigure04Slider3Id" class="audioTextCl">
+        <span>Increasing the variance of u of the underlying DGP does not affect the limiting distribution of the standardized estimated slope coefficient for large n.<br></span>
+        <span>This is true since we account for the variance of u for the standardization.<br></span>
+        <span>Thus, for large n the standardized estimate can be used to conduct hypothesis tests.</span>
+      </div>
+
+      <div id="audioTextFigure04Slider4Id" class="audioTextCl">
+        <span>Increasing the variance of x of the underlying DGP does not affect the limiting distribution of the standardized estimated slope coefficient for large n.<br></span>
+        <span>This is true since we account for the variance of x for the standardization.<br></span>
+        <span>Thus, for large n the standardized estimate can be used to conduct hypothesis tests.</span>
+      </div>
 
     </div>
 
