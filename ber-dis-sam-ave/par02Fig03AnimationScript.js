@@ -320,7 +320,7 @@ animateButton01Click = function() {
       // Increment or decrement the slider value based on the direction
       slider01.setValue(value + direction);
 
-      sliderLoop(value, slider02.getValue());
+      sliderLoop(slider01.getValue(), slider02.getValue());
 
     }
 
@@ -412,7 +412,7 @@ animateButton02Click = function() {
         // Increment or decrement the slider value based on the direction
         slider02.setValue(value + direction);
 
-        sliderLoop(slider01.getValue(), value);
+        sliderLoop(slider01.getValue(), slider02.getValue());
 
       }
   
