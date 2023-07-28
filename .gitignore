@@ -50,3 +50,6 @@ tests/
 *.log
 *.out
 *.gz
+
+# bernoulli test
+ber-dis-sam-ave-test/
