@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
 
     <!-- my style sheet -->
-    <link rel="stylesheet" href="mystyle.css">
+    <link rel="stylesheet" href="../assets/mystyle.css">
 
     <!-- logo -->
     <div class="logoCl header01Cl" style="text-align:center; padding-top: 20px; padding-bottom: 20px;" background-color="#eeeeee;">
-      <img src="RZ_UniHohenheim_Logo_1C_Weiss_EN.svg" height="250px"/>
+      <img src="../assets/RZ_UniHohenheim_Logo_1C_Weiss_EN.svg" height="250px"/>
     </div>
 
   </head>
@@ -133,34 +133,34 @@
                       
                       <hr>
 
-                      <p style="font-size: 12pt; text-align: center;">Sample Size \(n\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue1Id"></p>
-                      <input id="slider1Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <p style="font-size: 12pt; text-align: center;">Sample Size \(n\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue1Id"></p>
+                      <input class="sliderCl" id="slider1Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
                       <div style="font-size: 12pt; text-align: center;">
-                        <button class="animateButtonCl" onclick="animateButton01Click()">Animate \(n\)</button>
+                        <button class="animateButtonCl" onclick="animateButtonClick(slider = 1)">Animate \(n\)</button>
                       </div>
 
                       <br>
 
-                      <p style="font-size: 12pt; text-align: center;">Slope Coef. \(\beta_{1}\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue2Id"></p>
-                      <input id="slider2Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <p style="font-size: 12pt; text-align: center;">Slope Coef. \(\beta_{1}\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue2Id"></p>
+                      <input class="sliderCl" id="slider2Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
                       <div style="font-size: 12pt; text-align: center;">
-                        <button class="animateButtonCl" onclick="animateButton02Click()">Animate \(\beta_{1}\)</button>
+                        <button class="animateButtonCl" onclick="animateButtonClick(slider = 2)">Animate \(\beta_{1}\)</button>
                       </div>
 
                       <br>
 
-                      <p style="font-size: 12pt; text-align: center;">Variance of \(u_{i}\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue3Id"></p>
-                      <input id="slider3Id" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="1"/>
+                      <p style="font-size: 12pt; text-align: center;">Variance of \(u_{i}\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue3Id"></p>
+                      <input class="sliderCl" id="slider3Id" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="1"/>
                       <div style="font-size: 12pt; text-align: center;">
-                        <button class="animateButtonCl" onclick="animateButton03Click()">Animate \(\sigma_{u}^{2}\)</button>
+                        <button class="animateButtonCl" onclick="animateButtonClick(slider = 3)">Animate \(\sigma_{u}^{2}\)</button>
                       </div>                      
 
                       <br>
 
-                      <p style="font-size: 12pt; text-align: center;">Variance of \(X_{i}\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue4Id"></p>
-                      <input id="slider4Id" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="1"/>
+                      <p style="font-size: 12pt; text-align: center;">Variance of \(X_{i}\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue4Id"></p>
+                      <input class="sliderCl" id="slider4Id" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="1"/>
                       <div style="font-size: 12pt; text-align: center;">
-                        <button class="animateButtonCl" onclick="animateButton04Click()">Animate \(\sigma_{X}^{2}\)</button>
+                        <button class="animateButtonCl" onclick="animateButtonClick(slider = 4)">Animate \(\sigma_{X}^{2}\)</button>
                       </div>                      
 
                     </div>
@@ -187,16 +187,16 @@
                           <td style="width: 10%"></td>
                           <td style="width: 80%; font-size: 14pt; text-align: left;">Scatter plot (realizations)</td>
                           <td style="width: 10%; font-size: 14pt; text-align: right;">
-                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                            <button class="explainButtonCl" onclick="explainButtonClick()">Explain</button>
                           </td>
                         </tr>
                       </table>
 
                       <div style="text-align: center;">
-                        <img src="./figures/figure_01_1_1_1_1.svg" alt="" id="image1Id" style="max-width: 75%;">
+                        <img src="./figures/figure_01_1_1_1_1.svg" alt="" class="figureCl" id="figure1Id" style="max-width: 75%;">
                       </div> 
 
-                      <p id="audioShowTextFigure01Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                      <p id="audioShowTextFigure1Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
 
                       <p>The red fitted regression line is based on the regression of,</p>
 
@@ -217,16 +217,16 @@
                           <td style="width: 10%"></td>
                           <td style="width: 80%; font-size: 14pt; text-align: left;">Scatter plot (fitted residuals)</td>
                           <td style="width: 10%; font-size: 14pt; text-align: right;">
-                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                            <button class="explainButtonCl" onclick="explainButtonClick()">Explain</button>
                           </td>
                         </tr>
                       </table>
 
                       <div style="text-align: center;">
-                        <img src="./figures/figure_02_1_1_1_1.svg" alt="" id="image2Id" style="max-width: 75%;">
+                        <img src="./figures/figure_02_1_1_1_1.svg" alt="" class="figureCl" id="figure2Id" style="max-width: 75%;">
                       </div> 
 
-                      <p id="audioShowTextFigure02Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                      <p id="audioShowTextFigure2Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
 
                       <p>The fitted unobserved residuals are constructed as,</p>
 
@@ -247,16 +247,16 @@
                           <td style="width: 10%"></td>
                           <td style="width: 80%; font-size: 14pt; text-align: left;">Histogram of the OLS estimates \(\widehat{\beta}_{1}\)</td>
                           <td style="width: 10%; font-size: 14pt; text-align: right;">
-                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                            <button class="explainButtonCl" onclick="explainButtonClick()">Explain</button>
                           </td>
                         </tr>
                       </table>
 
                       <div style="text-align: center;">
-                        <img src="./figures/figure_03_1_1_1_1.svg" alt="" id="image3Id" style="max-width: 75%;">
+                        <img src="./figures/figure_03_1_1_1_1.svg" alt="" class="figureCl" id="figure3Id" style="max-width: 75%;">
                       </div>
 
-                      <p id="audioShowTextFigure03Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                      <p id="audioShowTextFigure3Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
 
                       <span style="font-size: 16pt; text-decoration: underline;">Consistency</span><span style="font-size: 16pt; text-decoration: none;">:</span>
 
@@ -277,16 +277,16 @@
                           <td style="width: 10%"></td>
                           <td style="width: 80%; font-size: 14pt; text-align: left;">Histogram of the standardized OLS estimates \(z_{\widehat{\beta}_{1}}\)</td>
                           <td style="width: 10%; font-size: 14pt; text-align: right;">
-                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                            <button class="explainButtonCl" onclick="explainButtonClick()">Explain</button>
                           </td>
                         </tr>
                       </table>
 
                       <div style="text-align: center;">
-                        <img src="./figures/figure_04_1_1.svg" alt="" id="image4Id" style="max-width: 75%;">
+                        <img src="./figures/figure_04_1_1_1_1.svg" alt="" class="figureCl" id="figure4Id" style="max-width: 75%;">
                       </div>
 
-                      <p id="audioShowTextFigure04Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                      <p id="audioShowTextFigure4Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
 
                       <span style="font-size: 16pt; text-decoration: underline;">Asymptotic Normality</span><span style="font-size: 16pt; text-decoration: none;">:</span>
 
@@ -386,27 +386,27 @@
 
       <!-- .................................................. -->
       <!-- figure 1 -->
-      <div id="audioTextFigure01OverallId" class="audioTextCl">
+      <div id="audioTextFigure1OverallId" class="audioTextCl">
         <span>The figure shows:<br></span>
         <span>The scatter plot of the values of x and y and the corresponding fitted regression line estimated by OLS for one particular realization of the underlying DGP.<br></span>
         <span>The red shaded area illustrates the range of all fitted regression lines estimated by OLS across all realizations for the underlying DGP.</span>
       </div>
 
-      <div id="audioTextFigure01Slider1Id" class="audioTextCl">
+      <div id="audioTextFigure1Slider1Id" class="audioTextCl">
         <span>Increasing the sample size decreases the range of the different fitted regression lines estimated by OLS across different realizations of the underlying DGP illustrated by the red shaded area.</span>
       </div>
 
-      <div id="audioTextFigure01Slider2Id" class="audioTextCl">        
+      <div id="audioTextFigure1Slider2Id" class="audioTextCl">        
         <span>Changing the slope coefficient of the underlying DGP rotates the fitted regression lines estimated by OLS.</span>
       </div>
 
-      <div id="audioTextFigure01Slider3Id" class="audioTextCl">
+      <div id="audioTextFigure1Slider3Id" class="audioTextCl">
         <span>Increasing the variance of u of the underlying DGP increases the range of the different fitted regression lines estimated by OLS across different realization of the underlying DGP.<br></span>
         <span>Thus, a high variance of the unobserved component u in the regression model of the underlying DGP increases the sampling uncertainty of the estimated effect of the variable x.</span>
         <!-- What about signal to noise ratio? -->
       </div>
 
-      <div id="audioTextFigure01Slider4Id" class="audioTextCl">        
+      <div id="audioTextFigure1Slider4Id" class="audioTextCl">        
         <span>Increasing the variance of x of the underlying DGP decreases the range of the different fitted regression lines estimated by OLS across different realization of the underlying DGP.<br></span>
         <span>Thus, a high variance of the variable of interest x of the underlying DGP decreases the sampling uncertainty of the estimated effect of the variable x.</span>
         <!-- What about signal to noise ratio? -->
@@ -414,61 +414,61 @@
 
       <!-- .................................................. -->
       <!-- figure 2 -->
-      <div id="audioTextFigure02OverallId" class="audioTextCl">
+      <div id="audioTextFigure2OverallId" class="audioTextCl">
         <span>The figure shows:<br></span>
         <span>The scatter plot of the value of x and the fitted residuals of a simple linear regression model estimated by OLS.<br></span>
         <span>Note, since the estimated parameters includes an intercept and a slope coefficient, the fitted residuals have a mean equal to zero and are uncorrelated with x by construction of the OLS estimator.</span>
       </div>
 
-      <div id="audioTextFigure02Slider1Id" class="audioTextCl">
+      <div id="audioTextFigure2Slider1Id" class="audioTextCl">
         <span>Increasing the sample size increases the number of fitted residuals estimated by OLS.</span>
       </div>
 
-      <div id="audioTextFigure02Slider2Id" class="audioTextCl">
+      <div id="audioTextFigure2Slider2Id" class="audioTextCl">
         <span>Changing the slope coefficient does not change the change the relationship between the fitted residuals and x.</span>
       </div>
 
-      <div id="audioTextFigure02Slider3Id" class="audioTextCl">
+      <div id="audioTextFigure2Slider3Id" class="audioTextCl">
         <span>Increasing the variance of u of the underlying DGP increases the spread of the fitted residuals along the y-axis, i.e., the residuals get larger for all values of x.</span>
       </div>
 
-      <div id="audioTextFigure02Slider4Id" class="audioTextCl">
+      <div id="audioTextFigure2Slider4Id" class="audioTextCl">
         <span>Increasing the variance of x of the underlying DGP increases the spread of the fitted residuals along the y-axis.</span>
       </div>
 
       <!-- .................................................. -->
       <!-- figure 3 -->
-      <div id="audioTextFigure03OverallId" class="audioTextCl">
+      <div id="audioTextFigure3OverallId" class="audioTextCl">
         <span>The figure shows:<br></span>
         <span>The histogram of the estimated slope coefficient across all realizations of the underlying DGP.<br></span>
         <span>The red vertical dashed line represents the estimated slope coefficient for one particular realization of the underlying DGP.</span>
         <span>The green vertical dashed line represents the slope coefficient of the underlying DGP.</span>
       </div>
 
-      <div id="audioTextFigure03Slider1Id" class="audioTextCl">
+      <div id="audioTextFigure3Slider1Id" class="audioTextCl">
         <span>By increasing the sample size the estimated slope coefficients concentrate more around the slope coefficient of the underlying DGP.<br></span>
         <span>This is the result of law of large numbers.<br></span>
         <span>Thus, to conduct hypothesis tests we need a sampling distribution which is stable across sample sizes. For this we have to standardize the estimate using the sample size.</span>
       </div>
 
-      <div id="audioTextFigure03Slider2Id" class="audioTextCl">
+      <div id="audioTextFigure3Slider2Id" class="audioTextCl">
         <span>Changing the slope coefficient of the underlying DGP shifts the histogram of the estimated slope coefficient.<br></span>
         <span>Thus, to conduct hypothesis tests that the slope coefficient is equal a particular hypothetical value we have to standardize the estimate using the particular hypothetical value.</span>
       </div>
 
-      <div id="audioTextFigure03Slider3Id" class="audioTextCl">
+      <div id="audioTextFigure3Slider3Id" class="audioTextCl">
         <span>Increasing the variance of u of the underlying DGP increases the spread of the OLS estimates slope coefficient of the underlying DGP.<br></span>
         <span>Thus, to conduct hypothesis tests we need a sampling distribution which is stable for different values of the variance of u of the underlying DGP. For this we have to standardize the estimate using the spread of u.</span>
       </div>
 
-      <div id="audioTextFigure03Slider4Id" class="audioTextCl">
+      <div id="audioTextFigure3Slider4Id" class="audioTextCl">
         <span>Increasing the variance of x of the underlying DGP decreases the spread of the OLS estimates slope coefficient of the underlying DGP.<br></span>
         <span>Thus, to conduct hypothesis tests we need a sampling distribution which is stable for different values of the variance of x of the underlying DGP. For this we have to standardize the estimate using the spread of x.</span>
       </div>
 
       <!-- .................................................. -->
       <!-- figure 4 -->
-      <div id="audioTextFigure04OverallId" class="audioTextCl">
+      <div id="audioTextFigure4OverallId" class="audioTextCl">
         <span>The figure shows:<br></span>
         <span>The histogram of the standardized estimated slope coefficient across all realizations of the DGP.<br></span>
         <span>For the standardization with subtract the slope coefficient and divide by an estimate of the variance of the estimated slope coefficient.<br></span>
@@ -477,26 +477,26 @@
         <span>Note, the estimate for the variance of the estimated slope coefficient is explained below and is a function of the sample size, the variance of u, the variance of x, and the covariance of u and x.</span>
       </div>
 
-      <div id="audioTextFigure04Slider1Id" class="audioTextCl">
+      <div id="audioTextFigure4Slider1Id" class="audioTextCl">
         <span>By increasing the sample size the sampling distribution of the standardized estimated slope coefficient gets closer to the standard normal distribution which pdf is illustrated by the green dashed curve.<br></span>
         <span>This is the result of central limit theorem.<br></span>
         <span>Note, the sampling distribution of the standardized estimate is stable across the sample size.<br></span>
         <span>Thus, for large n the standardized estimate can be used to conduct hypothesis tests.</span>
       </div>
 
-      <div id="audioTextFigure04Slider2Id" class="audioTextCl">
+      <div id="audioTextFigure4Slider2Id" class="audioTextCl">
         <span>Changing the slope coefficient of the underlying DGP does not affect the limiting distribution of the standardized estimated slope coefficient, i.e., for large n.<br></span>
         <span>This is true since we subtract the slope coefficient of the underlying DGP for the standardization.<br></span>
         <span>Thus, for large n the standardized estimate can be used to conduct hypothesis tests.</span>
       </div>
 
-      <div id="audioTextFigure04Slider3Id" class="audioTextCl">
+      <div id="audioTextFigure4Slider3Id" class="audioTextCl">
         <span>Increasing the variance of u of the underlying DGP does not affect the limiting distribution of the standardized estimated slope coefficient for large n.<br></span>
         <span>This is true since we account for the variance of u for the standardization.<br></span>
         <span>Thus, for large n the standardized estimate can be used to conduct hypothesis tests.</span>
       </div>
 
-      <div id="audioTextFigure04Slider4Id" class="audioTextCl">
+      <div id="audioTextFigure4Slider4Id" class="audioTextCl">
         <span>Increasing the variance of x of the underlying DGP does not affect the limiting distribution of the standardized estimated slope coefficient for large n.<br></span>
         <span>This is true since we account for the variance of x for the standardization.<br></span>
         <span>Thus, for large n the standardized estimate can be used to conduct hypothesis tests.</span>
@@ -530,7 +530,7 @@
         <table style="width:100%">
           <tr>
             <td style="width: 25%; text-align: left; padding-left: 10%;">
-              <img src="RZ_UniHohenheim_Logo_4C_E_blau_EN.svg" height="10%"/>
+              <img src="../assets/RZ_UniHohenheim_Logo_4C_E_blau_EN.svg" height="10%"/>
             </td>
             <td style="width: 50%; text-align: center;">
               <p style="font-size: 75%; text-align: center;">This module is part of the <a href="https://www.uni-hohenheim.de/en/project-dellfi">DeLLFi</a> project of the University of Hohenheim and funded by the <br> <a href="https://stiftung-hochschullehre.de/">Foundation for Innovation in University Teaching</a></p>
@@ -539,7 +539,7 @@
               </a> 
             </td>
             <td style="width: 25%; text-align: right; padding-right: 10%;">
-              <img src="Logo_Stiftung_Hochschullehre.svg" height="10%"/>
+              <img src="../assets/Logo_Stiftung_Hochschullehre.svg" height="10%"/>
             </td>
           </tr>
         </table>
@@ -566,29 +566,24 @@
     <!-- adjust inputs -->
     <script>
 
-      var par01Vec = [5, 10, 25, 50, 100];
-      var par02Vec = [-2, -1, 0, 1, 2];
-      var par03Vec = [1, 5, 10];
-      var par04Vec = [1, 5, 10];
-
-      var par01Ini = 2;
-      var par02Ini = 2;
-      var par03Ini = 1;
-      var par04Ini = 1;
-
-      var par01Str01 = "\\(n = ";
-      var par02Str01 = "\\(\\beta_{1} = ";
-      var par03Str01 = "\\(\\sigma_{u}^{2} = ";
-      var par04Str01 = "\\(\\sigma_{X}^{2} = ";
-
+      // object with all sliders
+      let sliders = {
+        value: {
+          slider1: [5, 10, 25, 50, 100],
+          slider2: [-2, -1, 0, 1, 2],
+          slider3: [1, 5, 10],
+          slider4: [1, 5, 10]
+        },
+        initialIndex: [2, 2, 1, 1],
+        sliderValueParStr: ['\\(n = ', '\\(\\beta_{1} = ', '\\(\\sigma_{u}^{2} = ', '\\(\\sigma_{X}^{2} = '],
+      };
     </script>
 
+    <!-- include js for interaction and animation -->
+    <script src="../assets/interactionAndAnimationScript.js"></script>
+    
     <!-- include my javascript -->
-    <script src="myScript.js"></script>
-
-    <script src="par04Fig04InteractivationScript.js"></script>
-
-    <script src="par04Fig04AnimationScript.js"></script>
+    <script src="../assets/myScript.js"></script>    
 
   </body>
 </html>
