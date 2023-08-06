@@ -1,526 +1,541 @@
 <!doctype html>
 <html lang="eng">
-  <head>
-
-    <title>Linear Regression - OLS - Sampling Distribution</title>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
-
-    <!-- my style sheet -->
-    <link rel="stylesheet" href="mystyle.css">
-
-    <!-- logo -->
-    <div class="logoCl header01Cl" style="text-align:center; padding-top: 20px; padding-bottom: 20px;" background-color="#eeeeee;">
-      <img src="RZ_UniHohenheim_Logo_1C_Weiss_EN.svg" height="250px"/>
-    </div>
-
-  </head>
-  <body>
-
-    <div class="container mt-5">
-      <div class="row">
-
-        <div class="jumbotron topJumbCl" style="margin-top: 50px; padding: 25px 50px 25px 50px;">
-            
-            <p style="font-size: 28pt;">Linear Regression Model and the OLS Estimator</p>
-            <p style="font-size: 18pt;">Effect of the Sample Size</p> 
+<head>
+  
+  <title>Linear Regression - OLS - Sampling Distribution</title>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
+  
+  <!-- my style sheet -->
+  <link rel="stylesheet" href="mystyle.css">
+  
+  <!-- logo -->
+  <div class="logoCl header01Cl" style="text-align:center; padding-top: 20px; padding-bottom: 20px;" background-color="#eeeeee;">
+    <img src="RZ_UniHohenheim_Logo_1C_Weiss_EN.svg" height="250px"/>
+  </div>
+  
+</head>
+<body>
+  
+  <div class="container mt-5">
+    <div class="row">
       
-          </div>
-
-      </div>
-    </div>
-
-    <div class="container mt-5">
-      <div class="row">
-
-        <div class="jumbotron" style="padding: 25px 50px 25px 50px">
-
-          <p style="font-size: 18pt">Topic of the module</p>
-
-          <div style="margin-left: 10pt;">
-
-            <p>Understand the procedure to simulate the sampling distribution of the OLS estimator for the slope parameter of a linear regression model.</p>
-            
-            <p>A realization of the DGP (see below) is simulated and the value for the estimator (see below), i.e. an estimate, is calculated.</p>
-            
-            <p>This exercise is repeated \(10,\!000\) times resulting in \(10,\!000\) values for the estimators, i.e., \(10,\!000\) estimates. The distribution of these \(10,\!000\) estimates is the sampling distribution of the estimator.</p>
-            
-            <p>Based on the simulation understand the effect of increasing the sample size \(n\) on the sampling distribution of the OLS estimator.</p>
-          
-          </div>
-
-          <hr>
-
-          <p style="font-size: 18pt">Data generating process (DGP)</p>
+      <div class="jumbotron topJumbCl" style="margin-top: 50px; padding: 25px 50px 25px 50px;">
         
-          <div style="margin-left: 10pt;">
-
-            <p>Consider \(n\) observations are generated from the simple regression model,</p>
-
-            $$
-            \begin{align}
-            Y_i = \beta_{0} + \beta_{1} X_{i} + u_{i},
-            \end{align}
-            $$
-
-            <p>where \(\beta_{0}=0\) is the intercept and \(\beta_{1}=1\) is the slope parameter.</p>
-
-            <p>Furthermore, \(X_{i}\) and \(u_{i}\) are i.i.d. normally distributed, i.e.,</p>
-
-            $$
-            \begin{align}
-            X_{i} \sim N\left(0, \sigma_{X}^{2}\right), \;\;\;\;\; u_{i} \sim N\left(0, \sigma_{u}^{2}\right),
-            \end{align}
-            $$
-
-            <p>where \(\sigma_{X}=5\) and \(\sigma_{u}=5\) is the standard deviation of \(X_{i}\) and \(u_{i}\), respectively.</p>
-              
-          </div>
-
-          <hr>
-
-          <p style="font-size: 18pt">Estimator and parameter of interest</p>
-          
-          <div style="margin-left: 10pt;">
-          
-            <p>We are interested in the sampling properties of the OLS estimator \(\widehat{\beta}_{1}\) given by,</p>
-
-            $$
-            \begin{align}
-            \widehat{\beta}_{1} = \frac{\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)\left(Y_{i} - \overline{Y}\right)}{\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}},
-            \end{align}
-            $$  
-
-            <p>as estimator for the slope parameter \(\beta_{1}\) of the regression model above.</p>
-
-          </div>
-
-        </div>
-
+        <p style="font-size: 28pt;">Linear Regression Model and the OLS Estimator</p>
+        <p style="font-size: 18pt;">Effect of the Sample Size</p> 
+        
       </div>
-    </div>
-
-    <div class="container mt-5">
-      <div class="row">
-
-        <div class="jumbotron outerJumbCl" style="padding: 25px 50px 25px 50px">
-            
-            <p style="font-size: 18pt">Illustration</p>
-            
-            <div style="margin-left: 10pt;">
-            
-              <p>Change the parameters and see the effect on the properties of the OLS estimator \(\widehat{\beta}_{1}\) as estimator for \(\beta_{1}\).</p>
       
-            </div>
-
-            <div class="container mt-5" style="margin-top: 50px;">
-              <div class="row">
-
-                <div class="col-sm-3" style="margin-top: 90px;">
-                  <div class="jumbotron innerJumbCl" style="padding: 25px 50px 25px 50px">
-
-                    <p style="font-size: 14pt; text-align: center;">Parameters</p>
-
-                    <div style="margin-top: 50px;">
-                      
-                      <hr>
-
-                      <p style="font-size: 12pt; text-align: center;">Realization DGP \(r\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue1Id"></p>
-                      <input id="slider1Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
-                      <div style="font-size: 12pt; text-align: center;">
-                        <button class="animateButtonCl" onclick="animateButton01Click()">Animate \(r\)</button>
-                      </div>
-
-                      <br>
-
-                      <p style="font-size: 12pt; text-align: center;">Sample size \(n\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue2Id"></p>
-                      <input id="slider2Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
-                      <div style="font-size: 12pt; text-align: center;">
-                        <button class="animateButtonCl" onclick="animateButton02Click()">Animate \(n\)</button>
-                      </div>
-                      
-                    </div>
-
+    </div>
+  </div>
+  
+  <div class="container mt-5">
+    <div class="row">
+      
+      <div class="jumbotron" style="padding: 25px 50px 25px 50px">
+        
+        <p style="font-size: 18pt">Topic of the module</p>
+        
+        <div style="margin-left: 10pt;">
+          
+          <p>Understand the procedure to simulate the sampling distribution of the OLS estimator for the slope parameter of a linear regression model.</p>
+          
+          <p>A realization of the DGP (see below) is simulated and the value for the estimator (see below), i.e. an estimate, is calculated.</p>
+          
+          <p>This exercise is repeated \(10,\!000\) times resulting in \(10,\!000\) values for the estimators, i.e., \(10,\!000\) estimates. The distribution of these \(10,\!000\) estimates is the sampling distribution of the estimator.</p>
+          
+          <p>Based on the simulation understand the effect of increasing the sample size \(n\) on the sampling distribution of the OLS estimator.</p>
+          
+        </div>
+        
+        <hr>
+        
+        <p style="font-size: 18pt">Data generating process (DGP)</p>
+        
+        <div style="margin-left: 10pt;">
+          
+          <p>Consider \(n\) observations are generated from the simple regression model,</p>
+          
+          $$
+          \begin{align}
+          Y_i = \beta_{0} + \beta_{1} X_{i} + u_{i},
+          \end{align}
+          $$
+          
+          <p>where \(\beta_{0}=0\) is the intercept and \(\beta_{1}=1\) is the slope parameter.</p>
+          
+          <p>Furthermore, \(X_{i}\) and \(u_{i}\) are i.i.d. normally distributed, i.e.,</p>
+          
+          $$
+          \begin{align}
+          X_{i} \sim N\left(0, \sigma_{X}^{2}\right), \;\;\;\;\; u_{i} \sim N\left(0, \sigma_{u}^{2}\right),
+          \end{align}
+          $$
+          
+          <p>where \(\sigma_{X}=5\) and \(\sigma_{u}=5\) is the standard deviation of \(X_{i}\) and \(u_{i}\), respectively.</p>
+          
+        </div>
+        
+        <hr>
+        
+        <p style="font-size: 18pt">Estimator and parameter of interest</p>
+        
+        <div style="margin-left: 10pt;">
+          
+          <p>We are interested in the sampling properties of the OLS estimator \(\widehat{\beta}_{1}\) given by,</p>
+          
+          $$
+          \begin{align}
+          \widehat{\beta}_{1} = \frac{\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)\left(Y_{i} - \overline{Y}\right)}{\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}},
+          \end{align}
+          $$  
+          
+          <p>as estimator for the slope parameter \(\beta_{1}\) of the regression model above.</p>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  
+  <div class="container mt-5">
+    <div class="row">
+      
+      <div class="jumbotron outerJumbCl" style="padding: 25px 50px 25px 50px">
+        
+        <p style="font-size: 18pt">Illustration</p>
+        
+        <div style="margin-left: 10pt;">
+          
+          <p>Change the parameters and see the effect on the properties of the OLS estimator \(\widehat{\beta}_{1}\) as estimator for \(\beta_{1}\).</p>
+          
+        </div>
+        
+        <div class="container mt-5" style="margin-top: 50px;">
+          <div class="row">
+            
+            <div class="col-sm-3" style="margin-top: 90px;">
+              <div class="jumbotron innerJumbCl" style="padding: 25px 50px 25px 50px">
+                
+                <p style="font-size: 14pt; text-align: center;">Parameters</p>
+                
+                <div style="margin-top: 50px;">
+                  
+                  <hr>
+                  
+                  <p style="font-size: 12pt; text-align: center;">Realization DGP \(r\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue1Id"></p>
+                  <input class="sliderCl" id="slider1Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                  <div style="font-size: 12pt; text-align: center;">
+                    <button class="animateButtonCl" id="button2Id" onclick="animateButtonClick(slider = 1)">Animate \(r\)</button>
                   </div>
+                  
+                  <br>
+                  
+                  <p style="font-size: 12pt; text-align: center;">Sample size \(n\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue2Id"></p>
+                  <input class="sliderCl" id="slider2Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                  <div style="font-size: 12pt; text-align: center;">
+                    <button class="animateButtonCl" id="button2Id" onclick="animateButtonClick(slider = 2)">Animate \(n\)</button>
+                  </div>
+                  
                 </div>
                 
-                <div class="col-sm-9">
-                  <div class="jumbotron innerJumbCl" style="padding: 15px 50px 25px 50px">
-            
-                    <div class="tab" style="text-align: center;">
-                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N1Id', 'tabLinkL1N1Id', 'white')" id="tabLinkL1N1Id">Realizations</button>
-                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N2Id', 'tabLinkL1N2Id', 'white')" id="tabLinkL1N2Id">Residuals</button>
-                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N3Id', 'tabLinkL1N3Id', 'white')" id="tabLinkL1N3Id">Estimates</button>
-                      <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N4Id', 'tabLinkL1N4Id', 'white')" id="tabLinkL1N4Id">Std. Estimates</button>
-                    </div>
-
-                    <br>
-
-                    <div id="tabContentL1N1Id" class="tabContentL1Cl">
-
-                      <table style="width:100%; margin-bottom: 10px;">
-                        <tr>
-                          <td style="width: 10%"></td>
-                          <td style="width: 80%; font-size: 14pt; text-align: left;">Scatter plot (realizations)</td>
-                          <td style="width: 10%; font-size: 14pt; text-align: right;">
-                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
-                          </td>
-                        </tr>
-                      </table>
-
-                      <div style="text-align: center;">
-                        <img src="./figures/figure_01_1_1.svg" alt="" id="image1Id" style="max-width: 75%;">
-                      </div>  
-
-                      <p id="audioShowTextFigure01Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
-
-                      <p>The red fitted regression line is based on the regression of,</p>
-
-                      $$
-                      \begin{align}
-                      Y_{i} \;\;\;\;\; \text{on} \;\;\;\;\; X_{i}.
-                      \end{align}
-                      $$
-
-                      <p>The scatter plots and the fitted regression lines represent the result for one realization of the DGP. The shaded area illustrate the range of all fitted regression lines across all \(10,\!000\) realizations of the DGP.</p>
-
-                    </div>
-
-                    <div id="tabContentL1N2Id" class="tabContentL1Cl">
-
-                      <table style="width:100%; margin-bottom: 10px;">
-                        <tr>
-                          <td style="width: 10%"></td>
-                          <td style="width: 80%; font-size: 14pt; text-align: left;">Scatter plot (fitted unobserved residuals)</td>
-                          <td style="width: 10%; font-size: 14pt; text-align: right;">
-                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
-                          </td>
-                        </tr>
-                      </table>
-
-                      <div style="text-align: center;">
-                        <img src="./figures/figure_02_1_1.svg" alt="" id="image2Id" style="max-width: 75%;">
-                      </div>
-
-                      <p id="audioShowTextFigure02Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
-
-                      <p>The fitted OLS residuals are</p>
-
-                      $$
-                      \begin{align}
-                      \widehat{u}_{i} = Y_{i} - \widehat{\beta}_{1} X_{i},
-                      \end{align}
-                      $$
-            
-                      <p>and illustrated for one realization of the DGP where \(\widehat{\beta}_{1}\) is the respective OLS estimate.</p>
-  
-                    </div>
-
-                    <div id="tabContentL1N3Id" class="tabContentL1Cl">
-
-                      <table style="width:100%; margin-bottom: 10px;">
-                        <tr>
-                          <td style="width: 10%"></td>
-                          <td style="width: 80%; font-size: 14pt; text-align: left;">Histogram of the OLS estimates \(\widehat{\beta}_{1}\)</td>
-                          <td style="width: 10%; font-size: 14pt; text-align: right;">
-                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
-                          </td>
-                        </tr>
-                      </table>
-
-                      <div style="text-align: center;">
-                        <img src="./figures/figure_03_1_1.svg" alt="" id="image3Id" style="max-width: 75%;">
-                      </div>
-
-                      <p id="audioShowTextFigure03Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
-
-                      <span style="font-size: 16pt; text-decoration: underline;">Consistency</span><span style="font-size: 16pt; text-decoration: none;">:</span>
-
-                      <p>As the sample size \(n\) grows the OLS estimator \(\widehat{\beta}_{1}\) gets closer to \(\beta_1\),</p>
-
-                      $$
-                      \begin{align}
-                      \widehat{\beta}_{1} \overset{p}{\to} \beta.
-                      \end{align}
-                      $$
-
-                      <p>Note, to conduct hypothesis tests we need a sampling distribution which is stable across $n$. For this we have to standardize or scale the estimate.</p>
-
-                    </div>
-
-                    <div id="tabContentL1N4Id" class="tabContentL1Cl">
-
-                      <table style="width:100%; margin-bottom: 10px;">
-                        <tr>
-                          <td style="width: 10%"></td>
-                          <td style="width: 80%; font-size: 14pt; text-align: left;">Histogram of the standardized OLS estimates \(z_{\widehat{\beta}_{1}}\)</td>
-                          <td style="width: 10%; font-size: 14pt; text-align: right;">
-                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
-                          </td>
-                        </tr>
-                      </table>
-
-                      <div style="text-align: center;">
-                        <img src="./figures/figure_04_1_1.svg" alt="" id="image4Id" style="max-width: 75%;">
-                      </div>
-                      
-                      <p id="audioShowTextFigure04Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
-
-                      <span style="font-size: 16pt; text-decoration: underline;">Asymptotic Normality</span><span style="font-size: 16pt; text-decoration: none;">:</span>
-
-                      <p>As the sample size \(n\) grows the distribution of the standardized OLS estimator,</p>
-
-                      $$
-                      \begin{align}
-                      z_{\widehat{\beta}_1} &= \frac{\widehat{\beta}_1 - \beta_1}{\sigma_{\widehat{\beta}_{1}}},
-                      \end{align}
-                      $$
-
-                      <p>gets closer to the standard normal distribution \(N\left(0, 1\right)\).</p>                      
-
-                      <p>Note, the the sampling distribution of the standardized estimates are stable across \(n\). Thus, it can be used to conduct hypothesis tests.</p>
-
-                    </div>
-
-                  </div>
-
-                </div>
               </div>
             </div>
-
-          </div>
-
-      </div>
-    </div>
-    
-    <div class="container mt-5">
-      <div class="row">
-
-        <div class="jumbotron" style="padding: 25px 50px 25px 50px">
             
-            <p style="font-size: 18pt">More Details</p>
-
-            <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Simulation Exercise</span> </button>
-            <div class="collContentCl">
-
-              <ol type="1" style="margin-top: 10px;">
-                <li>A realization of the DGP specificied above is simulated:
-                <ol type="I">
-                  <li>A i.i.d. sequence of realizations \(X_{1}, X_{2}, ..., X_{n}\) and \(u_{1}, u_{2}, ..., u_{n}\) are drawn from the distribution of \(X_{i}\) and \(u_{i}\) above.</li>
-                  <li>Based on the sequence of observations \(X_{1}, X_{2}, ..., X_{n}\) and \(u_{1}, u_{2}, ..., u_{n}\) a sequence of observations \(Y_{1}, Y_{2}, ..., Y_{n}\) is constructed based on the regression model above.</li>                  
-                </ol>
-                </li>
-                <li>Based on the sequence of observations \(Y_{1}, Y_{2}, ... Y_{n}\) and \(X_{1}, X_{2}, ..., X_{n}\), the OLS estimates and standardized OLS estimates for the intercept \(\beta_{0}\) and slope parameter \(\beta_{1}\) are calcluated.</li>  
-                <li>The values of the OLS estimate \(\widehat{\beta}_{1}\) and the standardized OLS estimate \(z_{\widehat{\beta}_{1}}\) are stored.</li>
-                <li>Step 1 to 3 is repeated \(10,000\) times resulting in \(10,\!000\) OLS and standardized OLS estimates.</li>
-                <li>The distribution of the OLS and standardized estimates are illustrated using histograms.</li>
-              </ol>
-
+            <div class="col-sm-9">
+              <div class="jumbotron innerJumbCl" style="padding: 15px 50px 25px 50px">
+                
+                <div class="tab" style="text-align: center;">
+                  <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N1Id', 'tabLinkL1N1Id', 'white')" id="tabLinkL1N1Id">Realizations</button>
+                  <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N2Id', 'tabLinkL1N2Id', 'white')" id="tabLinkL1N2Id">Residuals</button>
+                  <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N3Id', 'tabLinkL1N3Id', 'white')" id="tabLinkL1N3Id">Estimates</button>
+                  <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N4Id', 'tabLinkL1N4Id', 'white')" id="tabLinkL1N4Id">Std. Estimates</button>
+                </div>
+                
+                <br>
+                
+                <div id="tabContentL1N1Id" class="tabContentL1Cl">
+                  
+                  <table style="width:100%; margin-bottom: 10px;">
+                    <tr>
+                      <td style="width: 10%"></td>
+                      <td style="width: 80%; font-size: 14pt; text-align: left;">Scatter plot (realizations)</td>
+                      <td style="width: 10%; font-size: 14pt; text-align: right;">
+                        <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                      </td>
+                    </tr>
+                  </table>
+                  
+                  <div style="text-align: center;">
+                    <img src="./figures/figure_01_1_1.svg" alt="" class="figureCl" id="figure1Id" style="max-width: 75%;">
+                  </div>  
+                  
+                  <p id="audioShowTextFigure1Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                  
+                  <p>The red fitted regression line is based on the regression of,</p>
+                  
+                  $$
+                  \begin{align}
+                  Y_{i} \;\;\;\;\; \text{on} \;\;\;\;\; X_{i}.
+                  \end{align}
+                  $$
+                  
+                  <p>The scatter plots and the fitted regression lines represent the result for one realization of the DGP. The shaded area illustrate the range of all fitted regression lines across all \(10,\!000\) realizations of the DGP.</p>
+                  
+                </div>
+                
+                <div id="tabContentL1N2Id" class="tabContentL1Cl">
+                  
+                  <table style="width:100%; margin-bottom: 10px;">
+                    <tr>
+                      <td style="width: 10%"></td>
+                      <td style="width: 80%; font-size: 14pt; text-align: left;">Scatter plot (fitted unobserved residuals)</td>
+                      <td style="width: 10%; font-size: 14pt; text-align: right;">
+                        <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                      </td>
+                    </tr>
+                  </table>
+                  
+                  <div style="text-align: center;">
+                    <img src="./figures/figure_02_1_1.svg" alt="" class="figureCl" id="figure2Id" style="max-width: 75%;">
+                  </div>
+                  
+                  <p id="audioShowTextFigure2Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                  
+                  <p>The fitted OLS residuals are</p>
+                  
+                  $$
+                  \begin{align}
+                  \widehat{u}_{i} = Y_{i} - \widehat{\beta}_{1} X_{i},
+                  \end{align}
+                  $$
+                  
+                  <p>and illustrated for one realization of the DGP where \(\widehat{\beta}_{1}\) is the respective OLS estimate.</p>
+                  
+                </div>
+                
+                <div id="tabContentL1N3Id" class="tabContentL1Cl">
+                  
+                  <table style="width:100%; margin-bottom: 10px;">
+                    <tr>
+                      <td style="width: 10%"></td>
+                      <td style="width: 80%; font-size: 14pt; text-align: left;">Histogram of the OLS estimates \(\widehat{\beta}_{1}\)</td>
+                      <td style="width: 10%; font-size: 14pt; text-align: right;">
+                        <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                      </td>
+                    </tr>
+                  </table>
+                  
+                  <div style="text-align: center;">
+                    <img src="./figures/figure_03_1_1.svg" alt="" class="figureCl" id="figure3Id" style="max-width: 75%;">
+                  </div>
+                  
+                  <p id="audioShowTextFigure3Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                  
+                  <span style="font-size: 16pt; text-decoration: underline;">Consistency</span><span style="font-size: 16pt; text-decoration: none;">:</span>
+                  
+                  <p>As the sample size \(n\) grows the OLS estimator \(\widehat{\beta}_{1}\) gets closer to \(\beta_1\),</p>
+                  
+                  $$
+                  \begin{align}
+                  \widehat{\beta}_{1} \overset{p}{\to} \beta.
+                  \end{align}
+                  $$
+                  
+                  <p>Note, to conduct hypothesis tests we need a sampling distribution which is stable across $n$. For this we have to standardize or scale the estimate.</p>
+                  
+                </div>
+                
+                <div id="tabContentL1N4Id" class="tabContentL1Cl">
+                  
+                  <table style="width:100%; margin-bottom: 10px;">
+                    <tr>
+                      <td style="width: 10%"></td>
+                      <td style="width: 80%; font-size: 14pt; text-align: left;">Histogram of the standardized OLS estimates \(z_{\widehat{\beta}_{1}}\)</td>
+                      <td style="width: 10%; font-size: 14pt; text-align: right;">
+                        <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                      </td>
+                    </tr>
+                  </table>
+                  
+                  <div style="text-align: center;">
+                    <img src="./figures/figure_04_1_1.svg" alt="" class="figureCl" id="figure4Id" style="max-width: 75%;">
+                  </div>
+                  
+                  <p id="audioShowTextFigure4Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                  
+                  <span style="font-size: 16pt; text-decoration: underline;">Asymptotic Normality</span><span style="font-size: 16pt; text-decoration: none;">:</span>
+                  
+                  <p>As the sample size \(n\) grows the distribution of the standardized OLS estimator,</p>
+                  
+                  $$
+                  \begin{align}
+                  z_{\widehat{\beta}_1} &= \frac{\widehat{\beta}_1 - \beta_1}{\sigma_{\widehat{\beta}_{1}}},
+                  \end{align}
+                  $$
+                  
+                  <p>gets closer to the standard normal distribution \(N\left(0, 1\right)\).</p>                      
+                  
+                  <p>Note, the the sampling distribution of the standardized estimates are stable across \(n\). Thus, it can be used to conduct hypothesis tests.</p>
+                  
+                </div>
+                
+              </div>
+              
             </div>
-
-            <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Construction of \(z_{\widehat{\beta}_{1}}\)</span> </button>
-            <div class="collContentCl">
-
-              <p style="margin-top: 10px;">
-                For the construction of the standardized OLS estimator \(z_{\widehat{\beta}_{1}}\), the variance of \(\widehat{\beta}_{1}\), i.e., \(\sigma_{\widehat{\beta}_{1}}^{2}\), has to be estimated.
-              </p>
-              
-              <p>The variance of \(\widehat{\beta}_1\), i.e., \(\sigma_{\widehat{\beta}_{1}}^{2}\), can be robustly estimated by,</p>
-              
-              $$
-              \begin{align}
-              \widehat{\sigma}_{\widehat{\beta}_{1}}^{2} = \frac{1}{n} \times \frac{\frac{1}{n-2}\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}\widehat{u}_{i}^{2}}{\left[\frac{1}{n}\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}\right]^{2}},
-              \end{align}
-              $$
-
-              <p>where \(\widehat{u}_{i}\) are the residuals of the estimate regression line.</p>
-
-              <p>Note, the estimator for \(\sigma_{\widehat{\beta}_{1}}^{2}\) above is robust w.r.t. to heteroskedasticity, i.e., it does not rely on the assumption of homoskedasticity.</p>
-
-              <p>Instead, some statistic software report estimates \(\sigma_{\widehat{\beta}_{1}}^{2}\), based on the assumption of homoskedasticity.</p>
-              
-              <p>The so called homoskedasticity-only estimator of \(\sigma_{\widehat{\beta}_{1}}^{2}\), is given by,</p>
-
-              $$
-              \begin{align}
-              \widetilde{\sigma}_{\widehat{\beta}_{1}}^{2} = \frac{\frac{1}{n-2}\sum_{i=1}^{n}\widehat{u}_{i}^{2}}{\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}}.
-              \end{align}
-              $$
-
-            </div>
-
+          </div>
         </div>
-
+        
       </div>
+      
+    </div>
+  </div>
+  
+  <div class="container mt-5">
+    <div class="row">
+      
+      <div class="jumbotron" style="padding: 25px 50px 25px 50px">
+        
+        <p style="font-size: 18pt">More Details</p>
+        
+        <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Simulation Exercise</span> </button>
+        <div class="collContentCl">
+          
+          <ol type="1" style="margin-top: 10px;">
+            <li>A realization of the DGP specificied above is simulated:
+              <ol type="I">
+                <li>A i.i.d. sequence of realizations \(X_{1}, X_{2}, ..., X_{n}\) and \(u_{1}, u_{2}, ..., u_{n}\) are drawn from the distribution of \(X_{i}\) and \(u_{i}\) above.</li>
+                <li>Based on the sequence of observations \(X_{1}, X_{2}, ..., X_{n}\) and \(u_{1}, u_{2}, ..., u_{n}\) a sequence of observations \(Y_{1}, Y_{2}, ..., Y_{n}\) is constructed based on the regression model above.</li>                  
+              </ol>
+            </li>
+            <li>Based on the sequence of observations \(Y_{1}, Y_{2}, ... Y_{n}\) and \(X_{1}, X_{2}, ..., X_{n}\), the OLS estimates and standardized OLS estimates for the intercept \(\beta_{0}\) and slope parameter \(\beta_{1}\) are calcluated.</li>  
+            <li>The values of the OLS estimate \(\widehat{\beta}_{1}\) and the standardized OLS estimate \(z_{\widehat{\beta}_{1}}\) are stored.</li>
+            <li>Step 1 to 3 is repeated \(10,000\) times resulting in \(10,\!000\) OLS and standardized OLS estimates.</li>
+            <li>The distribution of the OLS and standardized estimates are illustrated using histograms.</li>
+          </ol>
+          
+        </div>
+        
+        <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Construction of \(z_{\widehat{\beta}_{1}}\)</span> </button>
+        <div class="collContentCl">
+          
+          <p style="margin-top: 10px;">
+            For the construction of the standardized OLS estimator \(z_{\widehat{\beta}_{1}}\), the variance of \(\widehat{\beta}_{1}\), i.e., \(\sigma_{\widehat{\beta}_{1}}^{2}\), has to be estimated.
+          </p>
+          
+          <p>The variance of \(\widehat{\beta}_1\), i.e., \(\sigma_{\widehat{\beta}_{1}}^{2}\), can be robustly estimated by,</p>
+          
+          $$
+          \begin{align}
+          \widehat{\sigma}_{\widehat{\beta}_{1}}^{2} = \frac{1}{n} \times \frac{\frac{1}{n-2}\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}\widehat{u}_{i}^{2}}{\left[\frac{1}{n}\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}\right]^{2}},
+          \end{align}
+          $$
+          
+          <p>where \(\widehat{u}_{i}\) are the residuals of the estimate regression line.</p>
+          
+          <p>Note, the estimator for \(\sigma_{\widehat{\beta}_{1}}^{2}\) above is robust w.r.t. to heteroskedasticity, i.e., it does not rely on the assumption of homoskedasticity.</p>
+          
+          <p>Instead, some statistic software report estimates \(\sigma_{\widehat{\beta}_{1}}^{2}\), based on the assumption of homoskedasticity.</p>
+          
+          <p>The so called homoskedasticity-only estimator of \(\sigma_{\widehat{\beta}_{1}}^{2}\), is given by,</p>
+          
+          $$
+          \begin{align}
+          \widetilde{\sigma}_{\widehat{\beta}_{1}}^{2} = \frac{\frac{1}{n-2}\sum_{i=1}^{n}\widehat{u}_{i}^{2}}{\sum_{i=1}^{n}\left(X_{i} - \overline{X}\right)^{2}}.
+          \end{align}
+          $$
+          
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  
+  <!-- .................................................. -->
+  <!-- Collections of audio text -->
+  <div style="display: none;">
+    
+    <!-- .................................................. -->
+    <!-- default text -->
+    <div id="audioTextNoText" class="audioTextCl">
+      There is no explanation yet.
     </div>
     
     <!-- .................................................. -->
-    <!-- Collections of audio text -->
-    <div style="display: none;">
-
-      <!-- .................................................. -->
-      <!-- default text -->
-      <div id="audioTextNoText" class="audioTextCl">
-        There is no explanation yet.
-      </div>
-
-      <!-- .................................................. -->
-      <!-- figure 1 -->
-      <div id="audioTextFigure01OverallId" class="audioTextCl">
-        <span>The figure shows:<br></span>
-        <span>The scatter plot of the values of x and y and the corresponding fitted regression line estimated by OLS for one particular realization of the underlying DGP.<br></span>
-        <span>The red shaded area illustrates the range of all fitted regression lines estimated by OLS across all realizations for the underlying DGP.</span>
-      </div>
-
-      <div id="audioTextFigure01Slider1Id" class="audioTextCl">
-        <span>A different realization of the DGP results in a different estimate and thus a different fitted regression line estimated by OLS illustrated by the red dashed line.</span>
-      </div>
-
-      <div id="audioTextFigure01Slider2Id" class="audioTextCl">        
-        <span>Increasing the sample size decreases the range of the different fitted regression lines across all realizations of the underlying DGP illustrated by the red shaded area.</span>
-      </div>
-
-      <!-- .................................................. -->
-      <!-- figure 2 -->
-      <div id="audioTextFigure02OverallId" class="audioTextCl">
-        <span>The figure shows the scatter plot of the values of x and the fitted residuals of a simple linear regression model estimated by OLS.<br></span>
-        <span>Note, since the estimated parameters includes an intercept and a slope coefficient, the fitted residuals have a mean equal to zero and are uncorrelated with x by construction of the OLS estimator.</span>
-      </div>
-
-      <div id="audioTextFigure02Slider1Id" class="audioTextCl">
-        <span>A different realization of the DGP results in a different estimate and thus a different fitted residual estimated by OLS illustrated by the scatterplot.</span>
-      </div>
-
-      <div id="audioTextFigure02Slider2Id" class="audioTextCl">
-        <span>Increasing the sample size increases the number of fitted residuals estimated by OLS.</span>
-      </div>
-
-      <!-- .................................................. -->
-      <!-- figure 3 -->
-      <div id="audioTextFigure03OverallId" class="audioTextCl">
-        <span>The figure shows:.<br></span>
-        <span>The histogram of the estimated slope coefficient across all realizations of the underlying DGP.<br></span>
-        <span>The red vertical dashed line represents the estimated slope coefficient for one particular realization of the underlying DGP.</span>
-        <span>The green vertical dashed line represents the slope coefficient of the underlying DGP.</span>
-      </div>
-
-      <div id="audioTextFigure03Slider1Id" class="audioTextCl">
-        <span>A different realization of the underlying DGP results in a different estimate for the slope coefficients represented by the red vertical dashed line.</span>
-      </div>
-
-      <div id="audioTextFigure03Slider2Id" class="audioTextCl">
-        <span>By increasing the sample size the estimated slope coefficients concentrate more around the slope coefficient of the underlying DGP.<br></span>
-        <span>This is the result of law of large numbers.<br></span>
-        <span>Thus, to conduct hypothesis tests we need a sampling distribution which is stable across sample sizes. For this we have to standardize the estimate usign the sample size.</span>
-      </div>
-
-      <!-- .................................................. -->
-      <!-- figure 4 -->
-      <div id="audioTextFigure04OverallId" class="audioTextCl">
-        <span>The figure shows:<br></span>
-        <span>The histogram of the standardized estimated slope coefficient across all realizations of the DGP.<br></span>
-        <span>For the standardization with subtract the slope coefficient and divide by an estimate of the variance of the estimated slope coefficient.<br></span>
-        <span>The red vertical dashed line represents the standardized estimated slope coefficient for one particular realization of the DGP.<br></span>
-        <span>The green vertical dashed curve represents the pdf of the standard normal distribution.<br></span>
-        <span>Note, the estimate for the variance of the estimated slope coefficient is explained below and is a function of the sample size, the variance of u, the variance of x, and the covariance of u and x.</span>
-      </div>
-
-      <div id="audioTextFigure04Slider1Id" class="audioTextCl">
-        <span>A different realization of the underlying DGP results in a different standardized estimate for the slope coefficient represented by the red vertical dashed line.</span>
-      </div>
-
-      <div id="audioTextFigure04Slider2Id" class="audioTextCl">
-        <span>By increasing the sample size the sampling distribution of the standardized estimated slope coefficient gets closer to the standard normal distribution which pdf is illustrated by the green dashed curve.<br></span>
-        <span>This is the result of central limit theorem.</span>
-        <span>Note, the sampling distribution of the standardized estimate is stable across the sample size.</span>
-        <span>Thus, for large n the standardized estimate can be used to conduct hypothesis tests.</span>
-      </div>
-
+    <!-- figure 1 -->
+    <div id="audioTextFigure1OverallId" class="audioTextCl">
+      <span>The figure shows:<br></span>
+      <span>The scatter plot of the values of x and y and the corresponding fitted regression line estimated by OLS for one particular realization of the underlying DGP.<br></span>
+      <span>The red shaded area illustrates the range of all fitted regression lines estimated by OLS across all realizations for the underlying DGP.</span>
     </div>
-
-    <!-- include/exculde ilias footer -->
-    <div class="container mt-5">
-      <div class="row">
-        <p style="text-align: center; font-size: 20pt; font-weight: bold;" class="footerIliasCl">
-          <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1781360/index_ilias.html"><em>Back to Startpage</em></a>
-        </p>
-      </div>
+    
+    <div id="audioTextFigure1Slider1Id" class="audioTextCl">
+      <span>A different realization of the DGP results in a different estimate and thus a different fitted regression line estimated by OLS illustrated by the red dashed line.</span>
     </div>
-
-    <!-- include/exculde github footer -->
-    <div class="container mt-5">
-      <div class="row">
-        <p style="text-align: center; font-size: 20pt; font-weight: bold;" class="footerGihubCl">
-          <a href="https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/index.html"><em>Back to Startpage</em></a>
-        </p>
-      </div>
+    
+    <div id="audioTextFigure1Slider2Id" class="audioTextCl">        
+      <span>Increasing the sample size decreases the range of the different fitted regression lines across all realizations of the underlying DGP illustrated by the red shaded area.</span>
     </div>
-
-    <!-- footer logos -->
-    <div class="container mt-5">
-      <div class="row">
-
-        <hr>
-        <table style="width:100%">
-          <tr>
-            <td style="width: 25%; text-align: left; padding-left: 10%;">
-              <img src="RZ_UniHohenheim_Logo_4C_E_blau_EN.svg" height="10%"/>
-            </td>
-            <td style="width: 50%; text-align: center;">
-              <p style="font-size: 75%; text-align: center;">This module is part of the <a href="https://www.uni-hohenheim.de/en/project-dellfi">DeLLFi</a> project of the University of Hohenheim and funded by the <br> <a href="https://stiftung-hochschullehre.de/">Foundation for Innovation in University Teaching</a></p>
-              <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
-                <img alt="Creative Commons License" style="border-width:0; padding-top: -20px;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" height="10%"/>
-              </a> 
-            </td>
-            <td style="width: 25%; text-align: right; padding-right: 10%;">
-              <img src="Logo_Stiftung_Hochschullehre.svg" height="10%"/>
-            </td>
-          </tr>
-        </table>
-        <hr>      
-
-      </div>
+    
+    <!-- .................................................. -->
+    <!-- figure 2 -->
+    <div id="audioTextFigure2OverallId" class="audioTextCl">
+      <span>The figure shows the scatter plot of the values of x and the fitted residuals of a simple linear regression model estimated by OLS.<br></span>
+      <span>Note, since the estimated parameters includes an intercept and a slope coefficient, the fitted residuals have a mean equal to zero and are uncorrelated with x by construction of the OLS estimator.</span>
     </div>
+    
+    <div id="audioTextFigure2Slider1Id" class="audioTextCl">
+      <span>A different realization of the DGP results in a different estimate and thus a different fitted residual estimated by OLS illustrated by the scatterplot.</span>
+    </div>
+    
+    <div id="audioTextFigure2Slider2Id" class="audioTextCl">
+      <span>Increasing the sample size increases the number of fitted residuals estimated by OLS.</span>
+    </div>
+    
+    <!-- .................................................. -->
+    <!-- figure 3 -->
+    <div id="audioTextFigure3OverallId" class="audioTextCl">
+      <span>The figure shows:.<br></span>
+      <span>The histogram of the estimated slope coefficient across all realizations of the underlying DGP.<br></span>
+      <span>The red vertical dashed line represents the estimated slope coefficient for one particular realization of the underlying DGP.</span>
+      <span>The green vertical dashed line represents the slope coefficient of the underlying DGP.</span>
+    </div>
+    
+    <div id="audioTextFigure3Slider1Id" class="audioTextCl">
+      <span>A different realization of the underlying DGP results in a different estimate for the slope coefficients represented by the red vertical dashed line.</span>
+    </div>
+    
+    <div id="audioTextFigure3Slider2Id" class="audioTextCl">
+      <span>By increasing the sample size the estimated slope coefficients concentrate more around the slope coefficient of the underlying DGP.<br></span>
+      <span>This is the result of law of large numbers.<br></span>
+      <span>Thus, to conduct hypothesis tests we need a sampling distribution which is stable across sample sizes. For this we have to standardize the estimate usign the sample size.</span>
+    </div>
+    
+    <!-- .................................................. -->
+    <!-- figure 4 -->
+    <div id="audioTextFigure4OverallId" class="audioTextCl">
+      <span>The figure shows:<br></span>
+      <span>The histogram of the standardized estimated slope coefficient across all realizations of the DGP.<br></span>
+      <span>For the standardization with subtract the slope coefficient and divide by an estimate of the variance of the estimated slope coefficient.<br></span>
+      <span>The red vertical dashed line represents the standardized estimated slope coefficient for one particular realization of the DGP.<br></span>
+      <span>The green vertical dashed curve represents the pdf of the standard normal distribution.<br></span>
+      <span>Note, the estimate for the variance of the estimated slope coefficient is explained below and is a function of the sample size, the variance of u, the variance of x, and the covariance of u and x.</span>
+    </div>
+    
+    <div id="audioTextFigure4Slider1Id" class="audioTextCl">
+      <span>A different realization of the underlying DGP results in a different standardized estimate for the slope coefficient represented by the red vertical dashed line.</span>
+    </div>
+    
+    <div id="audioTextFigure4Slider2Id" class="audioTextCl">
+      <span>By increasing the sample size the sampling distribution of the standardized estimated slope coefficient gets closer to the standard normal distribution which pdf is illustrated by the green dashed curve.<br></span>
+      <span>This is the result of central limit theorem.</span>
+      <span>Note, the sampling distribution of the standardized estimate is stable across the sample size.</span>
+      <span>Thus, for large n the standardized estimate can be used to conduct hypothesis tests.</span>
+    </div>
+    
+  </div>
+  
+  <!-- include/exculde ilias footer -->
+  <div class="container mt-5">
+    <div class="row">
+      <p style="text-align: center; font-size: 20pt; font-weight: bold;" class="footerIliasCl">
+        <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1781360/index_ilias.html"><em>Back to Startpage</em></a>
+      </p>
+    </div>
+  </div>
+  
+  <!-- include/exculde github footer -->
+  <div class="container mt-5">
+    <div class="row">
+      <p style="text-align: center; font-size: 20pt; font-weight: bold;" class="footerGihubCl">
+        <a href="https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/index.html"><em>Back to Startpage</em></a>
+      </p>
+    </div>
+  </div>
+  
+  <!-- footer logos -->
+  <div class="container mt-5">
+    <div class="row">
+      
+      <hr>
+      <table style="width:100%">
+        <tr>
+          <td style="width: 25%; text-align: left; padding-left: 10%;">
+            <img src="RZ_UniHohenheim_Logo_4C_E_blau_EN.svg" height="10%"/>
+          </td>
+          <td style="width: 50%; text-align: center;">
+            <p style="font-size: 75%; text-align: center;">This module is part of the <a href="https://www.uni-hohenheim.de/en/project-dellfi">DeLLFi</a> project of the University of Hohenheim and funded by the <br> <a href="https://stiftung-hochschullehre.de/">Foundation for Innovation in University Teaching</a></p>
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+              <img alt="Creative Commons License" style="border-width:0; padding-top: -20px;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" height="10%"/>
+            </a> 
+          </td>
+          <td style="width: 25%; text-align: right; padding-right: 10%;">
+            <img src="Logo_Stiftung_Hochschullehre.svg" height="10%"/>
+          </td>
+        </tr>
+      </table>
+      <hr>      
+      
+    </div>
+  </div>
+  
+  <!-- include mathjax js via cdn -->
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
 
-    <!-- include mathjax js via cdn -->
-    <script
-     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-    </script>
+<!-- include bootstrap slider js via cdn --> 
+<script 
+src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js">
+</script>
 
-    <!-- include bootstrap slider js via cdn --> 
-    <script 
-      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js">
-    </script>
+<!-- include jstat js via cdn -->
+<script
+src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js">
+</script>
 
-    <!-- include jstat js via cdn -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js">
-    </script>
+<!-- adjust inputs -->
+<script>
+  
+  // var par01Vec = [1, 2, 3, 4, 5];
+  // var par02Vec = [5, 10, 25, 50, 100];
+  
+  // var par01Ini = 2;
+  // var par02Ini = 2;
+  
+  // var par01Str01 = "\\(r = ";
+  // var par02Str01 = "\\(n = ";
+  
+  // object with all sliders
+  let sliders = {
+    value: {
+      slider1: [1, 2, 3, 4, 5],
+      slider2: [5, 10, 25, 50, 100],      
+    },
+    sliderValueParStr: ['\\(r = ', '\\(n = '],
+  };
+  
+</script>
 
-    <!-- adjust inputs -->
-    <script>
-
-      var par01Vec = [1, 2, 3, 4, 5];
-      var par02Vec = [5, 10, 25, 50, 100];
-
-      var par01Ini = 2;
-      var par02Ini = 2;
-
-      var par01Str01 = "\\(r = ";
-      var par02Str01 = "\\(n = ";
-
-    </script>
-
-    <!-- include my javascript -->
-    <script src="myScript.js"></script>
-
-    <script src="par02Fig04InteractivationScript.js"></script>
-
-    <script src="par02Fig04AnimationScript.js"></script>
-
-  </body>
+<!-- include my javascript
+  <script src="myScript.js"></script>
+  
+  <script src="par02Fig04InteractivationScript.js"></script>
+  
+  <script src="par02Fig04AnimationScript.js"></script> -->
+  
+  <!-- include js for interaction and animation -->
+  <script src="../jscripts/interactionAndAnimationScript.js"></script>
+  
+  <!-- include my javascript -->
+  <script src="../jscripts/myScript.js"></script>
+  
+</body>
 </html>
