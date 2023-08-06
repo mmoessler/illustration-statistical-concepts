@@ -1,17 +1,6 @@
 
 //..................................................
 
-// // object with all sliders
-// let sliders = {
-//   value: {
-//     slider1: [5, 10, 25, 50, 100],
-//     slider2: [0.2, 0.4, 0.6, 0.8],      
-//   },
-//   sliderValueParStr: ['\\(n = ', '\\(p = '],
-// };
-
-//..................................................
-
 // collect all tab content ids
 let tabContentAll = document.getElementsByClassName('tabContentL1Cl');
 let tabContentIds = [];
@@ -40,6 +29,31 @@ for (let i = 0; i < sliderValueAll.length; i++) {
   sliderValueIds.push(sliderValueAll[i].id);
 }
 
+//..................................................
+
+// initialize sliders for all sliders
+for (var i = 0; i < sliderIds.length; i++) {
+  eval(
+    'var slider' + (i + 1) + ' = new Slider("#slider' + (i + 1) + 'Id", { \n tooltip: "never", \n formatter: function(value) { \n return sliders.value.slider' + (i + 1) + '[value] \n } \n })'
+  );
+}
+
+// set slide events for all sliders
+for (var i = 0; i < sliderIds.length; i++) {
+  eval(
+    'slider' + (i + 1) + '.on("slide", function() { updateFiguresAndSliderValues() })'
+    );
+}
+
+// set initial slider values
+for (var i = 0; i < sliderIds.length; i++) {
+  eval(
+    'slider' + (i + 1) + '.setValue(sliders.initialIndex[' + i + '])'
+  );
+}
+
+//..................................................
+
 updateFiguresAndSliderValues = function() {
   
   let figurePathTmp = null;
@@ -62,21 +76,62 @@ updateFiguresAndSliderValues = function() {
   }
 }
 
-//..................................................
-
-// initialize sliders for all sliders
-for (var i = 0; i < sliderIds.length; i++) {
-  eval(
-    'var slider' + (i + 1) + ' = new Slider("#slider' + (i + 1) + 'Id", { \n tooltip: "never", \n formatter: function(value) { \n return sliders.value.slider' + (i + 1) + '[value] \n } \n })'
-  );
-}
-
-// set slide events for all sliders
-for (var i = 0; i < sliderIds.length; i++) {
-  eval('slider' + (i + 1) + '.on("slide", function() { updateFiguresAndSliderValues() })');
-}
+updateFiguresAndSliderValues();
 
 //..................................................
+
+// explain figure
+explainButtonClick = function() {
+  
+  let tabEqual = false;
+  let tab = 0;
+  while (tabEqual==false) {
+    tabEqual = activeTabId == tabContentIds[tab];
+    tab++;
+  }
+  
+  let audioShowTextIdTmp = 'audioShowTextFigure' + tab + 'Id'; // construct show text id
+  let audioTextIdTmp = 'audioTextFigure' + tab + 'OverallId'; // construct audio text id
+  
+  var audioTextDiv = document.getElementById(audioTextIdTmp); // get show text
+  var audioTextSpa = audioTextDiv.getElementsByTagName("span");
+  var audioShowPar = document.getElementById(audioShowTextIdTmp); // get audio text
+  
+  audioShowPar.innerHTML = audioTextDiv.innerHTML;
+  audioShowPar.style.display = "block";
+  
+  var stopLoop = false;
+  var index = 0;
+  
+  // function to read out each <span> with a delay in between
+  function readSpans() {      
+    if (index < audioTextSpa.length) {
+      var span = audioTextSpa[index];
+      var spanText = span.textContent;
+      var speech = new SpeechSynthesisUtterance(spanText);
+      speechSynthesis.speak(speech);
+      speech.onend = function() {
+        setTimeout(function() {
+          index++;
+          readSpans();
+        }, 1000);
+      };                
+      // finished with reading out spans
+    } else {
+      audioShowPar.style.display = "none";  
+      var intervalLoop = setInterval(function() {
+        stopLoop = true;      
+        eval('slider' + slider + '.setValue(slider' + slider + '.options.value)');
+        updateFiguresAndSliderValues();
+        clearInterval(intervalLoop);      
+      }, 1000);
+    }
+  }
+  
+  // start reading out the spans
+  readSpans();
+    
+}
 
 // animate slider
 animateButtonClick = function(slider) {
