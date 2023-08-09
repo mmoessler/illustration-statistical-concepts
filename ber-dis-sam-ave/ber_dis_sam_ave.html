@@ -408,47 +408,38 @@
   <!-- include mathjax js via cdn -->
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-</script>
+  </script>
 
-<!-- include bootstrap slider js via cdn --> 
-<script 
-src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js">
-</script>
+  <!-- include bootstrap slider js via cdn --> 
+  <script 
+  src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js">
+  </script>
 
-<!-- include jstat js via cdn -->
-<script
-src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js">
-</script>
+  <!-- include jstat js via cdn -->
+  <script
+  src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js">
+  </script>
 
-<!-- adjust inputs -->
-<script>
-  
-  var par01Vec = [5, 10, 25, 50, 100];
-  var par02Vec = [0.2, 0.4, 0.6, 0.8];
-  
-  var par01Ini = 2;
-  var par02Ini = 2;
-  
-  var par01Str01 = "\\(n = ";
-  var par02Str01 = "\\(p = ";
-  
-  // object with all sliders
-  let sliders = {
-    value: {
-      slider1: [5, 10, 25, 50, 100],
-      slider2: [0.2, 0.4, 0.6, 0.8],
-    },
-    initialIndex: [2, 2],
-    sliderValueParStr: ['\\(n = ', '\\(p = '],
-  };
-  
-</script>
+  <!-- adjust inputs -->
+  <script>  
+    
+    // object with all sliders
+    let sliders = {
+      value: {
+        slider1: [5, 10, 25, 50, 100],
+        slider2: [0.2, 0.4, 0.6, 0.8],
+      },
+      initialIndex: [2, 2],
+      sliderValueParStr: ['\\(n = ', '\\(p = '],
+    };
+    
+  </script>
 
-<!-- include js for interaction and animation -->
-<script src="../assets/interactionAndAnimationScript.js"></script>
+  <!-- include js for interaction and animation -->
+  <script src="../assets/interactionAndAnimationScript.js"></script>
 
-<!-- include my javascript -->
-<script src="../assets/myScript.js"></script>    
+  <!-- include my javascript -->
+  <script src="../assets/myScript.js"></script>    
 
 </body>
 </html>
