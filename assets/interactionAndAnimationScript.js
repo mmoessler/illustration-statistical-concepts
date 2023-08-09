@@ -142,10 +142,10 @@ animateButtonClick = function(slider) {
     tabEqual = activeTabId == tabContentIds[tab];
     tab++;
   }
-  
+    
   let audioShowTextIdTmp = 'audioShowTextFigure' + tab + 'Id'; // construct show text id
   let audioTextIdTmp = 'audioTextFigure' + tab + 'Slider' + slider + 'Id'; // construct audio text id
-  
+    
   var audioTextDiv = document.getElementById(audioTextIdTmp); // get show text
   var audioTextSpa = audioTextDiv.getElementsByTagName("span");
   var audioShowPar = document.getElementById(audioShowTextIdTmp); // get audio text

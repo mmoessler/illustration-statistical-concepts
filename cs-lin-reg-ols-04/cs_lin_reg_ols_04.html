@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
 
     <!-- my style sheet -->
-    <link rel="stylesheet" href="mystyle.css">
+    <link rel="stylesheet" href="../assets/mystyle.css">
 
     <!-- logo -->
     <div class="logoCl header01Cl" style="text-align:center; padding-top: 20px; padding-bottom: 20px;" background-color="#eeeeee;">
-      <img src="RZ_UniHohenheim_Logo_1C_Weiss_EN.svg" height="250px"/>
+      <img src="../assets/RZ_UniHohenheim_Logo_1C_Weiss_EN.svg" height="250px"/>
     </div>
 
   </head>
@@ -164,34 +164,34 @@
 
                       <hr>
 
-                      <p style="font-size: 12pt; text-align: center;">Sample Size \(n\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue1Id"></p>
-                      <input id="slider1Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <p style="font-size: 12pt; text-align: center;">Sample Size \(n\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue1Id"></p>
+                      <input class="sliderCl" id="slider1Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
                       <div style="font-size: 12pt; text-align: center;">
-                        <button class="animateButtonCl" onclick="animateButton01Click()">Animate \(n\)</button>
+                        <button class="animateButtonCl" onclick="animateButtonClick(slider = 1)">Animate \(n\)</button>
                       </div>
 
                       <hr>
 
-                      <p style="font-size: 12pt; text-align: center;">Effect of \(X_{1}\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue2Id"></p>
-                      <input id="slider2Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <p style="font-size: 12pt; text-align: center;">Effect of \(X_{1}\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue2Id"></p>
+                      <input class="sliderCl" id="slider2Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
                       <div style="font-size: 12pt; text-align: center;">
-                        <button class="animateButtonCl" onclick="animateButton02Click()">Animate \(\\\beta_{1}\)</button>
+                        <button class="animateButtonCl" onclick="animateButtonClick(slider = 2)">Animate \(\\\beta_{1}\)</button>
                       </div>
 
                       <hr>
 
-                      <p style="font-size: 12pt; text-align: center;">Effect of \(X_{2}\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue3Id"></p>
-                      <input id="slider3Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <p style="font-size: 12pt; text-align: center;">Effect of \(X_{2}\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue3Id"></p>
+                      <input class="sliderCl" id="slider3Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
                       <div style="font-size: 12pt; text-align: center;">
-                        <button class="animateButtonCl" onclick="animateButton03Click()">Animate \(\\\beta_{2}\)</button>
+                        <button class="animateButtonCl" onclick="animateButtonClick(slider = 3)">Animate \(\\\beta_{2}\)</button>
                       </div>
 
                       <hr>
 
-                      <p style="font-size: 12pt; text-align: center;">Corr. \(X_{1} \\\& X_{2}\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue4Id"></p>
-                      <input id="slider4Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <p style="font-size: 12pt; text-align: center;">Corr. \(X_{1} \\\& X_{2}\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue4Id"></p>
+                      <input class="sliderCl" id="slider4Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
                       <div style="font-size: 12pt; text-align: center;">
-                        <button class="animateButtonCl" onclick="animateButton04Click()">Animate \(\\\rho_{X_{1}X_{2}}\)</button>
+                        <button class="animateButtonCl" onclick="animateButtonClick(slider = 4)">Animate \(\\\rho_{X_{1}X_{2}}\)</button>
                       </div>
 
                     </div>
@@ -218,16 +218,16 @@
                           <td style="width: 10%"></td>
                           <td style="width: 80%; font-size: 14pt; text-align: left;">Scatter plot (observed and adjusted realizations)</td>
                           <td style="width: 10%; font-size: 14pt; text-align: right;">
-                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                            <button class="explainButtonCl" onclick="explainButtonClick()">Explain</button>
                           </td>
                         </tr>
                       </table>
 
                       <div style="text-align: center;">
-                        <img src="./figures/figure_01_1_1_1_1.svg" alt="" id="image1Id" style="max-width: 75%;">
+                        <img src="./figures/figure_01_1_1_1_1.svg" alt="" class="figureCl" id="figure1Id" style="max-width: 75%;">
                       </div>  
 
-                      <p id="audioShowTextFigure01Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                      <p class="audioShowTextCl" id="audioShowTextFigure1Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
 
                       <p>The green fitted regression line is based on the regression of,</p>
 
@@ -260,16 +260,16 @@
                           <td style="width: 10%"></td>
                           <td style="width: 80%; font-size: 14pt; text-align: left;">Scatter plot (fitted residuals)</td>
                           <td style="width: 10%; font-size: 14pt; text-align: right;">
-                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                            <button class="explainButtonCl" onclick="explainButtonClick()">Explain</button>
                           </td>
                         </tr>
                       </table>
 
                       <div style="text-align: center;">
-                        <img src="./figures/figure_02_1_1_1_1.svg" alt="" id="image2Id" style="max-width: 75%;">
+                        <img src="./figures/figure_02_1_1_1_1.svg" alt="" class="figureCl" id="figure2Id" style="max-width: 75%;">
                       </div>
 
-                      <p id="audioShowTextFigure02Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                      <p class="audioShowTextCl" id="audioShowTextFigure2Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
 
                       <p>The fitted unobserved residuals are constructed as,</p>
             
@@ -298,16 +298,16 @@
                           <td style="width: 10%"></td>
                           <td style="width: 80%; font-size: 14pt; text-align: left;">Histogram of the OLS estimates \(\widehat{\beta}_{1}\)</td>
                           <td style="width: 10%; font-size: 14pt; text-align: right;">
-                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                            <button class="explainButtonCl" onclick="explainButtonClick()">Explain</button>
                           </td>
                         </tr>
                       </table>
 
                       <div style="text-align: center;">
-                        <img src="./figures/figure_03_1_1_1_1.svg" alt="" id="image3Id" style="max-width: 75%;">
+                        <img src="./figures/figure_03_1_1_1_1.svg" alt="" class="figureCl" id="figure3Id" style="max-width: 75%;">
                       </div>
 
-                      <p id="audioShowTextFigure03Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                      <p class="audioShowTextCl" id="audioShowTextFigure3Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
 
                       <span style="font-size: 16pt; text-decoration: underline;">Consistency</span><span style="font-size: 16pt; text-decoration: none;">:</span>
 
@@ -326,16 +326,16 @@
                           <td style="width: 10%"></td>
                           <td style="width: 80%; font-size: 14pt; text-align: left;">Histogram of the standardized OLS estimates \(z_{\widehat{\beta}_{1}}\)</td>
                           <td style="width: 10%; font-size: 14pt; text-align: right;">
-                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                            <button class="explainButtonCl" onclick="explainButtonClick()">Explain</button>
                           </td>
                         </tr>
                       </table>
 
                       <div style="text-align: center;">
-                        <img src="./figures/figure_04_1_1_1_1.svg" alt="" id="image4Id" style="max-width: 75%;">
+                        <img src="./figures/figure_04_1_1_1_1.svg" alt="" class="figureCl" id="figure4Id" style="max-width: 75%;">
                       </div>
                       
-                      <p id="audioShowTextFigure04Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                      <p class="audioShowTextCl" id="audioShowTextFigure4Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
 
                       <span style="font-size: 16pt; text-decoration: underline;">Asymptotic Normality</span><span style="font-size: 16pt; text-decoration: none;">:</span>
 
@@ -473,7 +473,7 @@
 
       <!-- .................................................. -->
       <!-- figure 1 -->
-      <div id="audioTextFigure01OverallId" class="audioTextCl">
+      <div id="audioTextFigure1OverallId" class="audioTextCl">
         <span>The figure shows: <br></span>
         <!-- <span class="audioTextSilentCl"> (1) </span> -->        
         <span>The scatter plot of the values of the observed variables y and x one and the corresponding fitted regression line in red for one particular realization of the underlying DGP. <br></span>
@@ -482,15 +482,15 @@
         <span>Note, the green fitted regression line is the correct or unbiased relationship between y and x whereas the red fitted regression line is potentially biased due to the omission of the unobserved variable x two.</span>
       </div>
 
-      <div id="audioTextFigure01Slider1Id" class="audioTextCl">
+      <div id="audioTextFigure1Slider1Id" class="audioTextCl">
         <span>Increasing the sample size decreases the range of the different fitted regression lines across different realizations of the underlying DGP illustrated by the red and green shaded area.</span>
       </div>
 
-      <div id="audioTextFigure01Slider2Id" class="audioTextCl">        
+      <div id="audioTextFigure1Slider2Id" class="audioTextCl">        
         <span>Changing the slope coefficient of x one of the underlying DGP rotates the fitted regression lines.</span>
       </div>
 
-      <div id="audioTextFigure01Slider3Id" class="audioTextCl">
+      <div id="audioTextFigure1Slider3Id" class="audioTextCl">
         <span>As long as the correlation between x one and x two is zero changing the slope coefficient of x two away from zero only increases the range of the different fitted regression lines of the observed variables y and x one across different realization of the underlying DGP illustrated by the red shaded area. <br></span>
         <!-- <span>Note here, the red shaded area still includes the green shaded area, i.e., the range of the different fitted regression lines using the observed variables y and x one adjusted for the effect of the unobserved variable x two across different realization of the underlying DGP. <br></span> -->
         <span>This is the result of including a variable relevant for the determination of y but unrelated to the variable of interest. <br></span>
@@ -499,7 +499,7 @@
         <span>Note, in this case the red shaded area no longer includes the green shaded area, i.e., the regression of the observed variables y on x one is biased.</span>
       </div>
 
-      <div id="audioTextFigure01Slider4Id" class="audioTextCl">        
+      <div id="audioTextFigure1Slider4Id" class="audioTextCl">        
         <span>As long as the slope coefficient of x two is zero changing the correlation between x one and x two away from zero does not affect the range of the different fitted regression lines of the observe variables y and x one across different realization of the underlying DGP illustrated by the red shaded area. <br></span>
         <!-- <span>Instead, it increases the range of the different fitted regression lines using the observed variables y and x one adjusted for the effect of the unobserved variable x two across different realization of the underlying DGP. <br></span> -->
         <span>This is the case of including an irrelevant variable in your regression. This increases only the variance of your estimate of the variable of interest. <br></span>
@@ -509,7 +509,7 @@
 
       <!-- .................................................. -->
       <!-- figure 2 -->
-      <div id="audioTextFigure02OverallId" class="audioTextCl">
+      <div id="audioTextFigure2OverallId" class="audioTextCl">
         <span>The figure shows: <br></span>
         <span>The scatter plot of the observed values of x one and the fitted residuals of the estimated regression model of the unobserved variables y and x one adjusted for the effect of the unobserved variable x two. <br></span>
         <span>The corresponding fitted regression line of a particular realization of the DGP is illustrated by green dashed line. </span>
@@ -519,15 +519,15 @@
         <span>Note, this condition cannot be checked using observed variables but we can simulate it here using the simulated observed variable x one and the simulated unobserved variable x two.</span>
       </div>
 
-      <div id="audioTextFigure02Slider1Id" class="audioTextCl">
+      <div id="audioTextFigure2Slider1Id" class="audioTextCl">
         <span>Increasing the sample size increases the number of fitted residuals estimated by OLS.</span>
       </div>
 
-      <div id="audioTextFigure02Slider2Id" class="audioTextCl">
+      <div id="audioTextFigure2Slider2Id" class="audioTextCl">
         <span>Changing the slope coefficient does not change the relationship between the fitted residuals and x one.</span>
       </div>
 
-      <div id="audioTextFigure02Slider3Id" class="audioTextCl">
+      <div id="audioTextFigure2Slider3Id" class="audioTextCl">
         <span>As long as the correlation between x one and x two is zero changing the slope coefficient of x two away from zero only increases the range of the different fitted regression lines using the fitted residuals of the estimated observed regression relationship across different realization of the underlying DGP illustrated by the green shaded area.<br></span>
         <span>Note here, the range of the fitted regression lines spreads around the zero line symmetrically and they converges to the zero line as the sample size increases.</span>
         <span>Thus, for large number of observations the condition that the residuals u and the explanatory variable x one are uncorrelated is true.<br></span>
@@ -536,7 +536,7 @@
         <span>Thus, the condition that the residuals u and the explanatory variable x one are uncorrelated is violated.</span>
       </div>
 
-      <div id="audioTextFigure02Slider4Id" class="audioTextCl">
+      <div id="audioTextFigure2Slider4Id" class="audioTextCl">
         <span>As long as the slope coefficient of x two is zero changing the correlation between x one and x two away from zero does not affect the fitted residuals of the estimated observed regression relationship.</span>
         <span>Thus, the condition that the residuals u and the explanatory variable x one are uncorrelated is true.<br></span>
         <span>However, in the case the slope coefficient of x two is not zero changing the correlation between x one and x two away from zero rotates the fitted regression lines using the fitted residuals of the estimated observed regression relationship.</span>
@@ -546,29 +546,29 @@
 
       <!-- .................................................. -->
       <!-- figure 3 -->
-      <div id="audioTextFigure03OverallId" class="audioTextCl">
+      <div id="audioTextFigure3OverallId" class="audioTextCl">
         <span>The figure shows:<br></span>
         <span>The histogram of the estimated slope coefficient across all realizations of the underlying DGP.<br></span>
         <span>The red vertical dashed line represents the estimated slope coefficient of regressing the observed variables y on x one for one particular realization of the underlying DGP.<br></span>
         <span>The green vertical dashed line represents the slope coefficient of the underlying DGP, i.e., the the slope coefficient of regressing the observed variables y on x one adjusted for x two.</span>
       </div>
 
-      <div id="audioTextFigure03Slider1Id" class="audioTextCl">
+      <div id="audioTextFigure3Slider1Id" class="audioTextCl">
         <span>By increasing the sample size the estimated slope coefficients concentrate more around the slope coefficient of the underlying DGP.<br></span>
         <span>This is the result of law of large numbers.</span>
       </div>
 
-      <div id="audioTextFigure03Slider2Id" class="audioTextCl">
+      <div id="audioTextFigure3Slider2Id" class="audioTextCl">
         <span>Changing the slope coefficient of x one of the underlying DGP shifts the histogram of the estimated slope coefficient.</span>
       </div>
 
-      <div id="audioTextFigure03Slider3Id" class="audioTextCl">
+      <div id="audioTextFigure3Slider3Id" class="audioTextCl">
         <span>As long as the correlation between x one and x two is zero changing the slope coefficient of x two away from zero only increases the range of OLS estimates for the slope coefficient of x one.<br></span>
         <span>However, in the case the correlation between x one and x two is not zero changing the slope coefficient of x two away from zero shifts the histogram of the OLS estimates for the slope coefficients of the observed relationship away from the green vertical dashed line.<br></span>
         <span>Thus, the OLS estimator for the slope coefficient based on the observed variables y and x one is biased and inconsistent.</span>
       </div>
 
-      <div id="audioTextFigure03Slider4Id" class="audioTextCl">
+      <div id="audioTextFigure3Slider4Id" class="audioTextCl">
         <span>As long as the slope coefficient of x two is zero changing the correlation between x one and x two away from zero does not affect range of OLS estimates for the slope coefficient of x one.<br></span>
         <span>However, in the case the slope coefficient of x two is not zero changing the correlation between x one and x two away from zero shifts the histogram of the OLS estimates for the slope coefficients of the observed relationship away from the green vertical dashed line.<br></span>
         <span>Thus, the OLS estimator for the slope coefficient based on the observed variables y and x one is biased and inconsistent.</span>
@@ -576,7 +576,7 @@
 
       <!-- .................................................. -->
       <!-- figure 4 -->
-      <div id="audioTextFigure04OverallId" class="audioTextCl">
+      <div id="audioTextFigure4OverallId" class="audioTextCl">
         <span>The figure shows:<br></span>
         <span>The histogram of the standardized estimated slope coefficient across all realizations of the DGP.<br></span>
         <span>For the standardization we subtract the slope coefficient of the variable x one and divide by an estimate of the variance of the estimated slope coefficient.<br></span>
@@ -585,25 +585,25 @@
         <span>The green dashed curve represents the pdf of the standard normal distribution.</span>
       </div>
 
-      <div id="audioTextFigure04Slider1Id" class="audioTextCl">
+      <div id="audioTextFigure4Slider1Id" class="audioTextCl">
         <span>In the case the effect of x two or the correlation between x one and x two is zero the sampling distribution of the standardized estimated slope coefficient of regressing the observed variables y on x one gets closer to the standard normal distribution which pdf is illustrated by the green dashed curve for increasing sample sizes.<br></span>
         <span>However, in the case the effect of x two and the correlation between x one and x two are different from zero the standardized estimated slope coefficient shifts further away from the standard normal distribution for increasing sample size.<br></span>
         <span>The latter case illustrates the effect of omitted variable bias on the sampling distribution of the standardized estimated slope coefficient.</span>
       </div>
 
-      <div id="audioTextFigure04Slider2Id" class="audioTextCl">
+      <div id="audioTextFigure4Slider2Id" class="audioTextCl">
         <span>In the case the effect of x two or the correlation between x one and x two is zero the sampling distribution of the standardized estimated slope coefficient of regressing the observed variables y on x one is not affected by the effect of x one on y.<br></span>
         <span>However, in the case the effect of x two and the correlation between x one and x two are different from zero the standardized estimated slope coefficient is shifted away from the standard normal distribution for increasing sample size.<br></span>
         <span>The latter case illustrates the effect of omitted variable bias on the sampling distribution of the standardized estimated slope coefficient.</span>
       </div>
 
-      <div id="audioTextFigure04Slider3Id" class="audioTextCl">
+      <div id="audioTextFigure4Slider3Id" class="audioTextCl">
         <span>As long as the correlation between x one and x two is zero changing the slope coefficient of x two away from zero does not affect the sampling distribution of the standardized estimated slope coefficient of the relationship between the observed variables y and x one.<br></span>
         <span>However, in the case the correlation between x one and x two is not zero changing the slope coefficient of x two away from zero shifts the histogram of the standardized OLS estimates for the slope coefficients of the observed relationship away from the standard normal distribution.<br></span>
         <span>The latter case illustrates the effect of omitted variable bias on the sampling distribution of the standardized estimated slope coefficient.</span>
       </div>
 
-      <div id="audioTextFigure04Slider4Id" class="audioTextCl">
+      <div id="audioTextFigure4Slider4Id" class="audioTextCl">
         <span>As long as the slope coefficient of x two is zero changing the correlation between x one and x two away from zero does not affect the sampling distribution of the standardized estimated slope coefficient of the relationship between the observed variables y and x one.<br></span>
         <span>However, in the case the correlation between x one and x two is not zero changing the correlation between x one and x two away from zero shifts the histogram of the standardized OLS estimates for the slope coefficients of the observed relationship away from the standard normal distribution.<br></span>
         <span>The latter case illustrates the effect of omitted variable bias on the sampling distribution of the standardized estimated slope coefficient.</span>
@@ -637,7 +637,7 @@
         <table style="width:100%">
           <tr>
             <td style="width: 25%; text-align: left; padding-left: 10%;">
-              <img src="RZ_UniHohenheim_Logo_4C_E_blau_EN.svg" height="10%"/>
+              <img src="../assets/RZ_UniHohenheim_Logo_4C_E_blau_EN.svg" height="10%"/>
             </td>
             <td style="width: 50%; text-align: center;">
               <p style="font-size: 75%; text-align: center;">This module is part of the <a href="https://www.uni-hohenheim.de/en/project-dellfi">DeLLFi</a> project of the University of Hohenheim and funded by the <br> <a href="https://stiftung-hochschullehre.de/">Foundation for Innovation in University Teaching</a></p>
@@ -646,7 +646,7 @@
               </a> 
             </td>
             <td style="width: 25%; text-align: right; padding-right: 10%;">
-              <img src="Logo_Stiftung_Hochschullehre.svg" height="10%"/>
+              <img src="../assets/Logo_Stiftung_Hochschullehre.svg" height="10%"/>
             </td>
           </tr>
         </table>
@@ -673,30 +673,25 @@
     <!-- adjust inputs -->
     <script>
 
-      var par01Vec = [5, 10, 25, 50, 100];
-      var par02Vec = [-2, -1, 0, 1, 2];
-      var par03Vec = [-2, -1, 0, 1, 2];
-      var par04Vec = [-0.9, -0.5, 0, 0.5, 0.9];
-
-      // use js indexing + r indexing
-      var par01Ini = 2 + 1;
-      var par02Ini = 2 + 1;
-      var par03Ini = 2 + 1;
-      var par04Ini = 2 + 1;
-
-      var par01Str01 = "\\(n = ";
-      var par02Str01 = "\\(\\beta_{1} = ";
-      var par03Str01 = "\\(\\beta_{2} = ";
-      var par04Str01 = "\\(\\rho_{X_{1}X_{2}} = ";
+      // object with all sliders
+      let sliders = {
+        value: {
+          slider1: [5, 10, 25, 50, 100],
+          slider2: [-2, -1, 0, 1, 2],
+          slider3: [-2, -1, 0, 1, 2],
+          slider4: [-0.9, -0.5, 0, 0.5, 0.9],
+        },
+        initialIndex: [2, 2, 2, 2],
+        sliderValueParStr: ['\\(n = ', '\\(\\beta_{1} = ', '\\(\\beta_{2} = ', '\\(\\rho_{X_{1}X_{2}} = '],
+      };      
 
     </script>
 
+    <!-- include js for interaction and animation -->
+    <script src="../assets/interactionAndAnimationScript.js"></script>
+    
     <!-- include my javascript -->
-    <script src="myScript.js"></script>
-
-    <script src="par04Fig04InteractivationScript.js"></script>
-
-    <script src="par04Fig04AnimationScript.js"></script>
+    <script src="../assets/myScript.js"></script> 
 
   </body>
 </html>
