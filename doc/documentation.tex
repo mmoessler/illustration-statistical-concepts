@@ -22,6 +22,8 @@
 \usepackage{fancyvrb}
 \usepackage{setspace} % for doublespacing
 
+\usepackage{placeins} % for using floatbarrier
+
 \title{Interactive Illustration of \\ the Sampling Properties of \\ Estimators}
 \author{Markus M\"o\ss ler}
 
@@ -207,25 +209,7 @@ Depending on the subject of the learning module the number of interactive parame
 %
 For the learning module \texttt{ber-dis-sam-ave} there are two interactive parameters, i,e, sample size $n$ and probability of success $p$, and three figures, i.e., the bar plot of number of ones and zero, the histogram of sample average and the histogram of the standardized sample average. 
 %
-In this setup the variable and fixed inputs of the simulation study can be defined as in \emph{R} Code Snippet \ref{RCodSniSimSet}. 
-%
-\begin{CodeSnippet}[!hp]
-	\centering
-	\caption{\emph{R} code snippet simulation setup}
-	\normalsize
-	\vspace{0.25cm}
-	\begin{BVerbatim}
-		
-		# inputs (variable)
-		n.vec <- c(5, 10, 25, 50, 100)
-		p.vec <- c(0.2, 0.4, 0.6, 0.8)
-		
-		# inputs (fixed)
-		RR <- 10000
-		
-	\end{BVerbatim}
-	\label{RCodSniSimSet}
-\end{CodeSnippet}
+In this setup the variable and fixed inputs of the simulation study can be defined as in \emph{R} Code Snippet \ref{RCodSniSimSet} in the Appendix. 
 %
 The simulation study is based on a loop which runs over the variable inputs (here \texttt{n.vec} and \texttt{p.vec}). 
 %
@@ -233,44 +217,7 @@ For each variable input combination \texttt{RR=10000} realizations of the DGP ar
 %
 Based on the simulation results for \texttt{RR=10000} realizations the illustration of interest is stored as \texttt{figure\_01\_y\_z.svg}, where \texttt{0x} indicates the \texttt{0x}th figure, \texttt{y} indicates the \texttt{y}th index value of the first parameter and \texttt{z} indicates the \texttt{z}th index value of the second parameter. 
 %
-E.g. for \texttt{ii =  1} and \texttt{jj = 1} the results for the parameters $n=5$ and $p=0.2$ are stored in \texttt{figure\_01\_1\_1.svg} (see also \emph{R} Code Snippet \ref{RCodSniSimImp} below).%\footnote{The barplot only shows the number of zeros and ones of the last realization of the DGP, i.e. only one out of $10000$.} 
-%
-\begin{CodeSnippet}[!hp]
-	\centering
-	\caption{\emph{R} code snippet simulation and illustration implementation}
-	\scriptsize
-	\vspace{0.25cm}
-	\begin{BVerbatim}
-		
-		# simulation/illustration
-		
-		for (ii in 1:length(n.vec)) {
-			
-			for (jj in 1:length(p.vec)) {
-				
-				NN <- n.vec[ii]
-				p <- p.vec[jj]
-				
-				# simulation
-				tmp.sim <- Y_bar_ber_sim_fun(RR = RR, NN = NN, p = p)
-								
-				# plot no 01
-				plt.nam <- paste(fig.dir, "figure_01_", ii, "_", jj, ".svg", sep = "")
-				svg(plt.nam) 
-				
-				...
-				
-				dev.off()		
-				
-				...
-				
-			}
-			
-		}
-		
-	\end{BVerbatim}
-	\label{RCodSniSimImp}
-\end{CodeSnippet}
+E.g. for \texttt{ii =  1} and \texttt{jj = 1} the results for the parameters $n=5$ and $p=0.2$ are stored in \texttt{figure\_01\_1\_1.svg} (see also \emph{R} Code Snippet \ref{RCodSniSimImp} in the Appendix).%\footnote{The barplot only shows the number of zeros and ones of the last realization of the DGP, i.e. only one out of $10000$.} 
 %
 Note, for the integration into the \emph{html} file and the animation using \emph{javascirpit} file later the naming of the figure and/or tables is important (see Section \ref{SecHowHtm}).
 
@@ -294,204 +241,11 @@ Note, for the integration into the \emph{html} file and the animation using \emp
 
 %..................................................
 
-\subsection{Structure of the \emph{html} file}\label{SecHowHtm}
-
-The core for the interactive and animated implementation consists of six components in form of six tags. 
-%
-These six tags are introduced below. 
+\subsection{Structure of the \emph{html} part}\label{SecHowHtm}
 
 %....................................................................................................
 
-\vspace{1em}
-\noindent\emph{Tag 1) Integration of the illustrations}
-
-The illustrations are integrated using \emph{img} tags with the \emph{class} attribute \texttt{figureCl}. 
-%
-The \emph{src} attributes of the \emph{img} tags point to a particular figure, i.e., the illustration of a particular simulation result. 
-%
-The \emph{id} attributes of the \emph{img} tags are set to, \texttt{figure1Id}, \texttt{figure2Id}, ..., and used to refer to the \emph{src} attribute of the \emph{img} tag using \emph{javascript}. 
-%
-Code snippet \ref{HtmlCodSniImgTag} below shows the code of the integration of figure 1 based on a DGP with two interactive parameters, i.e., two slider inputs. 
-%
-\begin{CodeSnippet}[!hp]
-	\centering
-	\caption{\emph{Html} code snippet for the integration of figure 1 with two slider inputs}
-	\footnotesize
-	\vspace{0.25cm}
-	\begin{BVerbatim}
-		
-	<img src="./figures/figure_01_1_1.svg" alt=""
-	class="figureCl" id="figure1Id" style="max-width: 75%;">
-		
-	\end{BVerbatim}
-	\label{HtmlCodSniImgTag}
-\end{CodeSnippet}
-
-%....................................................................................................
-
-\vspace{1em}
-\noindent\emph{Tag 2) Distribution of the illustrations across tabs}
-
-The \emph{img} tags with the \emph{class} attribute \texttt{figureCl} are embedded into \emph{div} tags with the \emph{class} attribute \texttt{tabContentL1Cl} to distribute the illustrations across tabs, i.e., one tab for each figure. 
-%
-The content of the \emph{div} tags, i.e., the tabs, can be displayed or not displayed using the \emph{display} attribute of the \emph{div} tags. 
-%
-The \emph{id} attributes of the \emph{div} tags for the tabs are set to, \texttt{tabContentL1N1Id}, \texttt{tabContentL1N1Id}, ..., and used to change the \emph{display} property of the \emph{style} attribute of the \emph{div} tags, i.e, to display or not to display the content of the tabs based on \emph{buttons} using \emph{javascript}. 
-%
-Code snippet \ref{HtmlCodSniDivTabTag} below shows the code of the integration of tab 1. 
-%
-\begin{CodeSnippet}[!hp]
-	\centering
-	\caption{\emph{Html} code snippet for integration of tab 1}
-	\footnotesize
-	\vspace{0.25cm}
-	\begin{BVerbatim}
-		
-	<div id="tabContentL1N2Id" class="tabContentL1Cl">
-		
-	  % content of the tab, i.e., figure
-		
-	</div>
-		
-	\end{BVerbatim}
-	\label{HtmlCodSniDivTabTag}
-\end{CodeSnippet}
-
-%....................................................................................................
-
-\vspace{1em}
-\noindent\emph{Tag 3) Interaction using sliders}
-
-The parametrization of the DGP cintegrationan be changed using \emph{input} tags\footnote{The \emph{bootstrap-slider} library (see \href{https://github.com/seiyria/bootstrap-slider}{\texttt{https://github.com/seiyria/bootstrap-slider}}) is used to display and interact with the learning module using sliders} with the \emph{class} attribute \texttt{sliderCl}. 
-%
-The values of the \emph{input} tags will be used to change the \emph{src} attribute of the \emph{img} tags, i.e., to change to the illustration of a particular simulation result. 
-%
-The \emph{id} attributes of the \emph{input} tags are set to, \texttt{slider1Id}, \texttt{slider2Id}, ... and used to interact with particular sliders using \emph{javascript}. 
-%
-Code snippet \ref{HtmlCodSniInputTag} below shows the code for the integration of slider 1. 
-%
-\begin{CodeSnippet}[!hp]
-	\centering
-	\caption{\emph{Html} code snippet for the integration of slider 1}
-	\footnotesize
-	\vspace{0.25cm}
-	\begin{BVerbatim}
-		
-	<input class="sliderCl" id="slider1Id" type="text"
-	data-slider-min="0" data-slider-max="4" data-slider-step="1"
-	data-slider-value="2"/>
-		
-	\end{BVerbatim}
-	\label{HtmlCodSniInputTag}
-\end{CodeSnippet}
-
-%....................................................................................................
-
-\vspace{1em}
-\noindent\emph{Tag 4) Displaying the values of the sliders}
-
-The value of the sliders, i.e., the underlying specification of the DGP, is displayed using \emph{p} tags with the \emph{class} attribute \texttt{sliderValueCl}. 
-%
-The \emph{id} attribute of the \emph{p} tags are set to, \texttt{sliderValue1Id}, \texttt{sliderValue2Id}, ..., and used to change the \texttt{.innerHTML} property of the \emph{p} tags to display the slider values using \emph{javascript}. 
-%
-Code snippet \ref{HtmlCodSniPSliderValueTag} below shows code to display the slider value of slider 1. 
-%
-\begin{CodeSnippet}[!hp]
-	\centering
-	\caption{\emph{Html} code snippet to display the value of slider 1}
-	\footnotesize
-	\vspace{0.25cm}
-	\begin{BVerbatim}
-		
-	<p style="font-size: 12pt; text-align: center;">
-	  Sample Size \(n\)
-	</p>
-	<p style="font-size: 12pt; text-align: center"
-	class="sliderValueCl" id="sliderValue1Id">
-	</p>
-		
-	\end{BVerbatim}
-	\label{HtmlCodSniPSliderValueTag}
-\end{CodeSnippet}
-
-%....................................................................................................
-
-\vspace{1em}
-\noindent\emph{Tag 5) Explanations of the figures and the effect of the parametrization}
-
-For each figure an overall explanation can be added. 
-% 
-Furthermore, for each figure and each slider, i.e., each interactive parameter, a explanation of the effect of the parametrization can be added. 
-%
-All explanations are collected in \emph{div} tags with the \emph{class} attribute \texttt{audioTextCl} and the \emph{id} set to, \texttt{audioTextFigure1OverallId}, \texttt{audioTextFigure2OverallId}, ..., for the explanations of the figures and, \texttt{audioTextFigure1Slider1Id}, \texttt{audioTextFigure1Slider2Id}, ..., \texttt{audioTextFigure2Slider1Id}, \texttt{audioTextFigure2Slider2Id}, ..., for the explanations of the effects of different parametrization of the DGP. 
-%
-The \emph{id} attributes of the \emph{div} tags are used to refer to specific explanations. 
-%
-Longer explanations can be distributed across multiple \emph{span} tags inside the \emph{div} tag. 
-%
-The distribution across multiple \emph{spans} invokes a break when the explanations is read aloud. 
-%
-Code snippet \ref{HtmlCodSnipDivOverallExplainText} below shows the integration of an overall explanation text for figure 1. 
-%
-\begin{CodeSnippet}[!hp]
-	\centering
-	\caption{\emph{Html} code snippet for adding an overall explanation of figure 1}
-	\footnotesize
-	\vspace{0.25cm}
-	\begin{BVerbatim}
-		
-    <div id="audioTextFigure1OverallId" class="audioTextCl">
-	  <span>The figure shows:<br></span>
-	  <span>Blablabla... .</span>
-	</div>
-		
-	\end{BVerbatim}
-	\label{HtmlCodSnipDivOverallExplainText}
-\end{CodeSnippet}
-%
-Code snippet \ref{HtmlCodSnipDivSliderExplainText} below shows the integration of an explanation of the effect of changing parameter 1, i.e., slider 1, based on figure 1. 
-%
-\begin{CodeSnippet}[!hp]
-	\centering
-	\caption{\emph{Html} code snippet for adding an explanation of the effect of changing slider 1 based on figure 1}
-	\footnotesize
-	\vspace{0.25cm}
-	\begin{BVerbatim}
-		
-    <div id="audioTextFigure01Slider1Id" class="audioTextCl">
-	  <span>Blablablab ... .<br></span>
-	  <span>Blablablab ... .</span>
-	</div>
-		
-	\end{BVerbatim}
-	\label{HtmlCodSnipDivSliderExplainText}
-\end{CodeSnippet}
-
-%....................................................................................................
-
-\vspace{1em}
-\noindent\emph{Tag 6) Displaying the explanations of the figures and the effects of the parametrization}
-%
-The explanation of the figures or the effects of the parametrization are displayed using \emph{p} tags with the \emph{class} attribute \texttt{audioShowTextCl}. 
-%
-The \emph{id} attribute of the \emph{p} tags are set to, \texttt{audioShowTextFigure1Id}, \texttt{audioShowTextFigure2Id}, ..., and used to change the \texttt{.innerHTML} property of the \emph{p} tags to display the explanations using \emph{javascript}. 
-%
-Code snippet \ref{HtmlCodSniPShowExplanationTag} below shows code to display the explanation for figure 1. 
-%
-\begin{CodeSnippet}[!hp]
-	\centering
-	\caption{\emph{Html} code snippet to display the explanation of figure 1}
-	\footnotesize
-	\vspace{0.25cm}
-	\begin{BVerbatim}
-		
-		<p id="audioShowTextFigure1Id" class="audioShowTextCl"
-		style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;">
-		</p>
-		
-	\end{BVerbatim}
-	\label{HtmlCodSniPShowExplanationTag}
-\end{CodeSnippet}
+\subsubsection{General structure}
 
 %....................................................................................................
 
@@ -523,20 +277,122 @@ The general scheme of the structure is outlined below.
 	\end{itemize}
 	\item 4th Container: More Details
 	\begin{itemize}
-		\item Simulation Exercise: 
+		\item Simulation Exercise:
+		\item ...
 	\end{itemize}
 	
 \end{itemize}
 
 %Other content such as explanations as plain text or formula or as audio files can be added and can be manipulated, e.g. made visible/invisible inside tabs or collapsibles using \emph{javascript}. 
 
+%....................................................................................................
 
+\subsubsection{Interactive and animated implementation}
+
+The core components for the interactive and animated implementation in the \emph{html} part consist of six tags. 
+%
+These six tags are introduced below. 
 
 %....................................................................................................
 
-\subsection{Structure of the \emph{javascript} file}\label{SecHowJs}
+\vspace{1em}
+\noindent\emph{Tag 1) Integration of the illustrations}
 
-...
+The illustrations are integrated using \emph{img} tags with the \emph{class} attribute \texttt{figureCl}. 
+%
+The \emph{src} attributes of the \emph{img} tags point to a particular figure, i.e., the illustration of a particular simulation result. 
+%
+The \emph{id} attributes of the \emph{img} tags are set to, \texttt{figure1Id}, \texttt{figure2Id}, ..., and used to refer to the \emph{src} attribute of the \emph{img} tag using \emph{javascript}. 
+%
+Code snippet \ref{HtmlCodSniImgTag} in the Appendix below shows the code of the integration of figure 1 based on a DGP with two interactive parameters, i.e., two slider inputs. 
+
+%....................................................................................................
+
+\vspace{1em}
+\noindent\emph{Tag 2) Distribution of the illustrations across tabs}
+
+The \emph{img} tags with the \emph{class} attribute \texttt{figureCl} are embedded into \emph{div} tags with the \emph{class} attribute \texttt{tabContentL1Cl} to distribute the illustrations across tabs, i.e., one tab for each figure. 
+%
+The content of the \emph{div} tags, i.e., the tabs, can be displayed or not displayed using the \emph{display} attribute of the \emph{div} tags. 
+%
+The \emph{id} attributes of the \emph{div} tags for the tabs are set to, \texttt{tabContentL1N1Id}, \texttt{tabContentL1N1Id}, ..., and used to change the \emph{display} property of the \emph{style} attribute of the \emph{div} tags, i.e, to display or not to display the content of the tabs based on \emph{buttons} using \emph{javascript}. 
+%
+Code snippet \ref{HtmlCodSniDivTabTag} in the Appendix below shows the code of the integration of tab 1. 
+
+%....................................................................................................
+
+\vspace{1em}
+\noindent\emph{Tag 3) Interaction using sliders}
+
+The parametrization of the DGP cintegrationan be changed using \emph{input} tags\footnote{The \emph{bootstrap-slider} library (see \href{https://github.com/seiyria/bootstrap-slider}{\texttt{https://github.com/seiyria/bootstrap-slider}}) is used to display and interact with the learning module using sliders} with the \emph{class} attribute \texttt{sliderCl}. 
+%
+The values of the \emph{input} tags will be used to change the \emph{src} attribute of the \emph{img} tags, i.e., to change to the illustration of a particular simulation result. 
+%
+The \emph{id} attributes of the \emph{input} tags are set to, \texttt{slider1Id}, \texttt{slider2Id}, ... and used to interact with particular sliders using \emph{javascript}. 
+%
+Code snippet \ref{HtmlCodSniInputTag} Appendix below shows the code for the integration of slider 1. 
+
+%....................................................................................................
+
+\vspace{1em}
+\noindent\emph{Tag 4) Displaying the values of the sliders}
+
+The value of the sliders, i.e., the underlying specification of the DGP, is displayed using \emph{p} tags with the \emph{class} attribute \texttt{sliderValueCl}. 
+%
+The \emph{id} attribute of the \emph{p} tags are set to, \texttt{sliderValue1Id}, \texttt{sliderValue2Id}, ..., and used to change the \texttt{.innerHTML} property of the \emph{p} tags to display the slider values using \emph{javascript}. 
+%
+Code snippet \ref{HtmlCodSniPSliderValueTag} in the Appendix below shows code to display the slider value of slider 1. 
+
+%....................................................................................................
+
+\vspace{1em}
+\noindent\emph{Tag 5) Explanations of the figures and the effect of the parametrization}
+
+For each figure an overall explanation can be added. 
+% 
+Furthermore, for each figure and each slider, i.e., each interactive parameter, a explanation of the effect of the parametrization can be added. 
+%
+All explanations are collected in \emph{div} tags with the \emph{class} attribute \texttt{audioTextCl} and the \emph{id} set to, \texttt{audioTextFigure1OverallId}, \texttt{audioTextFigure2OverallId}, ..., for the explanations of the figures and, \\ \texttt{audioTextFigure1Slider1Id}, \texttt{audioTextFigure1Slider2Id}, ..., \\ \texttt{audioTextFigure2Slider1Id}, \texttt{audioTextFigure2Slider2Id}, ..., for the explanations of the effects of different parametrization of the DGP. 
+%
+The \emph{id} attributes of the \emph{div} tags are used to refer to specific explanations. 
+%
+Longer explanations can be distributed across multiple \emph{span} tags inside the \emph{div} tag. 
+%
+The distribution across multiple \emph{spans} invokes a break when the explanations is read aloud. 
+%
+Code snippet \ref{HtmlCodSnipDivOverallExplainText} in the Appendix below shows the integration of an overall explanation text for figure 1. 
+%
+Code snippet \ref{HtmlCodSnipDivSliderExplainText} in the Appendix below shows the integration of an explanation of the effect of changing parameter 1, i.e., slider 1, based on figure 1. 
+
+%....................................................................................................
+
+\vspace{1em}
+\noindent\emph{Tag 6) Displaying the explanations of the figures and the effects of the parametrization}
+%
+The explanation of the figures or the effects of the parametrization are displayed using \emph{p} tags with the \emph{class} attribute \texttt{audioShowTextCl}. 
+%
+The \emph{id} attribute of the \emph{p} tags are set to, \texttt{audioShowTextFigure1Id}, \texttt{audioShowTextFigure2Id}, ..., and used to change the \texttt{.innerHTML} property of the \emph{p} tags to display the explanations using \emph{javascript}. 
+%
+Code snippet \ref{HtmlCodSniPShowExplanationTag} in the Appendix below shows code to display the explanation for figure 1. 
+
+%....................................................................................................
+
+\subsection{Structure of the \emph{javascript} part}\label{SecHowJs}
+
+The core components for the interactive and animated implementation in the \emph{javacript} part consist of a module specific internal \emph{javascript} and a general external \emph{javacript} file called \texttt{interactionAndAnimationScript.js} located in the \text{assets} subdirectory. 
+%
+The module specific internal \emph{javascript} contains one object called \texttt{sliders} which contain the module specific information on the sliders, i.e. (1) the values of the sliders, (2) the initial index of the sliders and (3) the parameter in mathjax syntax. 
+%
+Code snippet \ref{JsCodSniInt} in the Appendix below shows module specific \emph{javascript} code for the module \texttt{ber-dis-sam-ave}. 
+%
+The interactive and animated implementation is part of the external \emph{javacript} file \texttt{interactionAndAnimationScript.js}. 
+%
+The most important functions are (1) \texttt{updateFiguresAndSliderValues()} to update the figures based on the current slider value(s), (2) \texttt{animateButtonClick(slider)} to animate a slider, e.g., for slider 1, \texttt{animateButtonClick(slider = 1)}, and (3) \texttt{explainButtonClick()} to explain a figure.
+%
+Important, the interactive and animated implementation relies on the correct \emph{class} and \emph{id} naming convention of the \emph{html} tags introduced in Section \ref{SecHowHtm}.
+
+%...
+
 
 %....................................................................................................
 
@@ -569,9 +425,202 @@ The general scheme of the structure is outlined below.
 %	\end{itemize}
 %\end{itemize}
 
+\pagebreak
+\FloatBarrier
 
+\appendix
+\section{Appendix}
 
+\begin{CodeSnippet}[!hp]
+	\centering
+	\caption{\emph{R} code snippet simulation setup}
+	\footnotesize
+	\vspace{0.25cm}
+	\begin{BVerbatim}
+		
+		# inputs (variable)
+		n.vec <- c(5, 10, 25, 50, 100)
+		p.vec <- c(0.2, 0.4, 0.6, 0.8)
+		
+		# inputs (fixed)
+		RR <- 10000
+		
+	\end{BVerbatim}
+	\label{RCodSniSimSet}
+\end{CodeSnippet}
 
+\begin{CodeSnippet}[!hp]
+	\centering
+	\caption{\emph{R} code snippet simulation and illustration implementation}
+	\footnotesize
+	\vspace{0.25cm}
+	\begin{BVerbatim}
+		
+		# simulation/illustration
+		
+		for (ii in 1:length(n.vec)) {
+			
+		  for (jj in 1:length(p.vec)) {
+				
+		    NN <- n.vec[ii]
+			p <- p.vec[jj]
+				
+			simulation
+			tmp.sim <- Y_bar_ber_sim_fun(RR = RR, NN = NN, p = p)
+				
+			# plot no 01
+			plt.nam <- paste(fig.dir, "figure_01_", ii, "_", jj, ".svg", sep = "")
+			svg(plt.nam) 
+				
+			...
+				
+			dev.off()		
+				
+			...
+				
+		  }
+			
+		}
+		
+	\end{BVerbatim}
+	\label{RCodSniSimImp}
+\end{CodeSnippet}
+
+\begin{CodeSnippet}[!hp]
+	\centering
+	\caption{\emph{Html} code snippet for the integration of figure 1 with two slider inputs}
+	\footnotesize
+	\vspace{0.25cm}
+	\begin{BVerbatim}
+		
+		<img src="./figures/figure_01_1_1.svg" alt=""
+		class="figureCl" id="figure1Id" style="max-width: 75%;">
+		
+	\end{BVerbatim}
+	\label{HtmlCodSniImgTag}
+\end{CodeSnippet}
+
+\begin{CodeSnippet}[!hp]
+	\centering
+	\caption{\emph{Html} code snippet for integration of tab 1}
+	\footnotesize
+	\vspace{0.25cm}
+	\begin{BVerbatim}
+		
+		<div id="tabContentL1N2Id" class="tabContentL1Cl">
+		
+		% content of the tab, i.e., figure
+		
+		</div>
+		
+	\end{BVerbatim}
+	\label{HtmlCodSniDivTabTag}
+\end{CodeSnippet}
+
+\begin{CodeSnippet}[!hp]
+	\centering
+	\caption{\emph{Html} code snippet for the integration of slider 1}
+	\footnotesize
+	\vspace{0.25cm}
+	\begin{BVerbatim}
+		
+		<input class="sliderCl" id="slider1Id" type="text"
+		data-slider-min="0" data-slider-max="4" data-slider-step="1"
+		data-slider-value="2"/>
+		
+	\end{BVerbatim}
+	\label{HtmlCodSniInputTag}
+\end{CodeSnippet}
+
+\begin{CodeSnippet}[!hp]
+	\centering
+	\caption{\emph{Html} code snippet to display the value of slider 1}
+	\footnotesize
+	\vspace{0.25cm}
+	\begin{BVerbatim}
+		
+		<p style="font-size: 12pt; text-align: center;">
+		Sample Size \(n\)
+		</p>
+		<p style="font-size: 12pt; text-align: center"
+		class="sliderValueCl" id="sliderValue1Id">
+		</p>
+		
+	\end{BVerbatim}
+	\label{HtmlCodSniPSliderValueTag}
+\end{CodeSnippet}
+
+\begin{CodeSnippet}[!hp]
+	\centering
+	\caption{\emph{Html} code snippet for adding an overall explanation of figure 1}
+	\footnotesize
+	\vspace{0.25cm}
+	\begin{BVerbatim}
+		
+		<div id="audioTextFigure1OverallId" class="audioTextCl">
+		<span>The figure shows:<br></span>
+		<span>Blablabla... .</span>
+		</div>
+		
+	\end{BVerbatim}
+	\label{HtmlCodSnipDivOverallExplainText}
+\end{CodeSnippet}
+
+\begin{CodeSnippet}[!hp]
+	\centering
+	\caption{\emph{Html} code snippet for adding an explanation of the effect of changing slider 1 based on figure 1}
+	\footnotesize
+	\vspace{0.25cm}
+	\begin{BVerbatim}
+		
+		<div id="audioTextFigure01Slider1Id" class="audioTextCl">
+		<span>Blablablab ... .<br></span>
+		<span>Blablablab ... .</span>
+		</div>
+		
+	\end{BVerbatim}
+	\label{HtmlCodSnipDivSliderExplainText}
+\end{CodeSnippet}
+
+\begin{CodeSnippet}[!hp]
+	\centering
+	\caption{\emph{Html} code snippet to display the explanation of figure 1}
+	\footnotesize
+	\vspace{0.25cm}
+	\begin{BVerbatim}
+		
+		<p id="audioShowTextFigure1Id" class="audioShowTextCl"
+		style="font-size: 10pt; color: red; font-style: italic;
+		text-align: center; display: none;">
+		</p>
+		
+	\end{BVerbatim}
+	\label{HtmlCodSniPShowExplanationTag}
+\end{CodeSnippet}
+
+\begin{CodeSnippet}[!hp]
+	\centering
+	\caption{\emph{Javascript} code snippet containing the module specific for the module \texttt{ber-dis-sam-ave}}
+	\footnotesize
+	\vspace{0.25cm}
+	\begin{BVerbatim}
+		
+		// object with all sliders
+		let sliders = {
+			value: {
+				slider1: [5, 10, 25, 50, 100],
+				slider2: [0.2, 0.4, 0.6, 0.8],
+			},
+			initialIndex: [2, 2],
+			sliderValueParStr: ['\\(n = ', '\\(p = '],
+		};
+		
+	\end{BVerbatim}
+	\label{JsCodSniInt}
+\end{CodeSnippet}
+
+\pagebreak
+\FloatBarrier
 
 \bibliographystyle{alpha}
 \bibliography{bibliography}
