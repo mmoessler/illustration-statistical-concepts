@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
 
     <!-- my style sheet -->
-    <link rel="stylesheet" href="mystyle.css">
+    <link rel="stylesheet" href="../assets/mystyle.css">
 
     <!-- logo -->
     <div class="logoCl header01Cl" style="text-align:center; padding-top: 20px; padding-bottom: 20px;" background-color="#eeeeee;">
-      <img src="RZ_UniHohenheim_Logo_1C_Weiss_EN.svg" height="250px"/>
+      <img src="../assets/RZ_UniHohenheim_Logo_1C_Weiss_EN.svg" height="250px"/>
     </div>
 
   </head>
@@ -155,34 +155,34 @@
 
                       <hr>
 
-                      <p style="font-size: 12pt; text-align: center;">Sample Size \(n\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue1Id"></p>
-                      <input id="slider1Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <p style="font-size: 12pt; text-align: center;">Sample Size \(n\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue1Id"></p>
+                      <input class="sliderCl" id="slider1Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
                       <div style="font-size: 12pt; text-align: center;">
-                        <button class="animateButtonCl" onclick="animateButton01Click()">Animate \(n\)</button>
+                        <button class="animateButtonCl" onclick="animateButtonClick(slider = 1)">Animate \(n\)</button>
                       </div>
 
                       <hr>
 
-                      <p style="font-size: 12pt; text-align: center;">Variance of \(X_{i}\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue2Id"></p>
-                      <input id="slider2Id" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="1"/>
+                      <p style="font-size: 12pt; text-align: center;">Variance of \(X_{i}\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue2Id"></p>
+                      <input class="sliderCl" id="slider2Id" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="1"/>
                       <div style="font-size: 12pt; text-align: center;">
-                        <button class="animateButtonCl" onclick="animateButton02Click()">Animate \(\\\sigma_{X}^{2}\)</button>
+                        <button class="animateButtonCl" onclick="animateButtonClick(slider = 2)">Animate \(\\\sigma_{X}^{2}\)</button>
                       </div>
 
                       <hr>
 
-                      <p style="font-size: 12pt; text-align: center;">Variance of \(u_{i}\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue3Id"></p>
+                      <p style="font-size: 12pt; text-align: center;">Variance of \(u_{i}\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue3Id"></p>
                       <input id="slider3Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
-                      <div style="font-size: 12pt; text-align: center;">
-                        <button class="animateButtonCl" onclick="animateButton03Click()">Animate \(\\\gamma_{0}\)</button>
+                      <div class="sliderCl" style="font-size: 12pt; text-align: center;">
+                        <button class="animateButtonCl" onclick="animateButtonClick(slider = 3)">Animate \(\\\gamma_{0}\)</button>
                       </div>                      
                   
                       <hr>
 
-                      <p style="font-size: 12pt; text-align: center;">Heteroskedasticity</p><p style="font-size: 12pt; text-align: center" id="sliderValue4Id"></p>
-                      <input id="slider4Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <p style="font-size: 12pt; text-align: center;">Heteroskedasticity</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue4Id"></p>
+                      <input class="sliderCl" id="slider4Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
                       <div style="font-size: 12pt; text-align: center;">
-                        <button class="animateButtonCl" onclick="animateButton04Click()">Animate \(\\\gamma_{1}\)</button>
+                        <button class="animateButtonCl" onclick="animateButtonClick(slider = 4)">Animate \(\\\gamma_{1}\)</button>
                       </div>
 
                     </div>
@@ -215,10 +215,10 @@
                       </table>
 
                       <div style="text-align: center;">
-                        <img src="./figures/figure_01_1_1_1_1.svg" alt="" id="image1Id" style="max-width: 75%;">
+                        <img src="./figures/figure_01_1_1_1_1.svg" alt="" class="figureCl" id="figure1Id" style="max-width: 75%;">
                       </div> 
 
-                      <p id="audioShowTextFigure01Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                      <p class="audioShowTextCl" id="audioShowTextFigure1Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
 
                       <p>The red fitted regression line is based on the regression of,</p>
 
@@ -245,10 +245,10 @@
                       </table>
 
                       <div style="text-align: center;">
-                        <img src="./figures/figure_02_1_1_1_1.svg" alt="" id="image2Id" style="max-width: 75%;">
+                        <img src="./figures/figure_02_1_1_1_1.svg" alt="" class="figureCl" id="figure2Id" style="max-width: 75%;">
                       </div>
 
-                      <p id="audioShowTextFigure02Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                      <p class="audioShowTextCl" id="audioShowTextFigure2Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
 
                       <p>The fitted unobserved residuals are constructed as,</p>
 
@@ -275,10 +275,10 @@
                       </table>
 
                       <div style="text-align: center;">
-                        <img src="./figures/figure_03_1_1_1_1.svg" alt="" id="image3Id" style="max-width: 75%;">
+                        <img src="./figures/figure_03_1_1_1_1.svg" alt="" class="figureCl" id="figure3Id" style="max-width: 75%;">
                       </div>
 
-                      <p id="audioShowTextFigure03Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center;"></p>
+                      <p class="audioShowTextCl" id="audioShowTextFigure3Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center;"></p>
 
                       <span style="font-size: 16pt; text-decoration: underline;">Consistency</span><span style="font-size: 16pt; text-decoration: none; display: none;">:</span>
 
@@ -305,10 +305,10 @@
                       </table>
 
                       <div style="text-align: center;">
-                        <img src="./figures/figure_04_1_1.svg" alt="" id="image4Id" style="max-width: 75%;">
+                        <img src="./figures/figure_04_1_1.svg" alt="" class="figureCl" id="figure4Id" style="max-width: 75%;">
                       </div>
 
-                      <p id="audioShowTextFigure04Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                      <p class="audioShowTextCl" id="audioShowTextFigure4Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
 
                       <span style="font-size: 16pt; text-decoration: underline;">Asymptotic Normality</span><span style="font-size: 16pt; text-decoration: none;">:</span>
 
@@ -387,79 +387,79 @@
 
       <!-- .................................................. -->
       <!-- figure 1 -->
-      <div id="audioTextFigure01OverallId" class="audioTextCl">
+      <div id="audioTextFigure1OverallId" class="audioTextCl">
         <span>The figure shows:<br></span>
         <span>The scatter plot of the values of x and y and the corresponding fitted regression line estimated by OLS for one particular realization of the underlying DGP.<br></span>
         <span>The red shaded area illustrates the range of all fitted regression lines estimated by OLS across all realizations for the underlying DGP.</span>
       </div>
 
-      <div id="audioTextFigure01Slider1Id" class="audioTextCl">
+      <div id="audioTextFigure1Slider1Id" class="audioTextCl">
         <span>Increasing the sample size decreases the range of the different fitted regression lines estimated by OLS across different realizations of the underlying DGP illustrated by the red shaded area.</span>
       </div>
 
-      <div id="audioTextFigure01Slider2Id" class="audioTextCl">        
+      <div id="audioTextFigure1Slider2Id" class="audioTextCl">        
         <span>Increasing the variance of \(X_i\) decreases the range of the different fitted regression lines estimated by OLS across different realizations of the underlying DGP illustrated by the red shaded area.</span>
       </div>
 
-      <div id="audioTextFigure01Slider3Id" class="audioTextCl">
+      <div id="audioTextFigure1Slider3Id" class="audioTextCl">
         <span>Increasing the variance of \(u_i\) decreases the range of the different fitted regression lines estimated by OLS across different realizations of the underlying DGP illustrated by the red shaded area.</span>
       </div>
 
-      <div id="audioTextFigure01Slider4Id" class="audioTextCl">
+      <div id="audioTextFigure1Slider4Id" class="audioTextCl">
         <span>Introducing heteroskedasticity increases the range of the different fitted regression lines estimated by OLS across different realizations of the underlying DGP illustrated by the red shaded area.</span>
       </div>
 
       <!-- .................................................. -->
       <!-- figure 2 -->
-      <div id="audioTextFigure02OverallId" class="audioTextCl">
+      <div id="audioTextFigure2OverallId" class="audioTextCl">
         <span>The figure shows:<br></span>
         <span>The scatter plot of the value of x and the fitted residuals of a simple linear regression model estimated by OLS.<br></span>
         <span>Note, since the estimated parameters includes an intercept and a slope coefficient, the fitted residuals have a mean equal to zero and are uncorrelated with x by construction of the OLS estimator.</span>
       </div>
 
-      <div id="audioTextFigure02Slider1Id" class="audioTextCl">
+      <div id="audioTextFigure2Slider1Id" class="audioTextCl">
         Increasing the sample size increases the number of fitted residuals estimated by OLS.
       </div>
 
-      <div id="audioTextFigure02Slider2Id" class="audioTextCl">
+      <div id="audioTextFigure2Slider2Id" class="audioTextCl">
         <span>Increasing the variance of \(X_i\) increases the range of the fitted residuals on the x-axis.</span>
       </div>
 
-      <div id="audioTextFigure02Slider3Id" class="audioTextCl">
+      <div id="audioTextFigure2Slider3Id" class="audioTextCl">
         <span>Increasing the variance of \(u_i\) increases the range of the fitted residuals on the x-axis as well as vertically.</span>
       </div>
 
-      <div id="audioTextFigure02Slider4Id" class="audioTextCl">
+      <div id="audioTextFigure2Slider4Id" class="audioTextCl">
         <span>Introducing heteroskedasticity leads to a wider spread of the fitted residuals vertically.</span>
       </div>
 
       <!-- .................................................. -->
       <!-- figure 3 -->
-      <div id="audioTextFigure03OverallId" class="audioTextCl">
+      <div id="audioTextFigure3OverallId" class="audioTextCl">
         BlaBlaBla
       </div>
 
-      <div id="audioTextFigure03Slider1Id" class="audioTextCl">
+      <div id="audioTextFigure3Slider1Id" class="audioTextCl">
         <span>The figure shows:<br></span>
         <span>The histogram of the estimated slope coefficient across all realizations of the underlying DGP.<br></span>
         <span>The red vertical dashed line represents the estimated slope coefficient for one particular realization of the underlying DGP.<br></span>
         <span>The green vertical dashed line represents the slope coefficient of the underlying DGP.</span>
       </div>
 
-      <div id="audioTextFigure03Slider2Id" class="audioTextCl">
+      <div id="audioTextFigure3Slider2Id" class="audioTextCl">
         <span>The figure shows:<br></span>
         <span>The histogram of the estimated slope coefficient across all realizations of the underlying DGP.<br></span>
         <span>An increase of the variance of \(X_i\) lets the OLS estimator \(\widehat{\beta_1}\) get close to \(\beta\) </span>
       </div>
 
-      <div id="audioTextFigure03Slider3Id" class="audioTextCl">
+      <div id="audioTextFigure3Slider3Id" class="audioTextCl">
         <span>The figure shows:<br></span>
         <span>The histogram of the estimated slope coefficient across all realizations of the underlying DGP.<br></span>
         <span>A positive increase of the variance of \(u_i\) lets the OLS estimator \(\widehat{\beta_1}\) get further away from \(\beta\). For a negative variance increase the contrary holds. </span>
         
       </div>
 
-      <div id="audioTextFigure03Slider4Id" class="audioTextCl">
+      <div id="audioTextFigure3Slider4Id" class="audioTextCl">
         <span>The figure shows:<br></span>
         <span>The histogram of the estimated slope coefficient across all realizations of the underlying DGP.<br></span>
         <span>An increase of the heteroskedasticity lets the OLS estimator \(\widehat{\beta_1}\) get further away from \(\beta\).</span>
@@ -467,7 +467,7 @@
 
       <!-- .................................................. -->
       <!-- figure 4 -->
-      <div id="audioTextFigure04OverallId" class="audioTextCl">
+      <div id="audioTextFigure4OverallId" class="audioTextCl">
         <span>The figure shows:<br></span>
         <span>The histogram of the standardized estimated slope coefficient across all realizations of the DGP.<br></span>
         <span>For the standardization with subtract the slope coefficient and divide by an estimate of the variance of the estimated slope coefficient.<br></span>
@@ -476,22 +476,22 @@
         <span>Note, the estimate for the variance of the estimated slope coefficient is explained below and is a function of the sample size, the variance of u, the variance of x, and the covariance of u and x.</span>
       </div>
 
-      <div id="audioTextFigure04Slider1Id" class="audioTextCl">
+      <div id="audioTextFigure4Slider1Id" class="audioTextCl">
         <span>By increasing the sample size the sampling distribution of the standardized estimated slope coefficient gets closer to the standard normal distribution which pdf is illustrated by the green dashed curve.<br></span>
         <span>This is the result of central limit theorem.<br></span>
         <span>Note, the sampling distribution of the standardized estimate is stable across the sample size.</span>
         <span>Thus, for large n the standardized estimate can be used to conduct hypothesis tests.</span>
       </div>
 
-      <div id="audioTextFigure04Slider2Id" class="audioTextCl">
+      <div id="audioTextFigure4Slider2Id" class="audioTextCl">
         <span>By increasing the variance of \(X_i\) the ordinary as well as the robust SE has more realizations on the more extreme ends, e.g., Histogram has fatter tails. </span>
       </div>
 
-      <div id="audioTextFigure04Slider3Id" class="audioTextCl">
+      <div id="audioTextFigure4Slider3Id" class="audioTextCl">
         <span>By increasing the variance of \(u_i\) the robust SE has more extreme realizations than the ordinary SE and therefore fits worse to the pdf of \(N(0,1)\). </span>
       </div>
 
-      <div id="audioTextFigure04Slider4Id" class="audioTextCl">
+      <div id="audioTextFigure4Slider4Id" class="audioTextCl">
         <span>When heteroskedasticity is introduced, the robust SE outperforms the ordinary SE and fits much better to the pdf of \(N(0,1)\).</span>
       </div>
 
@@ -523,7 +523,7 @@
         <table style="width:100%">
           <tr>
             <td style="width: 25%; text-align: left; padding-left: 10%;">
-              <img src="RZ_UniHohenheim_Logo_4C_E_blau_EN.svg" height="10%"/>
+              <img src="../assets/RZ_UniHohenheim_Logo_4C_E_blau_EN.svg" height="10%"/>
             </td>
             <td style="width: 50%; text-align: center;">
               <p style="font-size: 75%; text-align: center;">This module is part of the <a href="https://www.uni-hohenheim.de/en/project-dellfi">DeLLFi</a> project of the University of Hohenheim and funded by the <br> <a href="https://stiftung-hochschullehre.de/">Foundation for Innovation in University Teaching</a></p>
@@ -532,7 +532,7 @@
               </a> 
             </td>
             <td style="width: 25%; text-align: right; padding-right: 10%;">
-              <img src="Logo_Stiftung_Hochschullehre.svg" height="10%"/>
+              <img src="../assets/Logo_Stiftung_Hochschullehre.svg" height="10%"/>
             </td>
           </tr>
         </table>
@@ -559,29 +559,25 @@
     <!-- adjust inputs -->
     <script>
 
-      var par01Vec = [5, 10, 25, 50, 100];
-      var par02Vec = [1, 5, 10];
-      var par03Vec = [-1, -0.5, 0, 0.5, 1];
-      var par04Vec = [-0.2, -0.1, 0, 0.1, 0.2];
-
-      var par01Ini = 2;
-      var par02Ini = 1;
-      var par03Ini = 2;
-      var par04Ini = 2;
-
-      var par01Str01 = "\\(n = ";
-      var par02Str01 = "\\(\\sigma_{X}^{2} = ";
-      var par03Str01 = "\\(\\gamma_{0} = ";
-      var par04Str01 = "\\(\\gamma_{1} = ";
+      // object with all sliders
+      let sliders = {
+        value: {
+          slider1: [5, 10, 25, 50, 100],
+          slider2: [1, 5, 10],
+          slider3: [-1, -0.5, 0, 0.5, 1],
+          slider4: [-0.2, -0.1, 0, 0.1, 0.2],
+        },
+        initialIndex: [2, 1, 2, 2],
+        sliderValueParStr: ['\\(n = ', '\\(\\sigma_{X}^{2} = ', '\\(\\gamma_{0} = ', '\\(\\gamma_{1} = '],
+      };
 
     </script>
 
+    <!-- include js for interaction and animation -->
+    <script src="../assets/interactionAndAnimationScript.js"></script>
+    
     <!-- include my javascript -->
-    <script src="myScript.js"></script>
-
-    <script src="par04Fig04InteractivationScript.js"></script>
-
-    <script src="par04Fig04AnimationScript.js"></script>
+    <script src="../assets/myScript.js"></script>  
 
   </body>
 </html>
