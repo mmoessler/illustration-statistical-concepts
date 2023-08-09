@@ -11,11 +11,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
   
   <!-- my style sheet -->
-  <link rel="stylesheet" href="mystyle.css">
+  <link rel="stylesheet" href="../assets/mystyle.css">
   
   <!-- logo -->
   <div class="logoCl header01Cl" style="text-align:center; padding-top: 20px; padding-bottom: 20px;" background-color="#eeeeee;">
-    <img src="RZ_UniHohenheim_Logo_1C_Weiss_EN.svg" height="250px"/>
+    <img src="../assets/RZ_UniHohenheim_Logo_1C_Weiss_EN.svg" height="250px"/>
   </div>
   
 </head>
@@ -167,7 +167,7 @@
                       <td style="width: 10%"></td>
                       <td style="width: 80%; font-size: 14pt; text-align: left;">Scatter plot (realizations)</td>
                       <td style="width: 10%; font-size: 14pt; text-align: right;">
-                        <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                        <button class="explainButtonCl" onclick="explainButtonClick()">Explain</button>
                       </td>
                     </tr>
                   </table>
@@ -176,7 +176,7 @@
                     <img src="./figures/figure_01_1_1.svg" alt="" class="figureCl" id="figure1Id" style="max-width: 75%;">
                   </div>  
                   
-                  <p id="audioShowTextFigure1Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                  <p class="audioShowTextCl" id="audioShowTextFigure1Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
                   
                   <p>The red fitted regression line is based on the regression of,</p>
                   
@@ -197,7 +197,7 @@
                       <td style="width: 10%"></td>
                       <td style="width: 80%; font-size: 14pt; text-align: left;">Scatter plot (fitted unobserved residuals)</td>
                       <td style="width: 10%; font-size: 14pt; text-align: right;">
-                        <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                        <button class="explainButtonCl" onclick="explainButtonClick()">Explain</button>
                       </td>
                     </tr>
                   </table>
@@ -206,7 +206,7 @@
                     <img src="./figures/figure_02_1_1.svg" alt="" class="figureCl" id="figure2Id" style="max-width: 75%;">
                   </div>
                   
-                  <p id="audioShowTextFigure2Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                  <p class="audioShowTextCl" id="audioShowTextFigure2Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
                   
                   <p>The fitted OLS residuals are</p>
                   
@@ -227,7 +227,7 @@
                       <td style="width: 10%"></td>
                       <td style="width: 80%; font-size: 14pt; text-align: left;">Histogram of the OLS estimates \(\widehat{\beta}_{1}\)</td>
                       <td style="width: 10%; font-size: 14pt; text-align: right;">
-                        <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                        <button class="explainButtonCl" onclick="explainButtonClick()">Explain</button>
                       </td>
                     </tr>
                   </table>
@@ -236,7 +236,7 @@
                     <img src="./figures/figure_03_1_1.svg" alt="" class="figureCl" id="figure3Id" style="max-width: 75%;">
                   </div>
                   
-                  <p id="audioShowTextFigure3Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                  <p class="audioShowTextCl" id="audioShowTextFigure3Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
                   
                   <span style="font-size: 16pt; text-decoration: underline;">Consistency</span><span style="font-size: 16pt; text-decoration: none;">:</span>
                   
@@ -259,7 +259,7 @@
                       <td style="width: 10%"></td>
                       <td style="width: 80%; font-size: 14pt; text-align: left;">Histogram of the standardized OLS estimates \(z_{\widehat{\beta}_{1}}\)</td>
                       <td style="width: 10%; font-size: 14pt; text-align: right;">
-                        <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                        <button class="explainButtonCl" onclick="explainButtonClick()">Explain</button>
                       </td>
                     </tr>
                   </table>
@@ -268,7 +268,7 @@
                     <img src="./figures/figure_04_1_1.svg" alt="" class="figureCl" id="figure4Id" style="max-width: 75%;">
                   </div>
                   
-                  <p id="audioShowTextFigure4Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                  <p class="audioShowTextCl" id="audioShowTextFigure4Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
                   
                   <span style="font-size: 16pt; text-decoration: underline;">Asymptotic Normality</span><span style="font-size: 16pt; text-decoration: none;">:</span>
                   
@@ -468,7 +468,7 @@
       <table style="width:100%">
         <tr>
           <td style="width: 25%; text-align: left; padding-left: 10%;">
-            <img src="RZ_UniHohenheim_Logo_4C_E_blau_EN.svg" height="10%"/>
+            <img src="../assets/RZ_UniHohenheim_Logo_4C_E_blau_EN.svg" height="10%"/>
           </td>
           <td style="width: 50%; text-align: center;">
             <p style="font-size: 75%; text-align: center;">This module is part of the <a href="https://www.uni-hohenheim.de/en/project-dellfi">DeLLFi</a> project of the University of Hohenheim and funded by the <br> <a href="https://stiftung-hochschullehre.de/">Foundation for Innovation in University Teaching</a></p>
@@ -477,7 +477,7 @@
             </a> 
           </td>
           <td style="width: 25%; text-align: right; padding-right: 10%;">
-            <img src="Logo_Stiftung_Hochschullehre.svg" height="10%"/>
+            <img src="../assets/Logo_Stiftung_Hochschullehre.svg" height="10%"/>
           </td>
         </tr>
       </table>
@@ -489,53 +489,38 @@
   <!-- include mathjax js via cdn -->
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-</script>
+  </script>
 
-<!-- include bootstrap slider js via cdn --> 
-<script 
-src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js">
-</script>
+  <!-- include bootstrap slider js via cdn --> 
+  <script 
+  src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js">
+  </script>
 
-<!-- include jstat js via cdn -->
-<script
-src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js">
-</script>
+  <!-- include jstat js via cdn -->
+  <script
+  src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js">
+  </script>
 
-<!-- adjust inputs -->
-<script>
-  
-  // var par01Vec = [1, 2, 3, 4, 5];
-  // var par02Vec = [5, 10, 25, 50, 100];
-  
-  // var par01Ini = 2;
-  // var par02Ini = 2;
-  
-  // var par01Str01 = "\\(r = ";
-  // var par02Str01 = "\\(n = ";
-  
-  // object with all sliders
-  let sliders = {
-    value: {
-      slider1: [1, 2, 3, 4, 5],
-      slider2: [5, 10, 25, 50, 100],      
-    },
-    sliderValueParStr: ['\\(r = ', '\\(n = '],
-  };
-  
-</script>
-
-<!-- include my javascript
-  <script src="myScript.js"></script>
-  
-  <script src="par02Fig04InteractivationScript.js"></script>
-  
-  <script src="par02Fig04AnimationScript.js"></script> -->
+  <!-- adjust inputs -->
+  <script>
+      
+    // object with all sliders
+    let sliders = {
+      value: {
+        slider1: [1, 2, 3, 4, 5],
+        slider2: [5, 10, 25, 50, 100],        
+      },
+      initialIndex: [2, 2],
+      sliderValueParStr: ['\\(r = ', '\\(n = '],
+    };
+    
+  </script>
   
   <!-- include js for interaction and animation -->
-  <script src="../jscripts/interactionAndAnimationScript.js"></script>
+  <script src="../assets/interactionAndAnimationScript.js"></script>
   
   <!-- include my javascript -->
-  <script src="../jscripts/myScript.js"></script>
+  <script src="../assets/myScript.js"></script>
   
 </body>
 </html>
