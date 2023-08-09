@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
 
     <!-- my style sheet -->
-    <link rel="stylesheet" href="mystyle.css">
+    <link rel="stylesheet" href="../assets/mystyle.css">
 
     <!-- logo -->
     <div class="logoCl header01Cl" style="text-align:center; padding-top: 20px; padding-bottom: 20px;" background-color="#eeeeee;">
-      <img src="RZ_UniHohenheim_Logo_1C_Weiss_EN.svg" height="250px"/>
+      <img src="../assets/RZ_UniHohenheim_Logo_1C_Weiss_EN.svg" height="250px"/>
     </div>
 
   </head>
@@ -121,26 +121,26 @@
                       
                       <hr>
 
-                      <p style="font-size: 12pt; text-align: center;">Sample size \(n\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue1Id"></p>
-                      <input id="slider1Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <p style="font-size: 12pt; text-align: center;">Sample size \(n\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue1Id"></p>
+                      <input class="sliderCl" id="slider1Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
                       <div style="font-size: 12pt; text-align: center;">
-                        <button class="animateButtonCl" onclick="animateButton01Click()">Animate \(n\)</button>
+                        <button class="animateButtonCl" onclick="animateButtonClick(slider = 1)">Animate \(n\)</button>
                       </div>
                       
                       <br>
 
-                      <p style="font-size: 12pt;">Lower bound \(a\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue2Id"></p>
-                      <input id="slider2Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <p style="font-size: 12pt;">Lower bound \(a\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue2Id"></p>
+                      <input class="sliderCl" id="slider2Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
                       <div style="font-size: 12pt; text-align: center;">
-                        <button class="animateButtonCl" onclick="animateButton02Click()">Animate \(a\)</button>
+                        <button class="animateButtonCl" onclick="animateButtonClick(slider = 2)">Animate \(a\)</button>
                       </div>
                       
                       <br>
 
-                      <p style="font-size: 12pt;">Upper bound \(b\)</p><p style="font-size: 12pt; text-align: center" id="sliderValue3Id"></p>
-                      <input id="slider3Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <p style="font-size: 12pt;">Upper bound \(b\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue3Id"></p>
+                      <input class="sliderCl" id="slider3Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
                       <div style="font-size: 12pt; text-align: center;">
-                        <button class="animateButtonCl" onclick="animateButton03Click()">Animate \(b\)</button>
+                        <button class="animateButtonCl" onclick="animateButtonClick(slider = 3)">Animate \(b\)</button>
                       </div>
                       
                     </div>
@@ -166,16 +166,16 @@
                           <td style="width: 10%"></td>
                           <td style="width: 80%; font-size: 14pt; text-align: left;">Histogram (realizations)</td>
                           <td style="width: 10%; font-size: 14pt; text-align: right;">
-                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                            <button class="explainButtonCl" onclick="explainButtonClick()">Explain</button>
                           </td>
                         </tr>
                       </table>
 
                       <div style="text-align: center;">
-                        <img src="./figures/figure_01_1_1_1.svg" alt="" id="image1Id" style="max-width: 75%;">
+                        <img src="./figures/figure_01_1_1_1.svg" alt="" class="figureCl" id="figure1Id" style="max-width: 75%;">
                       </div> 
 
-                      <p id="audioShowTextFigure01Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                      <p class="audioShowTextCl" id="audioShowTextFigure1Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
 
                       <p>The histogram shows the distribution of the realizations of the DGP.</p>
 
@@ -188,16 +188,16 @@
                           <td style="width: 10%"></td>
                           <td style="width: 80%; font-size: 14pt; text-align: left;">Histogram of the sample average \(\overline{Y}\)</td>
                           <td style="width: 10%; font-size: 14pt; text-align: right;">
-                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                            <button class="explainButtonCl" onclick="explainButtonClick()">Explain</button>
                           </td>
                         </tr>
                       </table>
 
                       <div style="text-align: center;">
-                        <img src="./figures/figure_02_1_1_1.svg" alt="" id="image2Id" style="max-width: 75%;">
+                        <img src="./figures/figure_02_1_1_1.svg" alt="" class="figureCl" id="figure2Id" style="max-width: 75%;">
                       </div>
 
-                      <p id="audioShowTextFigure02Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                      <p class="audioShowTextCl" id="audioShowTextFigure2Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
 
                       <span style="font-size: 16pt; text-decoration: underline;">Consistency</span><span style="font-size: 16pt; text-decoration: none;">:</span>
 
@@ -218,16 +218,16 @@
                           <td style="width: 10%"></td>
                           <td style="width: 80%; font-size: 14pt; text-align: left;">Histogram of the standardized sample average \(z_{\overline{Y}}\)</td>
                           <td style="width: 10%; font-size: 14pt; text-align: right;">
-                            <button class="explainButtonCl" onclick="explainButton01Click()">Explain</button>
+                            <button class="explainButtonCl" onclick="explainButtonClick()">Explain</button>
                           </td>
                         </tr>
                       </table>
 
                       <div style="text-align: center;">
-                        <img src="./figures/figure_03_1_1_1.svg" alt="" id="image3Id" style="max-width: 75%;">
+                        <img src="./figures/figure_03_1_1_1.svg" alt="" class="figureCl" id="figure3Id" style="max-width: 75%;">
                       </div>
 
-                      <p id="audioShowTextFigure03Id" class="audioShowTextCl" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                      <p class="audioShowTextCl" id="audioShowTextFigure3Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
 
                       <span style="font-size: 16pt; text-decoration: underline;">Asymptotic Normality</span><span style="font-size: 16pt; text-decoration: none;">:</span>
                       
@@ -319,66 +319,66 @@
 
       <!-- .................................................. -->
       <!-- figure 1 -->
-      <div id="audioTextFigure01OverallId" class="audioTextCl">
+      <div id="audioTextFigure1OverallId" class="audioTextCl">
         <span>The figure shows:<br></span>
         <span>The histogram of the observed values in terms of their relative frequency based on an automatic bin selection procedure for one particular realization of the DGP.<br></span>
         <span>The observed values are evenly distributed between the lower bound a and the upper bound b.</span>
       </div>
 
-      <div id="audioTextFigure01Slider1Id" class="audioTextCl">
+      <div id="audioTextFigure1Slider1Id" class="audioTextCl">
         <span>Changing the sample size only changes the bins of the histogram whereas the relative frequencies of the observed values approximately stay the same across bins.</span>
       </div>
 
-      <div id="audioTextFigure01Slider2Id" class="audioTextCl">        
+      <div id="audioTextFigure1Slider2Id" class="audioTextCl">        
         <span>Increasing the lower bound decreases the range and the relative frequencies of the observed values for one particular realization of the DGP from the left.</span>
         <span>Decreasing the lower bound increases the range and the relative frequencies of the observed values for one particular realization of the DGP to right.</span>
       </div>
 
-      <div id="audioTextFigure01Slider3Id" class="audioTextCl">
+      <div id="audioTextFigure1Slider3Id" class="audioTextCl">
         <span>Increasing/decreasing the upper bound increases/decreases the range and the relative frequencies of the of observed values for one particular realization of the DGP from the right.</span>
       </div>
 
       <!-- .................................................. -->
       <!-- figure 2 -->
-      <div id="audioTextFigure02OverallId" class="audioTextCl">
+      <div id="audioTextFigure2OverallId" class="audioTextCl">
         <span>The figure shows:<br></span>
         <span>The histogram of all estimated sample averages for all realizations of the DGP.<br></span>
         <span>The red vertical dashed line represents the sample average for one particular realization of the DGP.<br></span>
         <span>The green vertical dashed line represents the mean of the underlying DGP.</span>
       </div>
 
-      <div id="audioTextFigure02Slider1Id" class="audioTextCl">
+      <div id="audioTextFigure2Slider1Id" class="audioTextCl">
         <span>By increasing the sample size the sample average concentrate more around the mean used to generate the data.<br></span>
         <span>This is the result of law of large numbers.</span>
       </div>
 
-      <div id="audioTextFigure02Slider2Id" class="audioTextCl">
+      <div id="audioTextFigure2Slider2Id" class="audioTextCl">
         <span>Increasing/decreasing the lower bound a decreases/increases the mean of the underlying DPG and shifts the histogram to the left/right.</span>
       </div>
 
-      <div id="audioTextFigure02Slider3Id" class="audioTextCl">
+      <div id="audioTextFigure2Slider3Id" class="audioTextCl">
         <span>Increasing/decreasing the upper bound b increases/decreases the mean of the underlying DPG and shifts the histogram to the right/left.</span>
       </div>
 
       <!-- .................................................. -->
       <!-- figure 3 -->
-      <div id="audioTextFigure03OverallId" class="audioTextCl">
+      <div id="audioTextFigure3OverallId" class="audioTextCl">
         <span>The figure shows:<br></span>
         <span>The histogram of all standardized sample averages for all realizations of the DGP.<br></span>
         <span>The red vertical dashed line represents the standardized sample average for one particular realization of the DGP.<br></span>
         <span>The green vertical dashed curve represents the pdf of the standard normal distribution.</span>
       </div>
 
-      <div id="audioTextFigure03Slider1Id" class="audioTextCl">
+      <div id="audioTextFigure3Slider1Id" class="audioTextCl">
         <span>By increasing the sample size the sampling distribution of the standardized sample average gets closer to the standard normal distribution which pdf is illustrated by the green dashed curve.<br></span>
         <span>This is the results of the central limit theorem.</span>
       </div>
 
-      <div id="audioTextFigure03Slider2Id" class="audioTextCl">
+      <div id="audioTextFigure3Slider2Id" class="audioTextCl">
         <span>Changing the lower bound a does not effect the results of the central limit theorem.</span>
       </div>
 
-      <div id="audioTextFigure03Slider3Id" class="audioTextCl">
+      <div id="audioTextFigure3Slider3Id" class="audioTextCl">
         <span>Changing the upper bound b does not effect the results of the central limit theorem.</span>
       </div>
 
@@ -410,7 +410,7 @@
         <table style="width:100%">
           <tr>
             <td style="width: 25%; text-align: left; padding-left: 10%;">
-              <img src="RZ_UniHohenheim_Logo_4C_E_blau_EN.svg" height="10%"/>
+              <img src="../assets/RZ_UniHohenheim_Logo_4C_E_blau_EN.svg" height="10%"/>
             </td>
             <td style="width: 50%; text-align: center;">
               <p style="font-size: 75%; text-align: center;">This module is part of the <a href="https://www.uni-hohenheim.de/en/project-dellfi">DeLLFi</a> project of the University of Hohenheim and funded by the <br> <a href="https://stiftung-hochschullehre.de/">Foundation for Innovation in University Teaching</a></p>
@@ -419,7 +419,7 @@
               </a> 
             </td>
             <td style="width: 25%; text-align: right; padding-right: 10%;">
-              <img src="Logo_Stiftung_Hochschullehre.svg" height="10%"/>
+              <img src="../assets/Logo_Stiftung_Hochschullehre.svg" height="10%"/>
             </td>
           </tr>
         </table>
@@ -458,14 +458,24 @@
       var par02Str01 = "\\(a = ";
       var par03Str01 = "\\(b = ";
     
+      // object with all sliders
+      let sliders = {
+        value: {
+          slider1: [5, 10, 25, 50, 100],
+          slider2: [-4.0, -3.5, -3.0, -2.5, -2.0],
+          slider3: [2.0, 2.5, 3.0, 3.5, 4.0],
+        },
+        initialIndex: [2, 2, 2],
+        sliderValueParStr: ['\\(n = ', '\\(a = ', '\\(b = '],
+      };
+
     </script>
     
+    <!-- include js for interaction and animation -->
+    <script src="../assets/interactionAndAnimationScript.js"></script>
+
     <!-- include my javascript -->
-    <script src="myScript.js"></script>
-    
-    <script src="par03Fig03InteractivationScript.js"></script>
-    
-    <script src="par03Fig03AnimationScript.js"></script>
+    <script src="../assets/myScript.js"></script>    
     
   </body>
 </html>
