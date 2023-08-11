@@ -2,11 +2,21 @@
 
 ## Introduction
 
+The individual learning modules can be accessed via the link to the starting page below,
+
+```
+
+https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/index.html
+
+```
+
+or, via the indvidual links of the respective individual learning module below.
+
 ## DGPs and Estimators
 
 ### Univariate random variables and sample average
 
-#### Bernoulli distribution and sample average
+#### Module 1) Bernoulli distribution and sample average
 
 This illustration shows the effect of changing (1) the sample size $n$ and (2) the probability of success $p$ of the Bernoulli distribution on the sampling distribution of the sample average as estimator for mean of the Bernoulli distribution.
 
@@ -16,7 +26,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/ber-dis
 
 ```
 
-#### Continuous uniform distribution and sample average
+#### Module 2) Continuous uniform distribution and sample average
 
 This illustration shows the effect of changing (1) the sample size $n$, (2) the lower bound $a$ and (3) the upper bound $b$ of the continuous uniform distribution on the sampling distribution of the sample average as estimator for mean of the continuous uniform distribution.
 
@@ -36,7 +46,7 @@ Y_{i} = \beta_{0} + \beta_{1} X_{i} + u_{i}
 \end{align}
 $$
 
-#### Sampling distribution and sample size
+#### Module 3) Sampling distribution and sample size
 
 This illustration shows the effect of (1) different realizations of the DGP $r$ and (2) changing the sample size $n$ on the sampling distribution of the OLS estimator for the slope coefficient of a simple linear regression model.
 
@@ -46,7 +56,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/cs-lin-
 
 ```
 
-#### Sample size and parameterization of the DGP
+#### Module 4) Sample size and parameterization of the DGP
 
 This illustration shows the effect of changing the parameters of the DGP, i.e., (1) changing the sample size $n$, (2) changing the slope coefficient $\beta_{1}$, (3) changing the variance of $u_{i}$, i.e., $\sigma_{u_{i}}^{2}$, and (4) changing the variance of $X_{i}$, i.e., $\sigma_{X}^{2}$, on the sampling distribution of the OLS estimator for the slope coefficient of a simple linear regression model.
 
@@ -56,7 +66,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/cs-lin-
 
 ```
 
-#### Effect of Heteroskedasticitiy
+#### Module 5) Effect of Heteroskedasticitiy
 
 This illustration shows the effect of heteroskedasticity on the sampling distribution of the OLS estimator for the slope coefficient of a simple linear regression model.
 
@@ -66,7 +76,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/cs-lin-
 
 ```
 
-#### Effect of Omitted Variables
+#### Module 6) Effect of Omitted Variables
 
 This illustration shows the effect of omitted variables on the sampling distribution of the OLS estimator for the slope coefficient of a simple linear regression model.
 
