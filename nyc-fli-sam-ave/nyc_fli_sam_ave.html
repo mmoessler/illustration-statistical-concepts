@@ -122,18 +122,18 @@
                   <hr>
                   
                   <p style="font-size: 12pt; text-align: center;">Sample size \(n\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue1Id"></p>
-                  <input class="sliderCl" id="slider1Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                  <input class="sliderCl" id="slider1Id" type="text" data-slider-min="0" data-slider-max="14" data-slider-step="1" data-slider-value="2"/>
                   <div style="font-size: 12pt; text-align: center;">
                     <button class="animateButtonCl" onclick="animateButtonClick(slider = 1)">Animate \(n\)</button>
                   </div>
                   
-                  <br>
+                  <!-- <br>
                   
                   <p style="font-size: 12pt; text-align: center;">Probability of <br> success \(p\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue2Id"></p>
                   <input class="sliderCl" id="slider2Id" type="text" data-slider-min="0" data-slider-max="3" data-slider-step="1" data-slider-value="1"/>
                   <div style="font-size: 12pt; text-align: center;">
                     <button class="animateButtonCl" onclick="animateButtonClick(slider = 2)">Animate \(p\)</button>
-                  </div>
+                  </div> -->
                   
                 </div>
                 
@@ -164,7 +164,7 @@
                   </table>
                   
                   <div style="text-align: center;">
-                    <img src="./figures/figure_01_1_1.svg" alt="" class="figureCl" id="figure1Id" style="max-width: 75%;">
+                    <img src="./figures/figure_01_1.svg" alt="" class="figureCl" id="figure1Id" style="max-width: 75%;">
                   </div>                      
                   
                   <p class="audioShowTextCl" id="audioShowTextFigure1Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
@@ -186,7 +186,7 @@
                   </table>
                   
                   <div style="text-align: center;">
-                    <img src="./figures/figure_02_1_1.svg" alt="" class="figureCl" id="figure2Id" style="max-width: 75%;">
+                    <img src="./figures/figure_02_1.svg" alt="" class="figureCl" id="figure2Id" style="max-width: 75%;">
                   </div>
                   
                   <p class="audioShowTextCl" id="audioShowTextFigure2Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
@@ -216,7 +216,7 @@
                   </table>
                   
                   <div style="text-align: center;">
-                    <img src="./figures/figure_03_1_1.svg" alt="" class="figureCl" id="figure3Id" style="max-width: 75%;">
+                    <img src="./figures/figure_03_1.svg" alt="" class="figureCl" id="figure3Id" style="max-width: 75%;">
                   </div>
                   
                   <p class="audioShowTextCl" id="audioShowTextFigure3Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
@@ -426,11 +426,10 @@
     // object with all sliders
     let sliders = {
       value: {
-        slider1: [5, 10, 25, 50, 100],
-        slider2: [0.2, 0.4, 0.6, 0.8],
+        slider1: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 350, 500, 750, 1000],
       },
-      initialIndex: [2, 2],
-      sliderValueParStr: ['\\(n = ', '\\(p = '],
+      initialIndex: [2],
+      sliderValueParStr: ['\\(n = '],
     };
     
   </script>

@@ -1,8 +1,10 @@
 # remove all objects
 rm(list=ls())
 
+setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+
 # set directory of figures and tables
-fig.dir <- "./nyc-fli-sam-ave/figures/"
+fig.dir <- "./figures/"
 
 # set plot margins
 set_plt_mar <- function() {
@@ -11,21 +13,7 @@ set_plt_mar <- function() {
   # 5.1, 4.1, 4.1, 2.1
 }
 
-
-ylimmax = function(value) {
-  if (value<=5) {
-    ylimmax = 1
-  } else if (value>=6) {
-    ylimmax = 0.6
-    # } else if (value>=30) {
-    #   ylimmax = 0.5
-  } else {
-    ylimmax = 0.4
-  }
-}
-
-
-load("./nyc-fli-sam-ave/data/simulation_results_cont_v3.RData")
+load("./data/simulation_results_cont_v3.RData")
 
 for (i in 1:length(boot_results_all_sizes[])){
   
@@ -40,7 +28,7 @@ for (i in 1:length(boot_results_all_sizes[])){
   
   boxplot(boot_results_all_sizes[[i]][["bootstrap_means"]],
           main = "",
-          xlab = paste("Sample Size", N),
+          xlab = "",
           ylab = "",
           ylim = c(0, 25))
   abline(h = pop_mean, col = "red")
@@ -57,7 +45,7 @@ for (i in 1:length(boot_results_all_sizes[])){
   
   hist(bootstrap_means, freq = FALSE,
        main = "", 
-       xlab = "Simulated Means", ylab = "Density",
+       xlab = "",
        xlim = c(0, 30),
        ylim = c(0, 0.35))
   abline(v = pop_mean, col = "red")
@@ -73,8 +61,9 @@ for (i in 1:length(boot_results_all_sizes[])){
   hist(bootstrap_means_z, freq = FALSE,
        main = "",
        xlim = c(-3,3),
-       ylim=c(0,ylimmax(res$sample_size)),
-       xlab = "Standardized Means", ylab = "Density")
+       ylim=c(0, 0.6),
+       xlab = "",
+       ylab = "Density")
   curve(dnorm(x, mean = 0, sd = 1), -3, 3,
         xlim = c(-3,3),
         #ylim=c(0,0.6),
