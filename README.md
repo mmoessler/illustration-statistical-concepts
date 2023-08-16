@@ -86,6 +86,13 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/cs-lin-
 
 ```
 
+## Ideas
+
+* Illustration of decision errors in hypothesis tests
+* Illustration of the distribution of joint parameter test statistic 
+
+
+
 ## Licence
 
 This project is part of the [DeLLFi](https://www.uni-hohenheim.de/en/project-dellfi) (Integrating digitalization along teaching, learning, and research) project of the University of Hohenheim and funded by [Foundation for Innovation in University Teaching](https://stiftung-hochschullehre.de/)
