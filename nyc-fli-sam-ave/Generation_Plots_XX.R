@@ -1,11 +1,8 @@
 # remove all objects
 rm(list=ls())
 
-# load data
-setwd(dirname(rstudioapi::getSourceEditorContext()$path))
-
 # set directory of figures and tables
-fig.dir <- "./Figures/"
+fig.dir <- "./nyc-fli-sam-ave/figures/"
 
 # set plot margins
 set_plt_mar <- function() {
@@ -28,7 +25,7 @@ ylimmax = function(value) {
 }
 
 
-load("./Data/simulation_results_cont_v3.RData")
+load("./nyc-fli-sam-ave/data/simulation_results_cont_v3.RData")
 
 for (i in 1:length(boot_results_all_sizes[])){
   
