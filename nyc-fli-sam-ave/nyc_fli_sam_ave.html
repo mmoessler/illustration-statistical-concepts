@@ -44,7 +44,52 @@
         <div style="margin-left: 10pt;">
           
           <p>Understand the effect of increasing the sample size \(n\) on the sampling distribution of the sample average as estimator for the mean.</p>
+          <p>Get some Intuition about Bootstrapping in the DGP context.</p>
+
+        </div>
+
+        <hr>
+        
+        <p style="font-size: 18pt">Bootstrapping</p>
+        
+        <div style="margin-left: 10pt;">
+
+          <p>The bootstrap is a simulation method for computing standard errors and distributions of statistics of interest, which employs an 
+            estimated dgp (data generating process) for generating artificial (bootstrap) samples and computing the (bootstrap) draws of the
+            statistic. Empirical or nonparametric bootstrap relies on nonparametric estimates of the dgp, whereas parametric bootstrap relies 
+            on parametric estimates of the dgp.</p>
+
+            <!-- https://ocw.mit.edu/courses/14-382-econometrics-spring-2017/48094f9cc619ec6c5a5b56aa3bdfc360_MIT14_382S17_lec5.pdf -->
           
+          <p> The following example gives some intuition how different bootstrap samples could look like. \(B = b_1,...,b_n\) samples are drawn 
+            with replacement from the population Y = [1, 2, 3, 4, 5],</p>
+          
+          $$
+          \begin{align}
+          Y_{b_1} &= [1, 4, 2, 1, 3] & \\
+          Y_{b_2} &= [2, 2, 3, 4, 1] & \\
+          Y_{b_3} &= [4, 1, 1, 3, 2] & \\
+          ... & &\\
+          Y_{b_n} &= [3, 5, 4, 4, 5] & \\
+          \end{align}
+          $$
+          
+          <p>where \(B\) is a parameter indicating the number of different bootstrap samples drawn. Usually, a good value for B lies between 200 and 1000 
+            depending on the Bootstrap statistic one wants to obtain.</p>
+
+          <p>Here, we want to calculate the mean of each sample. We compute the mean \(\mu_b\) for each bootstrap sample, and then take the average
+             to get the bootstrap mean. The bootstrap mean shoud be similar to the population mean \(\mu_Y\).</p>
+
+             $$
+             \begin{align}
+             
+             \mu_B = \frac{1}{b}\sum_{i=1}^{n}\mu_{b_i} \approx \mu_Y 
+
+             \end{align}
+             $$
+            
+            <p>When we draw bootstrap samples, which are smaller than the true population, one can show that for an increasing bootstrap sample 
+              size \(n\), the deviation from the true population mean decreases.</p>
         </div>
         
         <hr>
@@ -122,18 +167,18 @@
                   <hr>
                   
                   <p style="font-size: 12pt; text-align: center;">Sample size \(n\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue1Id"></p>
-                  <input class="sliderCl" id="slider1Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                  <input class="sliderCl" id="slider1Id" type="text" data-slider-min="0" data-slider-max="14" data-slider-step="1" data-slider-value="2"/>
                   <div style="font-size: 12pt; text-align: center;">
                     <button class="animateButtonCl" onclick="animateButtonClick(slider = 1)">Animate \(n\)</button>
                   </div>
                   
-                  <br>
+                  <!-- <br>
                   
                   <p style="font-size: 12pt; text-align: center;">Probability of <br> success \(p\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue2Id"></p>
                   <input class="sliderCl" id="slider2Id" type="text" data-slider-min="0" data-slider-max="3" data-slider-step="1" data-slider-value="1"/>
                   <div style="font-size: 12pt; text-align: center;">
                     <button class="animateButtonCl" onclick="animateButtonClick(slider = 2)">Animate \(p\)</button>
-                  </div>
+                  </div> -->
                   
                 </div>
                 
@@ -164,7 +209,7 @@
                   </table>
                   
                   <div style="text-align: center;">
-                    <img src="./figures/figure_01_1_1.svg" alt="" class="figureCl" id="figure1Id" style="max-width: 75%;">
+                    <img src="./figures/figure_01_1.svg" alt="" class="figureCl" id="figure1Id" style="max-width: 75%;">
                   </div>                      
                   
                   <p class="audioShowTextCl" id="audioShowTextFigure1Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
@@ -186,7 +231,7 @@
                   </table>
                   
                   <div style="text-align: center;">
-                    <img src="./figures/figure_02_1_1.svg" alt="" class="figureCl" id="figure2Id" style="max-width: 75%;">
+                    <img src="./figures/figure_02_1.svg" alt="" class="figureCl" id="figure2Id" style="max-width: 75%;">
                   </div>
                   
                   <p class="audioShowTextCl" id="audioShowTextFigure2Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
@@ -216,7 +261,7 @@
                   </table>
                   
                   <div style="text-align: center;">
-                    <img src="./figures/figure_03_1_1.svg" alt="" class="figureCl" id="figure3Id" style="max-width: 75%;">
+                    <img src="./figures/figure_03_1.svg" alt="" class="figureCl" id="figure3Id" style="max-width: 75%;">
                   </div>
                   
                   <p class="audioShowTextCl" id="audioShowTextFigure3Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
@@ -426,11 +471,10 @@
     // object with all sliders
     let sliders = {
       value: {
-        slider1: [5, 10, 25, 50, 100],
-        slider2: [0.2, 0.4, 0.6, 0.8],
+        slider1: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 350, 500, 750, 1000],
       },
-      initialIndex: [2, 2],
-      sliderValueParStr: ['\\(n = ', '\\(p = '],
+      initialIndex: [2],
+      sliderValueParStr: ['\\(n = '],
     };
     
   </script>
