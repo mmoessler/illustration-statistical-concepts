@@ -3,7 +3,7 @@
 rm(list=ls())
 
 # set directory of figures and tables
-fig.dir <- "./hyp-tes-ill/figures/"
+fig.dir <- "./sim-hyp-tes-ill/figures/"
 
 library(scales)
 
@@ -22,7 +22,7 @@ hyp_tes_ill_pdf <- function(t.act, test) {
   
   # plot parameters
   par(mfrow=c(1,1),
-      mar=c(4,2,5,10))
+      mar=c(4,3.5,4,1))
   #bottom, left, top, and right
   
   # > One-sided less or equal ----
@@ -41,11 +41,15 @@ hyp_tes_ill_pdf <- function(t.act, test) {
     lines(seq(0,3,0.01),dnorm(seq(0,3,0.01)),
           lwd = 2,
           col = alpha("black", 1))
-    # add x-axis
-    axis(3,at = c(-3, 0, 1.64, 2.33, 3), las=2,
-         labels = c("", "0", "1.64", "2.33", ""),
-         cex.axis = 1.5)
-    axis(1,at = c(-3, round(t.act,3), 3),
+    # add axis
+    axis(1, at = c(-3, 0, 1.64, 2.33, 3),
+         labels = c("-3", "0", "1.64", "2.33", "3"),
+         cex.axis = 1.5, las = 2)
+    axis(3, at = c(-3, t.act, 3),
+         labels = c("", format(round(t.act, 2), digits = 2, nsmall = 2), ""),
+         cex.axis = 1.5, col.axis = "red")
+    axis(2,at = seq(0,0.45,0.05), las=2,
+         labels = as.character(seq(0,0.45,0.05)),
          cex.axis = 1.5)
     # shade p-value region in right tail
     if (t.act <= 3) {
@@ -75,11 +79,15 @@ hyp_tes_ill_pdf <- function(t.act, test) {
     lines(seq(-3,0,0.01),dnorm(seq(-3,0,0.01)),
           lwd = 2,
           col = alpha("black", 1))
-    # add x-axis
-    axis(3,at = c(-3, -2.33, -1.64, 0, 3), las=2,
-         labels = c("", "-2.33", "-1.64", "0", ""),
+    # add axis
+    axis(1, at = c(-3, -2.33, -1.64, 0, 3), las=2,
+         labels = c("-3", "-2.33", "-1.64", "0", "3"),
          cex.axis = 1.5)
-    axis(1,at = c(-3, round(t.act,3), 3),
+    axis(3, at = c(-3, t.act, 3),
+         labels = c("", format(round(t.act, 2), digits = 2, nsmall = 2), ""),
+         cex.axis = 1.5, col.axis = "red")
+    axis(2, at = seq(0,0.45,0.05), las = 2,
+         labels = as.character(seq(0,0.45,0.05)),
          cex.axis = 1.5)
     # shade p-value region in left tail
     if (t.act > -3) {
@@ -109,30 +117,34 @@ hyp_tes_ill_pdf <- function(t.act, test) {
     lines(seq(-3,0,0.01),dnorm(seq(-3,0,0.01)),
           lwd = 2,
           col = alpha("black", 1))
-    # add x-axis top
-    axis(3,at = c(-3, -2.58, -1.96, 0), las=2, # left tail axis crit. values (here relevant!)
+    # add x-axis bottom
+    axis(1, at = c(-3, -2.58, -1.96, 0), las = 2, # left tail axis crit. values (here relevant!)
          labels = c("","-2.58", "-1.96", "0"),
          cex.axis = 1.5)
-    axis(3,at = c(0, 1.96, 2.58, 3), las=2, # right tail axis crit. values (here not relevant!)
+    axis(1, at = c(0, 1.96, 2.58, 3), las = 2, # right tail axis crit. values (here not relevant!)
          labels = c("0", "1.96", "2.58", ""),
          cex.axis = 1.5,
          col.axis = alpha("black",0.25))
     
-    # add x-axis bottom
-    axis(1,at = c(-3, 0), # left tail (here relevant!)
+    # add x-axis top
+    axis(3, at = c(-3, 0), # left tail (here relevant!)
          labels = c("", ""),
          cex.axis = 1.5)
-    axis(1,at = t.act, # left tail actual test statistic (here relevant!)
+    axis(3, at = t.act, # left tail actual test statistic (here relevant!)
          labels = format(t.act, nsmall = 2),
-         cex.axis = 1.5)
-    axis(1,at = c(0, 3), # right tail (here not relevant!) 
+         cex.axis = 1.5, col.axis = "red")
+    axis(3, at = c(0, 3), # right tail (here not relevant!) 
          labels = c("", ""),
          cex.axis = 1.5,
-         col.axis = alpha("black",0.25))
-    axis(1,at = -t.act, # right tail actual test statistic (here not relevant!)
+         col.axis = alpha("red",0.25))
+    axis(3, at = -t.act, # right tail actual test statistic (here not relevant!)
          labels = format(-t.act, nsmall = 2),
          cex.axis = 1.5,
-         col.axis = alpha("black", 0.25))
+         col.axis = alpha("red", 0.25))
+    
+    axis(2, at = seq(0,0.45,0.05), las=2,
+         labels = as.character(seq(0,0.45,0.05)),
+         cex.axis = 1.5)
     
     # shade p-value/2 region in left tail
     if (t.act > -3) {
@@ -171,30 +183,34 @@ hyp_tes_ill_pdf <- function(t.act, test) {
     lines(seq(0,3,0.01),dnorm(seq(0,3,0.01)),
           lwd = 2,
           col = alpha("black", 1))
-    # add x-axis top
-    axis(3,at = c(-3, -2.58, -1.96, 0), las=2, # left tail axis crit. values (here not relevant!)
+    # add x-axis bottom
+    axis(1, at = c(-3, -2.58, -1.96, 0), las=2, # left tail axis crit. values (here not relevant!)
          labels = c("","-2.58", "-1.96", "0"),
          cex.axis = 1.5,
          col.axis = alpha("black",0.25))
-    axis(3,at = c(0, 1.96, 2.58, 3), las=2, # right tail axis crit. values (here relevant!)
+    axis(1, at = c(0, 1.96, 2.58, 3), las=2, # right tail axis crit. values (here relevant!)
          labels = c("0", "1.96", "2.58", ""),
          cex.axis = 1.5)
     
-    # add x-axis bottom
-    axis(1,at = c(0, 3), # right tail (here relevant!)
+    # add x-axis top
+    axis(3, at = c(0, 3), # right tail (here relevant!)
          labels = c("", ""),
          cex.axis = 1.5)
-    axis(1,at = t.act, # right tail actual test statistic (here relevant!)
+    axis(3, at = t.act, # right tail actual test statistic (here relevant!)
          labels = format(t.act, nsmall = 2),
-         cex.axis = 1.5)
-    axis(1,at = c(-3, 0), # left tail (here not relevant!)
+         cex.axis = 1.5, col.axis = "red")
+    axis(3, at = c(-3, 0), # left tail (here not relevant!)
          labels = c("", ""),
          cex.axis = 1.5,
-         col.axis = alpha("black",0.25))
-    axis(1,at = -t.act, # left tail actual test statistic (here not relevant!)
+         col.axis = alpha("red",0.25))
+    axis(3, at = -t.act, # left tail actual test statistic (here not relevant!)
          labels = format(-t.act, nsmall = 2),
          cex.axis = 1.5,
-         col.axis = alpha("black", 0.25))
+         col.axis = alpha("red", 0.25))
+    
+    axis(2,at = seq(0,0.45,0.05), las=2,
+         labels = as.character(seq(0,0.45,0.05)),
+         cex.axis = 1.5)
     
     # shade p-value/2 region in left tail
     if (-t.act > -3) {
@@ -220,7 +236,6 @@ hyp_tes_ill_pdf <- function(t.act, test) {
     abline(v=t.act, col="red", lty=2, lwd=2)
   }
   
-  
 }
 
 # function to generate cdf plot ----
@@ -231,7 +246,7 @@ hyp_tes_ill_cdf <- function(t.act, test) {
 
   # plot parameters
   par(mfrow=c(1,1),
-      mar=c(2,3,4,10))
+      mar=c(4,3,4,10))
   #bottom, left, top, and right
   
   # > Two-sided ----
@@ -252,9 +267,9 @@ hyp_tes_ill_cdf <- function(t.act, test) {
           ylim = c(0,1),
           cex.lab = 1.5,
           col = alpha("black", 0.25))
-    lines( seq(-3, 0, 0.01),pnorm( seq(-3, 0, 0.01)))
-    axis(1,at = c(-3, 0, 3), las=2,
-         labels = c("", "0", ""),
+    lines(seq(-3, 0, 0.01),pnorm( seq(-3, 0, 0.01)))
+    axis(1,at = format(round(c(-3, 0, 3), 2), 2, 2), las = 2,
+         # labels = c("", "0", ""),
          cex.axis = 1.5)
     axis(2,at = seq(0,1,0.1), las=2,
          labels = as.character(seq(0,1,0.1)),
@@ -282,10 +297,10 @@ hyp_tes_ill_cdf <- function(t.act, test) {
           ylim = c(0,1),
           cex.lab = 1.5,
           col = "black")
-    axis(1,at = c(-3, 0, 3), las=2,
-         labels = c("", "0", ""),
+    axis(1, at = c(-3, 0, 3), las = 2,
+         # labels = c("", "0", ""),
          cex.axis = 1.5)
-    axis(2,at = seq(0,1,0.1), las=2,
+    axis(2, at = seq(0,1,0.1), las=2,
          labels = as.character(seq(0,1,0.1)),
          cex.axis = 1.5)
     abline(h=phi.z, col="steelblue", lty=2, lwd=2)
@@ -303,32 +318,61 @@ hyp_tes_ill_cdf <- function(t.act, test) {
 
 # inputs (variable)
 tval.vec <- seq(-3,3,0.01)
-test.vec <- c("two_sid", "one_sid_leq", "one_sid_geq")
+# test.vec <- c("two_sid", "one_sid_leq", "one_sid_geq")
 
 # inputs (fixed)
 
 # simulation/illustration ----
 
-for (ii in 1:length(test.vec)) {
+for (ii in 1:length(tval.vec)) {
   
-  for (jj in 1:length(tval.vec)) {
-    
-    # plot no 01: pdf plot ----
-    plt.nam <- paste(fig.dir, "figure_01_", ii, "_", jj, ".svg", sep = "")
-    svg(plt.nam)
-    
-    hyp_tes_ill_pdf(t.act = tval.vec[jj], test = test.vec[ii])
-    
-    dev.off()
-    
-    # plot no 02: cdf plot ----
-    plt.nam <- paste(fig.dir, "figure_02_", ii, "_", jj, ".svg", sep = "")
-    svg(plt.nam)
-    
-    hyp_tes_ill_cdf(t.act = tval.vec[jj], test = test.vec[ii])
-    
-    dev.off()
-    
-  }
+  # plot no 01: pdf plot (one sided <=) ----
+  plt.nam <- paste(fig.dir, "figure_01_", ii, ".svg", sep = "")
+  svg(plt.nam)
+  
+  hyp_tes_ill_pdf(t.act = tval.vec[ii], test = "one_sid_leq")
+  
+  dev.off()
+  
+  # plot no 02: cdf plot (one sided <=) ----
+  plt.nam <- paste(fig.dir, "figure_02_", ii, ".svg", sep = "")
+  svg(plt.nam)
+  
+  hyp_tes_ill_cdf(t.act = tval.vec[ii], test = "one_sid_leq")
+  
+  dev.off()
+  
+  # plot no 03: pdf plot (two sided) ----
+  plt.nam <- paste(fig.dir, "figure_03_", ii, ".svg", sep = "")
+  svg(plt.nam)
+  
+  hyp_tes_ill_pdf(t.act = tval.vec[ii], test = "two_sid")
+  
+  dev.off()
+  
+  # plot no 04: cdf plot (two sided) ----
+  plt.nam <- paste(fig.dir, "figure_04_", ii, ".svg", sep = "")
+  svg(plt.nam)
+  
+  hyp_tes_ill_cdf(t.act = tval.vec[ii], test = "two_sid")
+  
+  dev.off()
+  
+  # plot no 05: pdf plot (one sided >=) ----
+  plt.nam <- paste(fig.dir, "figure_05_", ii, ".svg", sep = "")
+  svg(plt.nam)
+  
+  hyp_tes_ill_pdf(t.act = tval.vec[ii], test = "one_sid_geq")
+  
+  dev.off()
+  
+  # plot no 06: cdf plot (one sided >=) ----
+  plt.nam <- paste(fig.dir, "figure_06_", ii, ".svg", sep = "")
+  svg(plt.nam)
+  
+  hyp_tes_ill_cdf(t.act = tval.vec[ii], test = "one_sid_geq")
+  
+  dev.off()
   
 }
+  
