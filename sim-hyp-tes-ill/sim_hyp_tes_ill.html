@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="eng">
+<head>
+  
+  <title>Simple - Hypothesis Tests</title>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
+  
+  <!-- my style sheet -->
+  <link rel="stylesheet" href="../assets/mystyle.css">
+  
+  <!-- logo -->
+  <div class="logoCl header01Cl" style="text-align:center; padding-top: 20px; padding-bottom: 20px;" background-color="#eeeeee;">
+    <img src="../assets/RZ_UniHohenheim_Logo_1C_Weiss_EN.svg" height="250px"/>
+  </div>
+  
+</head>
+<body>
+  
+  <div class="container mt-5">
+    <div class="row">
+      
+      <div class="jumbotron topJumbCl" style="margin-top: 50px; padding: 25px 50px 25px 50px;">
+        
+        <p style='font-size: 28pt;'>Illustration of Hypothesis Test</p>
+        <p style='font-size: 18pt;'>Simple <em>t</em>-test</p> 
+        
+      </div>
+      
+    </div>
+  </div>
+  
+  <div class="container mt-5">
+    <div class="row">
+      
+      <div class="jumbotron" style="padding: 25px 50px 25px 50px">
+        
+        <p style="font-size: 18pt">Topic of the module</p>
+        
+        <div style="margin-left: 10pt;">
+          
+          <p>Understand the ...</p>
+          
+        </div>
+        
+        <hr>
+        
+        ...      
+          
+      </div>
+      
+    </div>
+  </div>
+  
+  <div class="container mt-5">
+    <div class="row">
+      
+      <div class="jumbotron outerJumbCl" style="padding: 25px 50px 25px 50px">
+        
+        <p style="font-size: 18pt">Illustration</p>
+        
+        <div style="margin-left: 10pt;">
+          
+          <p>Change ...</p>
+          
+        </div>
+        
+        <div class="container mt-5" style="margin-top: 50px;">
+          <div class="row">
+                        
+            <div class="col-sm-12">
+              <div class="jumbotron innerJumbCl" style="padding: 15px 50px 25px 50px">
+                
+                <div class="tab" style="text-align: center;">
+                  <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N1Id', 'tabLinkL1N1Id', 'white')" id="tabLinkL1N1Id">\(\geq\)</button>
+                  <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N2Id', 'tabLinkL1N2Id', 'white')" id="tabLinkL1N2Id">\(=\)</button>
+                  <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N3Id', 'tabLinkL1N3Id', 'white')" id="tabLinkL1N3Id">\(\leq\)</button>
+                </div>
+
+                <br>
+
+                <p style="font-size: 12pt; text-align: center;">Test Statistic \(t^{act}\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue1Id"></p>
+                <input class="sliderCl" id="slider1Id" type="text" data-slider-min="0" data-slider-max="600" data-slider-step="1" data-slider-value="1"/>
+                
+                <hr>
+                
+                <div id="tabContentL1N1Id" class="tabContentL1Cl">
+                  
+                  <table style="width:100%; margin-bottom: 10px;">
+                    <tr>
+                      <td style="width: 10%"></td>
+                      <td style="width: 40%; font-size: 14pt; text-align: left;">Probability Density Function (PDF)</td>
+                      <td style="width: 10%"></td>
+                      <td style="width: 40%; font-size: 14pt; text-align: left;">Probability Density Function (PDF)</td>
+                    </tr>
+                  </table>                  
+
+                  <table style="width:100%; margin-bottom: 10px;">
+                    <tr>
+                      <td style="width: 50%">
+                        <img src="./figures/figure_01_1.svg" alt="" class="figureCl" id="figure1Id" style="max-width: 100%;">
+                      </td>
+                      <td style="width: 50%">
+                        <img src="./figures/figure_02_1.svg" alt="" class="figureCl" id="figure2Id" style="max-width: 100%;">
+                      </td>
+                    </tr>
+                  </table> 
+                                  
+                </div>
+                
+                <div id="tabContentL1N2Id" class="tabContentL1Cl">
+                  
+                  <table style="width:100%; margin-bottom: 10px;">
+                    <tr>
+                      <td style="width: 10%"></td>
+                      <td style="width: 40%; font-size: 14pt; text-align: left;">Probability Density Function (PDF)</td>
+                      <td style="width: 10%"></td>
+                      <td style="width: 40%; font-size: 14pt; text-align: left;">Probability Density Function (PDF)</td>
+                    </tr>
+                  </table>                  
+
+                  <table style="width:100%; margin-bottom: 10px;">
+                    <tr>
+                      <td style="width: 50%">
+                        <img src="./figures/figure_03_1.svg" alt="" class="figureCl" id="figure3Id" style="max-width: 100%;">
+                      </td>
+                      <td style="width: 50%">
+                        <img src="./figures/figure_04_1.svg" alt="" class="figureCl" id="figure4Id" style="max-width: 100%;">
+                      </td>
+                    </tr>
+                  </table> 
+                  
+                </div>
+                
+                <div id="tabContentL1N3Id" class="tabContentL1Cl">
+                  
+                  <table style="width:100%; margin-bottom: 10px;">
+                    <tr>
+                      <td style="width: 10%"></td>
+                      <td style="width: 40%; font-size: 14pt; text-align: left;">Probability Density Function (PDF)</td>
+                      <td style="width: 10%"></td>
+                      <td style="width: 40%; font-size: 14pt; text-align: left;">Probability Density Function (PDF)</td>
+                    </tr>
+                  </table>                  
+
+                  <table style="width:100%; margin-bottom: 10px;">
+                    <tr>
+                      <td style="width: 50%">
+                        <img src="./figures/figure_05_1.svg" alt="" class="figureCl" id="figure5Id" style="max-width: 100%;">
+                      </td>
+                      <td style="width: 50%">
+                        <img src="./figures/figure_06_1.svg" alt="" class="figureCl" id="figure6Id" style="max-width: 100%;">
+                      </td>
+                    </tr>                    
+                  </table> 
+                  
+                </div>
+                
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+    
+  <!-- .................................................. -->
+  <!-- Collections of audio text -->
+  <div style="display: none;">
+    
+    <!-- .................................................. -->
+    <!-- default text -->
+    <div id="audioTextNoText" class="audioTextCl">
+      There is no explanation yet.
+    </div>
+    
+    <!-- .................................................. -->
+    <!-- figure 1 -->
+    <div id="audioTextFigure1OverallId" class="audioTextCl">
+      <span>... no audi text yet ...</span>
+    </div>
+    
+    <div id="audioTextFigure1Slider1Id" class="audioTextCl">
+      <span>... no audi text yet ...</span>
+    </div>
+    
+    <!-- .................................................. -->
+    <!-- figure 2 -->
+    <div id="audioTextFigure2OverallId" class="audioTextCl">
+      <span>... no audi text yet ...</span>
+    </div>
+    
+    <div id="audioTextFigure2Slider1Id" class="audioTextCl">
+      <span>... no audi text yet ...</span>
+    </div>
+        
+    <!-- .................................................. -->
+    <!-- figure 3 -->
+    <div id="audioTextFigure3OverallId" class="audioTextCl">
+      <span>... no audi text yet ...</span>
+    </div>
+    
+    <div id="audioTextFigure3Slider1Id" class="audioTextCl">
+      <span>... no audi text yet ...</span>
+    </div>
+        
+  </div>
+  
+  <!-- include/exculde ilias footer -->
+  <div class="container mt-5">
+    <div class="row">
+      <p style="text-align: center; font-size: 20pt; font-weight: bold;" class="footerIliasCl">
+        <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1781360/index_ilias.html"><em>Back to Startpage</em></a>
+      </p>
+    </div>
+  </div>
+  
+  <!-- include/exculde github footer -->
+  <div class="container mt-5">
+    <div class="row">
+      <p style="text-align: center; font-size: 20pt; font-weight: bold;" class="footerGihubCl">
+        <a href="https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/index.html"><em>Back to Startpage</em></a>
+      </p>
+    </div>
+  </div>
+  
+  <!-- footer logos -->
+  <div class="container mt-5">
+    <div class="row">
+      
+      <hr>
+      <table style="width:100%">
+        <tr>
+          <td style="width: 25%; text-align: left; padding-left: 10%;">
+            <img src="../assets/RZ_UniHohenheim_Logo_4C_E_blau_EN.svg" height="10%"/>
+          </td>
+          <td style="width: 50%; text-align: center;">
+            <p style="font-size: 75%; text-align: center;">This module is part of the <a href="https://www.uni-hohenheim.de/en/project-dellfi">DeLLFi</a> project of the University of Hohenheim and funded by the <br> <a href="https://stiftung-hochschullehre.de/">Foundation for Innovation in University Teaching</a></p>
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+              <img alt="Creative Commons License" style="border-width:0; padding-top: -20px;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" height="10%"/>
+            </a> 
+          </td>
+          <td style="width: 25%; text-align: right; padding-right: 10%;">
+            <img src="../assets/Logo_Stiftung_Hochschullehre.svg" height="10%"/>
+          </td>
+        </tr>
+      </table>
+      <hr>      
+      
+    </div>
+  </div>
+  
+  <!-- include mathjax js via cdn -->
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+
+  <!-- include bootstrap slider js via cdn --> 
+  <script 
+  src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js">
+  </script>
+
+  <!-- include jstat js via cdn -->
+  <script
+  src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js">
+  </script>
+
+  <!-- adjust inputs -->
+  <script>  
+    
+    // object with all sliders
+    let sliders = {
+      value: {
+        slider1: jStat.seq(-3,3,601),        
+      },
+      initialIndex: [300],
+      sliderValueParStr: ['\\(t^{act} = '],
+    };
+    
+  </script>
+
+  <!-- include js for interaction and animation -->
+  <script src="../assets/interactionAndAnimationScript.js"></script>
+
+  <!-- include my javascript -->
+  <script src="../assets/myScript.js"></script>    
+
+</body>
+</html>
