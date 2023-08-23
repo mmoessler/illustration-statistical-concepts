@@ -43,13 +43,53 @@
         
         <div style="margin-left: 10pt;">
           
-          <p>Understand the ...</p>
-          
+          <p>Understand the differences between one and two-sided hypothesis test.</p>
+          <p>See the effect of the test statistic on the decision and the PDF of the test statistic.</p>
+
         </div>
         
         <hr>
         
-        ...      
+        <p style="font-size: 18pt">Steps to Hypothesis Testing</p>
+        
+        <div style="margin-left: 10pt;">
+
+          <h3>1. State null and alternative hypothesis</h3>
+
+          $$
+          \begin{align}
+          
+          H_0: \theta = 0 \\
+
+          H_1: \theta \neq 0
+
+          \end{align}
+          $$
+         
+          <h3>2. Decide on the significance level \(\alpha\)</h3>
+
+          <p>Most of the time \(\alpha\) = 5 % is used</p>
+
+          <h3>3. Calculate the test statistic</h3>
+          $$
+          \begin{align}
+          t^* = \frac{\overline{\theta}-0}{\frac{\sigma}{\sqrt{n}}}
+          \end{align}
+          $$
+
+          <h3>4. Compute the appropriate p-value based on the alternative hypothesis</h3>
+
+          <p>In the illustration section below the Plots, the p-values are computed.</p>
+
+          <h3>5. Make a decision about the null hypothesis</h3>
+
+          <p>Compare the p-value with the significance level in step 2. When the p-value is smaller than the significance level \(\alpha\), 
+            reject the \(H_0\) hypothesis and conclude \(H_1\). If it is greater than the significance level do not reject \(H_0\).</p>
+
+
+        </div>
+        
+        <hr>    
           
       </div>
       
@@ -65,7 +105,7 @@
         
         <div style="margin-left: 10pt;">
           
-          <p>Change ...</p>
+          <p>Change the type of the test and the value of the test-statistic.</p>
           
         </div>
         
@@ -109,6 +149,24 @@
                       </td>
                     </tr>
                   </table> 
+
+                <!-- one side less = -->
+                <!-- $$
+                begin{align*}
+                p\\text{-value}&=1-\\Phi\\left(t^{act}\\right) 
+                \n &= 1-\\Phi\\left(", format(as.numeric(input$t.act), digits=2, nsmall=2), "\\right)
+                \n &= ", format(1-pnorm(as.numeric(input$t.act)), digits=2, nsmall=2), "
+                end{align*}
+                $$ -->
+
+                $$
+                p\text{-value} = 1-\phi\left(t^{act}\right) \\
+                               = 1-\phi\left(t^{act}\right) \\
+                               = 
+
+
+                $$
+
                                   
                 </div>
                 
@@ -133,6 +191,20 @@
                       </td>
                     </tr>
                   </table> 
+
+                <!-- 2 sided  -->
+
+                <!-- $$\\begin{align*}p\\text{-value}&=2 * \\Phi\\left(-\\left|t^{act}\\right|\\right) \\\\ 
+                \n &= 2 * \\Phi\\left(-\\left|", format(as.numeric(input$t.act), digits=2, nsmall=2), "\\right|\\right) \\\\ 
+                \n &= ", format(2*pnorm(-abs(as.numeric(input$t.act))), digits=2, nsmall=2), "\\end{align*}$$ -->
+
+                $$
+                p\text{-value} = 2 * \phi\left(-|t^{act}|\right) \\
+                               = 2 * \phi\left(-|t^{act}|\right) \\
+                               = 
+
+
+                $$
                   
                 </div>
                 
@@ -157,6 +229,19 @@
                       </td>
                     </tr>                    
                   </table> 
+
+                  
+                <!-- one side greater = -->
+
+                <!-- $$\\begin{align*}p\\text{-value}&=\\Phi\\left(t^{act}\\right) \\\\ 
+                \n &= \\Phi\\left(", format(as.numeric(input$t.act), digits=2, nsmall=2), "\\right) \\\\ 
+                \n &= ", format(pnorm(as.numeric(input$t.act)), digits=2, nsmall=2), "\\end{align*}$$ -->
+
+                $$
+                p\text{-value} = \phi\left(t^{act}\right) \\
+                               = \phi\left(t^{act}\right) \\
+                               = 
+                $$
                   
                 </div>
                 
