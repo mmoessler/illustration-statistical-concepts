@@ -97,16 +97,11 @@
         <p style="font-size: 18pt">Data generating process (DGP)</p>
         
         <div style="margin-left: 10pt;">
-          
-          <p>Consider \(n\) observations are drawn from the Bernoulli distribution,</p>
-          
-          $$
-          \begin{align}
-          Y_i &\sim \text{Bernoulli}\left(p\right),
-          \end{align}
-          $$
-          
-          <p>where \(p\) is a parameters representing the probability of success of the Bernoulli distribution.</p>
+
+          <p>The data in the following consists of information about all flights departing NYC in 2013. As the data is only available for NYC in 2013, 
+            we don't know the distribution of the whole population.</p>
+          <p> As we are interested in the average departure time, we draw samples \(Y_i\) with \(n\) observations for the delay of the flights 
+            from the dataset. With increasing sample size, the sample mean and the variance approach the population mean and variance.</p>
           
         </div>
         
@@ -120,19 +115,18 @@
           
           $$
           \begin{align}
-          \overline{Y} = \frac{1}{N}\sum_{i=1}^{n} Y_{i},
+          \overline{Y} = \frac{1}{N}\sum_{i=1}^{N} Y_{i},
           \end{align}
           $$            
           
-          <p>as estimator for the mean \(\mu=\text{E}\left(Y_{i}\right)\) of the Bernoulli distribution given by,</p>
+          <p>as estimator for the mean of a randomly drawn sample \(Y_{i}\) of the data is given by,</p>
           
           $$
           \begin{align}
-          \mu=p,
+          \mu=\text{E}\left(Y_{i}\right)
           \end{align}
           $$ 
-          
-          <p>where \(p\) is the probability of success of the Bernoulli distribution.</p>
+
           
         </div>
         
@@ -303,14 +297,14 @@
         <div class="collContentCl">
           
           <p style="margin-top: 10px;">
-            For the construction of the standardized sample average \(z_{\overline{Y}}\), the mean \(\mu\) as well as the variance \(\sigma^{2}\) are used.
-          </p>
+            For the construction of the standardized sample average \(z_{\overline{Y}}\), the population mean \(\mu\) as well as the variance 
+            \(\sigma^{2}\) are used.</p>
           
-          <p>For the continuous uniform distribution the mean is given by,</p>
+          <p>The mean is given by,</p>
           
           $$
           \begin{align}
-          \mu=p,
+          \mu = \overline{Y} = \frac{1}{N}\sum_{i=1}^{N} Y_{i},,
           \end{align}
           $$ 
           
@@ -318,11 +312,11 @@
           
           $$
           \begin{align}
-          \sigma^{2}=p\left(1-p\right),
+          \sigma^{2}=\frac{1}{N}\sum_{i=1}^{N}\left(y_i - \mu\right)^2,
           \end{align}
           $$
           
-          <p>where \(p\) ist the probability of success of the Bernoulli distribution.</p>
+          <p>where \(y_i\) is a single observation of the data.</p>
           
         </div>
         
