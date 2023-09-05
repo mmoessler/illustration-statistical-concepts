@@ -73,6 +73,9 @@ updateFiguresAndSliderValues = function() {
       MathJax.typeset([document.getElementById(sliderValueIds[j])]);
     }
     document.getElementById(figureIds[i]).setAttribute("src", figurePathTmp.concat('.svg'));
+
+    console.log(figurePathTmp);
+
   }
 }
 
