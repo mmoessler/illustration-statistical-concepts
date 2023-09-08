@@ -53,7 +53,8 @@
           
           <p>
             
-  This module is about...
+  <p>This module is about...</p>
+  <p>Futhermore,...</p>
 
           </p>
           
@@ -75,7 +76,7 @@
           
           <p>
             
-  Change the parameters and see the effect...
+  <p>Change the parameters and see the effect...</p>
 
           </p>
           
@@ -93,13 +94,11 @@
                   
                   <hr>
                   
-                  <!-- <p style="font-size: 12pt; text-align: center;">Sample size \(n\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue1Id"></p>
+                  <p style="font-size: 12pt; text-align: center;">Sample size \(n\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue1Id"></p>
                   <input class="sliderCl" id="slider1Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
                   <div style="font-size: 12pt; text-align: center;">
                     <button class="animateButtonCl" onclick="animateButtonClick(slider = 1)">Animate \(n\)</button>
-                  </div> -->
-
-                  <p style='font-size: 12pt; text-align: center;'>Sample size \(n\)</p><p style='font-size: 12pt; text-align: center' class='sliderValueCl' id='sliderValue1Id'></p>         <input class='sliderCl' id='slider1Id' type='text' data-slider-min='0' data-slider-max='4' data-slider-step='1' data-slider-value='2'/>         <div style='font-size: 12pt; text-align: center;'>         <button class='animateButtonCl' id='1' onclick='animateButtonClick(slider = 1)'>Animate \(n\)</button>         </div>
+                  </div>
                   
                   <br>
                   
@@ -237,7 +236,7 @@
           
           <p style="margin-top: 10px;">
             
-  Add more details here...
+  <p>Add more details here...</p>
 
           </p>
                     
@@ -372,16 +371,26 @@
   <!-- adjust inputs -->
   <script>  
     
-    // object with all sliders
-    let sliders = {
-      value: {
-        slider1: [5, 10, 25, 50, 100],
-        slider2: [0.2, 0.4, 0.6, 0.8],
-      },
-      initialIndex: [2, 2],
-      sliderValueParStr: ['\\(n = ', '\\(p = '],
-    };
+    // // object with all sliders
+    // let sliders = {
+    //   value: {
+    //     slider1: [5, 10, 25, 50, 100],
+    //     slider2: [0.2, 0.4, 0.6, 0.8],
+    //   },
+    //   initialIndex: [2, 2],
+    //   sliderValueParStr: ['\\(n = ', '\\(p = '],
+    // };
     
+    var sliders = {
+    'value': {
+      'slider1': [5, 10, 25, 50, 100],
+      'slider2': [0.2, 0.4, 0.6, 0.8],
+    },
+    'initialIndex': [2, 2],
+    'sliderValueParStr': ['\\(n = ', '\\(p = '],
+  }
+  print(sliders)
+
   </script>
 
   <!-- include js for interaction and animation -->
