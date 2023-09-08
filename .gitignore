@@ -52,4 +52,4 @@ tests/
 *.gz
 
 # bernoulli test
-ber-dis-sam-ave-test/
+#ber-dis-sam-ave-test/
