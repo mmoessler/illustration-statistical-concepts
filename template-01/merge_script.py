@@ -16,15 +16,15 @@ def generate_slider(slider_header, button_header, slider_id, slider_value_id, sl
 print(generate_slider(slider_header = "Sample size \(n\)", button_header = "Animate \(n\)", slider_id = "1", slider_value_id = "1", slider_value_max = "4", slider_value = "2", button_id = "1"))
 
 # Read the content of the .txt file
-with open('./ber-dis-sam-ave-test/ber_dis_sam_ave.txt', 'r') as txt_file:
+with open('./template-01/input_chunks.txt', 'r') as txt_file:
     txt_content = txt_file.read()
 
 # Read the content of the .html file
-with open('./ber-dis-sam-ave-test/ber_dis_sam_ave_template.html', 'r') as html_file:
+with open('./template-01/html_template.html', 'r') as html_file:
     html_content = html_file.read()
 
-# Use regular expressions to find all words between <</ and >>
-code_chunks = re.findall(r'<</(.*?)>>', txt_content)
+# Use regular expressions to find all python code chunks
+code_chunks = re.findall(r'<py/(.*?)/>', txt_content)
 # Filter out any empty strings
 code_chunks = [chunk.strip() for chunk in code_chunks if chunk.strip()]
 
@@ -33,8 +33,8 @@ print(code_chunks)
 
 # Loop over the code_chunks and perform the operations
 for chunk in code_chunks:
-    start_marker = f"<<{chunk}>>"
-    end_marker = f"<</{chunk}>>"
+    start_marker = f"<py/{chunk}>"
+    end_marker = f"<{chunk}/py>"
     code_block = txt_content.split(start_marker)[1].split(end_marker)[0]
     # Evaluate the code block using exec
     try:
@@ -43,23 +43,41 @@ for chunk in code_chunks:
         print(f"An error occurred while executing the code: {e}")
 
 # Use regular expressions to find all words between </ and >
-text_chunks = re.findall(r'</(.*?)>', txt_content)
+html_chunks = re.findall(r'<html/(.*?)>', txt_content)
 # Filter out any empty strings
-text_chunks = [text_chunks.strip() for text_chunks in text_chunks if text_chunks.strip()]
+html_chunks = [chunk.strip() for chunk in html_chunks if chunk.strip()]
 
 # Print the list of text_chunks
-print(text_chunks)
-
-# Filter out any empty strings
-text_chunks = [chunk.strip() for chunk in text_chunks if chunk.strip()]
+print(html_chunks)
 
 # Loop over the text_chunks and perform the operations
-for chunk in text_chunks:
-    start_marker = f"<{chunk}>"
-    end_marker = f"</{chunk}>"
-    text_block = txt_content.split(start_marker)[1].split(end_marker)[0]
-    html_content = html_content.replace(f"<!-- {chunk} -->", text_block)
+for chunk in html_chunks:
+    start_marker = f"<html/{chunk}>"
+    end_marker = f"<{chunk}/html>"
+    html_block = txt_content.split(start_marker)[1].split(end_marker)[0]
+    html_content = html_content.replace(f"<!-- {chunk} -->", html_block)
+
+# transform python to javascript and insert
+chunk = "code_01"
+
+start_marker = f"<py/{chunk}>"
+end_marker = f"<{chunk}/py>"
+code_block = txt_content.split(start_marker)[1].split(end_marker)[0]
+
+# Remove leading and trailing whitespaces
+js_block = code_block.strip()
+# Replace double quotes with single quotes
+js_block = js_block.replace('"', "'")
+# Replace the variable assignment to use 'var'
+js_block = js_block.replace("sliders =", "var sliders =")
+
+print(chunk)
+print(js_block)
+
+print(f"// {chunk} //")
+
+html_content = html_content.replace(f"// {chunk} //", js_block)
 
 # Write the modified HTML content back to the file
-with open('./ber-dis-sam-ave-test/ber_dis_sam_ave.html', 'w') as output_file:
+with open('./template-01/html_output.html', 'w') as output_file:
     output_file.write(html_content)
