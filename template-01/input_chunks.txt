@@ -1,0 +1,47 @@
+
+#--------------------------------------------------
+# Code chunks
+
+<<code_01>>
+message = "Hello World"
+print(message)
+<</code_01>>
+
+<<code_02>>
+sliders = {
+  "value": {
+    "slider1": [5, 10, 25, 50, 100],
+    "slider2": [0.2, 0.4, 0.6, 0.8],
+  },
+  "initialIndex": [2, 2],
+  "sliderValueParStr": ['\\(n = ', '\\(p = '],
+}
+print(sliders)
+<</code_02>>
+
+#--------------------------------------------------
+# Text chunks
+
+<header_01>
+  This is the first level header
+</header_01>
+
+<header_02>
+  This is the second level header
+</header_02>
+
+<topic_01>
+  This module is about...
+</topic_01>
+
+<illustration_01>
+  Change the parameters and see the effect...
+</illustration_01>
+
+<more_details_header_01>
+  More details header
+</more_details_header_01>
+
+<more_details_content_01>
+  Add more details here...
+</more_details_content_01>
