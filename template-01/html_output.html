@@ -26,8 +26,16 @@
       
       <div class="jumbotron topJumbCl" style="margin-top: 50px; padding: 25px 50px 25px 50px;">
         
-        <p style='font-size: 28pt;'>Properties of the Sample Average as Estimator for the Mean</p>
-        <p style='font-size: 18pt;'>Bernoulli Distribution</p> 
+        <p style='font-size: 28pt;'>
+          
+  This is the first level header
+
+        </p>
+        <p style='font-size: 18pt;'>
+          
+  This is the second level header
+
+        </p> 
         
       </div>
       
@@ -43,54 +51,14 @@
         
         <div style="margin-left: 10pt;">
           
-          <p>Understand the effect of increasing the sample size \(n\) on the sampling distribution of the sample average as estimator for the mean.</p>
+          <p>
+            
+  This module is about...
+
+          </p>
           
         </div>
-        
-        <hr>
-        
-        <p style="font-size: 18pt">Data generating process (DGP)</p>
-        
-        <div style="margin-left: 10pt;">
-          
-          <p>Consider \(n\) observations are drawn from the Bernoulli distribution,</p>
-          
-          $$
-          \begin{align}
-          Y_i &\sim \text{Bernoulli}\left(p\right),
-          \end{align}
-          $$
-          
-          <p>where \(p\) is a parameters representing the probability of success of the Bernoulli distribution.</p>
-          
-        </div>
-        
-        <hr>
-        
-        <p style="font-size: 18pt">Estimator and parameter of interest</p>
-        
-        <div style="margin-left: 10pt;">
-          
-          <p>We are interested in the sampling properties of the sample average \(\overline{Y}\) given by,</p>
-          
-          $$
-          \begin{align}
-          \overline{Y} = \frac{1}{N}\sum_{i=1}^{n} Y_{i},
-          \end{align}
-          $$            
-          
-          <p>as estimator for the mean \(\mu=\text{E}\left(Y_{i}\right)\) of the Bernoulli distribution given by,</p>
-          
-          $$
-          \begin{align}
-          \mu=p,
-          \end{align}
-          $$ 
-          
-          <p>where \(p\) is the probability of success of the Bernoulli distribution.</p>
-          
-        </div>
-        
+                
       </div>
       
     </div>
@@ -105,7 +73,11 @@
         
         <div style="margin-left: 10pt;">
           
-          <p>Change the parameters and see the effect on the properties of the sample average \(\overline{Y}\) as estimator for \(\mu\).</p>
+          <p>
+            
+  Change the parameters and see the effect...
+
+          </p>
           
         </div>
         
@@ -121,11 +93,13 @@
                   
                   <hr>
                   
-                  <p style="font-size: 12pt; text-align: center;">Sample size \(n\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue1Id"></p>
+                  <!-- <p style="font-size: 12pt; text-align: center;">Sample size \(n\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue1Id"></p>
                   <input class="sliderCl" id="slider1Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
                   <div style="font-size: 12pt; text-align: center;">
                     <button class="animateButtonCl" onclick="animateButtonClick(slider = 1)">Animate \(n\)</button>
-                  </div>
+                  </div> -->
+
+                  <p style='font-size: 12pt; text-align: center;'>Sample size \(n\)</p><p style='font-size: 12pt; text-align: center' class='sliderValueCl' id='sliderValue1Id'></p>         <input class='sliderCl' id='slider1Id' type='text' data-slider-min='0' data-slider-max='4' data-slider-step='1' data-slider-value='2'/>         <div style='font-size: 12pt; text-align: center;'>         <button class='animateButtonCl' id='1' onclick='animateButtonClick(slider = 1)'>Animate \(n\)</button>         </div>
                   
                   <br>
                   
@@ -254,45 +228,20 @@
         
         <p style="font-size: 18pt">More Details</p>
         
-        <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Construction of \(z_{\overline{Y}}\)</span> </button>
+        <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">
+          
+  More details header
+
+        </span> </button>
         <div class="collContentCl">
           
           <p style="margin-top: 10px;">
-            For the construction of the standardized sample average \(z_{\overline{Y}}\), the mean \(\mu\) as well as the variance \(\sigma^{2}\) are used.
+            
+  Add more details here...
+
           </p>
-          
-          <p>For the continuous uniform distribution the mean is given by,</p>
-          
-          $$
-          \begin{align}
-          \mu=p,
-          \end{align}
-          $$ 
-          
-          <p>and the variance is given by,</p>
-          
-          $$
-          \begin{align}
-          \sigma^{2}=p\left(1-p\right),
-          \end{align}
-          $$
-          
-          <p>where \(p\) is the probability of success of the Bernoulli distribution.</p>
-          
-        </div>
-        
-        <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Simulation Exercise</span> </button>
-        <div class="collContentCl">
-          
-          <ol type="1" style="margin-top: 10px;">
-            <li>A realization of the DGP specified above is simulated, i.e., a i.i.d. sequence of realizations \(Y_{1}, Y_{2}, ..., Y_{n}\) are drawn from the distribution of \(Y_{i}\) above.</li>
-            <li>Based on the sequence of observations \(Y_{1}, Y_{2}, ... Y_{n}\), the sample average and standardized sample average are calculated.</li>  
-            <li>The values of the sample average \(\overline{Y}\) and the standardized sample average \(z_{\overline{Y}}\) are stored.</li>
-            <li>Step 1 to 3 is repeated \(10,\!000\) times resulting in \(10,\!000\) sample averages and standardized sample averages.</li>
-            <li>The distribution of the sample averages and standardized sample averages are illustrated using histograms.</li>
-          </ol>
-          
-        </div>
+                    
+        </div>    
         
       </div>
       
