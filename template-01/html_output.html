@@ -92,7 +92,7 @@
                 
                 <div style='margin-top: 50px;'>
                   
-                  <hr>
+                  <!-- <hr>
                   
                   <p style="font-size: 12pt; text-align: center;">Sample size \(n\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue1Id"></p>
                   <input class="sliderCl" id="slider1Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
@@ -106,8 +106,10 @@
                   <input class="sliderCl" id="slider2Id" type="text" data-slider-min="0" data-slider-max="3" data-slider-step="1" data-slider-value="1"/>
                   <div style="font-size: 12pt; text-align: center;">
                     <button class="animateButtonCl" onclick="animateButtonClick(slider = 2)">Animate \(p\)</button>
-                  </div>
+                  </div> -->
                   
+                  <hr>         <p style='font-size: 12pt; text-align: center;'>Sample size \(n\)</p><p style='font-size: 12pt; text-align: center' class='sliderValueCl' id='sliderValue1Id'></p>         <input class='sliderCl' id='slider1Id' type='text' data-slider-min='0' data-slider-max='4' data-slider-step='1' data-slider-value='2'/>         <div style='font-size: 12pt; text-align: center;'>         <button class='animateButtonCl' id='1' onclick='animateButtonClick(slider = 1)'>Animate \(n\)</button>         </div><br>         <p style='font-size: 12pt; text-align: center;'>Probability of <br> success \(p\)</p><p style='font-size: 12pt; text-align: center' class='sliderValueCl' id='sliderValue2Id'></p>         <input class='sliderCl' id='slider2Id' type='text' data-slider-min='0' data-slider-max='2' data-slider-step='1' data-slider-value='1'/>         <div style='font-size: 12pt; text-align: center;'>         <button class='animateButtonCl' id='2' onclick='animateButtonClick(slider = 2)'>Animate \(p\)</button>         </div>
+
                 </div>
                 
               </div>
@@ -383,13 +385,16 @@
     
     var sliders = {
     'value': {
-      'slider1': [5, 10, 25, 50, 100],
-      'slider2': [0.2, 0.4, 0.6, 0.8],
+        'slider1': [5, 10, 25, 50, 100],
+        'slider2': [0.2, 0.4, 0.6, 0.8],
     },
     'initialIndex': [2, 2],
     'sliderValueParStr': ['\\(n = ', '\\(p = '],
-  }
-  print(sliders)
+    'slider_header': ['Sample size \(n\)', 'Probability of <br> success \(p\)'],
+    'button_header': ['Animate \(n\)', 'Animate \(p\)'],
+    'slider_value_max': ['4', '2'],
+    'slider_value': ['2', '1'],
+}
 
   </script>
 
