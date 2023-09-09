@@ -57,7 +57,7 @@ for ii in range(len(sliders["slider_value"])):
 print("this are the slider tags")
 print(tag)
 
-html_content = html_content.replace(f"<!-- slider inputs -->", tag)
+html_content = html_content.replace(f"<!-- slider_inputs -->", tag)
 
 
 # Use regular expressions to find all words between </ and >
