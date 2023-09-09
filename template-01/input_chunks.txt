@@ -12,35 +12,75 @@ sliders = {
     "sliderValueParStr": ['\\(n = ', '\\(p = '],
     "slider_header": ['Sample size \(n\)', 'Probability of <br> success \(p\)'],
     "button_header": ['Animate \(n\)', 'Animate \(p\)'],
-    "slider_value_max": ['4', '2'],
-    "slider_value": ['2', '1'],
+    "slider_value_max": ['4', '4'],
+    "slider_value": ['2', '2'],
 }
 <code_01/py>
 
 #--------------------------------------------------
 # Text chunks
 
+<html/title>
+Title of the module
+<title/html>
+
 <html/header_01>
-  This is the first level header
+This is the first level header
 <header_01/html>
 
 <html/header_02>
-  This is the second level header
+This is the second level header
 <header_02/html>
 
 <html/topic_01>
-  <p>This module is about...</p>
-  <p>Futhermore,...</p>
+<p>This module is about...</p>
+<p>Futhermore,...</p>
 <topic_01/html>
 
+<html/tab_name_01>
+Plot No 1
+<tab_name_01/html>
+
+<html/tab_name_02>
+Plot No 2
+<tab_name_02/html>
+
+<html/tab_name_03>
+Plot No 3
+<tab_name_03/html>
+
+<html/tab_header_01>
+Plot No 1
+<tab_header_01/html>
+
+<html/tab_header_02>
+Plot No 2
+<tab_header_02/html>
+
+<html/tab_header_03>
+Plot No 3
+<tab_header_03/html>
+
+<html/tab_text_01>
+<p>The figure shows...</p>
+<tab_text_01/html>
+
+<html/tab_text_02>
+<p>The figure shows...</p>
+<tab_text_02/html>
+
+<html/tab_text_03>
+<p>The figure shows...</p>
+<tab_text_03/html>
+
 <html/illustration_01>
-  <p>Change the parameters and see the effect...</p>
+<p>Change the parameters and see the effect...</p>
 <illustration_01/html>
 
 <html/more_details_header_01>
-  More details header
+More details header
 <more_details_header_01/html>
 
 <html/more_details_content_01>
-  <p>Add more details here...</p>
+<p>Add more details here...</p>
 <more_details_content_01/html>
