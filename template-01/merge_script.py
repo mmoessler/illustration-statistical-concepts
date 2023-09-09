@@ -13,8 +13,7 @@ def generate_slider(slider_header, button_header, slider_id, slider_value_id, sl
         </div>"
     return(tag)
 
-print(generate_slider(slider_header = "Sample size \(n\)", button_header = "Animate \(n\)", slider_id = "1", slider_value_id = "1", slider_value_max = "4", slider_value = "2", button_id = "1"))
-
+# print(generate_slider(slider_header = "Sample size \(n\)", button_header = "Animate \(n\)", slider_id = "1", slider_value_id = "1", slider_value_max = "4", slider_value = "2", button_id = "1"))
 # Read the content of the .txt file
 with open('./template-01/input_chunks.txt', 'r') as txt_file:
     txt_content = txt_file.read()
@@ -24,12 +23,13 @@ with open('./template-01/html_template.html', 'r') as html_file:
     html_content = html_file.read()
 
 # Use regular expressions to find all python code chunks
-code_chunks = re.findall(r'<py/(.*?)/>', txt_content)
+code_chunks = re.findall(r'<py/(.*?)>', txt_content)
 # Filter out any empty strings
 code_chunks = [chunk.strip() for chunk in code_chunks if chunk.strip()]
 
-# Print the list of code_chunks
-print(code_chunks)
+# # Print the list of code_chunks
+# print("list all code chunks")
+# print(code_chunks)
 
 # Loop over the code_chunks and perform the operations
 for chunk in code_chunks:
@@ -42,13 +42,31 @@ for chunk in code_chunks:
     except Exception as e:
         print(f"An error occurred while executing the code: {e}")
 
+print("code chunk element 1")
+print(sliders)
+print(len(sliders))
+print(sliders["value"]["slider1"])
+
+tag = ""
+for ii in range(len(sliders["slider_value"])):
+    if ii == 0:
+        tag += "<hr>" + generate_slider(slider_header = sliders["slider_header"][ii], button_header = sliders["button_header"][ii], slider_id = str(ii+1), slider_value_id = str(ii+1), slider_value_max = sliders["slider_value_max"][ii], slider_value = sliders["slider_value"][ii], button_id = str(ii+1))
+    else:
+        tag += "<br>" + generate_slider(slider_header = sliders["slider_header"][ii], button_header = sliders["button_header"][ii], slider_id = str(ii+1), slider_value_id = str(ii+1), slider_value_max = sliders["slider_value_max"][ii], slider_value = sliders["slider_value"][ii], button_id = str(ii+1))
+
+print("this are the slider tags")
+print(tag)
+
+html_content = html_content.replace(f"<!-- slider inputs -->", tag)
+
+
 # Use regular expressions to find all words between </ and >
 html_chunks = re.findall(r'<html/(.*?)>', txt_content)
 # Filter out any empty strings
 html_chunks = [chunk.strip() for chunk in html_chunks if chunk.strip()]
 
-# Print the list of text_chunks
-print(html_chunks)
+# # Print the list of text_chunks
+# print(html_chunks)
 
 # Loop over the text_chunks and perform the operations
 for chunk in html_chunks:
@@ -71,10 +89,10 @@ js_block = js_block.replace('"', "'")
 # Replace the variable assignment to use 'var'
 js_block = js_block.replace("sliders =", "var sliders =")
 
-print(chunk)
-print(js_block)
+# print(chunk)
+# print(js_block)
 
-print(f"// {chunk} //")
+# print(f"// {chunk} //")
 
 html_content = html_content.replace(f"// {chunk} //", js_block)
 
