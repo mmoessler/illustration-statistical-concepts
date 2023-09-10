@@ -84,3 +84,47 @@ More details header
 <html/more_details_content_01>
 <p>Add more details here...</p>
 <more_details_content_01/html>
+
+
+#--------------------------------------------------
+# Audio text chunks
+
+<html/audio_text_figure_01_overall>
+<span>Figure one shows...</span>
+<audio_text_figure_01_overall/html>
+
+<html/audio_text_figure_01_slider_01>
+<span>Changing slider one...</span>
+<audio_text_figure_01_slider_01/html>
+
+<html/audio_text_figure_01_slider_02>
+<span>Changing slider two...</span>
+<audio_text_figure_01_slider_02/html>
+
+# ...
+
+<html/audio_text_figure_02_overall>
+<span>Figure two shows...</span>
+<audio_text_figure_02_overall/html>
+
+<html/audio_text_figure_02_slider_01>
+<span>Changing slider one...</span>
+<audio_text_figure_02_slider_01/html>
+
+<html/audio_text_figure_02_slider_02>
+<span>Changing slider two...</span>
+<audio_text_figure_02_slider_02/html>
+
+# ...
+
+<html/audio_text_figure_03_overall>
+<span>Figure three shows...</span>
+<audio_text_figure_03_overall/html>
+
+<html/audio_text_figure_03_slider_01>
+<span>Changing slider one...</span>
+<audio_text_figure_03_slider_01/html>
+
+<html/audio_text_figure_03_slider_02>
+<span>Changing slider two...</span>
+<audio_text_figure_03_slider_02/html>
