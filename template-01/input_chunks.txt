@@ -15,6 +15,10 @@ sliders = {
     "slider_value_max": ['4', '4'],
     "slider_value": ['2', '2'],
 }
+figures = {
+    "tab_name": ['Plot No 1', 'Plot No 2', 'Plot No 3'],
+    "tab_header": ['Plot No 1', 'Plot No 2', 'Plot No 3'],
+}
 <code_01/py>
 
 #--------------------------------------------------
@@ -36,30 +40,6 @@ This is the second level header
 <p>This module is about...</p>
 <p>Futhermore,...</p>
 <topic_01/html>
-
-<html/tab_name_01>
-Plot No 1
-<tab_name_01/html>
-
-<html/tab_name_02>
-Plot No 2
-<tab_name_02/html>
-
-<html/tab_name_03>
-Plot No 3
-<tab_name_03/html>
-
-<html/tab_header_01>
-Plot No 1
-<tab_header_01/html>
-
-<html/tab_header_02>
-Plot No 2
-<tab_header_02/html>
-
-<html/tab_header_03>
-Plot No 3
-<tab_header_03/html>
 
 <html/tab_text_01>
 <p>The figure shows...</p>
@@ -84,6 +64,11 @@ More details header
 <html/more_details_content_01>
 <p>Add more details here...</p>
 <more_details_content_01/html>
+
+<html/back_start_page>
+<a href="https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/index.html"><em>Back to Startpage</em></a>
+<back_start_page/html>
+
 
 
 #--------------------------------------------------
