@@ -45,8 +45,7 @@ with open('./template-01/html_template.html', 'r') as html_file:
 code_chunks = re.findall(r'<py/(.*?)>', txt_content)
 # Filter out any empty strings
 code_chunks = [chunk.strip() for chunk in code_chunks if chunk.strip()]
-
-# Loop over the code_chunks and perform the operations
+# Loop over the python code chunks and evaluate coe chunks
 for chunk in code_chunks:
     start_marker = f"<py/{chunk}>"
     end_marker = f"<{chunk}/py>"
@@ -71,12 +70,11 @@ html_content = html_content.replace(f"<!-- slider_inputs -->", tag)
 tag = generate_audio_text(n_figures=3, n_sliders=len(sliders["value"]))
 html_content = html_content.replace(f"<!-- audio_text_inputs -->", tag)
 
-# Use regular expressions to find all words between </ and >
+# Use regular expressions to find all html code chunks
 html_chunks = re.findall(r'<html/(.*?)>', txt_content)
 # Filter out any empty strings
 html_chunks = [chunk.strip() for chunk in html_chunks if chunk.strip()]
-
-# Loop over the text_chunks and perform the operations
+# Loop over the html code chunks and insert html template
 for chunk in html_chunks:
     start_marker = f"<html/{chunk}>"
     end_marker = f"<{chunk}/html>"
@@ -85,18 +83,16 @@ for chunk in html_chunks:
 
 # transform python to javascript and insert
 chunk = "code_01"
-
 start_marker = f"<py/{chunk}>"
 end_marker = f"<{chunk}/py>"
 code_block = txt_content.split(start_marker)[1].split(end_marker)[0]
-
 # Remove leading and trailing whitespaces
 js_block = code_block.strip()
 # Replace double quotes with single quotes
 js_block = js_block.replace('"', "'")
 # Replace the variable assignment to use 'var'
 js_block = js_block.replace("sliders =", "var sliders =")
-
+# insert in html template
 html_content = html_content.replace(f"// {chunk} //", js_block)
 
 # Write the modified HTML content back to the file
