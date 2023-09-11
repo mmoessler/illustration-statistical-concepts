@@ -2,8 +2,8 @@
 # import modules
 import re
 
-# funtion to generate slider
-def generate_slider(slider_header, button_header, slider_id, slider_value_id, slider_value_max, slider_value, button_id):
+# funtion to generate inner slider
+def generate_inner_slider(slider_header, button_header, slider_id, slider_value_id, slider_value_max, slider_value, button_id):
     tag = f"""
         <p style='font-size: 12pt; text-align: center;'>{slider_header}</p>
         <p style='font-size: 12pt; text-align: center' class='sliderValueCl' id='sliderValue{slider_value_id}Id'></p>
@@ -12,6 +12,55 @@ def generate_slider(slider_header, button_header, slider_id, slider_value_id, sl
             <button class='animateButtonCl' id='{button_id}' onclick='animateButtonClick(slider = {slider_id})'>{button_header}</button>
         </div>
     """
+    return tag
+
+# function to generate outer slider
+def generate_outer_slider(sliders):
+    tag = ""
+    for ii in range(len(sliders["slider_value"])):
+        if ii == 0:
+            tag += "<hr>" + generate_inner_slider(slider_header = sliders["slider_header"][ii], button_header = sliders["button_header"][ii], slider_id = str(ii+1), slider_value_id = str(ii+1), slider_value_max = sliders["slider_value_max"][ii], slider_value = sliders["slider_value"][ii], button_id = str(ii+1))
+        else:
+            tag += "<br>" + generate_inner_slider(slider_header = sliders["slider_header"][ii], button_header = sliders["button_header"][ii], slider_id = str(ii+1), slider_value_id = str(ii+1), slider_value_max = sliders["slider_value_max"][ii], slider_value = sliders["slider_value"][ii], button_id = str(ii+1))
+    return tag
+
+# function to generate tabs
+def generate_tabs(figures):
+    tag = ""
+    # loop over figures
+    for ii in range(len(figures["tab_name"])):
+        tag = tag + f"""
+            <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N{ii+1}Id', 'tabLinkL1N{ii+1}Id', 'white')" id="tabLinkL1N{ii+1}Id">
+            {figures["tab_name"][ii]}
+            </button>
+        """
+    return tag
+
+# function to generate figures
+def generate_figures(figures):
+    tag = ""
+    # loop over figures
+    for ii in range(len(figures["tab_header"])):
+        tag = tag + f"""
+            <div id="tabContentL1N{ii+1}Id" class="tabContentL1Cl">
+            <table style="width:100%; margin-bottom: 10px;">
+            <tr>
+            <td style="width: 10%"></td>
+            <td style="width: 80%; font-size: 14pt; text-align: left;">
+            {figures["tab_header"][ii]}
+            </td>
+            <td style="width: 10%; font-size: 14pt; text-align: right;">
+            <button class="explainButtonCl" onclick="explainButtonClick()">Explain</button>
+            </td>
+            </tr>
+            </table>
+            <div style="text-align: center;">
+            <img src="./figures/figure_0{ii+1}.svg" alt="" class="figureCl" id="figure{ii+1}Id" style="max-width: 75%;">
+            </div>                                        
+            <p class="audioShowTextCl" id="audioShowTextFigure{ii+1}Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+            <!-- tab_text_0{ii+1} -->                  
+            </div>
+        """
     return tag
 
 # function to generate audio text
@@ -56,19 +105,14 @@ for chunk in code_chunks:
     except Exception as e:
         print(f"An error occurred while executing the code: {e}")
 
-# generate sliders tag
-tag = ""
-for ii in range(len(sliders["slider_value"])):
-    if ii == 0:
-        tag += "<hr>" + generate_slider(slider_header = sliders["slider_header"][ii], button_header = sliders["button_header"][ii], slider_id = str(ii+1), slider_value_id = str(ii+1), slider_value_max = sliders["slider_value_max"][ii], slider_value = sliders["slider_value"][ii], button_id = str(ii+1))
-    else:
-        tag += "<br>" + generate_slider(slider_header = sliders["slider_header"][ii], button_header = sliders["button_header"][ii], slider_id = str(ii+1), slider_value_id = str(ii+1), slider_value_max = sliders["slider_value_max"][ii], slider_value = sliders["slider_value"][ii], button_id = str(ii+1))
+# add tab tags
+html_content = html_content.replace(f"<!-- include_tabs -->", generate_tabs(figures = figures))
+# add figure tags
+html_content = html_content.replace(f"<!-- include_figures -->", generate_figures(figures = figures))
 # add slider tags
-html_content = html_content.replace(f"<!-- slider_inputs -->", tag)
-
-# generate audio tag
-tag = generate_audio_text(n_figures=3, n_sliders=len(sliders["value"]))
-html_content = html_content.replace(f"<!-- audio_text_inputs -->", tag)
+html_content = html_content.replace(f"<!-- include_sliders -->", generate_outer_slider(sliders = sliders))
+# agg audio tags
+html_content = html_content.replace(f"<!-- include_audio_text -->", generate_audio_text(n_figures=3, n_sliders=len(sliders["value"])))
 
 # Use regular expressions to find all html code chunks
 html_chunks = re.findall(r'<html/(.*?)>', txt_content)
