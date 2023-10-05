@@ -1,0 +1,140 @@
+
+#--------------------------------------------------
+# Code chunks
+
+<py/code-01>
+sliders = {
+    "value": {
+        "slider1": [-1, 0.6, 0.3, 0, 0.3, 0.6, 1],
+        "slider2": [-1, 0.6, 0.3, 0, 0.3, 0.6, 1],
+        "slider3": [-1, 0.6, 0.3, 0, 0.3, 0.6, 1],
+        "slider4": [-1, 0.6, 0.3, 0, 0.3, 0.6, 1],
+    },
+    "initialIndex": [3, 3, 3, 3],
+    "sliderValueParStr": ['ar1', 'ar2', 'ma1', 'ma2'],
+    "slider_header": ['AR1', 'AR2', 'MA1', 'MA2'],
+    "button_header": ['Animate \(AR1\)', 'Animate \(AR2\)', 'Animate \(MA1\)', 'Animate \(MA2\)'],
+    "slider_value_max": ['7', '7', '7', '7'],
+    "slider_value": ['3', '3', '3', '3'],
+}
+figures = {
+    "tab_name": ['Time Series Plot', 'Unit circle', 'PACF'],
+    "tab_header": ['Bar chart', 'Histogram of the sample average \(\overline{Y}\)', 'Histogram of the standardized sample average \(z_{\overline{Y}}\)'],
+}
+<code-01/py>
+
+#--------------------------------------------------
+# Text chunks
+
+<html/title>
+Bernoulli Distribution - Sample Average - Sampling Distribution
+<title/html>
+
+<html/header-01>
+Properties of the Sample Average as Estimator for the Mean
+<header-01/html>
+
+<html/header-02>
+Bernoulli Distribution
+<header-02/html>
+
+<html/topic-01>
+<p>Understand the effect of increasing the sample size \(n\) on the sampling distribution of the sample average as estimator for the mean.</p>
+<p>Consider \(n\) observations are drawn from the Bernoulli distribution,</p>
+$$
+\begin{align}
+Y_i &\sim \text{Bernoulli}\left(p\right),
+\end{align}
+$$
+<p>where \(p\) is a parameters representing the probability of success of the Bernoulli distribution.</p>
+<p>We are interested in the sampling properties of the sample average \(\overline{Y}\) given by,</p>          
+$$
+\begin{align}
+\overline{Y} = \frac{1}{N}\sum_{i=1}^{n} Y_{i},
+\end{align}
+$$          
+<p>as estimator for the mean \(\mu=\text{E}\left(Y_{i}\right)\) of the Bernoulli distribution given by,</p>          
+$$
+\begin{align}
+\mu=p,
+\end{align}
+$$
+<p>where \(p\) is the probability of success of the Bernoulli distribution.</p>
+<topic-01/html>
+
+<html/illustration>
+<p>Change the parameters and see the effect on the properties of the sample average \(\overline{Y}\) as estimator for \(\mu\).</p>
+<illustration/html>
+
+<html/tab-text-01>
+<p>The bar chart shows the number of ones and zeros of one realization of the DGP.</p>
+<tab-text-01/html>
+
+<html/tab-text-02>
+<p>As the sample size \(n\) grows the sample average \(\overline{Y}\) gets closer to \(\mu\), i.e.,</p>                  
+$$
+\begin{align}
+\overline{Y} \overset{p}{\to} \mu.
+\end{align}
+$$
+<tab-text-02/html>
+
+<html/tab-text-03>
+<p>As the sample size \(n\) grows the distribution of the standardized sample average,</p>                  
+$$
+\begin{align}
+z_{\overline{Y}} &= \frac{\overline{Y} - \mu}{\sigma_{\overline{Y}}}, \\
+z_{\overline{Y}} &= \frac{\overline{Y} - \mu}{\frac{\sigma}{\sqrt{N}}},
+\end{align}
+$$                  
+<p>gets closer to the standard normal distribution \(N\left(0, 1\right)\).</p>
+<tab-text-03/html>
+
+
+
+#--------------------------------------------------
+# Audio text chunks
+
+<html/audio-text-figure-01-overall>
+<span>The figure shows the barplot of the the number zeros and ones for one particular realization of the DGP.</span>
+<audio-text-figure-01-overall/html>
+
+<html/audio-text-figure-01-slider-01>
+<span>Increasing the sample size increases the number of zeros and ones for one particular realization of the DGP.</span>
+<audio-text-figure-01-slider-01/html>
+
+<html/audio-text-figure-01-slider-02>
+<span>Increasing the probability of success increases the number of ones for one particular realization of the DGP.</span>
+<audio-text-figure-01-slider-02/html>
+
+<html/audio-text-figure-02-overall>
+<span>The figure shows:<br></span>
+<span>The histogram of all estimated sample averages for all realizations of the DGP.<br></span>
+<span>The red vertical dashed line represents the sample average for one particular realization of the DGP.</span>
+<span>The green vertical dashed line represents the mean, i.e., the probability of success, of the underlying DGP.</span>
+<audio-text-figure-02-overall/html>
+
+<html/audio-text-figure-02-slider-01>
+<span>By increasing the sample size the sample average concentrate more around the mean, i.e., the probability of success, used to generate the data.<br></span>
+<span>This is the result of law of large numbers.</span>
+<audio-text-figure-02-slider-01/html>
+
+<html/audio-text-figure-02-slider-02>
+<span>Changing the probability of success, i.e., changing the mean of the underlying DGP, shifts the histogram.</span>
+<audio-text-figure-02-slider-02/html>
+
+<html/audio-text-figure-03-overall>
+<span>The figure shows:<br></span>
+<span>The histogram of all standardized sample averages for all realizations of the DGP.<br></span>
+<span>The red vertical dashed line represents the standardized sample average for one particular realization of the DGP.</span>
+<span>The green vertical dashed curve represents the pdf of the standard normal distribution.</span>
+<audio-text-figure-03-overall/html>
+
+<html/audio-text-figure-03-slider-01>
+<span>By increasing the sample size the sampling distribution of the standardized sample average gets closer to the standard normal distribution which pdf is illustrated by the green dashed curve.<br></span>
+<span>This is the results of the central limit theorem.</span>
+<audio-text-figure-03-slider-01/html>
+
+<html/audio-text-figure-03-slider-02>
+<span>Changing the probability of success does not effect the results of the central limit theorem.</span>
+<audio-text-figure-03-slider-02/html>
