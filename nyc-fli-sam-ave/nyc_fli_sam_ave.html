@@ -2,7 +2,7 @@
 <html lang="eng">
 <head>
   
-  <title>Bernoulli Distribution - Sample Average - Sampling Distribution</title>
+  <title>Example Flights Data - Sample Average - Sampling Distribution</title>
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +27,7 @@
       <div class="jumbotron topJumbCl" style="margin-top: 50px; padding: 25px 50px 25px 50px;">
         
         <p style='font-size: 28pt;'>Properties of the Sample Average as Estimator for the Mean</p>
-        <p style='font-size: 18pt;'>Bernoulli Distribution</p> 
+        <p style='font-size: 18pt;'>Example - Flights Data</p> 
         
       </div>
       
@@ -43,8 +43,7 @@
         
         <div style="margin-left: 10pt;">
           
-          <p>Understand the effect of increasing the sample size \(n\) on the sampling distribution of the sample average as estimator for the mean.</p>
-          <p>Get some Intuition about Bootstrapping in the DGP context.</p>
+          <p>Understand the effect of increasing the sample size \(n\) on the sampling distribution of the sample average as an estimator for the population mean through resampling methods.</p>
 
         </div>
 
@@ -55,14 +54,14 @@
         <div style="margin-left: 10pt;">
 
           <p>The bootstrap is a simulation method for computing standard errors and distributions of statistics of interest, which employs an 
-            estimated dgp (data generating process) for generating artificial (bootstrap) samples and computing the (bootstrap) draws of the
+            estimated DGP (data generating process) for generating artificial (bootstrap) samples and computing the (bootstrap) draws of the
             statistic. Empirical or nonparametric bootstrap relies on nonparametric estimates of the dgp, whereas parametric bootstrap relies 
             on parametric estimates of the dgp.</p>
 
             <!-- https://ocw.mit.edu/courses/14-382-econometrics-spring-2017/48094f9cc619ec6c5a5b56aa3bdfc360_MIT14_382S17_lec5.pdf -->
           
           <p> The following example gives some intuition how different bootstrap samples could look like. \(B = b_1,...,b_n\) samples are drawn 
-            with replacement from the population Y = [1, 2, 3, 4, 5],</p>
+            with replacement from the population \(Y = [1, 2, 3, 4, 5]\),</p>
           
           $$
           \begin{align}
@@ -78,7 +77,7 @@
             depending on the Bootstrap statistic one wants to obtain.</p>
 
           <p>Here, we want to calculate the mean of each sample. We compute the mean \(\mu_b\) for each bootstrap sample, and then take the average
-             to get the bootstrap mean. The bootstrap mean shoud be similar to the population mean \(\mu_Y\).</p>
+             to get the bootstrap mean. The bootstrap mean shoud be approximatly similar to the population mean \(\mu_Y\).</p>
 
              $$
              \begin{align}
@@ -101,7 +100,8 @@
           <p>The data in the following consists of information about all flights departing NYC in 2013. As the data is only available for NYC in 2013, 
             we don't know the distribution of the whole population.</p>
           <p> As we are interested in the average departure time, we draw samples \(Y_i\) with \(n\) observations for the delay of the flights 
-            from the dataset. With increasing sample size, the sample mean and the variance approach the population mean and variance.</p>
+            from the dataset. With increasing sample size, the sample mean and the variance approach the population mean and variance. Additionally, when we standardize the sample 
+          means the distribution approaches a standard normal distribution with \(\mathcal{N}(0,1)\).</p>
           
         </div>
         
@@ -324,7 +324,7 @@
         <div class="collContentCl">
           
           <ol type="1" style="margin-top: 10px;">
-            <li>A subsample of the DGP specified above is drawn, i.e., a i.i.d. sequence of realizations \(y_{1}, y_{2}, ..., y_{n}\) are drawn from the data \(Y_{flights}\).</li>
+            <li>A subsample of the DGP specified above is drawn, i.e., a i.i.d. sequence of realizations \(y_{1}, y_{2}, ..., y_{n}\) are drawn with replacement from the data \(Y_{flights}\).</li>
             <li>Based on the sequence of observations \(y_{1}, y_{2}, ... y_{n}\), the sample average and standardized sample average are calculated based on the subsample.</li>  
             <li>The values of the sample average \(\overline{Y}\) and the standardized sample average \(z_{\overline{Y}}\) are stored.</li>
             <li>Step 1 to 3 is repeated \(1,\!000\) times resulting in \(1,\!000\) sample averages and standardized sample averages.</li>
