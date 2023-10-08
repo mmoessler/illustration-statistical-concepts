@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="../assets/mystyle.css">
   
   <!-- logo -->
-  <div class="logoCl header01Cl" style="text-align:center; padding-top: 20px; padding-bottom: 20px;" background-color="#eeeeee;">
+  <div class="logo-cl header-01-cl" style="text-align:center; padding-top: 20px; padding-bottom: 20px;" background-color="#eeeeee;">
     <img src="../assets/RZ_UniHohenheim_Logo_1C_Weiss_EN.svg" height="250px"/>
   </div>
   
@@ -24,7 +24,7 @@
   <div class="container mt-5">
     <div class="row">
       
-      <div class="jumbotron topJumbCl" style="margin-top: 50px; padding: 25px 50px 25px 50px;">
+      <div class="jumbotron top-jumb-cl" style="margin-top: 50px; padding: 25px 50px 25px 50px;">
         
         <p style="font-size: 28pt;">Linear Regression Model and the OLS Estimator</p>
         <p style="font-size: 18pt;">Effect of the Sample Size</p> 
@@ -107,7 +107,7 @@
   <div class="container mt-5">
     <div class="row">
       
-      <div class="jumbotron outerJumbCl" style="padding: 25px 50px 25px 50px">
+      <div class="jumbotron outer-jumb-cl" style="padding: 25px 50px 25px 50px">
         
         <p style="font-size: 18pt">Illustration</p>
         
@@ -121,7 +121,7 @@
           <div class="row">
             
             <div class="col-sm-3" style="margin-top: 90px;">
-              <div class="jumbotron innerJumbCl" style="padding: 25px 50px 25px 50px">
+              <div class="jumbotron inner-jumb-cl" style="padding: 25px 50px 25px 50px">
                 
                 <p style="font-size: 14pt; text-align: center;">Parameters</p>
                 
@@ -129,16 +129,16 @@
                   
                   <hr>
                   
-                  <p style="font-size: 12pt; text-align: center;">Realization DGP \(r\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue1Id"></p>
-                  <input class="sliderCl" id="slider1Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                  <p style="font-size: 12pt; text-align: center;">Realization DGP \(r\)</p><p style="font-size: 12pt; text-align: center" class="slider-value-cl" id="slider-value-1-id"></p>
+                  <input class="slider-cl" id="slider-1-id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
                   <div style="font-size: 12pt; text-align: center;">
                     <button class="animateButtonCl" id="button2Id" onclick="animateButtonClick(slider = 1)">Animate \(r\)</button>
                   </div>
                   
                   <br>
                   
-                  <p style="font-size: 12pt; text-align: center;">Sample size \(n\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue2Id"></p>
-                  <input class="sliderCl" id="slider2Id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                  <p style="font-size: 12pt; text-align: center;">Sample size \(n\)</p><p style="font-size: 12pt; text-align: center" class="slider-value-cl" id="slider-value-2-id"></p>
+                  <input class="slider-cl" id="slider-2-id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
                   <div style="font-size: 12pt; text-align: center;">
                     <button class="animateButtonCl" id="button2Id" onclick="animateButtonClick(slider = 2)">Animate \(n\)</button>
                   </div>
@@ -149,18 +149,18 @@
             </div>
             
             <div class="col-sm-9">
-              <div class="jumbotron innerJumbCl" style="padding: 15px 50px 25px 50px">
+              <div class="jumbotron inner-jumb-cl" style="padding: 15px 50px 25px 50px">
                 
                 <div class="tab" style="text-align: center;">
-                  <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N1Id', 'tabLinkL1N1Id', 'white')" id="tabLinkL1N1Id">Realizations</button>
-                  <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N2Id', 'tabLinkL1N2Id', 'white')" id="tabLinkL1N2Id">Residuals</button>
-                  <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N3Id', 'tabLinkL1N3Id', 'white')" id="tabLinkL1N3Id">Estimates</button>
-                  <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N4Id', 'tabLinkL1N4Id', 'white')" id="tabLinkL1N4Id">Std. Estimates</button>
+                  <button class="tab-link-l1-cl" onclick="openSpecificTab('tab-content-l1-n1-id', 'tab-link-l1-n1-id', 'white')" id="tab-link-l1-n1-id">Realizations</button>
+                  <button class="tab-link-l1-cl" onclick="openSpecificTab('tab-content-l1-n2-id', 'tab-link-l1-n2-id', 'white')" id="tab-link-l1-n2-id">Residuals</button>
+                  <button class="tab-link-l1-cl" onclick="openSpecificTab('tab-content-l1-n3-id', 'tab-link-l1-n3-id', 'white')" id="tab-link-l1-n3-id">Estimates</button>
+                  <button class="tab-link-l1-cl" onclick="openSpecificTab('tab-content-l1-n4-id', 'tab-link-l1-n4-id', 'white')" id="tab-link-l1-n4-id">Std. Estimates</button>
                 </div>
                 
                 <br>
                 
-                <div id="tabContentL1N1Id" class="tabContentL1Cl">
+                <div id="tab-content-l1-n1-id" class="tab-content-l1-cl">
                   
                   <table style="width:100%; margin-bottom: 10px;">
                     <tr>
@@ -173,10 +173,10 @@
                   </table>
                   
                   <div style="text-align: center;">
-                    <img src="./figures/figure_01_1_1.svg" alt="" class="figureCl" id="figure1Id" style="max-width: 75%;">
+                    <img src="./figures/figure_01_1_1.svg" alt="" class="figure-cl" id="figure-1-id" style="max-width: 75%;">
                   </div>  
                   
-                  <p class="audioShowTextCl" id="audioShowTextFigure1Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                  <p class="audio-show-text-cl" id="audio-show-text-figure-1-id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
                   
                   <p>The red fitted regression line is based on the regression of,</p>
                   
@@ -190,7 +190,7 @@
                   
                 </div>
                 
-                <div id="tabContentL1N2Id" class="tabContentL1Cl">
+                <div id="tab-content-l1-n2-id" class="tab-content-l1-cl">
                   
                   <table style="width:100%; margin-bottom: 10px;">
                     <tr>
@@ -203,10 +203,10 @@
                   </table>
                   
                   <div style="text-align: center;">
-                    <img src="./figures/figure_02_1_1.svg" alt="" class="figureCl" id="figure2Id" style="max-width: 75%;">
+                    <img src="./figures/figure_02_1_1.svg" alt="" class="figure-cl" id="figure-2-id" style="max-width: 75%;">
                   </div>
                   
-                  <p class="audioShowTextCl" id="audioShowTextFigure2Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                  <p class="audio-show-text-cl" id="audio-show-text-figure-2-id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
                   
                   <p>The fitted OLS residuals are</p>
                   
@@ -220,7 +220,7 @@
                   
                 </div>
                 
-                <div id="tabContentL1N3Id" class="tabContentL1Cl">
+                <div id="tab-content-l1-n3-id" class="tab-content-l1-cl">
                   
                   <table style="width:100%; margin-bottom: 10px;">
                     <tr>
@@ -233,10 +233,10 @@
                   </table>
                   
                   <div style="text-align: center;">
-                    <img src="./figures/figure_03_1_1.svg" alt="" class="figureCl" id="figure3Id" style="max-width: 75%;">
+                    <img src="./figures/figure_03_1_1.svg" alt="" class="figure-cl" id="figure-3-id" style="max-width: 75%;">
                   </div>
                   
-                  <p class="audioShowTextCl" id="audioShowTextFigure3Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                  <p class="audio-show-text-cl" id="audio-show-text-figure-3-id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
                   
                   <span style="font-size: 16pt; text-decoration: underline;">Consistency</span><span style="font-size: 16pt; text-decoration: none;">:</span>
                   
@@ -252,7 +252,7 @@
                   
                 </div>
                 
-                <div id="tabContentL1N4Id" class="tabContentL1Cl">
+                <div id="tab-content-l1-n4-id" class="tab-content-l1-cl">
                   
                   <table style="width:100%; margin-bottom: 10px;">
                     <tr>
@@ -265,10 +265,10 @@
                   </table>
                   
                   <div style="text-align: center;">
-                    <img src="./figures/figure_04_1_1.svg" alt="" class="figureCl" id="figure4Id" style="max-width: 75%;">
+                    <img src="./figures/figure_04_1_1.svg" alt="" class="figure-cl" id="figure-4-id" style="max-width: 75%;">
                   </div>
                   
-                  <p class="audioShowTextCl" id="audioShowTextFigure4Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                  <p class="audio-show-text-cl" id="audio-show-text-figure-4-id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
                   
                   <span style="font-size: 16pt; text-decoration: underline;">Asymptotic Normality</span><span style="font-size: 16pt; text-decoration: none;">:</span>
                   
@@ -304,8 +304,8 @@
         
         <p style="font-size: 18pt">More Details</p>
         
-        <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Simulation Exercise</span> </button>
-        <div class="collContentCl">
+        <button type="button" class="coll-button-cl"> <span style="font-size: 14pt;">Simulation Exercise</span> </button>
+        <div class="coll-content-cl">
           
           <ol type="1" style="margin-top: 10px;">
             <li>A realization of the DGP specificied above is simulated:
@@ -322,8 +322,8 @@
           
         </div>
         
-        <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Construction of \(z_{\widehat{\beta}_{1}}\)</span> </button>
-        <div class="collContentCl">
+        <button type="button" class="coll-button-cl"> <span style="font-size: 14pt;">Construction of \(z_{\widehat{\beta}_{1}}\)</span> </button>
+        <div class="coll-content-cl">
           
           <p style="margin-top: 10px;">
             For the construction of the standardized OLS estimator \(z_{\widehat{\beta}_{1}}\), the variance of \(\widehat{\beta}_{1}\), i.e., \(\sigma_{\widehat{\beta}_{1}}^{2}\), has to be estimated.
@@ -364,55 +364,55 @@
     
     <!-- .................................................. -->
     <!-- default text -->
-    <div id="audioTextNoText" class="audioTextCl">
+    <div id="audio-text-no-text-id" class="audio-text-cl">
       There is no explanation yet.
     </div>
     
     <!-- .................................................. -->
     <!-- figure 1 -->
-    <div id="audioTextFigure1OverallId" class="audioTextCl">
+    <div id="audio-text-figure-1-overall-id" class="audio-text-cl">
       <span>The figure shows:<br></span>
       <span>The scatter plot of the values of x and y and the corresponding fitted regression line estimated by OLS for one particular realization of the underlying DGP.<br></span>
       <span>The red shaded area illustrates the range of all fitted regression lines estimated by OLS across all realizations for the underlying DGP.</span>
     </div>
     
-    <div id="audioTextFigure1Slider1Id" class="audioTextCl">
+    <div id="audio-text-figure-1-slider-1-id" class="audio-text-cl">
       <span>A different realization of the DGP results in a different estimate and thus a different fitted regression line estimated by OLS illustrated by the red dashed line.</span>
     </div>
     
-    <div id="audioTextFigure1Slider2Id" class="audioTextCl">        
+    <div id="audio-text-figure-1-slider-2-id" class="audio-text-cl">        
       <span>Increasing the sample size decreases the range of the different fitted regression lines across all realizations of the underlying DGP illustrated by the red shaded area.</span>
     </div>
     
     <!-- .................................................. -->
     <!-- figure 2 -->
-    <div id="audioTextFigure2OverallId" class="audioTextCl">
+    <div id="audio-text-figure-2-overall-id" class="audio-text-cl">
       <span>The figure shows the scatter plot of the values of x and the fitted residuals of a simple linear regression model estimated by OLS.<br></span>
       <span>Note, since the estimated parameters includes an intercept and a slope coefficient, the fitted residuals have a mean equal to zero and are uncorrelated with x by construction of the OLS estimator.</span>
     </div>
     
-    <div id="audioTextFigure2Slider1Id" class="audioTextCl">
+    <div id="audio-text-figure-2-slider-1-id" class="audio-text-cl">
       <span>A different realization of the DGP results in a different estimate and thus a different fitted residual estimated by OLS illustrated by the scatterplot.</span>
     </div>
     
-    <div id="audioTextFigure2Slider2Id" class="audioTextCl">
+    <div id="audio-text-figure-2-slider-2-id" class="audio-text-cl">
       <span>Increasing the sample size increases the number of fitted residuals estimated by OLS.</span>
     </div>
     
     <!-- .................................................. -->
     <!-- figure 3 -->
-    <div id="audioTextFigure3OverallId" class="audioTextCl">
+    <div id="audio-text-figure-3-overall-id" class="audio-text-cl">
       <span>The figure shows:.<br></span>
       <span>The histogram of the estimated slope coefficient across all realizations of the underlying DGP.<br></span>
       <span>The red vertical dashed line represents the estimated slope coefficient for one particular realization of the underlying DGP.</span>
       <span>The green vertical dashed line represents the slope coefficient of the underlying DGP.</span>
     </div>
     
-    <div id="audioTextFigure3Slider1Id" class="audioTextCl">
+    <div id="audio-text-figure-3-slider-1-id" class="audio-text-cl">
       <span>A different realization of the underlying DGP results in a different estimate for the slope coefficients represented by the red vertical dashed line.</span>
     </div>
     
-    <div id="audioTextFigure3Slider2Id" class="audioTextCl">
+    <div id="audio-text-figure-3-slider-2-id" class="audio-text-cl">
       <span>By increasing the sample size the estimated slope coefficients concentrate more around the slope coefficient of the underlying DGP.<br></span>
       <span>This is the result of law of large numbers.<br></span>
       <span>Thus, to conduct hypothesis tests we need a sampling distribution which is stable across sample sizes. For this we have to standardize the estimate usign the sample size.</span>
@@ -420,7 +420,7 @@
     
     <!-- .................................................. -->
     <!-- figure 4 -->
-    <div id="audioTextFigure4OverallId" class="audioTextCl">
+    <div id="audio-text-figure-4-overall-id" class="audio-text-cl">
       <span>The figure shows:<br></span>
       <span>The histogram of the standardized estimated slope coefficient across all realizations of the DGP.<br></span>
       <span>For the standardization with subtract the slope coefficient and divide by an estimate of the variance of the estimated slope coefficient.<br></span>
@@ -429,11 +429,11 @@
       <span>Note, the estimate for the variance of the estimated slope coefficient is explained below and is a function of the sample size, the variance of u, the variance of x, and the covariance of u and x.</span>
     </div>
     
-    <div id="audioTextFigure4Slider1Id" class="audioTextCl">
+    <div id="audio-text-figure-4-slider-1-id" class="audio-text-cl">
       <span>A different realization of the underlying DGP results in a different standardized estimate for the slope coefficient represented by the red vertical dashed line.</span>
     </div>
     
-    <div id="audioTextFigure4Slider2Id" class="audioTextCl">
+    <div id="audio-text-figure-4-slider-2-id" class="audio-text-cl">
       <span>By increasing the sample size the sampling distribution of the standardized estimated slope coefficient gets closer to the standard normal distribution which pdf is illustrated by the green dashed curve.<br></span>
       <span>This is the result of central limit theorem.</span>
       <span>Note, the sampling distribution of the standardized estimate is stable across the sample size.</span>
@@ -445,7 +445,7 @@
   <!-- include/exculde ilias footer -->
   <div class="container mt-5">
     <div class="row">
-      <p style="text-align: center; font-size: 20pt; font-weight: bold;" class="footerIliasCl">
+      <p style="text-align: center; font-size: 20pt; font-weight: bold;" class="footer-ilias-cl">
         <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1781360/index_ilias.html"><em>Back to Startpage</em></a>
       </p>
     </div>
@@ -454,7 +454,7 @@
   <!-- include/exculde github footer -->
   <div class="container mt-5">
     <div class="row">
-      <p style="text-align: center; font-size: 20pt; font-weight: bold;" class="footerGihubCl">
+      <p style="text-align: center; font-size: 20pt; font-weight: bold;" class="footer-github-cl">
         <a href="https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/index.html"><em>Back to Startpage</em></a>
       </p>
     </div>
