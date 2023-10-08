@@ -2,28 +2,28 @@
 //..................................................
 
 // collect all tab content ids
-let tabContentAll = document.getElementsByClassName('tabContentL1Cl');
+let tabContentAll = document.getElementsByClassName('tab-content-l1-cl');
 let tabContentIds = [];
 for (let i = 0; i < tabContentAll.length; i++) {
   tabContentIds.push(tabContentAll[i].id);
 }
 
 // collect all figure ids
-let figureAll = document.getElementsByClassName('figureCl');
+let figureAll = document.getElementsByClassName('figure-cl');
 let figureIds = [];
 for (let i = 0; i < figureAll.length; i++) {
   figureIds.push(figureAll[i].id);
 }
 
 // collect slider ids
-let sliderAll = document.getElementsByClassName('sliderCl');
+let sliderAll = document.getElementsByClassName('slider-cl');
 let sliderIds = [];
 for (let i = 0; i < sliderAll.length; i++) {
   sliderIds.push(sliderAll[i].id);
 }
 
 // collect slider value ids
-let sliderValueAll = document.getElementsByClassName('sliderValueCl');
+let sliderValueAll = document.getElementsByClassName('slider-value-cl');
 let sliderValueIds = [];
 for (let i = 0; i < sliderValueAll.length; i++) {
   sliderValueIds.push(sliderValueAll[i].id);
@@ -32,21 +32,21 @@ for (let i = 0; i < sliderValueAll.length; i++) {
 //..................................................
 
 // initialize sliders for all sliders
-for (var i = 0; i < sliderIds.length; i++) {
+for (let i = 0; i < sliderIds.length; i++) {
   eval(
-    'var slider' + (i + 1) + ' = new Slider("#slider' + (i + 1) + 'Id", { \n tooltip: "never", \n formatter: function(value) { \n return sliders.value.slider' + (i + 1) + '[value] \n } \n })'
+    'var slider' + (i + 1) + ' = new Slider("#slider-' + (i + 1) + '-id", { \n tooltip: "never", \n formatter: function(value) { \n return sliders.value.slider' + (i + 1) + '[value] \n } \n })'
   );
 }
 
 // set slide events for all sliders
-for (var i = 0; i < sliderIds.length; i++) {
+for (let i = 0; i < sliderIds.length; i++) {
   eval(
     'slider' + (i + 1) + '.on("slide", function() { updateFiguresAndSliderValues() })'
     );
 }
 
 // set initial slider values
-for (var i = 0; i < sliderIds.length; i++) {
+for (let i = 0; i < sliderIds.length; i++) {
   eval(
     'slider' + (i + 1) + '.setValue(sliders.initialIndex[' + i + '])'
   );
@@ -61,21 +61,18 @@ updateFiguresAndSliderValues = function() {
   let sliderValue1Tmp = null;
   
   // loop over figures
-  for (var i = 0; i < figureIds.length; i++) {
+  for (let i = 0; i < figureIds.length; i++) {
     figurePathTmp = './figures/figure_0' + (i + 1);
     // loop over sliders
-    for (var j = 0; j < sliderIds.length; j++) {
+    for (let j = 0; j < sliderIds.length; j++) {
       sliderTmp = 'slider' + (j + 1);
       sliderValue1Tmp = eval('slider' + (j + 1) + '.getValue()');
       figurePathTmp = figurePathTmp.concat('_' + (sliderValue1Tmp + 1));
       // set the slider value
-      document.getElementById(sliderValueIds[j]).innerHTML = sliders.sliderValueParStr[j] + sliders.value[sliderTmp][sliderValue1Tmp] + "\\)";
+      document.getElementById(sliderValueIds[j]).innerHTML = "\\(" + sliders.sliderValueParStr[j] + " = " + sliders.value[sliderTmp][sliderValue1Tmp] + "\\)";
       MathJax.typeset([document.getElementById(sliderValueIds[j])]);
     }
     document.getElementById(figureIds[i]).setAttribute("src", figurePathTmp.concat('.svg'));
-
-    console.log(figurePathTmp);
-
   }
 }
 
@@ -93,25 +90,25 @@ explainButtonClick = function() {
     tab++;
   }
   
-  let audioShowTextIdTmp = 'audioShowTextFigure' + tab + 'Id'; // construct show text id
-  let audioTextIdTmp = 'audioTextFigure' + tab + 'OverallId'; // construct audio text id
+  let audioShowTextIdTmp = 'audio-show-text-figure-' + tab + '-id'; // construct show text id
+  let audioTextIdTmp = 'audio-text-figure-' + tab + '-overall-id'; // construct audio text id
   
-  var audioTextDiv = document.getElementById(audioTextIdTmp); // get show text
-  var audioTextSpa = audioTextDiv.getElementsByTagName("span");
-  var audioShowPar = document.getElementById(audioShowTextIdTmp); // get audio text
+  let audioTextDiv = document.getElementById(audioTextIdTmp); // get show text
+  let audioTextSpa = audioTextDiv.getElementsByTagName("span");
+  let audioShowPar = document.getElementById(audioShowTextIdTmp); // get audio text
   
   audioShowPar.innerHTML = audioTextDiv.innerHTML;
   audioShowPar.style.display = "block";
   
-  var stopLoop = false;
-  var index = 0;
+  let stopLoop = false;
+  let index = 0;
   
   // function to read out each <span> with a delay in between
   function readSpans() {      
     if (index < audioTextSpa.length) {
-      var span = audioTextSpa[index];
-      var spanText = span.textContent;
-      var speech = new SpeechSynthesisUtterance(spanText);
+      let span = audioTextSpa[index];
+      let spanText = span.textContent;
+      let speech = new SpeechSynthesisUtterance(spanText);
       speechSynthesis.speak(speech);
       speech.onend = function() {
         setTimeout(function() {
@@ -119,10 +116,10 @@ explainButtonClick = function() {
           readSpans();
         }, 1000);
       };                
-      // finished with reading out spans
+    // finished with reading out spans
     } else {
       audioShowPar.style.display = "none";  
-      var intervalLoop = setInterval(function() {
+      let intervalLoop = setInterval(function() {
         stopLoop = true;      
         eval('slider' + slider + '.setValue(slider' + slider + '.options.value)');
         updateFiguresAndSliderValues();
@@ -146,25 +143,25 @@ animateButtonClick = function(slider) {
     tab++;
   }
     
-  let audioShowTextIdTmp = 'audioShowTextFigure' + tab + 'Id'; // construct show text id
-  let audioTextIdTmp = 'audioTextFigure' + tab + 'Slider' + slider + 'Id'; // construct audio text id
-    
-  var audioTextDiv = document.getElementById(audioTextIdTmp); // get show text
-  var audioTextSpa = audioTextDiv.getElementsByTagName("span");
-  var audioShowPar = document.getElementById(audioShowTextIdTmp); // get audio text
+  let audioShowTextIdTmp = 'audio-show-text-figure-' + tab + '-id'; // construct show text id
+  let audioTextIdTmp = 'audio-text-figure-' + tab + '-slider-' + slider + '-id'; // construct audio text id
+  
+  let audioTextDiv = document.getElementById(audioTextIdTmp); // get show text
+  let audioTextSpa = audioTextDiv.getElementsByTagName("span");
+  let audioShowPar = document.getElementById(audioShowTextIdTmp); // get audio text
   
   audioShowPar.innerHTML = audioTextDiv.innerHTML;
   audioShowPar.style.display = "block";
   
-  var stopLoop = false;
-  var index = 0;
+  let stopLoop = false;
+  let index = 0;
   
   // function to read out each <span> with a delay in between
   function readSpans() {      
     if (index < audioTextSpa.length) {
-      var span = audioTextSpa[index];
-      var spanText = span.textContent;
-      var speech = new SpeechSynthesisUtterance(spanText);
+      let span = audioTextSpa[index];
+      let spanText = span.textContent;
+      let speech = new SpeechSynthesisUtterance(spanText);
       speechSynthesis.speak(speech);
       speech.onend = function() {
         setTimeout(function() {
@@ -175,7 +172,7 @@ animateButtonClick = function(slider) {
       // finished with reading out spans
     } else {
       audioShowPar.style.display = "none";  
-      var intervalLoop = setInterval(function() {
+      let intervalLoop = setInterval(function() {
         stopLoop = true;      
         eval('slider' + slider + '.setValue(slider' + slider + '.options.value)');
         updateFiguresAndSliderValues();
@@ -188,13 +185,13 @@ animateButtonClick = function(slider) {
   readSpans();
   
   // iteration over sliders (sider specific)
-  var direction = 1; // 1 for increment, -1 for decrement
-  var minValue = eval('slider' + slider + '.options.min');
-  var maxValue = eval('slider' + slider + '.options.max');
+  let direction = 1; // 1 for increment, -1 for decrement
+  let minValue = eval('slider' + slider + '.options.min');
+  let maxValue = eval('slider' + slider + '.options.max');
   
-  var loopInterval = setInterval(function() {
+  let loopInterval = setInterval(function() {
     // Get the current value of the slider
-    var value = eval('slider' + slider + '.getValue()');
+    let value = eval('slider' + slider + '.getValue()');
     
     // Check if the event to stop the loop has been triggered
     if (stopLoop) {
