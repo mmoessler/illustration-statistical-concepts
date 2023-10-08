@@ -1,31 +1,31 @@
 
 /* include/exclude UHO logo */
-.header01Cl {
+.header-01-cl {
   display: block;
 }
 
 /* include/exclude UHO / Stiftung logo */
-.footer01Cl {
+.footer-01-cl {
   display: block;
 }
 
 /* include/exclude link to github start */
-.footerGihubCl {
+.footer-github-cl {
   display: block;
 }
 
 /* include/exclude link to ilias start */
-.footerIliasCl {
+.footer-ilias-cl {
   display: none;
 }
 
 /* include/exclude access to github */
-.accessIliasCl {
+.access-ilias-cl {
   display: block;
 }
 
 /* include/exclude access to ilias */
-.accessIliasCl {
+.access-ilias-cl {
   display: none;
 }
 
@@ -52,7 +52,7 @@ body {
 }
 
 /* hohenheim logo and chair */
-.logoCl {
+.logo-cl {
   background-color: #003f75;
   color: white;
   font-family: Arial Nova Cond Light;
@@ -60,7 +60,7 @@ body {
 }
 
 /* collapsible button */
-.collButtonCl {
+.coll-button-cl {
   margin-top: 5px;
   margin-bottom: 5px; 
   background-color: white;
@@ -78,7 +78,7 @@ body {
 }
 
 /* collapsible content */
-.collContentCl {
+.coll-content-cl {
   display: none;
   background-color: #ffffff;
   padding-top: 5px;
@@ -88,7 +88,7 @@ body {
 }
 
 /* style the buttons that are used to open the tab content */
-.tabLinkL1Cl {
+.tab-link-l1-cl {
   display: inline-table;
   max-height: 500px;
   min-height: 44px;
@@ -100,17 +100,17 @@ body {
 }
 
 /* change background color of buttons on hover */
-.tabLinkL1Cl:hover {
+.tab-link-l1-cl:hover {
   background-color: #ddd;
 }
 
 /* create an active/current tablink class */
-.tabLinkL1Cl.active {
+.tab-link-l1cl.active {
   background-color: #ccc;
 }
 
 /* buttons used to animate the parameters */
-.animateButtonCl {
+.animate-button-cl {
   display: inline-table;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -118,12 +118,12 @@ body {
   background-color: #f1f1f1;
 }
 
-.animateButtonCl:hover {
+.animate-button-cl:hover {
   background-color: #ddd;
 }
 
 /* buttons that are used to explain the figures */
-.explainButtonCl {
+.explain-button-cl {
   display: inline-table;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -131,7 +131,7 @@ body {
   background-color: #f1f1f1;
 }
 
-.explainButtonCl:hover {
+.explain-button-cl:hover {
   background-color: #ddd;
 }
 
@@ -140,11 +140,11 @@ body {
   width:100%; 
 }
 
-.innerJumbCl {
+.inner-jumb-cl {
   background-color: #ffffff;
 }
 
-.container .jumbotron .audioShowTextCl {
+.container .jumbotron .audio-show-text-cl {
   background-color: #eee;
   padding: 5px 5px 5px 5px;
 }
