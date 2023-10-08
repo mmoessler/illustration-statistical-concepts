@@ -2,8 +2,8 @@
 //..............................
 // handling of collapsibles
 // see: https://www.w3schools.com/howto/howto_js_collapsible.asp
-var coll = document.getElementsByClassName("collButtonCl");
-var i;
+let coll = document.getElementsByClassName("coll-button-cl");
+let i;
 
 for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
@@ -21,23 +21,23 @@ for (i = 0; i < coll.length; i++) {
 // handling of tabs      
 // see: https://www.w3schools.com/howto/howto_js_tabs.asp
 
-var activeTabId; // define as global variable
-activeTabId = "tabLinkL1N1Id";
+let activeTabId; // define as global variable
+activeTabId = "tab-link-l1-n1-id";
 
 // open specific tab
 function openSpecificTab(tabContentId, tabLinkId, color) {
 
-  // hide all elements with class="tabcontent_l1" by default */
-  var i, tabcontent, tablinks;
+  // hide all elements with class="tab-content-l1" by default */
+  let i, tabcontent, tablinks;
 
-  tabcontent = document.getElementsByClassName("tabContentL1Cl");
-  for (i = 0; i < tabcontent.length; i++) {
+  tabcontent = document.getElementsByClassName("tab-content-l1-cl");
+  for (let i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
   }
 
   // remove the background color of all tablinks/buttons
-  tablinks = document.getElementsByClassName("tabLinkL1Cl");
-  for (i = 0; i < tablinks.length; i++) {
+  tablinks = document.getElementsByClassName("tab-link-l1-cl");
+  for (let i = 0; i < tablinks.length; i++) {
     tablinks[i].style.backgroundColor = "";
   }
 
@@ -52,6 +52,6 @@ function openSpecificTab(tabContentId, tabLinkId, color) {
 }
 
 // set start page
-document.getElementById("tabLinkL1N1Id").click();
+document.getElementById("tab-link-l1-n1-id").click();
 // initialize figure and slider
 updateFiguresAndSliderValues();
