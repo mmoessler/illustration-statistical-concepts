@@ -1,0 +1,103 @@
+
+#--------------------------------------------------
+# Code chunks
+
+<py/code-01>
+sliders = {
+    "value": {
+        "slider1": [0.3, 0.3],
+        "slider2": [0.3, 0.3],
+        "slider3": [0.3, 0.3],
+        "slider4": [0.3, 0.3],
+    },
+    "initialIndex": [1, 1, 1, 1],
+    "sliderValueParStr": ['\\phi_{1}', '\\phi_{2}', '\\theta_{1}', '\\theta_{2}'],
+    "slider_header": ['AR 1 \(\\phi_{1}\)', 'AR 2 \(\\phi_{2}\)', 'MA 1 \(\\theta_{1}\)', 'MA 2 \(\\theta_{2}\)'],
+    "button_header": ['Animate \(\\phi_{1}\)', 'Animate \(\\phi_{2}\)', 'Animate \(\\theta_{1}\)', 'Animate \(\\theta_{2}\)'],
+    "slider_value_max": ['2', '2', '2', '2'],
+    "slider_value": ['0', '0', '0', '0'],
+}
+figures = {
+    "tab_name": ['<em>plot-01</em>', '<em>plot-02</em>', '<em>plot-03</em>'],
+    "tab_header": ['<em>plot-01-header</em>', '<em>plot-02-header</em>', '<em>plot-03-header</em>'],
+}
+<code-01/py>
+
+#--------------------------------------------------
+# Text chunks
+
+<html/title>
+Title of the module
+<title/html>
+
+<html/header-01>
+This is the first level header
+<header-01/html>
+
+<html/header-02>
+This is the second level header
+<header-02/html>
+
+<html/topic-01>
+<p>This module is about...</p>
+<p>Futhermore,...</p>
+<topic-01/html>
+
+<html/illustration>
+<p>Change the parameters and see the effect...</p>
+<illustration/html>
+
+<html/tab-text-01>
+<p>The figure shows...</p>
+<tab-text-01/html>
+
+<html/tab-text-02>
+<p>The figure shows...</p>
+<tab-text-02/html>
+
+<html/tab-text-03>
+<p>The figure shows...</p>
+<tab-text-03/html>
+
+#--------------------------------------------------
+# Audio text chunks
+
+<html/audio-text-figure-01-overall>
+<span>Figure one shows...</span>
+<audio-text-figure-01-overall/html>
+
+<html/audio-text-figure-01-slider-01>
+<span>Changing slider one...</span>
+<audio-text-figure-01-slider-01/html>
+
+<html/audio-text-figure-01-slider-02>
+<span>Changing slider two...</span>
+<audio-text-figure-01-slider-02/html>
+
+# ...
+
+<html/audio-text-figure-02-overall>
+<span>Figure two shows...</span>
+<audio-text-figure-02-overall/html>
+
+<html/audio-text-figure-02-slider-01>
+<span>Changing slider one...</span>
+<audio-text-figure-02-slider-01/html>
+
+<html/audio-text-figure-02-slider-02>
+<span>Changing slider two...</span>
+<audio-text-figure-02-slider-02/html>
+
+# ...
+
+<html/audio-text-figure-03-overall>
+<span>Figure three shows...</span>
+<audio-text-figure-03-overall/html>
+
+<html/audio-text-figure-03-slider-01>
+<span>Changing slider one...</span>
+<audio-text-figure-03-slider-01/html>
+
+<html/audio-text-figure-03-slider-02>
+<span>Changing slider two...</span>
+<audio-text-figure-03-slider-02/html>
