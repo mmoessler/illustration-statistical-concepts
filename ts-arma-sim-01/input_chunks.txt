@@ -5,21 +5,21 @@
 <py/code-01>
 sliders = {
     "value": {
-        "slider1": [0.3, 0.3],
-        "slider2": [0.3, 0.3],
-        "slider3": [0.3, 0.3],
-        "slider4": [0.3, 0.3],
+        "slider1": [-1, -0.6, -0.3, 0, 0.3, 0.6, 1],
+        "slider2": [-1, -0.6, -0.3, 0, 0.3, 0.6, 1],
+        "slider3": [-1, -0.6, -0.3, 0, 0.3, 0.6, 1],
+        "slider4": [-1, -0.6, -0.3, 0, 0.3, 0.6, 1],
     },
-    "initialIndex": [1, 1, 1, 1],
+    "initialIndex": [3, 3, 3, 3],
     "sliderValueParStr": ['\\phi_{1}', '\\phi_{2}', '\\theta_{1}', '\\theta_{2}'],
     "slider_header": ['AR 1 \(\\phi_{1}\)', 'AR 2 \(\\phi_{2}\)', 'MA 1 \(\\theta_{1}\)', 'MA 2 \(\\theta_{2}\)'],
     "button_header": ['Animate \(\\phi_{1}\)', 'Animate \(\\phi_{2}\)', 'Animate \(\\theta_{1}\)', 'Animate \(\\theta_{2}\)'],
-    "slider_value_max": ['2', '2', '2', '2'],
+    "slider_value_max": ['6', '6', '6', '6'],
     "slider_value": ['0', '0', '0', '0'],
 }
 figures = {
-    "tab_name": ['<em>plot-01</em>', '<em>plot-02</em>', '<em>plot-03</em>'],
-    "tab_header": ['<em>plot-01-header</em>', '<em>plot-02-header</em>', '<em>plot-03-header</em>'],
+    "tab_name": ['<em>plot-01</em>', '<em>plot-02</em>', '<em>plot-03</em>', '<em>plot-04</em>'],
+    "tab_header": ['<em>plot-01-header</em>', '<em>plot-02-header</em>', '<em>plot-03-header</em>', '<em>plot-04-header</em>'],
 }
 <code-01/py>
 

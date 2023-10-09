@@ -103,28 +103,28 @@ This is the second level header
                   <hr>
         <p style='font-size: 12pt; text-align: center;'>AR 1 \(\phi_{1}\)</p>
         <p style='font-size: 12pt; text-align: center' class='slider-value-cl' id='slider-value-1-id'></p>
-        <input class='slider-cl' id='slider-1-id' type='text' data-slider-min='0' data-slider-max='2' data-slider-step='1' data-slider-value='0'/>
+        <input class='slider-cl' id='slider-1-id' type='text' data-slider-min='0' data-slider-max='6' data-slider-step='1' data-slider-value='0'/>
         <div style='font-size: 12pt; text-align: center;'>
             <button class='animate-button-cl' id='animate-button-1-id' onclick='animateButtonClick(slider = 1)'>Animate \(\phi_{1}\)</button>
         </div>
     <br>
         <p style='font-size: 12pt; text-align: center;'>AR 2 \(\phi_{2}\)</p>
         <p style='font-size: 12pt; text-align: center' class='slider-value-cl' id='slider-value-2-id'></p>
-        <input class='slider-cl' id='slider-2-id' type='text' data-slider-min='0' data-slider-max='2' data-slider-step='1' data-slider-value='0'/>
+        <input class='slider-cl' id='slider-2-id' type='text' data-slider-min='0' data-slider-max='6' data-slider-step='1' data-slider-value='0'/>
         <div style='font-size: 12pt; text-align: center;'>
             <button class='animate-button-cl' id='animate-button-2-id' onclick='animateButtonClick(slider = 2)'>Animate \(\phi_{2}\)</button>
         </div>
     <br>
         <p style='font-size: 12pt; text-align: center;'>MA 1 \(\theta_{1}\)</p>
         <p style='font-size: 12pt; text-align: center' class='slider-value-cl' id='slider-value-3-id'></p>
-        <input class='slider-cl' id='slider-3-id' type='text' data-slider-min='0' data-slider-max='2' data-slider-step='1' data-slider-value='0'/>
+        <input class='slider-cl' id='slider-3-id' type='text' data-slider-min='0' data-slider-max='6' data-slider-step='1' data-slider-value='0'/>
         <div style='font-size: 12pt; text-align: center;'>
             <button class='animate-button-cl' id='animate-button-3-id' onclick='animateButtonClick(slider = 3)'>Animate \(\theta_{1}\)</button>
         </div>
     <br>
         <p style='font-size: 12pt; text-align: center;'>MA 2 \(\theta_{2}\)</p>
         <p style='font-size: 12pt; text-align: center' class='slider-value-cl' id='slider-value-4-id'></p>
-        <input class='slider-cl' id='slider-4-id' type='text' data-slider-min='0' data-slider-max='2' data-slider-step='1' data-slider-value='0'/>
+        <input class='slider-cl' id='slider-4-id' type='text' data-slider-min='0' data-slider-max='6' data-slider-step='1' data-slider-value='0'/>
         <div style='font-size: 12pt; text-align: center;'>
             <button class='animate-button-cl' id='animate-button-4-id' onclick='animateButtonClick(slider = 4)'>Animate \(\theta_{2}\)</button>
         </div>
@@ -151,6 +151,10 @@ This is the second level header
         
             <button class="tab-link-l1-cl" onclick="openSpecificTab('tab-content-l1-n3-id', 'tab-link-l1-n3-id', 'white')" id="tab-link-l1-n3-id">
             <em>plot-03</em>
+            </button>
+        
+            <button class="tab-link-l1-cl" onclick="openSpecificTab('tab-content-l1-n4-id', 'tab-link-l1-n4-id', 'white')" id="tab-link-l1-n4-id">
+            <em>plot-04</em>
             </button>
         
 
@@ -220,6 +224,25 @@ This is the second level header
             
 <p>The figure shows...</p>
                   
+            </div>
+        
+            <div id="tab-content-l1-n4-id" class="tab-content-l1-cl">
+            <table style="width:100%; margin-bottom: 10px;">
+            <tr>
+            <td style="width: 10%"></td>
+            <td style="width: 80%; font-size: 14pt; text-align: left;">
+            <em>plot-04-header</em>
+            </td>
+            <td style="width: 10%; font-size: 14pt; text-align: right;">
+            <button class="explain-button-cl" onclick="explainButtonClick()">Explain</button>
+            </td>
+            </tr>
+            </table>
+            <div style="text-align: center;">
+            <img src="./figures/figure_04.svg" alt="" class="figure-cl" id="figure4Id" style="max-width: 75%;">
+            </div>                                        
+            <p class="audio-show-text-cl" id="audio-show-text-figure-4-id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+            <em> tab-text-04 </em>                  
             </div>
         
                 
@@ -317,6 +340,26 @@ This is the second level header
                     <span> audio-text-figure-03-slider-04 </span>
                 </div>
             
+            <div id="audio-text-figure-4-overall-id" class="audio-text-cl">
+                <span> audio-text-figure-04-overall </span>
+            </div>
+        
+                <div id="audio-text-figure-4-slider-1-id" class="audio-text-cl">          
+                    <span> audio-text-figure-04-slider-01 </span>
+                </div>
+            
+                <div id="audio-text-figure-4-slider-2-id" class="audio-text-cl">          
+                    <span> audio-text-figure-04-slider-02 </span>
+                </div>
+            
+                <div id="audio-text-figure-4-slider-3-id" class="audio-text-cl">          
+                    <span> audio-text-figure-04-slider-03 </span>
+                </div>
+            
+                <div id="audio-text-figure-4-slider-4-id" class="audio-text-cl">          
+                    <span> audio-text-figure-04-slider-04 </span>
+                </div>
+            
 
   </div>
     
@@ -366,21 +409,21 @@ This is the second level header
         
     var sliders = {
     'value': {
-        'slider1': [0.3, 0.3],
-        'slider2': [0.3, 0.3],
-        'slider3': [0.3, 0.3],
-        'slider4': [0.3, 0.3],
+        'slider1': [-1, -0.6, -0.3, 0, 0.3, 0.6, 1],
+        'slider2': [-1, -0.6, -0.3, 0, 0.3, 0.6, 1],
+        'slider3': [-1, -0.6, -0.3, 0, 0.3, 0.6, 1],
+        'slider4': [-1, -0.6, -0.3, 0, 0.3, 0.6, 1],
     },
-    'initialIndex': [1, 1, 1, 1],
+    'initialIndex': [3, 3, 3, 3],
     'sliderValueParStr': ['\\phi_{1}', '\\phi_{2}', '\\theta_{1}', '\\theta_{2}'],
     'slider_header': ['AR 1 \(\\phi_{1}\)', 'AR 2 \(\\phi_{2}\)', 'MA 1 \(\\theta_{1}\)', 'MA 2 \(\\theta_{2}\)'],
     'button_header': ['Animate \(\\phi_{1}\)', 'Animate \(\\phi_{2}\)', 'Animate \(\\theta_{1}\)', 'Animate \(\\theta_{2}\)'],
-    'slider_value_max': ['2', '2', '2', '2'],
+    'slider_value_max': ['6', '6', '6', '6'],
     'slider_value': ['0', '0', '0', '0'],
 }
 var figures = {
-    'tab_name': ['<em>plot-01</em>', '<em>plot-02</em>', '<em>plot-03</em>'],
-    'tab_header': ['<em>plot-01-header</em>', '<em>plot-02-header</em>', '<em>plot-03-header</em>'],
+    'tab_name': ['<em>plot-01</em>', '<em>plot-02</em>', '<em>plot-03</em>', '<em>plot-04</em>'],
+    'tab_header': ['<em>plot-01-header</em>', '<em>plot-02-header</em>', '<em>plot-03-header</em>', '<em>plot-04-header</em>'],
 }
 
   </script>
