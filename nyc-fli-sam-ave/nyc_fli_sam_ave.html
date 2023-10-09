@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="../assets/mystyle.css">
   
   <!-- logo -->
-  <div class="logoCl header01Cl" style="text-align:center; padding-top: 20px; padding-bottom: 20px;" background-color="#eeeeee;">
+  <div class="logo-cl header-01-cl" style="text-align:center; padding-top: 20px; padding-bottom: 20px;" background-color="#eeeeee;">
     <img src="../assets/RZ_UniHohenheim_Logo_1C_Weiss_EN.svg" height="250px"/>
   </div>
   
@@ -24,7 +24,7 @@
   <div class="container mt-5">
     <div class="row">
       
-      <div class="jumbotron topJumbCl" style="margin-top: 50px; padding: 25px 50px 25px 50px;">
+      <div class="jumbotron top-jumb-cl" style="margin-top: 50px; padding: 25px 50px 25px 50px;">
         
         <p style='font-size: 28pt;'>Properties of the Sample Average as Estimator for the Mean</p>
         <p style='font-size: 18pt;'>Example - Flights Data</p> 
@@ -138,7 +138,7 @@
   <div class="container mt-5">
     <div class="row">
       
-      <div class="jumbotron outerJumbCl" style="padding: 25px 50px 25px 50px">
+      <div class="jumbotron outer-jumb-cl" style="padding: 25px 50px 25px 50px">
         
         <p style="font-size: 18pt">Illustration</p>
         
@@ -152,7 +152,7 @@
           <div class="row">
             
             <div class="col-sm-3" style="margin-top: 90px;">
-              <div class="jumbotron innerJumbCl" style="padding: 25px 50px 25px 50px">
+              <div class="jumbotron inner-jumb-cl" style="padding: 25px 50px 25px 50px">
                 
                 <p style="font-size: 14pt; text-align: center;">Parameters</p>
                 
@@ -160,16 +160,16 @@
                   
                   <hr>
                   
-                  <p style="font-size: 12pt; text-align: center;">Sample size \(n\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue1Id"></p>
-                  <input class="sliderCl" id="slider1Id" type="text" data-slider-min="0" data-slider-max="14" data-slider-step="1" data-slider-value="2"/>
+                  <p style="font-size: 12pt; text-align: center;">Sample size \(n\)</p><p style="font-size: 12pt; text-align: center" class="slider-value-cl" id="slider-value-1-id"></p>
+                  <input class="slider-cl" id="slider-1-id" type="text" data-slider-min="0" data-slider-max="14" data-slider-step="1" data-slider-value="2"/>
                   <div style="font-size: 12pt; text-align: center;">
                     <button class="animateButtonCl" onclick="animateButtonClick(slider = 1)">Animate \(n\)</button>
                   </div>
                   
                   <!-- <br>
                   
-                  <p style="font-size: 12pt; text-align: center;">Probability of <br> success \(p\)</p><p style="font-size: 12pt; text-align: center" class="sliderValueCl" id="sliderValue2Id"></p>
-                  <input class="sliderCl" id="slider2Id" type="text" data-slider-min="0" data-slider-max="3" data-slider-step="1" data-slider-value="1"/>
+                  <p style="font-size: 12pt; text-align: center;">Probability of <br> success \(p\)</p><p style="font-size: 12pt; text-align: center" class="slider-value-cl" id="slider-value-2-id"></p>
+                  <input class="slider-cl" id="slider-2-id" type="text" data-slider-min="0" data-slider-max="3" data-slider-step="1" data-slider-value="1"/>
                   <div style="font-size: 12pt; text-align: center;">
                     <button class="animateButtonCl" onclick="animateButtonClick(slider = 2)">Animate \(p\)</button>
                   </div> -->
@@ -180,17 +180,17 @@
             </div>
             
             <div class="col-sm-9">
-              <div class="jumbotron innerJumbCl" style="padding: 15px 50px 25px 50px">
+              <div class="jumbotron inner-jumb-cl" style="padding: 15px 50px 25px 50px">
                 
                 <div class="tab" style="text-align: center;">
-                  <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N1Id', 'tabLinkL1N1Id', 'white')" id="tabLinkL1N1Id">Realizations</button>
-                  <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N2Id', 'tabLinkL1N2Id', 'white')" id="tabLinkL1N2Id">Estimates</button>
-                  <button class="tabLinkL1Cl" onclick="openSpecificTab('tabContentL1N3Id', 'tabLinkL1N3Id', 'white')" id="tabLinkL1N3Id">Std. Estimates</button>
+                  <button class="tab-link-l1-cl" onclick="openSpecificTab('tab-content-l1-n1-id', 'tab-link-l1-n1-id', 'white')" id="tab-link-l1-n1-id">Realizations</button>
+                  <button class="tab-link-l1-cl" onclick="openSpecificTab('tab-content-l1-n2-id', 'tab-link-l1-n2-id', 'white')" id="tab-link-l1-n2-id">Estimates</button>
+                  <button class="tab-link-l1-cl" onclick="openSpecificTab('tab-content-l1-n3-id', 'tab-link-l1-n3-id', 'white')" id="tab-link-l1-n3-id">Std. Estimates</button>
                 </div>
                 
                 <hr>
                 
-                <div id="tabContentL1N1Id" class="tabContentL1Cl">
+                <div id="tab-content-l1-n1-id" class="tab-content-l1-cl">
                   
                   <table style="width:100%; margin-bottom: 10px;">
                     <tr>
@@ -203,16 +203,16 @@
                   </table>
                   
                   <div style="text-align: center;">
-                    <img src="./figures/figure_01_1.svg" alt="" class="figureCl" id="figure1Id" style="max-width: 75%;">
+                    <img src="./figures/figure_01_1.svg" alt="" class="figure-cl" id="figure-1-id" style="max-width: 75%;">
                   </div>                      
                   
-                  <p class="audioShowTextCl" id="audioShowTextFigure1Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                  <p class="audio-show-text-cl" id="audio-show-text-figure-1-id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
                   
                   <p>The bar chart shows the number of ones and zeros of one realization of the DGP.</p>
                   
                 </div>
                 
-                <div id="tabContentL1N2Id" class="tabContentL1Cl">
+                <div id="tab-content-l1-n2-id" class="tab-content-l1-cl">
                   
                   <table style="width:100%; margin-bottom: 10px;">
                     <tr>
@@ -225,10 +225,10 @@
                   </table>
                   
                   <div style="text-align: center;">
-                    <img src="./figures/figure_02_1.svg" alt="" class="figureCl" id="figure2Id" style="max-width: 75%;">
+                    <img src="./figures/figure_02_1.svg" alt="" class="figure-cl" id="figure-2-id" style="max-width: 75%;">
                   </div>
                   
-                  <p class="audioShowTextCl" id="audioShowTextFigure2Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                  <p class="audio-show-text-cl" id="audio-show-text-figure-2-id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
                   
                   <span style="font-size: 16pt; text-decoration: underline;">Consistency</span><span style="font-size: 16pt; text-decoration: none;">:</span>
                   
@@ -242,7 +242,7 @@
                   
                 </div>
                 
-                <div id="tabContentL1N3Id" class="tabContentL1Cl">
+                <div id="tab-content-l1-n3-id" class="tab-content-l1-cl">
                   
                   <table style="width:100%; margin-bottom: 10px;">
                     <tr>
@@ -255,10 +255,10 @@
                   </table>
                   
                   <div style="text-align: center;">
-                    <img src="./figures/figure_03_1.svg" alt="" class="figureCl" id="figure3Id" style="max-width: 75%;">
+                    <img src="./figures/figure_03_1.svg" alt="" class="figure-cl" id="figure-3-id" style="max-width: 75%;">
                   </div>
                   
-                  <p class="audioShowTextCl" id="audioShowTextFigure3Id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+                  <p class="audio-show-text-cl" id="audio-show-text-figure-3-id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
                   
                   <span style="font-size: 16pt; text-decoration: underline;">Asymptotic Normality</span><span style="font-size: 16pt; text-decoration: none;">:</span>
                   
@@ -293,8 +293,8 @@
         
         <p style="font-size: 18pt">More Details</p>
         
-        <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Construction of \(z_{\overline{Y}}\)</span> </button>
-        <div class="collContentCl">
+        <button type="button" class="coll-button-cl"> <span style="font-size: 14pt;">Construction of \(z_{\overline{Y}}\)</span> </button>
+        <div class="coll-content-cl">
           
           <p style="margin-top: 10px;">
             For the construction of the standardized sample average \(z_{\overline{Y}}\), the population mean \(\mu\) as well as the variance 
@@ -320,8 +320,8 @@
           
         </div>
         
-        <button type="button" class="collButtonCl"> <span style="font-size: 14pt;">Simulation Exercise</span> </button>
-        <div class="collContentCl">
+        <button type="button" class="coll-button-cl"> <span style="font-size: 14pt;">Simulation Exercise</span> </button>
+        <div class="coll-content-cl">
           
           <ol type="1" style="margin-top: 10px;">
             <li>A subsample of the DGP specified above is drawn, i.e., a i.i.d. sequence of realizations \(y_{1}, y_{2}, ..., y_{n}\) are drawn with replacement from the data \(Y_{flights}\).</li>
@@ -344,57 +344,57 @@
     
     <!-- .................................................. -->
     <!-- default text -->
-    <div id="audioTextNoText" class="audioTextCl">
+    <div id="audio-text-no-text-id" class="audio-text-cl">
       There is no explanation yet.
     </div>
     
     <!-- .................................................. -->
     <!-- figure 1 -->
-    <div id="audioTextFigure1OverallId" class="audioTextCl">
+    <div id="audio-text-figure-1-overall-id" class="audio-text-cl">
       <span>The figure shows the barplot of the the number zeros and ones for one particular realization of the DGP.</span>
     </div>
     
-    <div id="audioTextFigure1Slider1Id" class="audioTextCl">
+    <div id="audio-text-figure-1-slider-1-id" class="audio-text-cl">
       <span>Increasing the sample size increases the number of zeros and ones for one particular realization of the DGP.</span>
     </div>
     
-    <div id="audioTextFigure1Slider2Id" class="audioTextCl">        
+    <div id="audio-text-figure-1-slider-2-id" class="audio-text-cl">        
       <span>Increasing the probability of success increases the number of ones for one particular realization of the DGP.</span>
     </div>
     
     <!-- .................................................. -->
     <!-- figure 2 -->
-    <div id="audioTextFigure2OverallId" class="audioTextCl">
+    <div id="audio-text-figure-2-overall-id" class="audio-text-cl">
       <span>The figure shows:<br></span>
       <span>The histogram of all estimated sample averages for all realizations of the DGP.<br></span>
       <span>The red vertical dashed line represents the sample average for one particular realization of the DGP.</span>
       <span>The green vertical dashed line represents the mean, i.e., the probability of success, of the underlying DGP.</span>
     </div>
     
-    <div id="audioTextFigure2Slider1Id" class="audioTextCl">
+    <div id="audio-text-figure-2-slider-1-id" class="audio-text-cl">
       <span>By increasing the sample size the sample average concentrate more around the mean, i.e., the probability of success, used to generate the data.<br></span>
       <span>This is the result of law of large numbers.</span>
     </div>
     
-    <div id="audioTextFigure2Slider2Id" class="audioTextCl">
+    <div id="audio-text-figure-2-slider-2-id" class="audio-text-cl">
       <span>Changing the probability of success, i.e., changing the mean of the underlying DGP, shifts the histogram.</span>
     </div>
     
     <!-- .................................................. -->
     <!-- figure 3 -->
-    <div id="audioTextFigure3OverallId" class="audioTextCl">
+    <div id="audio-text-figure-3-overall-id" class="audio-text-cl">
       <span>The figure shows:<br></span>
       <span>The histogram of all standardized sample averages for all realizations of the DGP.<br></span>
       <span>The red vertical dashed line represents the standardized sample average for one particular realization of the DGP.</span>
       <span>The green vertical dashed curve represents the pdf of the standard normal distribution.</span>
     </div>
     
-    <div id="audioTextFigure3Slider1Id" class="audioTextCl">
+    <div id="audio-text-figure-3-slider-1-id" class="audio-text-cl">
       <span>By increasing the sample size the sampling distribution of the standardized sample average gets closer to the standard normal distribution which pdf is illustrated by the green dashed curve.<br></span>
       <span>This is the results of the central limit theorem.</span>
     </div>
     
-    <div id="audioTextFigure3Slider2Id" class="audioTextCl">
+    <div id="audio-text-figure-3-slider-2-id" class="audio-text-cl">
       <span>Changing the probability of success does not effect the results of the central limit theorem.</span>
     </div>
     
@@ -403,7 +403,7 @@
   <!-- include/exculde ilias footer -->
   <div class="container mt-5">
     <div class="row">
-      <p style="text-align: center; font-size: 20pt; font-weight: bold;" class="footerIliasCl">
+      <p style="text-align: center; font-size: 20pt; font-weight: bold;" class="footer-ilias-cl">
         <a href="https://ilias.uni-hohenheim.de/data/UHOH/lm_data/lm_1781360/index_ilias.html"><em>Back to Startpage</em></a>
       </p>
     </div>
@@ -412,7 +412,7 @@
   <!-- include/exculde github footer -->
   <div class="container mt-5">
     <div class="row">
-      <p style="text-align: center; font-size: 20pt; font-weight: bold;" class="footerGihubCl">
+      <p style="text-align: center; font-size: 20pt; font-weight: bold;" class="footer-github-cl">
         <a href="https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/index.html"><em>Back to Startpage</em></a>
       </p>
     </div>
@@ -468,7 +468,7 @@
         slider1: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 350, 500, 750, 1000],
       },
       initialIndex: [2],
-      sliderValueParStr: ['\\(n = '],
+      sliderValueParStr: ['n'],
     };
     
   </script>
