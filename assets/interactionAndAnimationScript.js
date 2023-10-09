@@ -72,6 +72,9 @@ updateFiguresAndSliderValues = function() {
       document.getElementById(sliderValueIds[j]).innerHTML = "\\(" + sliders.sliderValueParStr[j] + " = " + sliders.value[sliderTmp][sliderValue1Tmp] + "\\)";
       MathJax.typeset([document.getElementById(sliderValueIds[j])]);
     }
+
+    console.log(figurePathTmp);
+
     document.getElementById(figureIds[i]).setAttribute("src", figurePathTmp.concat('.svg'));
   }
 }
