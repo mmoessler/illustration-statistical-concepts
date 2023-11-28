@@ -121,13 +121,12 @@ explainButtonClick = function() {
       };                
     // finished with reading out spans
     } else {
-      audioShowPar.style.display = "none";  
+      //audioShowPar.style.display = "none";
       let intervalLoop = setInterval(function() {
-        stopLoop = true;      
-        eval('slider' + slider + '.setValue(slider' + slider + '.options.value)');
-        updateFiguresAndSliderValues();
-        clearInterval(intervalLoop);      
-      }, 1000);
+        stopLoop = true;
+        clearInterval(intervalLoop);
+        audioShowPar.style.display = "none";
+      }, 4000);
     }
   }
   
@@ -174,13 +173,14 @@ animateButtonClick = function(slider) {
       };                
       // finished with reading out spans
     } else {
-      audioShowPar.style.display = "none";  
+      //audioShowPar.style.display = "none";
       let intervalLoop = setInterval(function() {
         stopLoop = true;      
         eval('slider' + slider + '.setValue(slider' + slider + '.options.value)');
         updateFiguresAndSliderValues();
-        clearInterval(intervalLoop);      
-      }, 1000);
+        clearInterval(intervalLoop);
+        audioShowPar.style.display = "none";
+      }, 4000);
     }
   }
   
