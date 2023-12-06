@@ -313,7 +313,13 @@
 
                       <p>As the sample size \(N\) grows the OLS estimator \(\widehat{\beta}_{1}\) gets closer to,</p>
 
-                      <p id="equBias"></p>
+                      <p id="equBias">
+                        $$
+                        \begin{align}
+                        \widehat{\beta}_{1} &\overset{p}{\rightarrow} \beta_{1} + \beta_{2} \rho_{X_{1}X_{2}} \frac{\sigma_{X_{2}}}{\sigma_{X_{1}}},
+                        \end{align}
+                        $$                        
+                      </p>
 
                       <p>i.e., the OLS estimator is biased if \(\beta_{2} \neq 0\) and \(\rho_{X_{1}X_{2}} \neq 0\).</p>
 

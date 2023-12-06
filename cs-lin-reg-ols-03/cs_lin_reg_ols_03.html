@@ -86,7 +86,7 @@
             \end{align}
             $$
 
-            <p>which is also known as multiplicative heteroskedasticity and where \(\gamma_{0}\) and \(\gamma_{1}\) are parameters which determine the shape of the heteroskedasticity.</p>
+            <p>which is also known as multiplicative heteroskedasticity where \(\gamma_{0}\) and \(\gamma_{1}\) are parameters which determine the shape of the heteroskedasticity.</p>
 
             <p>Thus, for positive/negative values of \(\gamma_{1}\) the variance of \(u_{i}\) is positively/negatively related with the value of \(X_{i}\).</p>
 
@@ -172,7 +172,7 @@
                       <hr>
 
                       <p style="font-size: 12pt; text-align: center;">Variance of \(u_{i}\)</p><p style="font-size: 12pt; text-align: center" class="slider-value-cl" id="slider-value-3-id"></p>
-                      <input id="slider-3-id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <input id="slider-3-id" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="0"/>
                       <div class="slider-cl" style="font-size: 12pt; text-align: center;">
                         <button class="animateButtonCl" onclick="animateButtonClick(slider = 3)">Animate \(\\\gamma_{0}\)</button>
                       </div>                      
@@ -180,7 +180,7 @@
                       <hr>
 
                       <p style="font-size: 12pt; text-align: center;">Heteroskedasticity</p><p style="font-size: 12pt; text-align: center" class="slider-value-cl" id="slider-value-4-id"></p>
-                      <input class="slider-cl" id="slider-4-id" type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+                      <input class="slider-cl" id="slider-4-id" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="0"/>
                       <div style="font-size: 12pt; text-align: center;">
                         <button class="animateButtonCl" onclick="animateButtonClick(slider = 4)">Animate \(\\\gamma_{1}\)</button>
                       </div>
@@ -197,7 +197,7 @@
                       <button class="tab-link-l1-cl" onclick="openSpecificTab('tab-content-l1-n1-id', 'tab-link-l1-n1-id', 'white')" id="tab-link-l1-n1-id">Realizations</button>
                       <button class="tab-link-l1-cl" onclick="openSpecificTab('tab-content-l1-n2-id', 'tab-link-l1-n2-id', 'white')" id="tab-link-l1-n2-id">Residuals</button>
                       <button class="tab-link-l1-cl" onclick="openSpecificTab('tab-content-l1-n3-id', 'tab-link-l1-n3-id', 'white')" id="tab-link-l1-n3-id">Estimates</button>
-                      <button class="tab-link-l1-cl" onclick="openSpecificTab('tab-content-l1-n4-id', 'tab-link-l1-n4-id', 'white')" id="tab-link-l1-n4-id">Std. Estimates</button>
+                      <button class="tab-link-l1-cl" onclick="openSpecificTab('tab-content-l1-n4-id', 'tab-link-l1-n4-id', 'white')" id="tab-link-l1-n4-id">Standardized Est.</button>
                     </div>
 
                     <br>
@@ -564,10 +564,10 @@
         value: {
           slider1: [5, 10, 25, 50, 100],
           slider2: [1, 5, 10],
-          slider3: [-1, -0.5, 0, 0.5, 1],
-          slider4: [-0.2, -0.1, 0, 0.1, 0.2],
+          slider3: [0, 0.5, 1],
+          slider4: [0, 0.25, 0.5],
         },
-        initialIndex: [2, 1, 2, 2],
+        initialIndex: [2, 1, 0, 0],
         sliderValueParStr: ['n', '\\sigma_{X}^{2}', '\\gamma_{0}', '\\gamma_{1}'],
       };
 
