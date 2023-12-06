@@ -19,7 +19,7 @@ sliders = {
 }
 figures = {
     "tab_name": ['<em>Time Series</em>', '<em>Unit Circle</em>', '<em>ACF</em>', '<em>PACF</em>'],
-    "tab_header": ['<em>Generated Time Series with \(\mu\) = 0</em>', '<em>Unit Circle with inverse roots of the polynomial</em>', '<em>ACF Plot of the ARMA(p,q) process</em>', '<em>PACF Plot of the ARMA(p,q) process</em>'],
+    "tab_header": ['<em>Generated Time Series</em>', '<em>Unit Circle with inverse roots of the polynomial</em>', '<em>ACF Plot of the ARMA(p,q) process</em>', '<em>PACF Plot of the ARMA(p,q) process</em>'],
 }
 <code-01/py>
 
@@ -31,7 +31,7 @@ ARMA Simulation
 <title/html>
 
 <html/header-01>
-Autoregressive moving - average (ARMA) Simulation
+Autoregressive moving-average (ARMA) Simulation
 <header-01/html>
 
 <html/header-02>
@@ -41,7 +41,7 @@ A Simulation study of ARMA processes
 <html/topic-01>
 
 <h3>ARMA process</h3>
-<p>A general ARMA(p,q) process is given by</p>
+<p>A general ARMA(\(p,q\)) process is given by</p>
 $$
 \begin{align}
 y_t = \delta + \alpha_1 y_{t-1} + ... + \alpha_p y_{t-p} + \epsilon_t - \beta_1 \epsilon_{t-1} - ... - \beta_q \epsilon_{t-q}
@@ -54,17 +54,17 @@ $$
 \end{align}
 $$
 
-<p>The stability condition is equivalent to that of an AR(p) process, i.e. the roots of the lag polynomial \(\alpha(L)\) = 0</p>
+<p>The stability condition is equivalent to that of an AR(\(p\)) process, i.e. the roots of the lag polynomial \(\alpha(L)= 0\)</p>
 <p>must be greater than one in absolute value. Then an MA(\(\infty\)) or World representation of the process can be derived.</p>
 
 <br>
 
-<p>If the roots of \(\beta(L)\) = 0 are also larger than one in absolute value, the process can be inverted to be represented</p>
+<p>If the roots of \(\beta(L) = 0\) are also larger than one in absolute value, the process can be inverted to be represented</p>
 <p>as a stationary infinite AR process.</p>
 
 <br>
 
-<p> From these properties it is evident, that neither the ACF nor the PACF of an ARMA(p,q) process breaks off.</p>
+<p> From these properties it is evident, that neither the ACF nor the PACF of an ARMA(\(p,q\)) process breaks off.</p>
 
 <topic-01/html>
 
@@ -74,7 +74,7 @@ $$
 <illustration/html>
 
 <html/tab-text-01>
-<p>The figure shows the simulated time series with a mean of 0.</p>
+<p>The figure shows the simulated time series.</p>
 <tab-text-01/html>
 
 <html/tab-text-02>
@@ -86,18 +86,18 @@ $$
 <html/tab-text-03>
 <p>The figure shows the ACF of the ARMA process.</p>
 <ul>
-<li>When the process resembles an AR(p) process, the ACF is geometrically declining.</li>
-<li>When the process resembles a MA(q) process, the ACF is non-zero up to lag q, which gives the MA-order.</li>
-<li>When the process resembles an ARMA(p,q) process, the ACF is geometrically declining.</li>
+<li>For an AR(\(p\)) process, the ACF is geometrically declining.</li>
+<li>For a MA(\(q\)) process, the ACF is non-zero up to lag \(q\), which gives the MA-order.</li>
+<li>For an ARMA(\(p,q\)) process, the ACF is geometrically declining.</li>
 </ul>
 <tab-text-03/html>
 
 <html/tab-text-04>
 <p>The figure shows the PACF of the ARMA process.</p>
 <ul>
-<li>When the process resembles an AR(p) process, the PACF is non-zero up to lag p, which gives the AR-order.</li>
-<li>When the process resembles a MA(q) process, the PACF is geometrically declining.</li>
-<li>When the process resembles an ARMA(p,q) process, the PACF is geometrically declining.</li>
+<li>For an AR(\(p\)) process, the PACF is non-zero up to lag \(p\), which gives the AR-order.</li>
+<li>For a MA(\(q\)) process, the PACF is geometrically declining.</li>
+<li>For an ARMA(\(p,q\)) process, the PACF is geometrically declining.</li>
 </ul>
 <tab-text-04/html>
 
@@ -105,87 +105,116 @@ $$
 # Audio text chunks
 
 <html/audio-text-figure-01-overall>
-<span>Figure one shows...</span>
+<span>Figure one shows:</span>
+<span>The simulated time series, which fluctuates around the mean of 0.</span>
+<span></span>
 <audio-text-figure-01-overall/html>
 
 <html/audio-text-figure-01-slider-01>
-<span>Changing slider one...</span>
+<span>Changing the parameter for the first lag of the ARMA process</span>
+<span>towards 1, leads to less fluctuation</span>
+<span>while changing the parameter towards negative 1, the frequency and amplitude increases.</span>
 <audio-text-figure-01-slider-01/html>
 
 <html/audio-text-figure-01-slider-02>
-<span>Changing slider two...</span>
+<span>Changing the parameter for the second lag of the ARMA process</span>
+<span>increases the amplitude and the frequency of the time series.</span>
 <audio-text-figure-01-slider-02/html>
 
 <html/audio-text-figure-01-slider-03>
-<span>Changing slider one...</span>
+<span>Changing the parameter for the first lag of the error term in the ARMA process</span>
+<span>increases the frequency of the time series.</span>
 <audio-text-figure-01-slider-03/html>
 
 <html/audio-text-figure-01-slider-04>
-<span>Changing slider two...</span>
+<span>Changing the parameter for the second lag of the error term in the ARMA process</span>
+<span>increases the frequency of the time series.</span>
 <audio-text-figure-01-slider-04/html>
 
 # ...
 
 <html/audio-text-figure-02-overall>
-<span>Figure two shows...</span>
+<span>Figure two shows the unit circle.  
+<span>When the inverse roots of the polynomial are inside the unit circle, the process is stable.</span>
+<span>If the roots are on the outside or directly on the circle, the process is unstable.</span>
 <audio-text-figure-02-overall/html>
 
 <html/audio-text-figure-02-slider-01>
-<span>Changing slider one...</span>
+<span>Changing the parameter for the first lag of the ARMA process</span>
+<span>the inverse roots of the lag polynomial move towards the unit circle.</span>
 <audio-text-figure-02-slider-01/html>
 
 <html/audio-text-figure-02-slider-02>
-<span>Changing slider two...</span>
+<span>Changing the parameter for the second lag of the ARMA process</span>
+<span>the inverse roots of the lag polynomial move towards the unit circle.</span>
 <audio-text-figure-02-slider-02/html>
 
 <html/audio-text-figure-02-slider-03>
-<span>Changing slider one...</span>
+<span>Changing the parameter for the first lag of the error term in the ARMA process</span>
+<span>has no effect on the inverse roots of the lag polynomial.</span>
 <audio-text-figure-02-slider-03/html>
 
 <html/audio-text-figure-02-slider-04>
-<span>Changing slider two...</span>
+<span>Changing the parameter for the second lag of the error term in the ARMA process</span>
+<span>has no effect on the inverse roots of the lag polynomial.</span>
 <audio-text-figure-02-slider-04/html>
 
 # ...
 
 <html/audio-text-figure-03-overall>
-<span>Figure three shows...</span>
+<span>The figure shows the ACF of the ARMA process.</span>
 <audio-text-figure-03-overall/html>
 
 <html/audio-text-figure-03-slider-01>
-<span>Changing slider one...</span>
+<span>Changing the parameter for the first lag of the ARMA process</span>
+<span>increases the correlation of the time series and its own lags.</span>
+<span>The ACF is geometrically declining.</span>
 <audio-text-figure-03-slider-01/html>
 
 <html/audio-text-figure-03-slider-02>
-<span>Changing slider two...</span>
+<span>Changing the parameter for the second lag of the ARMA process</span>
+<span>increases the correlation of the time series and its own lags.</span>
+<span>The ACF is geometrically declining.</span>
 <audio-text-figure-03-slider-02/html>
 
 <html/audio-text-figure-03-slider-03>
-<span>Changing slider one...</span>
+<span>Changing the parameter for the first lag of the error term in the ARMA process</span>
+<span>increases the MA order, as the ACF has non-zero lags of a higher order.</span>
+<span>It also increases the correlation of the time series and its own lags.</span>
 <audio-text-figure-03-slider-03/html>
 
 <html/audio-text-figure-03-slider-04>
-<span>Changing slider two...</span>
+<span>Changing the parameter for the second lag of the error term in the ARMA process</span>
+<span>increases the MA order, as the ACF has non-zero lags of a higher order.</span>
+<span>It also increases the correlation of the time series and its own lags.</span>
 <audio-text-figure-03-slider-04/html>
 
 # ...
 
 <html/audio-text-figure-04-overall>
-<span>Figure three shows...</span>
+<span>The figure shows the PACF of the ARMA process.</span>
 <audio-text-figure-04-overall/html>
 
 <html/audio-text-figure-04-slider-01>
-<span>Changing slider one...</span>
+<span>Changing the parameter for the first lag of the ARMA process</span>
+<span>increases the AR order, as the ACF has non-zero lags of a higher order.</span>
+<span>It also increases the correlation of the time series and its own lags.</span>
 <audio-text-figure-04-slider-01/html>
 
 <html/audio-text-figure-04-slider-02>
-<span>Changing slider two...</span>
+<span>Changing the parameter for the second lag of the ARMA process</span>
+<span>increases the AR order, as the ACF has non-zero lags of a higher order.</span>
+<span>It also increases the correlation of the time series and its own lags.</span>
 <audio-text-figure-04-slider-02/html>
 
 <html/audio-text-figure-04-slider-03>
-<span>Changing slider one...</span>
+<span>Changing the parameter for the first lag of the error term in the ARMA process</span>
+<span>increases the correlation of the time series and its own lags.</span>
+<span>The PACF is geometrically declining.</span>
 <audio-text-figure-04-slider-03/html>
 
 <html/audio-text-figure-04-slider-04>
-<span>Changing slider two...</span>
+<span>Changing the parameter for the second lag of the error term in the ARMA process</span>
+<span>increases the correlation of the time series and its own lags.</span>
+<span>The PACF is geometrically declining.</span>
 <audio-text-figure-04-slider-04/html>
