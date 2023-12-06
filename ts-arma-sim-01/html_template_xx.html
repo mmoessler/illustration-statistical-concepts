@@ -4,7 +4,7 @@
   
   <title>
     
-Title of the module
+ARMA Simulation
 
   </title>
   
@@ -33,13 +33,13 @@ Title of the module
         <p style='font-size: 28pt;'>
           <!-- header-01 -->
           
-This is the first level header
+Autoregressive moving - average (ARMA) Simulation
 
         </p>
         <p style='font-size: 18pt;'>
           <!-- header-02 -->
           
-This is the second level header
+A Simulation study of ARMA processes
 
         </p> 
         
@@ -60,8 +60,33 @@ This is the second level header
           <p>
             <!-- topic-01 -->
             
-<p>This module is about...</p>
-<p>Futhermore,...</p>
+
+<h3>ARMA process</h3>
+<p>A general ARMA(p,q) process is given by</p>
+$$
+\begin{align}
+y_t = \delta + \alpha_1 y_{t-1} + ... + \alpha_p y_{t-p} + \epsilon_t - \beta_1 \epsilon_{t-1} - ... - \beta_q \epsilon_{t-q}
+\end{align}
+$$
+<p>with the alternative representation</p>
+$$
+\begin{align}
+\alpha(L)y_t = \delta + \beta(L)\epsilon_t
+\end{align}
+$$
+
+<p>The stability condition is equivalent to that of an AR(p) process, i.e. the roots of the lag polynomial \(\alpha(L)\) = 0</p>
+<p>must be greater than one in absolute value. Then an MA(\(\infty\)) or World representation of the process can be derived.</p>
+
+<br>
+
+<p>If the roots of \(\beta(L)\) = 0 are also larger than one in absolute value, the process can be inverted to be represented</p>
+<p>as a stationary infinite AR process.</p>
+
+<br>
+
+<p> From these properties it is evident, that neither the ACF nor the PACF of an ARMA(p,q) process breaks off.</p>
+
 
           </p>
           
@@ -84,7 +109,7 @@ This is the second level header
           <p>
             <!-- illustration -->
             
-<p>Change the parameters and see the effect...</p>
+<p>Change the parameters and see the effect on an ARMA process.</p>
 
           </p>
           
@@ -142,19 +167,19 @@ This is the second level header
 
                   
             <button class="tab-link-l1-cl" onclick="openSpecificTab('tab-content-l1-n1-id', 'tab-link-l1-n1-id', 'white')" id="tab-link-l1-n1-id">
-            <em>plot-01</em>
+            <em>Time Series</em>
             </button>
         
             <button class="tab-link-l1-cl" onclick="openSpecificTab('tab-content-l1-n2-id', 'tab-link-l1-n2-id', 'white')" id="tab-link-l1-n2-id">
-            <em>plot-02</em>
+            <em>Unit Circle</em>
             </button>
         
             <button class="tab-link-l1-cl" onclick="openSpecificTab('tab-content-l1-n3-id', 'tab-link-l1-n3-id', 'white')" id="tab-link-l1-n3-id">
-            <em>plot-03</em>
+            <em>ACF</em>
             </button>
         
             <button class="tab-link-l1-cl" onclick="openSpecificTab('tab-content-l1-n4-id', 'tab-link-l1-n4-id', 'white')" id="tab-link-l1-n4-id">
-            <em>plot-04</em>
+            <em>PACF</em>
             </button>
         
 
@@ -168,7 +193,7 @@ This is the second level header
             <tr>
             <td style="width: 10%"></td>
             <td style="width: 80%; font-size: 14pt; text-align: left;">
-            <em>plot-01-header</em>
+            <em>Generated Time Series with \(\mu\) = 0</em>
             </td>
             <td style="width: 10%; font-size: 14pt; text-align: right;">
             <button class="explain-button-cl" onclick="explainButtonClick()">Explain</button>
@@ -180,7 +205,7 @@ This is the second level header
             </div>                                        
             <p class="audio-show-text-cl" id="audio-show-text-figure-1-id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
             
-<p>The figure shows...</p>
+<p>The figure shows the simulated time series with a mean of 0.</p>
                   
             </div>
         
@@ -189,7 +214,7 @@ This is the second level header
             <tr>
             <td style="width: 10%"></td>
             <td style="width: 80%; font-size: 14pt; text-align: left;">
-            <em>plot-02-header</em>
+            <em>Unit Circle with inverse roots of the polynomial</em>
             </td>
             <td style="width: 10%; font-size: 14pt; text-align: right;">
             <button class="explain-button-cl" onclick="explainButtonClick()">Explain</button>
@@ -201,7 +226,9 @@ This is the second level header
             </div>                                        
             <p class="audio-show-text-cl" id="audio-show-text-figure-2-id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
             
-<p>The figure shows...</p>
+<p>The figure shows the unit circle. When the inverse roots of the polynomial </p>
+<p>are inside the unit circle, the process is stable. If the roots are on the outside or </p>
+<p>directly on the circle, the process is unstable.</p>
                   
             </div>
         
@@ -210,7 +237,7 @@ This is the second level header
             <tr>
             <td style="width: 10%"></td>
             <td style="width: 80%; font-size: 14pt; text-align: left;">
-            <em>plot-03-header</em>
+            <em>ACF Plot of the ARMA(p,q) process</em>
             </td>
             <td style="width: 10%; font-size: 14pt; text-align: right;">
             <button class="explain-button-cl" onclick="explainButtonClick()">Explain</button>
@@ -222,7 +249,12 @@ This is the second level header
             </div>                                        
             <p class="audio-show-text-cl" id="audio-show-text-figure-3-id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
             
-<p>The figure shows...</p>
+<p>The figure shows the ACF of the ARMA process.</p>
+<ul>
+<li>When the process resembles an AR(p) process, the ACF is geometrically declining.</li>
+<li>When the process resembles a MA(q) process, the ACF is non-zero up to lag q, which gives the MA-order.</li>
+<li>When the process resembles an ARMA(p,q) process, the ACF is geometrically declining.</li>
+</ul>
                   
             </div>
         
@@ -231,7 +263,7 @@ This is the second level header
             <tr>
             <td style="width: 10%"></td>
             <td style="width: 80%; font-size: 14pt; text-align: left;">
-            <em>plot-04-header</em>
+            <em>PACF Plot of the ARMA(p,q) process</em>
             </td>
             <td style="width: 10%; font-size: 14pt; text-align: right;">
             <button class="explain-button-cl" onclick="explainButtonClick()">Explain</button>
@@ -242,7 +274,14 @@ This is the second level header
             <img src="./figures/figure_04.svg" alt="" class="figure-cl" id="figure4Id" style="max-width: 75%;">
             </div>                                        
             <p class="audio-show-text-cl" id="audio-show-text-figure-4-id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
-            <em> tab-text-04 </em>                  
+            
+<p>The figure shows the PACF of the ARMA process.</p>
+<ul>
+<li>When the process resembles an AR(p) process, the PACF is non-zero up to lag p, which gives the AR-order.</li>
+<li>When the process resembles a MA(q) process, the PACF is geometrically declining.</li>
+<li>When the process resembles an ARMA(p,q) process, the PACF is geometrically declining.</li>
+</ul>
+                  
             </div>
         
                 
@@ -281,11 +320,15 @@ This is the second level header
                 </div>
             
                 <div id="audio-text-figure-1-slider-3-id" class="audio-text-cl">          
-                    <span> audio-text-figure-01-slider-03 </span>
+                    
+<span>Changing slider one...</span>
+
                 </div>
             
                 <div id="audio-text-figure-1-slider-4-id" class="audio-text-cl">          
-                    <span> audio-text-figure-01-slider-04 </span>
+                    
+<span>Changing slider two...</span>
+
                 </div>
             
             <div id="audio-text-figure-2-overall-id" class="audio-text-cl">
@@ -307,11 +350,15 @@ This is the second level header
                 </div>
             
                 <div id="audio-text-figure-2-slider-3-id" class="audio-text-cl">          
-                    <span> audio-text-figure-02-slider-03 </span>
+                    
+<span>Changing slider one...</span>
+
                 </div>
             
                 <div id="audio-text-figure-2-slider-4-id" class="audio-text-cl">          
-                    <span> audio-text-figure-02-slider-04 </span>
+                    
+<span>Changing slider two...</span>
+
                 </div>
             
             <div id="audio-text-figure-3-overall-id" class="audio-text-cl">
@@ -333,31 +380,45 @@ This is the second level header
                 </div>
             
                 <div id="audio-text-figure-3-slider-3-id" class="audio-text-cl">          
-                    <span> audio-text-figure-03-slider-03 </span>
+                    
+<span>Changing slider one...</span>
+
                 </div>
             
                 <div id="audio-text-figure-3-slider-4-id" class="audio-text-cl">          
-                    <span> audio-text-figure-03-slider-04 </span>
+                    
+<span>Changing slider two...</span>
+
                 </div>
             
             <div id="audio-text-figure-4-overall-id" class="audio-text-cl">
-                <span> audio-text-figure-04-overall </span>
+                
+<span>Figure three shows...</span>
+
             </div>
         
                 <div id="audio-text-figure-4-slider-1-id" class="audio-text-cl">          
-                    <span> audio-text-figure-04-slider-01 </span>
+                    
+<span>Changing slider one...</span>
+
                 </div>
             
                 <div id="audio-text-figure-4-slider-2-id" class="audio-text-cl">          
-                    <span> audio-text-figure-04-slider-02 </span>
+                    
+<span>Changing slider two...</span>
+
                 </div>
             
                 <div id="audio-text-figure-4-slider-3-id" class="audio-text-cl">          
-                    <span> audio-text-figure-04-slider-03 </span>
+                    
+<span>Changing slider one...</span>
+
                 </div>
             
                 <div id="audio-text-figure-4-slider-4-id" class="audio-text-cl">          
-                    <span> audio-text-figure-04-slider-04 </span>
+                    
+<span>Changing slider two...</span>
+
                 </div>
             
 
@@ -422,8 +483,8 @@ This is the second level header
     'slider_value': ['0', '0', '0', '0'],
 }
 var figures = {
-    'tab_name': ['<em>plot-01</em>', '<em>plot-02</em>', '<em>plot-03</em>', '<em>plot-04</em>'],
-    'tab_header': ['<em>plot-01-header</em>', '<em>plot-02-header</em>', '<em>plot-03-header</em>', '<em>plot-04-header</em>'],
+    'tab_name': ['<em>Time Series</em>', '<em>Unit Circle</em>', '<em>ACF</em>', '<em>PACF</em>'],
+    'tab_header': ['<em>Generated Time Series with \(\mu\) = 0</em>', '<em>Unit Circle with inverse roots of the polynomial</em>', '<em>ACF Plot of the ARMA(p,q) process</em>', '<em>PACF Plot of the ARMA(p,q) process</em>'],
 }
 
   </script>
