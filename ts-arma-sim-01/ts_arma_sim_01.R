@@ -132,7 +132,7 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                   .packages = needed.packages,
                   .options.snow = opts,
                   .options.RNG = 12345) %dorng% {
-  
+                    # library(Cairo)
                     # inputs
                     ii <- tmp.grd[ind, 1]
                     jj <- tmp.grd[ind, 2]
@@ -178,24 +178,36 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     plt.nam <- paste(fig.dir, "figure_02_", ii, "_", jj, "_", kk, "_", ll, ".svg", sep = "")
                     svg(plt.nam) 
                     
-                      if (ar1 == 0 & ar2 == 0) {
-                        plot(0, 0,
-                             col = "red", cex = 1.5, lwd = 3,
-                             ylim = c(-1.5, 1.5), xlim = c(-1.5, 1.5),
-                             xlab = c("Real Part"),
-                             ylab = c("Imaginary Part"),
-                             asp = 1)
-                      } else {
-                        plot(1/polyroot(c(1, -c(ar1, ar2))),
-                             col = "red", cex = 1.5, lwd = 3,
-                             ylim = c(-1.5, 1.5), xlim = c(-1.5, 1.5),
-                             xlab = c("Real Part"),
-                             ylab = c("Imaginary Part"),
-                             asp = 1)
-                      }
+                    unit_circle <- 1/polyroot(c(1, -c(ar1, ar2)))
+                    unit_roots_large_equal_one <- all(Mod(unit_circle) >= 1)
+                    
+                    if (ar1 == 0 & ar2 == 0) {
+                      plot(0, 0,
+                           col = "red", cex = 1.5, lwd = 3,
+                           ylim = c(-1.5, 1.5), xlim = c(-1.5, 1.5),
+                           xlab = c("Real Part"),
+                           ylab = c("Imaginary Part"),
+                           asp = 1)
+                      draw.circle(x = 0, y = 0, r = 1)
+                    } else if(all(Mod(unit_circle) < 1)){
+                      
+                      plot(unit_circle,
+                           col = "red", cex = 1.5, lwd = 3,
+                           ylim = c(-1.5, 1.5), xlim = c(-1.5, 1.5),
+                           xlab = c("Real Part"),
+                           ylab = c("Imaginary Part"),
+                           asp = 1)
                       abline(h = 0, lty = 2)
                       abline(v = 0, lty = 2)
                       draw.circle(x = 0, y = 0, r = 1)
+                      
+                    }else {
+                      
+                      par(mar = c(0, 0, 0, 0))
+                      plot(x = 0:10, y = 0:10, ann = F,bty = "n",type = "n", xaxt = "n", yaxt = "n")
+                      text(x = 5,y = 5,"Unit roots >= 1.\nThe process is unstable\n")
+                      
+                    }
                     
                     dev.off()
                     
@@ -255,7 +267,7 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     
                     dev.off()
                     
-                  }
+}
 
 close(pb)
 stopCluster(cl) 
