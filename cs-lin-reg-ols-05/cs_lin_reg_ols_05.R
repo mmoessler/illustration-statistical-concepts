@@ -328,6 +328,17 @@ result <- foreach(ind = 1:nrow(tmp.grd),
                     
                     set_plt_mar()
                     
+                    # # car::confidenceEllipse(tmp.sim$fit.01, vcov.=car::hccm)
+                    # # draw the robust 95% confidence set for coefficients on STR and expenditure 
+                    # car::confidenceEllipse(tmp.sim$fit.01, 
+                    #                        fill = T,
+                    #                        lwd = 0,
+                    #                        which.coef = c("x1", "x2"),
+                    #                        vcov. = sandwich::vcovHC(tmp.sim$fit.01, type = "HC1"),
+                    #                        col = "red",
+                    #                        ylab="Coefficients of X1",
+                    #                        xlab="Coefficients of X2")
+                    
                     model <- tmp.sim$fit.01$model
                     coefficients <- coef(tmp.sim$fit.01)
                     vcov_matrix <- vcov(tmp.sim$fit.01)
