@@ -2,7 +2,7 @@
 #--------------------------------------------------
 # Code chunks
 
-<py/code_01>
+<py/code-01>
 sliders = {
     "value": {
       "slider1": [5, 10, 25, 50, 100],
@@ -21,7 +21,7 @@ figures = {
     "tab_name": ['Realizations', 'Joint Distribution'],
     "tab_header": ['Realizations', 'Joint Distribution'],
 }
-<code_01/py>
+<code-01/py>
 
 #--------------------------------------------------
 # Text chunks
@@ -30,15 +30,15 @@ figures = {
 Joint Distribution
 <title/html>
 
-<html/header_01>
+<html/header-01>
 Joint Distribution
-<header_01/html>
+<header-01/html>
 
-<html/header_02>
+<html/header-02>
 Confidence Sets for Multiple Coefficients
-<header_02/html>
+<header-02/html>
 
-<html/topic_01>
+<html/topic-01>
 <p> Confidence sets are analogous to confidence intervals for single coefficients. </p>
 <p> As such, confidence sets consist of combinations of coefficients that contain the </p>
 <p> true combination of coefficients in, say, 95 % of all cases if we could repeatedly </p>
@@ -46,15 +46,15 @@ Confidence Sets for Multiple Coefficients
 <p> set is the set of all coefficient combinations for which we cannot reject the corresponding </p>
 <p> joint null hypothesis tested using an F-test. The confidence set for two coefficients is an </p>
 <p> ellipse which is centered around the point defined by both coefficient estimates.</p>
-<topic_01/html>
+<topic-01/html>
 
-<html/tab_text_01>
+<html/tab-text-01>
 <p>The figure shows...</p>
-<tab_text_01/html>
+<tab-text-01/html>
 
-<html/tab_text_02>
+<html/tab-text-02>
 <p>The figure shows...</p>
-<tab_text_02/html>
+<tab-text-02/html>
 
 <html/tab_text_03>
 <p>The figure shows...</p>
@@ -64,60 +64,60 @@ Confidence Sets for Multiple Coefficients
 <p>Change the parameters and see the effect on the combination of coefficients</p>
 <illustration_01/html>
 
-<html/more_details_header_01>
+<html/more-details-header-01>
 More details header
-<more_details_header_01/html>
+<more-details-header-01/html>
 
-<html/more_details_content_01>
+<html/more-details-content-01>
 <p>Add more details here...</p>
-<more_details_content_01/html>
+<more-details-content-01/html>
 
-<html/back_start_page>
+<html/back-start-page>
 <a href="https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/index.html"><em>Back to Startpage</em></a>
-<back_start_page/html>
+<back-start-page/html>
 
 
 #--------------------------------------------------
 # Audio text chunks
 
-<html/audio_text_figure_01_overall>
+<html/audio-text-figure-01-overall>
 <span>Figure one shows...</span>
-<audio_text_figure_01_overall/html>
+<audio-text-figure-01-overall/html>
 
-<html/audio_text_figure_01_slider_01>
+<html/audio-text-figure-01-slider-01>
 <span>Changing slider one...</span>
-<audio_text_figure_01_slider_01/html>
+<audio-text-figure-01-slider-01/html>
 
-<html/audio_text_figure_01_slider_02>
+<html/audio-text-figure-01-slider-02>
 <span>Changing slider two...</span>
-<audio_text_figure_01_slider_02/html>
+<audio-text-figure-01-slider-02/html>
 
-<html/audio_text_figure_01_slider_03>
+<html/audio-text-figure-01-slider-03>
 <span>Changing slider one...</span>
-<audio_text_figure_01_slider_03/html>
+<audio-text-figure-01-slider-03/html>
 
-<html/audio_text_figure_01_slider_04>
+<html/audio-text-figure-01-slider-04>
 <span>Changing slider two...</span>
-<audio_text_figure_01_slider_04/html>
+<audio-text-figure-01-slider-04/html>
 # ...
 
-<html/audio_text_figure_02_overall>
+<html/audio-text-figure-02-overall>
 <span>Figure two shows...</span>
-<audio_text_figure_02_overall/html>
+<audio-text-figure-02-overall/html>
 
-<html/audio_text_figure_02_slider_01>
+<html/audio-text-figure-02-slider-01>
 <span>Changing slider one...</span>
-<audio_text_figure_02_slider_01/html>
+<audio-text-figure-02-slider-01/html>
 
-<html/audio_text_figure_02_slider_02>
+<html/audio-text-figure-02-slider-02>
 <span>Changing slider two...</span>
-<audio_text_figure_02_slider_02/html>
+<audio-text-figure-02-slider-02/html>
 
-<html/audio_text_figure_02_slider_03>
+<html/audio-text-figure-02-slider-03>
 <span>Changing slider one...</span>
-<audio_text_figure_02_slider_03/html>
+<audio-text-figure-02-slider-03/html>
 
-<html/audio_text_figure_02_slider_04>
+<html/audio-text-figure-02-slider-04>
 <span>Changing slider two...</span>
-<audio_text_figure_02_slider_04/html>
+<audio-text-figure-02-slider-04/html>
 # ...
