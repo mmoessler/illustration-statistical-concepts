@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="eng">
+<head>
+  
+  <title>
+    
+Joint Distribution
+
+  </title>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
+  
+  <!-- my style sheet -->
+  <link rel="stylesheet" href="../assets/mystyle.css">
+  
+  <!-- logo -->
+  <div class="logo-cl header-01-cl" style="text-align:center; padding-top: 20px; padding-bottom: 20px;" background-color="#eeeeee;">
+    <img src="../assets/RZ_UniHohenheim_Logo_1C_Weiss_EN.svg" height="250px"/>
+  </div>
+  
+</head>
+<body>
+  
+  <div class="container mt-5">
+    <div class="row">
+      
+      <div class="jumbotron top-jumb-cl" style="margin-top: 50px; padding: 25px 50px 25px 50px;">
+        
+        <p style='font-size: 28pt;'>
+          <!-- header-01 -->
+          
+Joint Distribution
+
+        </p>
+        <p style='font-size: 18pt;'>
+          <!-- header-02 -->
+          
+Confidence Sets for Multiple Coefficients
+
+        </p> 
+        
+      </div>
+      
+    </div>
+  </div>
+  
+  <div class="container mt-5">
+    <div class="row">
+      
+      <div class="jumbotron" style="padding: 25px 50px 25px 50px">
+        
+        <p style="font-size: 18pt">Topic of the module</p>
+        
+        <div style="margin-left: 10pt;">
+          
+          <p>
+            <!-- topic-01 -->
+            
+<p> Confidence sets are analogous to confidence intervals for single coefficients. </p>
+<p> As such, confidence sets consist of combinations of coefficients that contain the </p>
+<p> true combination of coefficients in, say, 95 % of all cases if we could repeatedly </p>
+<p> draw random samples, just like in the univariate case. Put differently, a confidence </p>
+<p> set is the set of all coefficient combinations for which we cannot reject the corresponding </p>
+<p> joint null hypothesis tested using an F-test. The confidence set for two coefficients is an </p>
+<p> ellipse which is centered around the point defined by both coefficient estimates.</p>
+
+          </p>
+          
+        </div>
+                
+      </div>
+      
+    </div>
+  </div>
+  
+  <div class="container mt-5">
+    <div class="row">
+      
+      <div class="jumbotron outer-jumb-cl" style="padding: 25px 50px 25px 50px">
+        
+        <p style="font-size: 18pt">Illustration</p>
+        
+        <div style="margin-left: 10pt;">
+          
+          <p>
+            <!-- illustration -->
+            <em> illustration </em>
+          </p>
+          
+        </div>
+        
+        <div class="container mt-5" style="margin-top: 50px;">
+          <div class="row">
+            
+            <div class="col-sm-3" style="margin-top: 90px;">
+              <div class="jumbotron inner-jumb-cl" style="padding: 25px 50px 25px 50px">
+                
+                <p style="font-size: 14pt; text-align: center;">Parameters</p>
+                
+                <div style='margin-top: 50px;'>
+                                    
+                  <hr>
+        <p style='font-size: 12pt; text-align: center;'>Sample size \(n\)</p>
+        <p style='font-size: 12pt; text-align: center' class='slider-value-cl' id='slider-value-1-id'></p>
+        <input class='slider-cl' id='slider-1-id' type='text' data-slider-min='0' data-slider-max='4' data-slider-step='1' data-slider-value='2'/>
+        <div style='font-size: 12pt; text-align: center;'>
+            <button class='animate-button-cl' id='animate-button-1-id' onclick='animateButtonClick(slider = 1)'>Animate \(n\)</button>
+        </div>
+    <br>
+        <p style='font-size: 12pt; text-align: center;'>Effect of \(X_{1}\)</p>
+        <p style='font-size: 12pt; text-align: center' class='slider-value-cl' id='slider-value-2-id'></p>
+        <input class='slider-cl' id='slider-2-id' type='text' data-slider-min='0' data-slider-max='4' data-slider-step='1' data-slider-value='2'/>
+        <div style='font-size: 12pt; text-align: center;'>
+            <button class='animate-button-cl' id='animate-button-2-id' onclick='animateButtonClick(slider = 2)'>Animate \(eta_{1}\)</button>
+        </div>
+    <br>
+        <p style='font-size: 12pt; text-align: center;'>Effect of \(X_{2}\)</p>
+        <p style='font-size: 12pt; text-align: center' class='slider-value-cl' id='slider-value-3-id'></p>
+        <input class='slider-cl' id='slider-3-id' type='text' data-slider-min='0' data-slider-max='4' data-slider-step='1' data-slider-value='2'/>
+        <div style='font-size: 12pt; text-align: center;'>
+            <button class='animate-button-cl' id='animate-button-3-id' onclick='animateButtonClick(slider = 3)'>Animate \(eta_{2}\)</button>
+        </div>
+    <br>
+        <p style='font-size: 12pt; text-align: center;'>Corr. \(X_{1} \\& X_{2}\)</p>
+        <p style='font-size: 12pt; text-align: center' class='slider-value-cl' id='slider-value-4-id'></p>
+        <input class='slider-cl' id='slider-4-id' type='text' data-slider-min='0' data-slider-max='4' data-slider-step='1' data-slider-value='2'/>
+        <div style='font-size: 12pt; text-align: center;'>
+            <button class='animate-button-cl' id='animate-button-4-id' onclick='animateButtonClick(slider = 4)'>Animate \(
+ho_{X_{1}X_{2}}\)</button>
+        </div>
+    
+
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="col-sm-9">
+              <div class="jumbotron inner-jumb-cl" style="padding: 15px 50px 25px 50px">
+                
+                <div class="tab" style="text-align: center;">
+
+                  
+            <button class="tab-link-l1-cl" onclick="openSpecificTab('tab-content-l1-n1-id', 'tab-link-l1-n1-id', 'white')" id="tab-link-l1-n1-id">
+            Realizations
+            </button>
+        
+            <button class="tab-link-l1-cl" onclick="openSpecificTab('tab-content-l1-n2-id', 'tab-link-l1-n2-id', 'white')" id="tab-link-l1-n2-id">
+            Joint Distribution
+            </button>
+        
+
+                </div>
+                
+                <hr>
+                
+                
+            <div id="tab-content-l1-n1-id" class="tab-content-l1-cl">
+            <table style="width:100%; margin-bottom: 10px;">
+            <tr>
+            <td style="width: 10%"></td>
+            <td style="width: 80%; font-size: 14pt; text-align: left;">
+            Realizations
+            </td>
+            <td style="width: 10%; font-size: 14pt; text-align: right;">
+            <button class="explain-button-cl" onclick="explainButtonClick()">Explain</button>
+            </td>
+            </tr>
+            </table>
+            <div style="text-align: center;">
+            <img src="./figures/figure_01.svg" alt="" class="figure-cl" id="figure1Id" style="max-width: 75%;">
+            </div>                                        
+            <p class="audio-show-text-cl" id="audio-show-text-figure-1-id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+            
+<p>The figure shows...</p>
+                  
+            </div>
+        
+            <div id="tab-content-l1-n2-id" class="tab-content-l1-cl">
+            <table style="width:100%; margin-bottom: 10px;">
+            <tr>
+            <td style="width: 10%"></td>
+            <td style="width: 80%; font-size: 14pt; text-align: left;">
+            Joint Distribution
+            </td>
+            <td style="width: 10%; font-size: 14pt; text-align: right;">
+            <button class="explain-button-cl" onclick="explainButtonClick()">Explain</button>
+            </td>
+            </tr>
+            </table>
+            <div style="text-align: center;">
+            <img src="./figures/figure_02.svg" alt="" class="figure-cl" id="figure2Id" style="max-width: 75%;">
+            </div>                                        
+            <p class="audio-show-text-cl" id="audio-show-text-figure-2-id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
+            
+<p>The figure shows...</p>
+                  
+            </div>
+        
+                
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  
+  <!-- .................................................. -->
+  <!-- Collections of audio text -->
+  <div style="display: none;">
+
+    
+            <div id="audio-text-figure-1-overall-id" class="audio-text-cl">
+                
+<span>Figure one shows...</span>
+
+            </div>
+        
+                <div id="audio-text-figure-1-slider-1-id" class="audio-text-cl">          
+                    
+<span>Changing slider one...</span>
+
+                </div>
+            
+                <div id="audio-text-figure-1-slider-2-id" class="audio-text-cl">          
+                    
+<span>Changing slider two...</span>
+
+                </div>
+            
+                <div id="audio-text-figure-1-slider-3-id" class="audio-text-cl">          
+                    
+<span>Changing slider one...</span>
+
+                </div>
+            
+                <div id="audio-text-figure-1-slider-4-id" class="audio-text-cl">          
+                    
+<span>Changing slider two...</span>
+
+                </div>
+            
+            <div id="audio-text-figure-2-overall-id" class="audio-text-cl">
+                
+<span>Figure two shows...</span>
+
+            </div>
+        
+                <div id="audio-text-figure-2-slider-1-id" class="audio-text-cl">          
+                    
+<span>Changing slider one...</span>
+
+                </div>
+            
+                <div id="audio-text-figure-2-slider-2-id" class="audio-text-cl">          
+                    
+<span>Changing slider two...</span>
+
+                </div>
+            
+                <div id="audio-text-figure-2-slider-3-id" class="audio-text-cl">          
+                    
+<span>Changing slider one...</span>
+
+                </div>
+            
+                <div id="audio-text-figure-2-slider-4-id" class="audio-text-cl">          
+                    
+<span>Changing slider two...</span>
+
+                </div>
+            
+
+  </div>
+    
+  <!-- footer logos -->
+  <div class="container mt-5">
+    <div class="row">
+      
+      <hr>
+      <table style="width:100%">
+        <tr>
+          <td style="width: 25%; text-align: left; padding-left: 10%;">
+            <img src="../assets/RZ_UniHohenheim_Logo_4C_E_blau_EN.svg" height="10%"/>
+          </td>
+          <td style="width: 50%; text-align: center;">
+            <p style="font-size: 75%; text-align: center;">This module is part of the <a href="https://www.uni-hohenheim.de/en/project-dellfi">DeLLFi</a> project of the University of Hohenheim and funded by the <br> <a href="https://stiftung-hochschullehre.de/">Foundation for Innovation in University Teaching</a></p>
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+              <img alt="Creative Commons License" style="border-width:0; padding-top: -20px;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" height="10%"/>
+            </a> 
+          </td>
+          <td style="width: 25%; text-align: right; padding-right: 10%;">
+            <img src="../assets/Logo_Stiftung_Hochschullehre.svg" height="10%"/>
+          </td>
+        </tr>
+      </table>
+      <hr>      
+      
+    </div>
+  </div>
+  
+  <!-- include mathjax js via cdn -->
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+
+  <!-- include bootstrap slider js via cdn --> 
+  <script 
+  src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js">
+  </script>
+
+  <!-- include jstat js via cdn -->
+  <script
+  src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js">
+  </script>
+
+  <!-- adjust inputs -->
+  <script>  
+        
+    var sliders = {
+    'value': {
+      'slider1': [5, 10, 25, 50, 100],
+      'slider2': [-2, -1, 0, 1, 2],
+      'slider3': [-2, -1, 0, 1, 2],
+      'slider4': [-0.9, -0.5, 0, 0.5, 0.9],
+    },
+    'initialIndex': [2, 2, 2, 2],
+    'sliderValueParStr': ['n', '\\beta_{1}', '\\beta_{2}', '\\rho_{X_{1}X_{2}}'],
+    'slider_header': ['Sample size \(n\)', 'Effect of \(X_{1}\)', 'Effect of \(X_{2}\)', 'Corr. \(X_{1} \\\& X_{2}\)'],
+    'button_header': ['Animate \(n\)', 'Animate \(\beta_{1}\)', 'Animate \(\beta_{2}\)', 'Animate \(\rho_{X_{1}X_{2}}\)'],
+    'slider_value_max': ['4', '4', '4', '4'],
+    'slider_value': ['2', '2', '2', '2'],
+}
+var figures = {
+    'tab_name': ['Realizations', 'Joint Distribution'],
+    'tab_header': ['Realizations', 'Joint Distribution'],
+}
+
+  </script>
+
+  <!-- include js for interaction and animation -->
+  <script src="../assets/interactionAndAnimationScript.js"></script>
+
+  <!-- include my javascript -->
+  <script src="../assets/myScript.js"></script>    
+
+</body>
+</html>
