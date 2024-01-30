@@ -12,8 +12,8 @@ sliders = {
     },
     "initialIndex": [2, 2, 2, 2],
     "sliderValueParStr": ['n', '\\beta_{1}', '\\beta_{2}', '\\rho_{X_{1}X_{2}}'],
-    "slider_header": ['Sample size \(n\)', 'Effect of \(X_{1}\)', 'Effect of \(X_{2}\)', 'Corr. \(X_{1} \\\& X_{2}\)'],
-    "button_header": ['Animate \(n\)', 'Animate \(\beta_{1}\)', 'Animate \(\beta_{2}\)', 'Animate \(\rho_{X_{1}X_{2}}\)'],
+    "slider_header": ['Sample size \(n\)', 'Effect of \(X_{1}\)', 'Effect of \(X_{2}\)', 'Corr. \(X_{1} \\& X_{2}\)'],
+    "button_header": ['Animate \(n\)', 'Animate \(\\beta_{1}\)', 'Animate \(\\beta_{2}\)', 'Animate \(\\rho_{X_{1}X_{2}}\)'],
     "slider_value_max": ['4', '4', '4', '4'],
     "slider_value": ['2', '2', '2', '2'],
 }
