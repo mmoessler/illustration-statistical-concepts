@@ -1,4 +1,3 @@
-
 # remove all objects
 rm(list=ls())
 
@@ -60,6 +59,10 @@ for (ind in 1:nrow(tmp.grd)) {
   
   plot.new()
   plot.window(xlim = c(-10, 10), ylim = c(-10, 10), log = "")
+  se_x1 <- sqrt(Sig.bh[1,1])
+  se_x2 <- sqrt(Sig.bh[2,2])
+  low_CI_b1 <- b1 - 1.96*se_x1
+  upp_CI_b1 <- b1 + 1.96*se_x1
   axis(1)
   axis(2)
   grid()
@@ -69,7 +72,12 @@ for (ind in 1:nrow(tmp.grd)) {
                center.pch = 0, col = "red", fill = TRUE, fill.alpha = 0.5, lwd = 0)
   abline(v = b1, col = "red", lty = 2)
   abline(h = b2, col = "red", lty = 2)
-
+  abline(v = b1 - 1.96*se_x1, col = "darkgray", lty = 2)
+  abline(h = b2 - 1.96*se_x2, col = "darkgray", lty = 2)
+  abline(v = b1 + 1.96*se_x1, col = "darkgray", lty = 2)
+  abline(h = b2 + 1.96*se_x2, col = "darkgray", lty = 2)
+  # rect(b1 - 1.96*se_x1, b2 - 1.96*se_x2, b1 + 1.96*se_x1, b2 + 1.96*se_x2, density = 10, col = "blue",
+  #      border = "blue", lty = 2)
   dev.off()
   
 }

@@ -18,8 +18,8 @@ sliders = {
     "slider_value": ['2', '2', '2', '2'],
 }
 figures = {
-    "tab_name": ['Realizations', 'Joint Distribution'],
-    "tab_header": ['Realizations', 'Joint Distribution'],
+    "tab_name": ['Joint Distribution'],
+    "tab_header": ['Joint Distribution'],
 }
 <code-01/py>
 
@@ -39,30 +39,39 @@ Confidence Sets for Multiple Coefficients
 <header-02/html>
 
 <html/topic-01>
-<p> Confidence sets are analogous to confidence intervals for single coefficients. </p>
-<p> As such, confidence sets consist of combinations of coefficients that contain the </p>
-<p> true combination of coefficients in, say, 95 % of all cases if we could repeatedly </p>
-<p> draw random samples, just like in the univariate case. Put differently, a confidence </p>
-<p> set is the set of all coefficient combinations for which we cannot reject the corresponding </p>
-<p> joint null hypothesis tested using an F-test. The confidence set for two coefficients is an </p>
-<p> ellipse which is centered around the point defined by both coefficient estimates.</p>
+<p> Confidence sets are analogous to confidence intervals for single coefficients. 
+  As such, confidence sets consist of combinations of coefficients that contain the 
+  true combination of coefficients in, say, 95 % of all cases if we could repeatedly 
+  draw random samples, just like in the univariate case. </p>
+<p> Put differently, a confidence set is the set of all coefficient combinations for which we cannot reject the corresponding 
+  joint null hypothesis tested using an F-test. The confidence set for two coefficients is an
+  ellipse which is centered around the point defined by both coefficient estimates.</p>
+<br>
+<p> The confidence set for two or more of the elements of <b>&beta;</b> can be constructed as follows:</p>
+  $$
+  \begin{align}
+  \left\{ \delta : (\hat{\delta} - \delta)' [R\hat{\Sigma}_\hat{\beta} R']^{-1} (\hat{\delta} - \delta) / q \leq c \right\}
+  \end{align}
+  $$
+<p> where \(\delta = (\beta_1 \beta_2)'\) or more general \(\delta = R \beta\) is the q-dimensional vector 
+  consisting of \(q\) coefficients.</p>
+<p> R is an Identity matrix. c is a percentile, e.g., the \(95^{th}\) percentile of the \(F_{q, \infty}\) distribution.</p>
+<p> Below we show, why it is important to test for joint significance rather than each coefficient separatly with a t-test.</p>
 <topic-01/html>
 
-<html/tab-text_01>
-<p>The figure shows...</p>
+<html/tab-text-01>
+<p>The figure shows the confidence set of two elements of <b>&beta;</b>, while the lines represent the rejection area of standard t-tests.
+Especially, when \(X_{1} \& X_{2}\) are correlated, the rejection area of the joint hypothesis test and the individual hypothesis tests differs
+substantially.</p>
 <tab-text-01/html>
 
 <html/tab-text-02>
 <p>The figure shows...</p>
 <tab-text-02/html>
 
-<html/tab-text-03>
-<p>The figure shows...</p>
-<tab-text-03/html>
-
-<html/illustration-01>
-<p>Change the parameters and see the effect on the combination of coefficients</p>
-<illustration-01/html>
+<html/illustration>
+<p>Change the parameters and see the effect on the confidence set of the coefficients</p>
+<illustration/html>
 
 <html/more-details-header-01>
 More details header
@@ -81,7 +90,9 @@ More details header
 # Audio text chunks
 
 <html/audio-text-figure-01-overall>
-<span>Figure one shows...</span>
+<span>The figure shows the confidence set of two elements of <b>&beta;</b>, while the lines represent the rejection area of standard t-tests.</span>
+<span>Especially, when \(X_{1} \& X_{2}\) are correlated, the rejection area of the joint hypothesis test and the individual hypothesis tests differs
+substantially.</span>
 <audio-text-figure-01-overall/html>
 
 <html/audio-text-figure-01-slider-01>
