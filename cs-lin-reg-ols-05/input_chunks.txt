@@ -48,7 +48,7 @@ Confidence Sets for Multiple Coefficients
 <p> ellipse which is centered around the point defined by both coefficient estimates.</p>
 <topic-01/html>
 
-<html/tab-text-01>
+<html/tab-text_01>
 <p>The figure shows...</p>
 <tab-text-01/html>
 
@@ -56,13 +56,13 @@ Confidence Sets for Multiple Coefficients
 <p>The figure shows...</p>
 <tab-text-02/html>
 
-<html/tab_text_03>
+<html/tab-text-03>
 <p>The figure shows...</p>
-<tab_text_03/html>
+<tab-text-03/html>
 
-<html/illustration_01>
+<html/illustration-01>
 <p>Change the parameters and see the effect on the combination of coefficients</p>
-<illustration_01/html>
+<illustration-01/html>
 
 <html/more-details-header-01>
 More details header
