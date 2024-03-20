@@ -60,13 +60,24 @@ Confidence Sets for Multiple Coefficients
           <p>
             <!-- topic-01 -->
             
-<p> Confidence sets are analogous to confidence intervals for single coefficients. </p>
-<p> As such, confidence sets consist of combinations of coefficients that contain the </p>
-<p> true combination of coefficients in, say, 95 % of all cases if we could repeatedly </p>
-<p> draw random samples, just like in the univariate case. Put differently, a confidence </p>
-<p> set is the set of all coefficient combinations for which we cannot reject the corresponding </p>
-<p> joint null hypothesis tested using an F-test. The confidence set for two coefficients is an </p>
-<p> ellipse which is centered around the point defined by both coefficient estimates.</p>
+<p> Confidence sets are analogous to confidence intervals for single coefficients. 
+  As such, confidence sets consist of combinations of coefficients that contain the 
+  true combination of coefficients in, say, 95 % of all cases if we could repeatedly 
+  draw random samples, just like in the univariate case. </p>
+<p> Put differently, a confidence set is the set of all coefficient combinations for which we cannot reject the corresponding 
+  joint null hypothesis tested using an F-test. The confidence set for two coefficients is an
+  ellipse which is centered around the point defined by both coefficient estimates.</p>
+<br>
+<p> The confidence set for two or more of the elements of <b>&beta;</b> can be constructed as follows:</p>
+  $$
+  \begin{align}
+  \left\{ \delta : (\hat{\delta} - \delta)' [R\hat{\Sigma}_\hat{\beta} R']^{-1} (\hat{\delta} - \delta) / q \leq c \right\}
+  \end{align}
+  $$
+<p> where \(\delta = (\beta_1 \beta_2)'\) or more general \(\delta = R \beta\) is the q-dimensional vector 
+  consisting of \(q\) coefficients.</p>
+<p> R is an Identity matrix. c is a percentile, e.g., the \(95^{th}\) percentile of the \(F_{q, \infty}\) distribution.</p>
+<p> Below we show, why it is important to test for joint significance rather than each coefficient separatly with a t-test.</p>
 
           </p>
           
@@ -88,7 +99,9 @@ Confidence Sets for Multiple Coefficients
           
           <p>
             <!-- illustration -->
-            <em> illustration </em>
+            
+<p>Change the parameters and see the effect on the confidence set of the coefficients</p>
+
           </p>
           
         </div>
@@ -145,10 +158,6 @@ Confidence Sets for Multiple Coefficients
 
                   
             <button class="tab-link-l1-cl" onclick="openSpecificTab('tab-content-l1-n1-id', 'tab-link-l1-n1-id', 'white')" id="tab-link-l1-n1-id">
-            Realizations
-            </button>
-        
-            <button class="tab-link-l1-cl" onclick="openSpecificTab('tab-content-l1-n2-id', 'tab-link-l1-n2-id', 'white')" id="tab-link-l1-n2-id">
             Joint Distribution
             </button>
         
@@ -163,7 +172,7 @@ Confidence Sets for Multiple Coefficients
             <tr>
             <td style="width: 10%"></td>
             <td style="width: 80%; font-size: 14pt; text-align: left;">
-            Realizations
+            Joint Distribution
             </td>
             <td style="width: 10%; font-size: 14pt; text-align: right;">
             <button class="explain-button-cl" onclick="explainButtonClick()">Explain</button>
@@ -175,28 +184,9 @@ Confidence Sets for Multiple Coefficients
             </div>                                        
             <p class="audio-show-text-cl" id="audio-show-text-figure-1-id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
             
-<p>The figure shows...</p>
-                  
-            </div>
-        
-            <div id="tab-content-l1-n2-id" class="tab-content-l1-cl">
-            <table style="width:100%; margin-bottom: 10px;">
-            <tr>
-            <td style="width: 10%"></td>
-            <td style="width: 80%; font-size: 14pt; text-align: left;">
-            Joint Distribution
-            </td>
-            <td style="width: 10%; font-size: 14pt; text-align: right;">
-            <button class="explain-button-cl" onclick="explainButtonClick()">Explain</button>
-            </td>
-            </tr>
-            </table>
-            <div style="text-align: center;">
-            <img src="./figures/figure_02.svg" alt="" class="figure-cl" id="figure2Id" style="max-width: 75%;">
-            </div>                                        
-            <p class="audio-show-text-cl" id="audio-show-text-figure-2-id" style="font-size: 10pt; color: red; font-style: italic; text-align: center; display: none;"></p>
-            
-<p>The figure shows...</p>
+<p>The figure shows the confidence set of two elements of <b>&beta;</b>, while the lines represent the rejection area of standard t-tests.
+Especially, when \(X_{1} \& X_{2}\) are correlated, the rejection area of the joint hypothesis test and the individual hypothesis tests differs
+substantially.</p>
                   
             </div>
         
@@ -219,7 +209,9 @@ Confidence Sets for Multiple Coefficients
     
             <div id="audio-text-figure-1-overall-id" class="audio-text-cl">
                 
-<span>Figure one shows...</span>
+<span>The figure shows the confidence set of two elements of <b>&beta;</b>, while the lines represent the rejection area of standard t-tests.</span>
+<span>Especially, when \(X_{1} \& X_{2}\) are correlated, the rejection area of the joint hypothesis test and the individual hypothesis tests differs
+substantially.</span>
 
             </div>
         
@@ -242,36 +234,6 @@ Confidence Sets for Multiple Coefficients
                 </div>
             
                 <div id="audio-text-figure-1-slider-4-id" class="audio-text-cl">          
-                    
-<span>Changing slider two...</span>
-
-                </div>
-            
-            <div id="audio-text-figure-2-overall-id" class="audio-text-cl">
-                
-<span>Figure two shows...</span>
-
-            </div>
-        
-                <div id="audio-text-figure-2-slider-1-id" class="audio-text-cl">          
-                    
-<span>Changing slider one...</span>
-
-                </div>
-            
-                <div id="audio-text-figure-2-slider-2-id" class="audio-text-cl">          
-                    
-<span>Changing slider two...</span>
-
-                </div>
-            
-                <div id="audio-text-figure-2-slider-3-id" class="audio-text-cl">          
-                    
-<span>Changing slider one...</span>
-
-                </div>
-            
-                <div id="audio-text-figure-2-slider-4-id" class="audio-text-cl">          
                     
 <span>Changing slider two...</span>
 
@@ -339,8 +301,8 @@ Confidence Sets for Multiple Coefficients
     'slider_value': ['2', '2', '2', '2'],
 }
 var figures = {
-    'tab_name': ['Realizations', 'Joint Distribution'],
-    'tab_header': ['Realizations', 'Joint Distribution'],
+    'tab_name': ['Joint Distribution'],
+    'tab_header': ['Joint Distribution'],
 }
 
   </script>
