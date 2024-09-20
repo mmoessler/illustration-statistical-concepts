@@ -19,6 +19,11 @@
   display: none;
 }
 
+/* include/exclude link back */
+.footer-plain-cl {
+  display: none;
+}
+
 /* include/exclude access to github */
 .access-ilias-cl {
   display: block;

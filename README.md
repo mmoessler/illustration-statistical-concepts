@@ -88,8 +88,11 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/cs-lin-
 
 ## Ideas
 
-* Illustration of decision errors in hypothesis tests
-* Illustration of the distribution of joint parameter test statistic 
+* Properties ARMA(2,2) processes (see not yet checked `nyc-fly-sam-ave`).
+* Properties of the sample average as estimator for the mean with example data (see not yet checked `nyc-fly-sam-ave`).
+* Role of $\sigma_{X}^{2}$ and $n$ in the case of heteroskedasticity (see start of `cs-lin-reg-03-02`).
+* Decision errors in hypothesis tests
+* Distribution of joint parameter test statistic 
 
 
 
