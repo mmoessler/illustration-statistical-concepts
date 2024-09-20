@@ -12,6 +12,16 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/index.h
 
 or, via the indvidual links of the respective individual learning module below.
 
+## Build your own 
+
+Templates and instructions for creating this type of animated illustration can be found [here](https://github.com/mmoessler/interactive-illustration-tool), or,
+
+```
+
+https://raw.githack.com/mmoessler/interactive-illustration-tool/main/index.html
+
+```
+
 ## DGPs and Estimators
 
 ### Univariate random variables and sample average
@@ -92,7 +102,7 @@ https://raw.githack.com/mmoessler/illustration-statistical-concepts/main/cs-lin-
 * Properties of the sample average as estimator for the mean with example data (see not yet checked `nyc-fly-sam-ave`).
 * Role of $\sigma_{X}^{2}$ and $n$ in the case of heteroskedasticity (see start of `cs-lin-reg-03-02`).
 * Decision errors in hypothesis tests
-* Distribution of joint parameter test statistic 
+* Distribution of joint parameter test statistic (see start of `cs-lin-reg-05`)
 
 
 
